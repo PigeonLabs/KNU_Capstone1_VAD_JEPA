@@ -1,0 +1,113 @@
+{
+  "status": "passed",
+  "thresholds_checked": 8,
+  "absolute_tolerance": 1e-09,
+  "method": "Normal calibration split and common mask checked; q99 of published calibrated scores",
+  "scope": "Thresholds only; does not verify raw encoder features or real-time performance",
+  "checks": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "variant": "P0",
+      "normal_frames": 1032,
+      "stored_threshold": 3.077352314208046,
+      "recomputed_threshold": 3.077352314208046,
+      "absolute_error": 0.0,
+      "calibration_csv_sha256": "5d0d57fe10dad508838adc1caf49e269f1f4173b8b353d59096258feb019c5d1",
+      "normal_fit_sha256": "cc23a26ee3cd0884326331e4001b83ff5c8a26d9b7b0e991c0332f389c075d6f"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "variant": "P1",
+      "normal_frames": 1032,
+      "stored_threshold": 2.4123828224052146,
+      "recomputed_threshold": 2.4123828224052146,
+      "absolute_error": 0.0,
+      "calibration_csv_sha256": "5d0d57fe10dad508838adc1caf49e269f1f4173b8b353d59096258feb019c5d1",
+      "normal_fit_sha256": "cc23a26ee3cd0884326331e4001b83ff5c8a26d9b7b0e991c0332f389c075d6f"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "variant": "P2",
+      "normal_frames": 1032,
+      "stored_threshold": 2.1321562708881183,
+      "recomputed_threshold": 2.1321562708881183,
+      "absolute_error": 0.0,
+      "calibration_csv_sha256": "5d0d57fe10dad508838adc1caf49e269f1f4173b8b353d59096258feb019c5d1",
+      "normal_fit_sha256": "cc23a26ee3cd0884326331e4001b83ff5c8a26d9b7b0e991c0332f389c075d6f"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "variant": "P3",
+      "normal_frames": 1032,
+      "stored_threshold": 1.9470218193934943,
+      "recomputed_threshold": 1.9470218193934943,
+      "absolute_error": 0.0,
+      "calibration_csv_sha256": "5d0d57fe10dad508838adc1caf49e269f1f4173b8b353d59096258feb019c5d1",
+      "normal_fit_sha256": "cc23a26ee3cd0884326331e4001b83ff5c8a26d9b7b0e991c0332f389c075d6f"
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "variant": "P0",
+      "normal_frames": 1032,
+      "stored_threshold": 4.0112399744040825,
+      "recomputed_threshold": 4.0112399744040825,
+      "absolute_error": 0.0,
+      "calibration_csv_sha256": "c4e6b3830199fa1cf810ebce06bb30b9c6232f9189c4e27009c5235c9d55ac0d",
+      "normal_fit_sha256": "0d66d16073f6c59a7c54310e649fc3de19ee8e4601407ee17b08be396fa1a3f2"
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "variant": "P1",
+      "normal_frames": 1032,
+      "stored_threshold": 3.1163108884692474,
+      "recomputed_threshold": 3.1163108884692474,
+      "absolute_error": 0.0,
+      "calibration_csv_sha256": "c4e6b3830199fa1cf810ebce06bb30b9c6232f9189c4e27009c5235c9d55ac0d",
+      "normal_fit_sha256": "0d66d16073f6c59a7c54310e649fc3de19ee8e4601407ee17b08be396fa1a3f2"
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "variant": "P2",
+      "normal_frames": 1032,
+      "stored_threshold": 3.3790166404416424,
+      "recomputed_threshold": 3.3790166404416424,
+      "absolute_error": 0.0,
+      "calibration_csv_sha256": "c4e6b3830199fa1cf810ebce06bb30b9c6232f9189c4e27009c5235c9d55ac0d",
+      "normal_fit_sha256": "0d66d16073f6c59a7c54310e649fc3de19ee8e4601407ee17b08be396fa1a3f2"
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "variant": "P3",
+      "normal_frames": 1032,
+      "stored_threshold": 2.6019876409986082,
+      "recomputed_threshold": 2.6019876409986082,
+      "absolute_error": 0.0,
+      "calibration_csv_sha256": "c4e6b3830199fa1cf810ebce06bb30b9c6232f9189c4e27009c5235c9d55ac0d",
+      "normal_fit_sha256": "0d66d16073f6c59a7c54310e649fc3de19ee8e4601407ee17b08be396fa1a3f2"
+    }
+  ]
+}

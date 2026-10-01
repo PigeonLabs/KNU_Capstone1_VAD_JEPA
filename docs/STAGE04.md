@@ -72,6 +72,8 @@ V-JEPA의 마지막 epoch 원형 MAE는 3.89%로 낮아졌지만 CE는 6.2001로
 
 완료된 [DINOv3 학습 CSV·JSON·검증 기록](../results/stage04/training/dinov3-l/offline/R01/seed0)과 [V-JEPA 학습 CSV·JSON·검증 기록](../results/stage04/training/vjepa21-l/offline/R01/seed0)을 공개한다. 기록에는 원본 곡선·metadata 해시와 선택 checkpoint 해시를 포함하며, checkpoint 파일은 업로드하지 않는다. [그래프 생성 코드](../scripts/plot_lora_training.py)는 20 epoch 완료와 최소 CE 선택을 검증한다.
 
-두 백본의 R01 오프라인 3-seed 실행과 후속 특징·메모리 평가를 계속 진행 중이다. seed 0은 선택된 adapter/head로 특징을 다시 추출하고 있으며, 재구성된 PCA·메모리의 실제 테스트 평가는 아직 완료되지 않았다.
+두 백본의 R01 오프라인 seed 0은 선택된 adapter/head의 특징 재추출과 PCA·메모리·정상 보정 재구성, 15개 실제 테스트 영상 평가를 완료했다. P3 AUROC/AP는 DINOv3 **79.81/70.83%**, V-JEPA **33.06/27.52%**다. 같은 seed의 고정 백본 대비 DINOv3 P3의 AUROC/AP paired 차이 CI는 양수였고 V-JEPA는 0을 포함했다. 전역 P0의 AUROC는 두 백본 모두 낮아졌다. [single-seed 상세 결과·CI·그래프·출처 검증](LORA_R01_SEED0.md)을 제공하며, 아직 3-seed 평균이나 전체 장비 결과가 아니다.
+
+R01 seed 1/2와 전체 장비·모드의 후속 학습·평가는 계속 진행 중이다.
 
 전체 장비·3 seeds·2 modes의 LoRA 평가와 teacher weight 0/1을 포함한 추가 실험은 아직 완료되지 않았다. 실험 행렬은 [experiment_matrix.yaml](../configs/experiment_matrix.yaml), 예비 결과는 [results/stage04](../results/stage04)에 공개한다.
