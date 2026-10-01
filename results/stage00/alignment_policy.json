@@ -1,0 +1,110 @@
+{
+  "exact_alignment_confirmed": false,
+  "policy": "Matched lengths: index alignment. Unresolved +/-1 length: consensus over label indices t-1,t,t+1; disagreements/out-of-bounds unknown. Assumes index offset stays within +/-1, not proven exact alignment.",
+  "source": "Audited raw labels; original files untouched",
+  "mismatches": [
+    {
+      "device": "R02",
+      "sequence": "12",
+      "frames": 806,
+      "label_count": 805,
+      "label_sha256": "7a28529e301be23be7072835c18527afeb0633d735347f31b099ee76fad2c43a",
+      "unknown_indices": [
+        0,
+        286,
+        287,
+        556,
+        557,
+        804,
+        805
+      ],
+      "unknown_common_indices": [
+        286,
+        287,
+        556,
+        557
+      ],
+      "common_frames": 780,
+      "retained_common_frames": 776,
+      "candidate_offsets": [
+        -1,
+        0,
+        1
+      ],
+      "status": "bounded_offset_policy_not_exact_alignment"
+    },
+    {
+      "device": "R02",
+      "sequence": "13",
+      "frames": 609,
+      "label_count": 608,
+      "label_sha256": "9918c0a71ed8277e78b5d1bb353767df4fbce7b2d45aa9045fd1a9e3d5719c18",
+      "unknown_indices": [
+        0,
+        10,
+        11,
+        27,
+        28,
+        302,
+        303,
+        316,
+        317,
+        607,
+        608
+      ],
+      "unknown_common_indices": [
+        27,
+        28,
+        302,
+        303,
+        316,
+        317
+      ],
+      "common_frames": 583,
+      "retained_common_frames": 577,
+      "candidate_offsets": [
+        -1,
+        0,
+        1
+      ],
+      "status": "bounded_offset_policy_not_exact_alignment"
+    },
+    {
+      "device": "R02",
+      "sequence": "14",
+      "frames": 497,
+      "label_count": 498,
+      "label_sha256": "6587f368313ddfbe739d314e7a67889d9984387c30ca39beb13df295c815e59a",
+      "unknown_indices": [
+        0,
+        133,
+        134,
+        183,
+        184,
+        339,
+        340,
+        389,
+        390
+      ],
+      "unknown_common_indices": [
+        133,
+        134,
+        183,
+        184,
+        339,
+        340,
+        389,
+        390
+      ],
+      "common_frames": 471,
+      "retained_common_frames": 463,
+      "candidate_offsets": [
+        -1,
+        0,
+        1
+      ],
+      "status": "bounded_offset_policy_not_exact_alignment"
+    }
+  ],
+  "unknown_common_total": 18
+}

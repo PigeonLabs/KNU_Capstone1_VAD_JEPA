@@ -9,6 +9,34 @@ def unit(x: np.ndarray) -> np.ndarray:
     return x / np.maximum(np.linalg.norm(x, axis=-1, keepdims=True), 1e-12)
 
 
+def balanced_counts(capacities: np.ndarray, budget: int, rng: np.random.Generator) -> np.ndarray:
+    """Equal per-stratum quotas; redistribute only when a stratum is exhausted."""
+    capacities = np.asarray(capacities, dtype=np.int64)
+    if capacities.ndim != 1 or np.any(capacities < 0) or budget < 0:
+        raise ValueError("Nonnegative capacities and budget required")
+    result = np.zeros_like(capacities)
+    remaining = min(int(capacities.sum()), int(budget))
+    while remaining:
+        active = np.flatnonzero(result < capacities)
+        quotient, remainder = divmod(remaining, len(active))
+        if quotient:
+            increment = np.minimum(capacities[active]-result[active], quotient)
+            result[active] += increment
+            remaining -= int(increment.sum())
+        else:
+            result[rng.permutation(active)[:remainder]] += 1
+            remaining = 0
+    return result
+
+
+def balanced_indices(strata: np.ndarray, budget: int, rng: np.random.Generator) -> np.ndarray:
+    _, inverse, capacities = np.unique(strata, return_inverse=True, return_counts=True)
+    quotas = balanced_counts(capacities, budget, rng)
+    samples = [rng.choice(np.flatnonzero(inverse == g), int(n), replace=False)
+               for g, n in enumerate(quotas) if n]
+    return np.concatenate(samples) if samples else np.empty(0, dtype=np.int64)
+
+
 def kcenter(x: np.ndarray, count: int, rng: np.random.Generator) -> np.ndarray:
     if len(x) < count:
         raise ValueError(f"Need {count} candidates, got {len(x)}")
@@ -34,7 +62,7 @@ class PrototypeMemory:
     candidate_limit: int = 10000
     temperature: float = 1.0
 
-    def fit(self, features: np.ndarray, phase: np.ndarray) -> "PrototypeMemory":
+    def fit(self, features: np.ndarray, phase: np.ndarray, groups: np.ndarray | None = None) -> "PrototypeMemory":
         if features.ndim != 2 or len(features) != len(phase) or len(features) < self.dimensions:
             raise ValueError("Expected aligned feature/phase rows with enough PCA samples")
         if not np.all(np.isfinite(phase)) or np.any((phase < 0) | (phase >= 1)):
@@ -42,7 +70,12 @@ class PrototypeMemory:
         if self.candidate_limit < self.per_bin or self.pca_samples < self.dimensions:
             raise ValueError("Candidate/PCA limits smaller than requested memory")
         rng = np.random.default_rng(self.seed)
-        ids = rng.choice(len(features), min(len(features), self.pca_samples), replace=False)
+        assigned = np.floor(phase*self.bins).astype(int)
+        groups = np.zeros(len(phase), dtype=np.int64) if groups is None else np.asarray(groups)
+        if groups.ndim != 1 or len(groups) != len(phase):
+            raise ValueError("Expected aligned video group IDs")
+        _, video_ids = np.unique(groups, return_inverse=True)
+        ids = balanced_indices(video_ids*self.bins+assigned, self.pca_samples, rng)
         sample = np.asarray(features[ids], dtype=np.float32)
         if not np.all(np.isfinite(sample)):
             raise ValueError("Nonfinite fit features")
@@ -50,13 +83,12 @@ class PrototypeMemory:
             raise ValueError("PCA dimension exceeds backbone feature dimension")
         self.pca = PCA(self.dimensions, whiten=False, svd_solver="covariance_eigh")
         self.pca.fit(sample)
-        assigned = np.floor(phase*self.bins).astype(int)
         prototypes = []
         for b in range(self.bins):
             ids = np.flatnonzero(assigned == b)
             if len(ids) < self.per_bin:
                 raise ValueError(f"Phase bin {b}: insufficient candidates; do not silently fill from test data")
-            ids = rng.choice(ids, min(len(ids), self.candidate_limit), replace=False)
+            ids = ids[balanced_indices(video_ids[ids], self.candidate_limit, rng)]
             candidates = self.transform(features[ids])
             prototypes.append(kcenter(candidates, self.per_bin, rng))
         self.prototypes = np.stack(prototypes)
@@ -110,4 +142,3 @@ class PrototypeMemory:
         if not fifth:
             raise ValueError("No normal calibration samples")
         self.temperature = max(float(np.median(np.concatenate(fifth))), 1e-6)
-
