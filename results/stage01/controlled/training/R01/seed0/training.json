@@ -1,5 +1,5 @@
 {
-  "status": "running",
+  "status": "complete_training",
   "scope": "controlled",
   "device": "R01",
   "seed": 0,
@@ -71,8 +71,9 @@
   "torch": "2.8.0+cu128",
   "cuda_matmul_tf32": false,
   "cudnn_tf32": true,
-  "resume_from_epoch": 0,
+  "resume_from_epoch": 45,
   "max_steps": null,
-  "reported_epochs": 5,
-  "snapshot_scope": "Completed epoch curves from an ongoing 50-epoch run; not a final baseline or test result"
+  "epochs_completed": 50,
+  "steps": 30950,
+  "seconds": 14989.378065704019
 }

@@ -41,16 +41,78 @@ def statistic(run,selected):
     return np.array([roc_auc_score(labels,scores),average_precision_score(labels,scores)])
 
 
-def bootstrap(runs,count=1000):
-    keys=list(runs[0]); rng=np.random.default_rng(2026); values=[]; rejected=0
+def bootstrap_draws(runs,count=1000,seed=2026):
+    """Keep draw indices, including degenerate draws, for paired macro comparisons."""
+    keys=list(runs[0]); rng=np.random.default_rng(seed); values=[]
     for _ in range(count):
         selected=rng.choice(keys,len(keys),replace=True)
         value=np.mean([statistic(run,selected) for run in runs],axis=0)
-        if np.all(np.isfinite(value)): values.append(value)
-        else: rejected+=1
-    values=np.array(values)
+        values.append(value)
+    return np.array(values)
+
+
+def bootstrap(runs,count=1000):
+    values=bootstrap_draws(runs,count)
+    valid=np.all(np.isfinite(values),axis=1); rejected=int((~valid).sum())
+    values=values[valid]
     if len(values)<count*.95: raise ValueError('Too many degenerate video resamples')
     return values,rejected
+
+
+def macro_four_devices(stored,count=1000):
+    """Equal device weights; independent video draws per device, paired across conditions."""
+    devices=['R01','R02','R03','R04']; conditions={}; references={}
+    for (model,mode,device,variant),(runs,_) in stored.items():
+        if device not in devices: raise ValueError('Unexpected device in macro4 input')
+        if len(runs)!=3: raise ValueError('Macro4 requires three seeds')
+        for run in runs:
+            if device in references: check_pair(references[device],run)
+            else: references[device]=run
+        conditions.setdefault((model,mode,variant),{})[device]=runs
+    complete={key:value for key,value in conditions.items() if set(value)==set(devices)}
+    excluded=[{'backbone':key[0],'mode':key[1],'variant':key[2],
+               'missing_devices':[device for device in devices if device not in value]}
+              for key,value in sorted(conditions.items()) if key not in complete]
+    points={}; draws={}; rows=[]; deltas=[]
+    for key,by_device in sorted(complete.items()):
+        points[key]=np.mean([np.mean([statistic(run,list(run)) for run in by_device[device]],axis=0)
+                             for device in devices],axis=0)
+        # The same device-specific stream is reused across backbones, modes and variants.
+        # Different devices have independent streams; filtering waits until all strata align.
+        draws[key]=np.mean([bootstrap_draws(by_device[device],count,
+                            np.random.SeedSequence([2026,int(device[1:])]))
+                            for device in devices],axis=0)
+    valid=np.ones(count,dtype=bool)
+    for values in draws.values(): valid &= np.all(np.isfinite(values),axis=1)
+    rejected=int((~valid).sum())
+    if draws and int(valid.sum())<count*.95: raise ValueError('Too many degenerate macro4 video resamples')
+    for key,by_device in sorted(complete.items()):
+        draws[key]=draws[key][valid]
+        low,high=np.quantile(draws[key],[.025,.975],axis=0)
+        counts={device:{'test_videos':len(by_device[device][0]),
+                        'frames':sum(len(value[1]) for value in by_device[device][0].values()),
+                        'anomaly_frames':int(sum(value[1].sum() for value in by_device[device][0].values()))}
+                for device in devices}
+        rows.append({'backbone':key[0],'mode':key[1],'variant':key[2],'devices':4,'seeds':3,
+                     'auroc_mean':float(points[key][0]),'auroc_ci_low':float(low[0]),'auroc_ci_high':float(high[0]),
+                     'ap_mean':float(points[key][1]),'ap_ci_low':float(low[1]),'ap_ci_high':float(high[1]),
+                     'bootstrap_draws':count,'bootstrap_rejected':rejected,'device_counts':counts})
+    for key in sorted(complete):
+        model,mode,variant=key; pairs=[]
+        if variant=='P0': pairs.append(((model,mode,'P3'),model,mode,'P3_minus_P0'))
+        if variant=='B0': pairs.append(((model,mode,'B1'),model,mode,'B1_minus_B0'))
+        if model=='dinov3-l': pairs.append((('vjepa21-l',mode,variant),'vjepa21-l_minus_dinov3-l',mode,variant+'_backbone'))
+        if mode=='offline': pairs.append(((model,'online',variant),model,'online_minus_offline',variant+'_mode'))
+        for target,backbone,result_mode,comparison in pairs:
+            if target not in complete: continue
+            low,high=np.quantile(draws[target]-draws[key],[.025,.975],axis=0)
+            point=points[target]-points[key]
+            deltas.append({'backbone':backbone,'mode':result_mode,'comparison':comparison,
+                           'auroc_delta':float(point[0]),'auroc_delta_ci_low':float(low[0]),'auroc_delta_ci_high':float(high[0]),
+                           'ap_delta':float(point[1]),'ap_delta_ci_low':float(low[1]),'ap_delta_ci_high':float(high[1])})
+    return {'scope':'Equal-weight mean of R01/R02/R03/R04 device metrics, each a mean of three seed metrics. No pooling of frames or seed scores.',
+            'bootstrap':f'{count} video resamples independently within each device; device-specific SeedSequence([2026, device_number]); shared draws across seeds and paired conditions; percentile 95% CI.',
+            'results':rows,'paired_deltas':deltas,'incomplete_conditions':excluded}
 
 
 def summarize(root,count=1000):
@@ -108,9 +170,18 @@ def summarize(root,count=1000):
                            'auroc_delta':float(point[0]),'auroc_delta_ci_low':float(low[0]),'auroc_delta_ci_high':float(high[0]),
                            'ap_delta':float(point[1]),'ap_delta_ci_low':float(low[1]),'ap_delta_ci_high':float(high[1])})
     if not rows: raise ValueError('No complete three-seed device experiments')
+    macro=macro_four_devices(stored,count)
+    (root/'macro_summary.json').write_text(json.dumps(macro,indent=2)+'\n')
+    if macro['results']:
+        fields=[key for key in macro['results'][0] if key!='device_counts']
+        with (root/'macro_summary.csv').open('w',newline='') as stream:
+            writer=csv.DictWriter(stream,fieldnames=fields,extrasaction='ignore',lineterminator='\n')
+            writer.writeheader(); writer.writerows(macro['results'])
+    elif (root/'macro_summary.csv').exists():
+        (root/'macro_summary.csv').unlink()
     output={'scope':'Device results; macro4 requires all four devices. Mean of three seed metrics.',
-            'bootstrap':'1000 paired whole-video resamples, seed=2026; percentile 95% CI. Frames within a video stay together.',
-            'results':rows,'paired_deltas':deltas}
+            'bootstrap':f'{count} paired whole-video resamples, seed=2026; percentile 95% CI. Frames within a video stay together.',
+            'results':rows,'paired_deltas':deltas,'macro_summary':'macro_summary.json'}
     (root/'device_summary.json').write_text(json.dumps(output,indent=2)+'\n')
     with (root/'device_summary.csv').open('w',newline='') as stream:
         writer=csv.DictWriter(stream,fieldnames=list(rows[0]),lineterminator='\n'); writer.writeheader(); writer.writerows(rows)

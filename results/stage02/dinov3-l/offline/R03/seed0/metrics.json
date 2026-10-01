@@ -1,0 +1,40 @@
+{
+  "status": "complete_device_evaluation",
+  "device": "R03",
+  "backbone": "dinov3-l",
+  "mode": "offline",
+  "seed": 0,
+  "test_videos": 17,
+  "valid_mask": "t=19..N-8 inclusive",
+  "variants": {
+    "P0": {
+      "frame_auroc": 0.5273354833826608,
+      "frame_ap": 0.46023665730062424,
+      "frames": 11563,
+      "anomaly_frames": 4922
+    },
+    "P1": {
+      "frame_auroc": 0.6200615002868725,
+      "frame_ap": 0.530845405122538,
+      "frames": 11563,
+      "anomaly_frames": 4922
+    },
+    "P2": {
+      "frame_auroc": 0.6222527076664909,
+      "frame_ap": 0.5417722809375375,
+      "frames": 11563,
+      "anomaly_frames": 4922
+    },
+    "P3": {
+      "frame_auroc": 0.6108513408479616,
+      "frame_ap": 0.5242956349820613,
+      "frames": 11563,
+      "anomaly_frames": 4922
+    }
+  },
+  "alignment_policy": "Matched lengths: index alignment. Unresolved +/-1 length: consensus over label indices t-1,t,t+1; disagreements/out-of-bounds unknown. Assumes index offset stays within +/-1, not proven exact alignment.",
+  "unresolved_alignment_sequences": [],
+  "alignment_sensitivity": {},
+  "seconds": 606.5249710399657,
+  "note": "Device frame metrics only; not macro4 or throughput benchmark"
+}

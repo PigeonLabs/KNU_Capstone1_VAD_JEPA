@@ -4,7 +4,7 @@
 
 DINOv3-L와 V-JEPA 2.1-L의 R01 오프라인 정상 학습 23개 영상과 정상 검증 5개 영상에서 특징을 추출했다.
 학습은 4프레임 간격의 1,248개 clip, 검증은 1프레임 간격의 1,087개 clip이다. 테스트 영상과 진단 영상은 사용하지 않았다.
-각 백본의 seed 0/1/2에서 20 epoch 위상 예측기 학습을 완료했다. R01·R02 두 백본의 PCA·메모리 구성과 이상탐지 평가도 완료했으며 아래에 기록했다. R03–R04 및 온라인 비교는 수행 중이다. Stage 02 완료 태그는 생성하지 않는다.
+각 백본의 seed 0/1/2에서 20 epoch 위상 예측기 학습을 완료했다. R01–R03 두 백본과 R04 V-JEPA의 PCA·메모리 구성과 이상탐지 평가도 완료했으며 아래에 기록했다. DINOv3 R04와 전체 온라인 비교는 수행 중이다. Stage 02 완료 태그는 생성하지 않는다.
 
 ## 정상 검증 결과와 한계
 
@@ -73,7 +73,7 @@ PCA·메모리는 정상 fit 23개 영상, 온도·median/MAD·임계값은 정�
 표는 seed 0/1/2의 지표 평균이며, 점수를 seed 간 평균해서 계산한 값이 아니다. 아래 오차막대는 동일 영상 단위 1,000회 재표집의 95% percentile 신뢰구간이다.
 R01에서는 DINOv3 P0가 가장 높았고, 위상 조건을 추가하면 하락했다. DINOv3 P3−P0 AUROC 차이는 −31.49pp(95% CI −42.90..−19.11pp)다.
 V-JEPA P3−P0 차이는 +4.67pp(−1.57..12.00pp)로, 이 장비의 표본에서는 개선을 확정할 수 없다. P3의 V-JEPA−DINOv3 차이는 −9.44pp(−18.21..−0.64pp)다.
-한 장비의 결과이므로 네 장비 Macro AUROC, 일반적인 백본 우열, 온라인 또는 실시간 성능으로 확대 해석하지 않는다.
+한 장비의 결과이므로 일반적인 백본 우열, 온라인 또는 실시간 성능으로 확대 해석하지 않는다. 네 장비 V-JEPA 오프라인 Macro4는 별도 절에 기록한다.
 
 ![R01 구성요소 비교](figures/stage02/R01_offline_variants.png)
 ![R01 seed 0 ROC와 PR](figures/stage02/R01_offline_roc_pr.png)
@@ -122,7 +122,7 @@ python scripts/plot_experiments.py
 두 백본·세 seed 모두 실행한 뒤 요약/그림을 만든다. 메모리 NPZ는 `artifacts`에만 저장한다.
 공개 근거는 실행별 `normal_fit.json`, `normal_calibration.csv`, P0–P3 프레임 점수 CSV, `metrics.json`, [device_summary.json](../results/stage02/device_summary.json)이다.
 요약 도구는 공개 CSV에서 AUROC/AP를 다시 계산해 완료 메타데이터와 프레임 수·라벨 수·지표가 맞는지 확인한다. 모델 간 비교는 영상 ID·프레임 ID·라벨 일치를 검증한 뒤 같은 bootstrap 표본을 사용한다.
-R01·R02 오프라인, R03 V-JEPA 오프라인, R01 두 백본 온라인의 84개 정상 q99 임계값을 공개 calibration CSV에서 재계산해 저장값과 일치함을 확인했다. 정상 검증 영상 목록과 공통 대상 마스크도 확인했다. [검증 기록](../results/stage02/calibration_check.json), 생성 코드 [verify_calibration.py](../scripts/verify_calibration.py)를 제공한다.
+완료된 3-seed 조건의 정상 q99 임계값을 공개 calibration CSV에서 재계산해 저장값과 일치함을 확인한다. 정상 검증 영상 목록과 공통 대상 마스크도 검증한다. [검증 기록](../results/stage02/calibration_check.json)은 정확한 조건·seed·임계값 수와 summary 파일 해시를 제공하며, 생성 코드는 [verify_calibration.py](../scripts/verify_calibration.py)다. 진행 중인 다음 조건과 공개 스냅샷이 섞이지 않도록 `--from-device-summary`를 사용한다.
 NumPy 기준 검색과 FP32 배치 검색의 hard/soft 및 전역/위상 결과 일치를 테스트했다. 나머지 장비, 온라인, LoRA, IPAD 기준선, 합성 진단, 실시간 측정과 추가 제거 실험이 완료될 때까지 전체 실험 완료를 선언하지 않는다.
 
 ## R02 정상 위상 학습과 실제 이상탐지 평가
@@ -160,27 +160,29 @@ P3의 V-JEPA−DINOv3 차이는 −16.73pp(−28.73..−5.04pp)다. 이 장비 �
 
 </details>
 
-## 후속 정상 위상 학습: R03 V-JEPA
+## 후속 정상 위상 학습: R03
 
 정상 fit 15개 영상의 2,564 clip과 정상 검증 4개 영상의 2,771 clip으로 3 seeds 학습을 완료했다. 정상 검증 CE 기준으로 모두 epoch 20을 선택했다.
-실행별 CSV/JSON을 공개한다. V-JEPA의 실제 테스트 평가는 아래에 기록하며 DINOv3 비교는 진행 중이다.
+두 백본의 실행별 CSV/JSON을 공개한다. 실제 테스트 평가는 아래에 기록한다.
 
 ![R03 V-JEPA 정상 위상 학습](figures/stage02/vjepa21-l_R03_offline_seed0_phase.png)
+![R03 DINOv3 정상 위상 학습](figures/stage02/dinov3-l_R03_offline_seed0_phase.png)
 
 전체 요청 범위는 [experiment_matrix.yaml](../configs/experiment_matrix.yaml)에 선언했다. 행렬에 나열된 실험은 완료 표시가 아니며, 실행별 결과와 실제 프로세스로 진행 상태를 확인한다.
 
-## R03 V-JEPA 실제 이상탐지 평가
+## R03 두 백본 실제 이상탐지 평가
 
-테스트 17개 영상에서 공통 대상 11,563프레임, 이상 4,922프레임을 평가했다. 아래는 3개 seed 지표의 평균이며, DINOv3 결과와 Macro4는 아직 없다.
+테스트 17개 영상에서 공통 대상 11,563프레임, 이상 4,922프레임을 평가했다. 아래는 각 백본의 3개 seed 지표 평균이다.
 
-| 구성 | AUROC (%) | AP (%) |
-|---|---:|---:|
-| P0 전역 메모리 | 45.67 | 37.98 |
-| P1 위상 hard | 50.38 | 41.57 |
-| P2 위상 soft | 50.49 | 42.74 |
-| P3 위상 soft + 시간 | 50.45 | 43.53 |
+| 구성 | DINOv3 AUROC (%) | DINOv3 AP (%) | V-JEPA AUROC (%) | V-JEPA AP (%) |
+|---|---:|---:|---:|---:|
+| P0 전역 메모리 | 54.54 | 47.32 | 45.67 | 37.98 |
+| P1 위상 hard | 60.47 | 52.42 | 50.38 | 41.57 |
+| P2 위상 soft | 62.48 | 53.76 | 50.49 | 42.74 |
+| P3 위상 soft + 시간 | 60.68 | 51.82 | 50.45 | 43.53 |
 
-P3−P0 AUROC 차이는 +4.77pp(95% 영상 bootstrap CI −0.33..10.32pp), AP 차이는 +5.55pp(1.55..10.00pp)다. P3 AUROC 자체는 50% 부근이고, AP는 이상 프레임 비율 42.57%와 비슷해 탐지 성능이 제한적이다. AP 개선만으로 우수한 이상탐지 방법이라고 판단하지 않는다.
+V-JEPA의 P3−P0 AUROC 차이는 +4.77pp(95% 영상 bootstrap CI −0.33..10.32pp), AP 차이는 +5.55pp(1.55..10.00pp)다. V-JEPA P3 AUROC는 50% 부근이고, AP는 이상 프레임 비율 42.57%와 비슷해 탐지 성능이 제한적이다. DINOv3 P3는 60.68%이며 P2의 62.48%보다 낮다.
+DINOv3 P3−P0 AUROC 차이는 +6.13pp(2.38..11.10pp), AP 차이는 +4.51pp(1.51..8.19pp)다. P3의 V-JEPA−DINOv3 AUROC 차이는 −10.23pp(−17.93..−3.26pp)다. 전체 paired CI는 [device_summary.json](../results/stage02/device_summary.json)에 공개한다.
 
 ![R03 구성요소 비교](figures/stage02/R03_offline_variants.png)
 ![R03 seed 0 ROC와 PR](figures/stage02/R03_offline_roc_pr.png)
@@ -190,5 +192,49 @@ P3−P0 AUROC 차이는 +4.77pp(95% 영상 bootstrap CI −0.33..10.32pp), AP �
 
 ![R03 V-JEPA 정상 위상 정렬](figures/stage02/vjepa21-l_R03_offline_phase_alignment.png)
 ![R03 V-JEPA 시계열](figures/stage02/vjepa21-l_R03_offline_sequence03.png)
+![R03 DINOv3 정상 위상 정렬](figures/stage02/dinov3-l_R03_offline_phase_alignment.png)
+![R03 DINOv3 시계열](figures/stage02/dinov3-l_R03_offline_sequence03.png)
 
 </details>
+
+## R04 V-JEPA 실제 이상탐지 평가
+
+테스트 19개 영상의 공통 대상 7,660프레임, 이상 4,501프레임에서 3 seeds 평가를 완료했다. DINOv3 R04는 진행 중이다.
+
+| 구성 | AUROC (%) | AP (%) |
+|---|---:|---:|
+| P0 전역 메모리 | 65.87 | 72.88 |
+| P1 위상 hard | 73.47 | 76.71 |
+| P2 위상 soft | 72.92 | 76.49 |
+| P3 위상 soft + 시간 | 71.24 | 73.66 |
+
+P3−P0 AUROC 차이는 +5.37pp(95% 영상 bootstrap CI −0.75..13.80pp), AP 차이는 +0.78pp(−4.62..7.75pp)로 개선을 확정할 수 없다. P3는 P1/P2보다 낮아 시간 점수의 효과가 장비에 따라 달랐다. 고정 예시 영상 03의 seed 0에서는 정상 q99를 넘는 단발성 점수 구간이 있어도 3프레임 연속 알람은 발생하지 않았다. 임계값 알람의 miss와 false alarm은 별도 측정해야 한다.
+
+![R04 구성요소 비교](figures/stage02/R04_offline_variants.png)
+![R04 seed 0 ROC와 PR](figures/stage02/R04_offline_roc_pr.png)
+
+<details>
+<summary>R04 정상 위상 정렬과 고정 테스트 영상 03</summary>
+
+![R04 V-JEPA 정상 위상 정렬](figures/stage02/vjepa21-l_R04_offline_phase_alignment.png)
+![R04 V-JEPA 시계열](figures/stage02/vjepa21-l_R04_offline_sequence03.png)
+
+</details>
+
+## V-JEPA 오프라인 네 장비 Macro4
+
+R01–R04 테스트 66개 영상의 공통 유효 31,728프레임(이상 13,599)을 평가했다. 각 장비 안에서 3개 seed의 지표를 평균한 뒤, 장비별 지표를 같은 비중으로 평균한다. 영상·프레임 수로 가중하거나 seed 점수를 합치지 않는다. 네 장비가 모두 완료된 조건에만 Macro4를 계산하며, DINOv3 Macro4는 아직 없다.
+
+| 구성 | Macro AUROC (%) | 95% CI | Macro AP (%) | 95% CI |
+|---|---:|---:|---:|---:|
+| P0 전역 메모리 | 50.66 | 44.70..56.47 | 44.06 | 36.68..53.22 |
+| P1 위상 hard | 51.50 | 46.23..57.26 | 45.06 | 37.99..53.86 |
+| P2 위상 soft | 53.39 | 47.99..59.01 | 46.22 | 39.05..54.66 |
+| P3 위상 soft + 시간 | 55.59 | 51.25..60.32 | 47.14 | 39.98..55.17 |
+
+P3−P0 Macro AUROC 차이는 **+4.93pp(1.41..9.01pp)**, Macro AP 차이는 **+3.09pp(−0.41..5.98pp)**다. 이 고정 백본·오프라인 조건에서 AUROC 평균은 개선됐으나 절대 성능은 55.59%로 제한적이며, AP 개선의 CI에는 0이 포함된다. 장비별 편차가 크므로 전체 방법의 우수성이나 실시간 알람 성능을 단정하지 않는다.
+
+![장비별 성능과 동일 비중 Macro4](figures/stage02/offline_macro4.png)
+
+CI는 각 장비 안에서 영상 단위로 독립 재표집한 1,000개 표본의 Macro4 percentile이다. `SeedSequence([2026, 장비번호])`로 장비별 독립 stream을 만들고, 같은 장비의 seed·구성·백본·모드 비교에는 같은 영상 draw를 적용한다. 장비별 CI의 상·하한을 평균하지 않는다. 모든 표본에서 두 라벨이 유지돼 제외된 draw는 0개다.
+원본 [macro_summary.json](../results/stage02/macro_summary.json), [CSV](../results/stage02/macro_summary.csv), 생성 코드 [summarize_experiments.py](../scripts/summarize_experiments.py)·[plot_macro.py](../scripts/plot_macro.py)를 제공한다. 장비별 비중, paired draw, 미완료 장비 제외와 마스크 불일치 거부를 테스트했다.

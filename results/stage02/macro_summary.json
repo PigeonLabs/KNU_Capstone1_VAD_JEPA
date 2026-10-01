@@ -1,0 +1,281 @@
+{
+  "scope": "Equal-weight mean of R01/R02/R03/R04 device metrics, each a mean of three seed metrics. No pooling of frames or seed scores.",
+  "bootstrap": "1000 video resamples independently within each device; device-specific SeedSequence([2026, device_number]); shared draws across seeds and paired conditions; percentile 95% CI.",
+  "results": [
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "P0",
+      "devices": 4,
+      "seeds": 3,
+      "auroc_mean": 0.5065810586771361,
+      "auroc_ci_low": 0.446967133238587,
+      "auroc_ci_high": 0.564741772809923,
+      "ap_mean": 0.4405640650145025,
+      "ap_ci_low": 0.36680199011080017,
+      "ap_ci_high": 0.5321807762417126,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0,
+      "device_counts": {
+        "R01": {
+          "test_videos": 15,
+          "frames": 3295,
+          "anomaly_frames": 1227
+        },
+        "R02": {
+          "test_videos": 15,
+          "frames": 9210,
+          "anomaly_frames": 2949
+        },
+        "R03": {
+          "test_videos": 17,
+          "frames": 11563,
+          "anomaly_frames": 4922
+        },
+        "R04": {
+          "test_videos": 19,
+          "frames": 7660,
+          "anomaly_frames": 4501
+        }
+      }
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "P1",
+      "devices": 4,
+      "seeds": 3,
+      "auroc_mean": 0.5150255938011937,
+      "auroc_ci_low": 0.4623391386673525,
+      "auroc_ci_high": 0.5725930576932908,
+      "ap_mean": 0.4505624946771524,
+      "ap_ci_low": 0.3799348100475779,
+      "ap_ci_high": 0.5386450847218197,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0,
+      "device_counts": {
+        "R01": {
+          "test_videos": 15,
+          "frames": 3295,
+          "anomaly_frames": 1227
+        },
+        "R02": {
+          "test_videos": 15,
+          "frames": 9210,
+          "anomaly_frames": 2949
+        },
+        "R03": {
+          "test_videos": 17,
+          "frames": 11563,
+          "anomaly_frames": 4922
+        },
+        "R04": {
+          "test_videos": 19,
+          "frames": 7660,
+          "anomaly_frames": 4501
+        }
+      }
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "P2",
+      "devices": 4,
+      "seeds": 3,
+      "auroc_mean": 0.5338609789587798,
+      "auroc_ci_low": 0.47988041054275665,
+      "auroc_ci_high": 0.590064701114705,
+      "ap_mean": 0.4621929127524427,
+      "ap_ci_low": 0.39046012443578965,
+      "ap_ci_high": 0.5465628193951361,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0,
+      "device_counts": {
+        "R01": {
+          "test_videos": 15,
+          "frames": 3295,
+          "anomaly_frames": 1227
+        },
+        "R02": {
+          "test_videos": 15,
+          "frames": 9210,
+          "anomaly_frames": 2949
+        },
+        "R03": {
+          "test_videos": 17,
+          "frames": 11563,
+          "anomaly_frames": 4922
+        },
+        "R04": {
+          "test_videos": 19,
+          "frames": 7660,
+          "anomaly_frames": 4501
+        }
+      }
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "P3",
+      "devices": 4,
+      "seeds": 3,
+      "auroc_mean": 0.555920157862645,
+      "auroc_ci_low": 0.5125298359641304,
+      "auroc_ci_high": 0.6032226938948198,
+      "ap_mean": 0.47143286112287525,
+      "ap_ci_low": 0.39975194777375056,
+      "ap_ci_high": 0.5516629337196443,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0,
+      "device_counts": {
+        "R01": {
+          "test_videos": 15,
+          "frames": 3295,
+          "anomaly_frames": 1227
+        },
+        "R02": {
+          "test_videos": 15,
+          "frames": 9210,
+          "anomaly_frames": 2949
+        },
+        "R03": {
+          "test_videos": 17,
+          "frames": 11563,
+          "anomaly_frames": 4922
+        },
+        "R04": {
+          "test_videos": 19,
+          "frames": 7660,
+          "anomaly_frames": 4501
+        }
+      }
+    }
+  ],
+  "paired_deltas": [
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "comparison": "P3_minus_P0",
+      "auroc_delta": 0.04933909918550894,
+      "auroc_delta_ci_low": 0.01414997682961456,
+      "auroc_delta_ci_high": 0.09010214053246346,
+      "ap_delta": 0.03086879610837273,
+      "ap_delta_ci_low": -0.004148049879040896,
+      "ap_delta_ci_high": 0.059845108439468914
+    }
+  ],
+  "incomplete_conditions": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "P0",
+      "missing_devices": [
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "P1",
+      "missing_devices": [
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "P2",
+      "missing_devices": [
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "P3",
+      "missing_devices": [
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "online",
+      "variant": "P0",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "online",
+      "variant": "P1",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "online",
+      "variant": "P2",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "online",
+      "variant": "P3",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "online",
+      "variant": "P0",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "online",
+      "variant": "P1",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "online",
+      "variant": "P2",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "online",
+      "variant": "P3",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    }
+  ]
+}

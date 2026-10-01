@@ -15,12 +15,23 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path("results/stage02"))
     parser.add_argument("--manifest", type=Path, default=Path("results/stage00/manifest.json"))
+    parser.add_argument("--from-device-summary", action="store_true",
+        help="Validate only the complete three-seed conditions in the publication summary")
     args = parser.parse_args()
     manifest = json.loads(args.manifest.read_text())["sequences"]
+    summary_path = args.root / "device_summary.json"
+    selected = None
+    if args.from_device_summary:
+        selected = {(r["backbone"], r["mode"], r["device"]) for r in
+                    json.loads(summary_path.read_text())["results"] if r["seeds"] == 3}
+        if not selected:
+            raise ValueError("No complete three-seed publication conditions")
     checks = []
     for marker in sorted(args.root.glob("*/*/*/seed*/metrics.json")):
         metrics = json.loads(marker.read_text())
         if metrics["status"] != "complete_device_evaluation":
+            continue
+        if selected is not None and (metrics["backbone"], metrics["mode"], metrics["device"]) not in selected:
             continue
         expected = {r["sequence"]: r["frames"] for r in manifest if
             r["device"] == metrics["device"] and r["partition"] == "training" and
@@ -55,6 +66,13 @@ def main():
         "method": "Normal calibration split and common mask checked; q99 of published calibrated scores",
         "scope": "Thresholds only; does not verify raw encoder features or real-time performance",
         "checks": checks}
+    if selected is not None:
+        actual = {(r["backbone"], r["mode"], r["device"], r["seed"]) for r in checks}
+        expected = {(*key, seed) for key in selected for seed in [0, 1, 2]}
+        if actual != expected:
+            raise ValueError("Calibration checks do not cover every summarized seed")
+        result["selection"] = "Complete three-seed conditions in device_summary.json"
+        result["device_summary_sha256"] = digest(summary_path)
     (args.root / "calibration_check.json").write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"status": result["status"], "thresholds_checked": len(checks)}))
 

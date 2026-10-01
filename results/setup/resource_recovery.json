@@ -1,0 +1,58 @@
+{
+  "status": "recovery_launched_not_final_training_or_evaluation_result",
+  "cause": "PyTorch DataLoader worker tensor IPC failed with OSError Errno 28 while creating /tmp/pymp-* directories on the full root filesystem",
+  "temporary_directory": "artifacts/tmp on the external workspace filesystem",
+  "original_training_and_feature_sources_changed": false,
+  "restart_reason": "Observed batch-transfer errors, not an observation timeout",
+  "affected_jobs": [
+    {
+      "condition": "IPAD native controlled R01 seed0",
+      "last_completed_epoch_in_original_stdout": 49,
+      "verified_checkpoint_epoch": 45,
+      "recovery": "Original protocol with --resume; optimizer, CUDA RNG and loader generator restored by the trainer",
+      "resumed_epoch_loss_observation": {
+        "source": "Original and resumed trainer stdout; identical source hash and cumulative step counts",
+        "epochs": [
+          46,
+          47
+        ],
+        "original_total_loss": [
+          0.009580335991685798,
+          0.010269319380201725
+        ],
+        "resumed_total_loss": [
+          0.00959348768523935,
+          0.010937944960724774
+        ],
+        "steps_total": [
+          28474,
+          29093
+        ],
+        "interpretation": "Observed losses differ. Cause is not established; bitwise GPU resume equivalence must not be inferred from the CPU resume test."
+      },
+      "observed_completed_epochs_after_resume": 50,
+      "training_metadata_status": "complete_training"
+    },
+    {
+      "condition": "V-JEPA 2.1-L LoRA offline R01 seed0",
+      "verified_checkpoint_completed_epochs": 1,
+      "verified_optimizer_updates": 156,
+      "trainer_sha256": "a2508f4fef9d3f4d938216fbb0695baf63918432e96154ac35b669e159d8ba28",
+      "recovery": "Three-seed condition runner resumes the unchanged normal-only protocol"
+    },
+    {
+      "condition": "DINOv3-L frozen offline R04",
+      "recovery": "Verify/reuse completed per-video caches; rewrite only unfinished extraction"
+    },
+    {
+      "condition": "V-JEPA 2.1-L frozen online R03/R04",
+      "recovery": "Verify/reuse completed per-video caches; R01/R02 already complete"
+    },
+    {
+      "condition": "DINOv3-L frozen online R02/R03/R04",
+      "recovery": "Verify/reuse completed per-video caches; R01 already complete"
+    }
+  ],
+  "checkpoint_validation": "Native and LoRA checkpoint metadata read successfully before restarting; old process handles confirmed terminal",
+  "limitation": "This recovery record does not prove final training completion or bitwise GPU resume equivalence"
+}

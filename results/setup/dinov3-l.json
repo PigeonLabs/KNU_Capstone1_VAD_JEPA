@@ -7,5 +7,13 @@
   "bytes": 1213050671,
   "official_hash_prefix_match": true,
   "status": "hash_prefix_verified",
-  "validation_reference": "dinov3-l_smoke.json"
+  "validation_reference": "dinov3-l_smoke.json",
+  "mirror_verification": {
+    "method": "wget --spider --server-response and fresh local sha256sum",
+    "http_status": 200,
+    "content_length": 1213050671,
+    "x_linked_etag": "8aa4cbddda325040fc78db2c272754af6ebe8ff2c55f6ec4f1964d8890f66035",
+    "local_sha256_matches_mirror_etag": true,
+    "scope": "Full hash matches the user-provided mirror; independent full official Meta hash verification is not claimed"
+  }
 }
