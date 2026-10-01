@@ -30,12 +30,12 @@ def main():
     for axis in axes:
         axis.set(xlabel='Completed epoch',xticks=epochs if len(epochs)<=10 else [1,10,20,30,40,50])
         axis.spines[['top','right']].set_visible(False)
-        if meta.get('resume_from_epoch') is not None:
+        if (meta.get('resume_from_epoch') or 0) > 0:
             axis.axvline(meta['resume_from_epoch'],color='#555555',linestyle=':',linewidth=1)
     status='complete' if meta['status']=='complete_training' else 'partial'
     fig.suptitle(f"IPAD native repaired / {meta['device']} / {meta['scope']} / seed {meta['seed']} / {status} {len(rows)}/{meta['epochs_requested']} epochs",fontsize=12)
     fig.text(.02,-.04,'Source: training.csv and training.json. Normal training only; not an anomaly evaluation or runtime benchmark.',fontsize=8)
-    if meta.get('resume_from_epoch') is not None:
+    if (meta.get('resume_from_epoch') or 0) > 0:
         fig.text(.02,-.085,f"Dotted line: resumed from epoch {meta['resume_from_epoch']}. GPU trajectory equivalence is not established.",fontsize=8)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     for extension in ['.png','.svg']: fig.savefig(args.out.with_suffix(extension),dpi=180,bbox_inches='tight',facecolor='white')

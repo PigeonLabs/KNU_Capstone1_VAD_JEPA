@@ -13,10 +13,14 @@ R01 controlled seed 0의 **50/50 epoch** 정상 학습과 같은 최종 체크�
 [학습 CSV/JSON](../results/stage01/controlled/training/R01/seed0)은 30,950개 optimizer step의 완료 기록이며, 정상 학습 loss를 이상탐지 성능으로 해석하지 않는다.
 학습 실행은 epoch 49 기록 후 `/tmp` 공간 부족으로 배치 전송에 오류가 발생했다. 실제 checkpoint의 epoch 45를 확인하고 같은 소스·설정에서 `--resume`으로 복구해 epoch 50을 완료했다. 임시 파일은 외장 디스크의 `artifacts/tmp`에 저장한다. [복구 기록](../results/setup/resource_recovery.json)은 최종 학습 완료 또는 GPU resume의 비트 단위 일치를 뜻하지 않는다. 복구 전후 epoch 46/47의 누적 step 수는 같지만 loss는 일치하지 않았다. 원인은 확인되지 않았으며, CPU resume 테스트로 GPU에서의 정확한 궤적 재현을 주장하지 않는다.
 
+R01 controlled seed 1도 정상 fit 23개 영상에서 **50/50 epoch, 30,950 optimizer step** 학습을 완료했다. [완료 학습 CSV/JSON](../results/stage01/controlled/training/R01/seed1)과 곡선을 공개하며, 테스트 평가는 진행 중이다. 최종 학습 loss 0.10618, 재구성 MSE 0.00156, 위상 CE 5.22669는 정상 학습 지표이며 탐지 성능을 나타내지 않는다.
+
+![R01 seed 1 완료된 정상 학습 곡선](figures/stage01/R01_controlled_seed1_training.png)
+
 | 실행 | 정상 학습 | seed | epoch | 상태 |
 |---|---|---|---|---|
 | GPU 예비 검증 R01 | fit 23개 영상에서 2 batch | 0 | 부분 epoch | 통과; 성능 평가에 사용하지 않음 |
-| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 seed 0 학습·평가 완료, seed 1·2 학습 중; 다른 장비 미완료 |
+| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 seed 0 학습·평가 완료, seed 1 학습 완료·평가 진행, seed 2 학습 중; 다른 장비 미완료 |
 | Reference | 장비별 정상 training, 합계 111개 영상 | 0 | 50 | 미실행 |
 
 Reference는 논문의 전체 정상 training 범위를 비교하려는 조건이다. 정상 calibration 영상이 학습에도 포함되는 점을 별도로 기록하고, 제안 방법과의 주 비교는 calibration을 제외한 controlled 조건으로 수행한다. 장비 간 데이터를 합쳐 학습하지 않는다.
