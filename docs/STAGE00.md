@@ -31,7 +31,7 @@ python -m pytest -q
 ```
 
 그래프는 감사 JSON에서만 생성하며 원본 프레임을 포함하지 않는다. PNG/SVG를 직접 렌더링해 축·단위·표본 수·텍스트 잘림을 확인했다.
-파일명 해시는 영상의 프레임 순서를 확인하는 용도이며, JPG 콘텐츠 전체 해시가 아니다.
+파일명 해시는 프레임 순서를 확인한다. 별도의 `frames_content_sha256`는 파일명과 각 JPG의 SHA256을 순서대로 결합해 전체 프레임 콘텐츠 변경을 검출한다. 모든 프레임을 해시하지만 전체 이미지 디코딩 검사는 아니다.
 
 ## 출처와 검증 범위
 
@@ -40,4 +40,3 @@ python -m pytest -q
 - 영상 메타데이터·라벨 파일 해시: [manifest.json](../results/stage00/manifest.json).
 - 분할 근거: [splits.json](../results/stage00/splits.json).
 - 소스 프로토콜: [IPAD 원 논문](https://arxiv.org/abs/2404.15033), [공식 코드](https://github.com/LJF1113/IPAD).
-

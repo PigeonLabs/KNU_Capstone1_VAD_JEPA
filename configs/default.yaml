@@ -18,6 +18,8 @@ score_weights: [0.5, 0.5]
 calibration_quantile: 0.99
 alarm_consecutive: 3
 epochs: 20
+fit_stride: 4
+phase_batch_size: 256
 phase_lr: 0.001
 lora_lr: 0.0001
 weight_decay: 0.0001
@@ -25,4 +27,3 @@ lora: {blocks: 4, rank: 8, alpha: 16, dropout: 0.05}
 micro_batch: 1
 gradient_accumulation: 8
 stream_fps: 30
-

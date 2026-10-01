@@ -31,6 +31,7 @@ def download(name, folder, user_mirror=False):
     target = folder / filename
     partial = target.with_suffix(target.suffix+".part")
     started = time.monotonic()
+    reused = target.exists()
     if not target.exists():
         offset = partial.stat().st_size if partial.exists() else 0
         headers = {"User-Agent": "IPAD-JEPA-Research/0.1"}
@@ -52,14 +53,16 @@ def download(name, folder, user_mirror=False):
                         print(f"{name}: {count/1024**2:.0f} MiB", flush=True)
             if expected is not None and count != expected:
                 raise IOError("Incomplete checkpoint download")
-        partial.rename(target)
-    digest = sha256(target)
+    digest = sha256(target if reused else partial)
     if name == "dinov3-l" and not digest.startswith("8aa4cbdd"):
         raise ValueError("DINOv3 checkpoint SHA256 does not match official filename hash prefix")
+    if not reused:
+        partial.rename(target)
     return {"model": name, "filename": filename, "source": url, "sha256": digest,
             "source_type": "user_provided_mirror" if user_mirror else "official",
             "official_hash_prefix_match": digest.startswith("8aa4cbdd") if name == "dinov3-l" else None,
             "bytes": target.stat().st_size, "download_seconds": round(time.monotonic()-started, 3),
+            "reused_local_file": reused,
             "status": "downloaded_not_yet_validated"}
 
 
@@ -78,8 +81,16 @@ def main():
         # Access-gated official weights require legitimate approval; never mirror-fallback.
         result = {"model": args.model, "status": "http_access_failed", "http_status": e.code,
                   "action": "Use official approved checkpoint URL or local file; do not bypass gating."}
-        (args.metadata / f"{args.model}.json").write_text(json.dumps(result,indent=2)+"\n")
+        (args.metadata / f"{args.model}_download_failure.json").write_text(json.dumps(result,indent=2)+"\n")
         raise SystemExit(f"{args.model}: official endpoint returned HTTP {e.code}")
+    prior_path = args.metadata / f"{args.model}.json"
+    if result["reused_local_file"]:
+        if not prior_path.exists():
+            raise SystemExit("Existing checkpoint has no source metadata; record its actual provenance before reusing")
+        prior = json.loads(prior_path.read_text())
+        if prior.get("sha256") != result["sha256"]:
+            raise SystemExit("Existing checkpoint differs from recorded source metadata")
+        result.update({k:prior[k] for k in ("source","source_type","status")})
     (args.metadata / f"{args.model}.json").write_text(json.dumps(result,indent=2)+"\n")
     print(json.dumps(result,indent=2))
 

@@ -6,5 +6,6 @@
   "sha256": "8aa4cbddda325040fc78db2c272754af6ebe8ff2c55f6ec4f1964d8890f66035",
   "bytes": 1213050671,
   "official_hash_prefix_match": true,
-  "status": "hash_prefix_verified_not_yet_loaded"
+  "status": "hash_prefix_verified",
+  "validation_reference": "dinov3-l_smoke.json"
 }

@@ -8,6 +8,7 @@
       "relative_directory": "R01/training/frames/01",
       "frames": 207,
       "names_sha256": "684005d9f81266a8ec82b54d594ff6a2855449f05372373571d580c1d4a03846",
+      "frames_content_sha256": "e12ed9f96c87d36c4dcb4e2600ccdcd925b004e2e08ba88920947b8fa7917e95",
       "first_frame": "000.jpg",
       "last_frame": "206.jpg",
       "sampled_image_sizes": [
@@ -34,6 +35,7 @@
       "relative_directory": "R01/training/frames/02",
       "frames": 214,
       "names_sha256": "be058f0390ae232e7b0e7826dd305303c12a62100535dd4904d25859b68e0711",
+      "frames_content_sha256": "857d78b422ccda6c2bcc261b78b6d0f18f3d4d16f511e3fc0f3973f750123d1e",
       "first_frame": "000.jpg",
       "last_frame": "213.jpg",
       "sampled_image_sizes": [
@@ -60,6 +62,7 @@
       "relative_directory": "R01/training/frames/03",
       "frames": 203,
       "names_sha256": "6d6a0cd67876389152d6e8591c7af5e5615a31323cddbc799a9e3dc6eb2f9467",
+      "frames_content_sha256": "aa542eafe457862142aa903c6d476531266b4781f3ac481dc02a9b132e2bc12b",
       "first_frame": "000.jpg",
       "last_frame": "202.jpg",
       "sampled_image_sizes": [
@@ -86,6 +89,7 @@
       "relative_directory": "R01/training/frames/04",
       "frames": 232,
       "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "frames_content_sha256": "eab593ee0dc6aec06a9b132504ab00151dce0637e1b95e6504eeb54f43aee43b",
       "first_frame": "000.jpg",
       "last_frame": "231.jpg",
       "sampled_image_sizes": [
@@ -112,6 +116,7 @@
       "relative_directory": "R01/training/frames/05",
       "frames": 233,
       "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "frames_content_sha256": "1871bdd29a1506f8a9989a1b2d31d3037e91c876e2cc63a2f0272b66267b9284",
       "first_frame": "000.jpg",
       "last_frame": "232.jpg",
       "sampled_image_sizes": [
@@ -138,6 +143,7 @@
       "relative_directory": "R01/training/frames/06",
       "frames": 231,
       "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "frames_content_sha256": "f4add25f66c66b64f5f9ea8daaeb419bd26bbdfe855a255177dfc750eebad7f1",
       "first_frame": "000.jpg",
       "last_frame": "230.jpg",
       "sampled_image_sizes": [
@@ -164,6 +170,7 @@
       "relative_directory": "R01/training/frames/07",
       "frames": 233,
       "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "frames_content_sha256": "372645d697369bf824d319f3bbe8d9792f91b3906578006c48f2edd438dbd6c4",
       "first_frame": "000.jpg",
       "last_frame": "232.jpg",
       "sampled_image_sizes": [
@@ -190,6 +197,7 @@
       "relative_directory": "R01/training/frames/08",
       "frames": 232,
       "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "frames_content_sha256": "3228654be8e921dd33776cd70bfb2223be55044778d2bc0e52e621a3ccc8a7d5",
       "first_frame": "000.jpg",
       "last_frame": "231.jpg",
       "sampled_image_sizes": [
@@ -216,6 +224,7 @@
       "relative_directory": "R01/training/frames/09",
       "frames": 235,
       "names_sha256": "6d33c1e07b795cbcc5cb6173edd937db5a487b1adbb77c27882e03034bf90a17",
+      "frames_content_sha256": "dd9b87ad969207ea4c569bf151233f8f0c52d572c58fb5d5a14d920ba0388166",
       "first_frame": "000.jpg",
       "last_frame": "234.jpg",
       "sampled_image_sizes": [
@@ -242,6 +251,7 @@
       "relative_directory": "R01/training/frames/10",
       "frames": 236,
       "names_sha256": "e9236c01c471797a746c1f767d4d2a1e12189448e9d534112c94708f7763676b",
+      "frames_content_sha256": "d20bb3314c421f1a3d0f21972a207043bcbbd10ce2d507fa4ed13ca16ac5193a",
       "first_frame": "000.jpg",
       "last_frame": "235.jpg",
       "sampled_image_sizes": [
@@ -268,6 +278,7 @@
       "relative_directory": "R01/training/frames/11",
       "frames": 235,
       "names_sha256": "6d33c1e07b795cbcc5cb6173edd937db5a487b1adbb77c27882e03034bf90a17",
+      "frames_content_sha256": "6164fa44a478dc0cd3a042b59a7741bd4739cfb83739dcf464f0b909fe4233e7",
       "first_frame": "000.jpg",
       "last_frame": "234.jpg",
       "sampled_image_sizes": [
@@ -294,6 +305,7 @@
       "relative_directory": "R01/training/frames/12",
       "frames": 231,
       "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "frames_content_sha256": "0d7341dc7b2cbe2d346d24f477ef4723d3ea46b45372e07260ab5dcbef78cda0",
       "first_frame": "000.jpg",
       "last_frame": "230.jpg",
       "sampled_image_sizes": [
@@ -320,6 +332,7 @@
       "relative_directory": "R01/training/frames/13",
       "frames": 232,
       "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "frames_content_sha256": "4e419ab1e40fb9530e043a8b85d37ac1d4d5bb5e24c8951d1487a32a5c3b870d",
       "first_frame": "000.jpg",
       "last_frame": "231.jpg",
       "sampled_image_sizes": [
@@ -346,6 +359,7 @@
       "relative_directory": "R01/training/frames/14",
       "frames": 232,
       "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "frames_content_sha256": "7de1917774f1db36370197589cf9472403a47d95244745266ce4e9986ac74ec6",
       "first_frame": "000.jpg",
       "last_frame": "231.jpg",
       "sampled_image_sizes": [
@@ -372,6 +386,7 @@
       "relative_directory": "R01/training/frames/15",
       "frames": 236,
       "names_sha256": "e9236c01c471797a746c1f767d4d2a1e12189448e9d534112c94708f7763676b",
+      "frames_content_sha256": "59718560b3f94cd60848d43b2ca2763ae9683b0cfa83f81879a98cc21d818cf3",
       "first_frame": "000.jpg",
       "last_frame": "235.jpg",
       "sampled_image_sizes": [
@@ -398,6 +413,7 @@
       "relative_directory": "R01/training/frames/16",
       "frames": 230,
       "names_sha256": "dace8138367895073dda4099b7f14cd2496cebc7d4759b900ff8d916904a53ce",
+      "frames_content_sha256": "2990331e85c5e27b81801066fb2e3d7c8bce83e0fec745ede8c8ac0aecd5641a",
       "first_frame": "000.jpg",
       "last_frame": "229.jpg",
       "sampled_image_sizes": [
@@ -424,6 +440,7 @@
       "relative_directory": "R01/training/frames/17",
       "frames": 234,
       "names_sha256": "5066b5e6bfbfe227d0e046b49f757a426afdb06cda1bbb2b8aa0f88ce560ef34",
+      "frames_content_sha256": "710b6a9c0c4bacffb9e9ee165145bd481efbc76097ddd26b8cb9f43fcddb6eb3",
       "first_frame": "000.jpg",
       "last_frame": "233.jpg",
       "sampled_image_sizes": [
@@ -450,6 +467,7 @@
       "relative_directory": "R01/training/frames/18",
       "frames": 228,
       "names_sha256": "c12661f30fad918bdd0bd68753b6fd17b88a1fc304bd756034b0797544051885",
+      "frames_content_sha256": "4abbd4d52dbd52606f6ac793ebea61bb7dfac50f4540204c345499f87e4ca031",
       "first_frame": "000.jpg",
       "last_frame": "227.jpg",
       "sampled_image_sizes": [
@@ -476,6 +494,7 @@
       "relative_directory": "R01/training/frames/19",
       "frames": 233,
       "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "frames_content_sha256": "f9df9525495612e5b5b14ae099591ecbd8f0c0b59f7397b790f28b572177eacd",
       "first_frame": "000.jpg",
       "last_frame": "232.jpg",
       "sampled_image_sizes": [
@@ -502,6 +521,7 @@
       "relative_directory": "R01/training/frames/20",
       "frames": 229,
       "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "frames_content_sha256": "5348a70092c68d98368bfa14c1d62f9dd25298b66ae1bdd8ad895b65e48de273",
       "first_frame": "000.jpg",
       "last_frame": "228.jpg",
       "sampled_image_sizes": [
@@ -528,6 +548,7 @@
       "relative_directory": "R01/training/frames/21",
       "frames": 229,
       "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "frames_content_sha256": "c9a0eeeb44e76da41f99c0ae4ed3ff70568f8e32e89218899f0fe82ef10e3053",
       "first_frame": "000.jpg",
       "last_frame": "228.jpg",
       "sampled_image_sizes": [
@@ -554,6 +575,7 @@
       "relative_directory": "R01/training/frames/22",
       "frames": 234,
       "names_sha256": "5066b5e6bfbfe227d0e046b49f757a426afdb06cda1bbb2b8aa0f88ce560ef34",
+      "frames_content_sha256": "6b29d7cee128d3914bc4589f00592e647ce88ed658fb905b59ac4765d0fa3858",
       "first_frame": "000.jpg",
       "last_frame": "233.jpg",
       "sampled_image_sizes": [
@@ -580,6 +602,7 @@
       "relative_directory": "R01/training/frames/23",
       "frames": 233,
       "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "frames_content_sha256": "b790e56985cd549ca6da3e6b60385521909ecad6fcd39d7a74983506faf80fd6",
       "first_frame": "000.jpg",
       "last_frame": "232.jpg",
       "sampled_image_sizes": [
@@ -606,6 +629,7 @@
       "relative_directory": "R01/training/frames/24",
       "frames": 231,
       "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "frames_content_sha256": "85fc23297d6f59222aa44d183d13dc05dd81b69a3c2fbb85cf120cc04d431b84",
       "first_frame": "000.jpg",
       "last_frame": "230.jpg",
       "sampled_image_sizes": [
@@ -632,6 +656,7 @@
       "relative_directory": "R01/training/frames/25",
       "frames": 225,
       "names_sha256": "8306a7666120aa3135e82b6b3e0ae3818d8fb31fd4334f41f23b3d90ca7d06aa",
+      "frames_content_sha256": "ce3f39ebfc8c796cc28793e442d17c5e5b775b0374011061e4ea0712df238de5",
       "first_frame": "000.jpg",
       "last_frame": "224.jpg",
       "sampled_image_sizes": [
@@ -658,6 +683,7 @@
       "relative_directory": "R01/training/frames/26",
       "frames": 238,
       "names_sha256": "33542804e2f998a5a79f558d02d856edbb64c2cbc0d5d601cc241a9904cd6c5c",
+      "frames_content_sha256": "9015ecee47648088970267367c8686a4c91e982480a5ab752e9b48cb1f278670",
       "first_frame": "000.jpg",
       "last_frame": "237.jpg",
       "sampled_image_sizes": [
@@ -684,6 +710,7 @@
       "relative_directory": "R01/training/frames/27",
       "frames": 231,
       "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "frames_content_sha256": "be55ebdaca3933d6f3e750e8c3b1b3c0a504e46733a6fefddf8f7de5aab64e51",
       "first_frame": "000.jpg",
       "last_frame": "230.jpg",
       "sampled_image_sizes": [
@@ -710,6 +737,7 @@
       "relative_directory": "R01/training/frames/28",
       "frames": 228,
       "names_sha256": "c12661f30fad918bdd0bd68753b6fd17b88a1fc304bd756034b0797544051885",
+      "frames_content_sha256": "aadf7f1f88cf6b2578f09bb1430343afb419b98901b32e7f8fcce0eaa0c2c4dd",
       "first_frame": "000.jpg",
       "last_frame": "227.jpg",
       "sampled_image_sizes": [
@@ -736,6 +764,7 @@
       "relative_directory": "R01/training/frames/29",
       "frames": 233,
       "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "frames_content_sha256": "4dd55be390a835fd5d3555871866cab70f8cfcb8df32c8128d767256e620b280",
       "first_frame": "000.jpg",
       "last_frame": "232.jpg",
       "sampled_image_sizes": [
@@ -762,6 +791,7 @@
       "relative_directory": "R01/training/frames/30",
       "frames": 229,
       "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "frames_content_sha256": "6dd2cbfd4c5a601b7c735a1f486372aa7738b1e8d909f391605e313c5c5ca7ab",
       "first_frame": "000.jpg",
       "last_frame": "228.jpg",
       "sampled_image_sizes": [
@@ -788,6 +818,7 @@
       "relative_directory": "R01/training/frames/31",
       "frames": 233,
       "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "frames_content_sha256": "4c2789a417b387c0e0a855361901040d382fb7c1636515308076a017f4cd0d4b",
       "first_frame": "000.jpg",
       "last_frame": "232.jpg",
       "sampled_image_sizes": [
@@ -814,6 +845,7 @@
       "relative_directory": "R01/training/frames/32",
       "frames": 230,
       "names_sha256": "dace8138367895073dda4099b7f14cd2496cebc7d4759b900ff8d916904a53ce",
+      "frames_content_sha256": "70141c7791f0bb9adf79390d33d52a7e990f5e57bcd29132a2c09bd14bd5d102",
       "first_frame": "000.jpg",
       "last_frame": "229.jpg",
       "sampled_image_sizes": [
@@ -840,6 +872,7 @@
       "relative_directory": "R01/training/frames/33",
       "frames": 229,
       "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "frames_content_sha256": "5756c03701cab63f0c3efc3457f65565a33c0e18d1f2bc652514eafc965d127e",
       "first_frame": "000.jpg",
       "last_frame": "228.jpg",
       "sampled_image_sizes": [
@@ -866,6 +899,7 @@
       "relative_directory": "R01/training/frames/34",
       "frames": 229,
       "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "frames_content_sha256": "1954c395567b36f6fb557644887c54c56d7b52c8199d28ed9a51a043ca8e68f3",
       "first_frame": "000.jpg",
       "last_frame": "228.jpg",
       "sampled_image_sizes": [
@@ -892,6 +926,7 @@
       "relative_directory": "R01/testing/frames/01",
       "frames": 230,
       "names_sha256": "dace8138367895073dda4099b7f14cd2496cebc7d4759b900ff8d916904a53ce",
+      "frames_content_sha256": "6a430e5781fa7442d7044218b1c9a299f2d8a552bddb2bb8b2fe34dbc40afb8b",
       "first_frame": "000.jpg",
       "last_frame": "229.jpg",
       "sampled_image_sizes": [
@@ -926,6 +961,7 @@
       "relative_directory": "R01/testing/frames/02",
       "frames": 256,
       "names_sha256": "26fcf5941a3b1004822632ed976984b0deeba5fd6c55b8c098f09cefedfca9b2",
+      "frames_content_sha256": "edc0985135a08b4985a92ed83db820df2619acb58a70fe5671447665dfb4543c",
       "first_frame": "000.jpg",
       "last_frame": "255.jpg",
       "sampled_image_sizes": [
@@ -960,6 +996,7 @@
       "relative_directory": "R01/testing/frames/03",
       "frames": 409,
       "names_sha256": "e7a022837f23d45ba903d60a88f2af50096107d3b8a674a1c23463f5442a9fbd",
+      "frames_content_sha256": "1875c955f32d744047c975005cc284e5dd632193f5dbc7613d21b18a33334a35",
       "first_frame": "000.jpg",
       "last_frame": "408.jpg",
       "sampled_image_sizes": [
@@ -994,6 +1031,7 @@
       "relative_directory": "R01/testing/frames/04",
       "frames": 191,
       "names_sha256": "8fd4b835d72c3071219ba63359ebcf46370b4e7ed7c11f80272272c378799eb4",
+      "frames_content_sha256": "190c45965cf697552b017b87b3d1463e54c483db9c07d9aa50229cf95392d193",
       "first_frame": "000.jpg",
       "last_frame": "190.jpg",
       "sampled_image_sizes": [
@@ -1028,6 +1066,7 @@
       "relative_directory": "R01/testing/frames/05",
       "frames": 290,
       "names_sha256": "96266a7f9685fce795563a386a2227a1a05bc3681489223d561dffcc65f88577",
+      "frames_content_sha256": "4f4f541d88e6f10ff19638a7fd12d03fd9663f17ed38cd4434cc007538762d62",
       "first_frame": "000.jpg",
       "last_frame": "289.jpg",
       "sampled_image_sizes": [
@@ -1062,6 +1101,7 @@
       "relative_directory": "R01/testing/frames/06",
       "frames": 233,
       "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "frames_content_sha256": "985f525dc65cc54e83ebf0706e533ab525937e1149072b417ed98660a9dfe119",
       "first_frame": "000.jpg",
       "last_frame": "232.jpg",
       "sampled_image_sizes": [
@@ -1096,6 +1136,7 @@
       "relative_directory": "R01/testing/frames/07",
       "frames": 231,
       "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "frames_content_sha256": "82de16c9a16045386228482b6b4c460af747bb7c80fe08c2f243dc0c40f6beb7",
       "first_frame": "000.jpg",
       "last_frame": "230.jpg",
       "sampled_image_sizes": [
@@ -1130,6 +1171,7 @@
       "relative_directory": "R01/testing/frames/08",
       "frames": 235,
       "names_sha256": "6d33c1e07b795cbcc5cb6173edd937db5a487b1adbb77c27882e03034bf90a17",
+      "frames_content_sha256": "1cfcd704a28db1d66f4c169d866c204ab90300911eabcfba5d46607a46f42e9a",
       "first_frame": "000.jpg",
       "last_frame": "234.jpg",
       "sampled_image_sizes": [
@@ -1164,6 +1206,7 @@
       "relative_directory": "R01/testing/frames/09",
       "frames": 229,
       "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "frames_content_sha256": "368f7e70afd5250e9a19e0012d5f21fc8daba52dbcea1baf03707a9d1011229d",
       "first_frame": "000.jpg",
       "last_frame": "228.jpg",
       "sampled_image_sizes": [
@@ -1195,6 +1238,7 @@
       "relative_directory": "R01/testing/frames/10",
       "frames": 231,
       "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "frames_content_sha256": "0f852f1627ee4bcdb930b1a3ab461f6f4336863b96fda740f70dbd9ee192cd27",
       "first_frame": "000.jpg",
       "last_frame": "230.jpg",
       "sampled_image_sizes": [
@@ -1226,6 +1270,7 @@
       "relative_directory": "R01/testing/frames/11",
       "frames": 232,
       "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "frames_content_sha256": "d9aa5592e0df82a343c4763361fcd43c729c4cf98f7a5dc33df144106f871181",
       "first_frame": "000.jpg",
       "last_frame": "231.jpg",
       "sampled_image_sizes": [
@@ -1257,6 +1302,7 @@
       "relative_directory": "R01/testing/frames/12",
       "frames": 231,
       "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "frames_content_sha256": "3f9d355f945335a683a95cf03beec33fe75579fce51170dd0f827ebcf78771df",
       "first_frame": "000.jpg",
       "last_frame": "230.jpg",
       "sampled_image_sizes": [
@@ -1288,6 +1334,7 @@
       "relative_directory": "R01/testing/frames/13",
       "frames": 229,
       "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "frames_content_sha256": "c4632edd8ba3a3632331ee9fd7ba14ff4e25fb149c4afe3dc727030b18596073",
       "first_frame": "000.jpg",
       "last_frame": "228.jpg",
       "sampled_image_sizes": [
@@ -1319,6 +1366,7 @@
       "relative_directory": "R01/testing/frames/14",
       "frames": 230,
       "names_sha256": "dace8138367895073dda4099b7f14cd2496cebc7d4759b900ff8d916904a53ce",
+      "frames_content_sha256": "0a1d0c1d29d6910105592a2ec0819b9dfa31177fb3d6849dde40b2a05c087c5f",
       "first_frame": "000.jpg",
       "last_frame": "229.jpg",
       "sampled_image_sizes": [
@@ -1350,6 +1398,7 @@
       "relative_directory": "R01/testing/frames/15",
       "frames": 228,
       "names_sha256": "c12661f30fad918bdd0bd68753b6fd17b88a1fc304bd756034b0797544051885",
+      "frames_content_sha256": "b1f8b0ee3efaa33ed7460c600ec1934e62c1bd32471cf55e8c113f0df1cde598",
       "first_frame": "000.jpg",
       "last_frame": "227.jpg",
       "sampled_image_sizes": [
@@ -1381,6 +1430,7 @@
       "relative_directory": "R02/training/frames/01",
       "frames": 642,
       "names_sha256": "45465b5125b07392aa160cc832b9adf0d1543177c925b40f83e182754ad60a8c",
+      "frames_content_sha256": "a313109e294cfd87563b970f7090cf8e9e66ef3487acdecaf66b413095c7ee05",
       "first_frame": "000.jpg",
       "last_frame": "641.jpg",
       "sampled_image_sizes": [
@@ -1407,6 +1457,7 @@
       "relative_directory": "R02/training/frames/02",
       "frames": 608,
       "names_sha256": "c4037f58c443206b5747d588d6f9a3a72a96e251939a7232fb66f9b6bc730425",
+      "frames_content_sha256": "7aac8be1db9da84712fded5f02205411b80964c96a611e4fe74f9a5158c44f59",
       "first_frame": "000.jpg",
       "last_frame": "607.jpg",
       "sampled_image_sizes": [
@@ -1433,6 +1484,7 @@
       "relative_directory": "R02/training/frames/03",
       "frames": 550,
       "names_sha256": "6e8b6eb09b7bcd67360d709e8bf3c778597ead307b48d3b00e72c19ffdce7d25",
+      "frames_content_sha256": "34a539f497e54da0991c04672742133df1b585bfffd1638dd5b9a53c8f7e2485",
       "first_frame": "000.jpg",
       "last_frame": "549.jpg",
       "sampled_image_sizes": [
@@ -1459,6 +1511,7 @@
       "relative_directory": "R02/training/frames/04",
       "frames": 596,
       "names_sha256": "74a358920a4f35cb5e80a0ff520872c18ea66b109f5f8d3a4854bd5fb61e871a",
+      "frames_content_sha256": "9982d5355ae58869e0e6387f1966429015f306a2d627fb6d3cf18fad66fbd2eb",
       "first_frame": "000.jpg",
       "last_frame": "595.jpg",
       "sampled_image_sizes": [
@@ -1485,6 +1538,7 @@
       "relative_directory": "R02/training/frames/05",
       "frames": 602,
       "names_sha256": "06c69c7925ad926b4fc4bfc0b16f7028f20b7f8beae4b8396a06a9290dfcbc56",
+      "frames_content_sha256": "5ffbdc614c313d5e535b7cbdfd13fedaafda0a9bd357d9f02f4697071180b759",
       "first_frame": "000.jpg",
       "last_frame": "601.jpg",
       "sampled_image_sizes": [
@@ -1511,6 +1565,7 @@
       "relative_directory": "R02/training/frames/06",
       "frames": 610,
       "names_sha256": "19f7fc7cf9a5c90eed569dfcd22d331d28fdff16df349cee7a4bf725d159c5c0",
+      "frames_content_sha256": "f332c5babb9aef7c9ff09a0fd368222ce737815bbb064cf5f5cc16613efbc9b6",
       "first_frame": "000.jpg",
       "last_frame": "609.jpg",
       "sampled_image_sizes": [
@@ -1537,6 +1592,7 @@
       "relative_directory": "R02/training/frames/07",
       "frames": 588,
       "names_sha256": "ee1f3965c8c0a044fc59fa180d5c7b4ff627a556e0b4645ef1d25801c4373601",
+      "frames_content_sha256": "f99c6f8043b1384a5b3f65f9cb7edb4877e1212f1fde9b18d3ec0510fcffec25",
       "first_frame": "000.jpg",
       "last_frame": "587.jpg",
       "sampled_image_sizes": [
@@ -1563,6 +1619,7 @@
       "relative_directory": "R02/training/frames/08",
       "frames": 585,
       "names_sha256": "341a9c94d232c5e6a4a617046f3a4fb979a5146d6cc8e7ca15e5591d83226b04",
+      "frames_content_sha256": "cc46c866c976d744763072fd6c1a9f8b729c7b68c725b43a9093307f06505bc5",
       "first_frame": "000.jpg",
       "last_frame": "584.jpg",
       "sampled_image_sizes": [
@@ -1589,6 +1646,7 @@
       "relative_directory": "R02/training/frames/09",
       "frames": 595,
       "names_sha256": "5ec3c5b850e54154d5b7881531ad8ec6d6098945cdb361872b6b5d2a49cfc777",
+      "frames_content_sha256": "ee80f672ca9e2ae2b930a876f764b847c8ddcc890d17d1c0ed65e453c8ae45f4",
       "first_frame": "000.jpg",
       "last_frame": "594.jpg",
       "sampled_image_sizes": [
@@ -1615,6 +1673,7 @@
       "relative_directory": "R02/training/frames/10",
       "frames": 595,
       "names_sha256": "5ec3c5b850e54154d5b7881531ad8ec6d6098945cdb361872b6b5d2a49cfc777",
+      "frames_content_sha256": "d423c59a4ee9cd92616d31ff1f9177c68b29303b982e90c8c259f1a095cba1ea",
       "first_frame": "000.jpg",
       "last_frame": "594.jpg",
       "sampled_image_sizes": [
@@ -1641,6 +1700,7 @@
       "relative_directory": "R02/training/frames/11",
       "frames": 600,
       "names_sha256": "b24bd47623b3191e039de54c995f12e3b11efc59a266fd9f227f0ff14e6c6b08",
+      "frames_content_sha256": "a8e89c46b512f589fc5a528ba6a73b94b1a6200bc21e9edaca4f3e753b492ad2",
       "first_frame": "000.jpg",
       "last_frame": "599.jpg",
       "sampled_image_sizes": [
@@ -1667,6 +1727,7 @@
       "relative_directory": "R02/training/frames/12",
       "frames": 590,
       "names_sha256": "250332626d4fc36755f3601befc10db69100ae0ea7cd0277be5324907c36dbea",
+      "frames_content_sha256": "855eb8962dde333ba9db106210262531c74b620ebd0f21c628cdf41c0dcf1240",
       "first_frame": "000.jpg",
       "last_frame": "589.jpg",
       "sampled_image_sizes": [
@@ -1693,6 +1754,7 @@
       "relative_directory": "R02/training/frames/13",
       "frames": 591,
       "names_sha256": "6836d77363ffa4d4b4eea8a133c94c4041871058d56cd4a636d2f439a0c1fa1a",
+      "frames_content_sha256": "a6f44eef8207abc99802d7817e146e4aa947cc5c62ce67da31b91f720c496fbb",
       "first_frame": "000.jpg",
       "last_frame": "590.jpg",
       "sampled_image_sizes": [
@@ -1719,6 +1781,7 @@
       "relative_directory": "R02/training/frames/14",
       "frames": 579,
       "names_sha256": "415f2c777d2fe3123e8524108d83bc2cfaf93aa14fde8c4502b72eade85d229e",
+      "frames_content_sha256": "8e4d05411014e4d1b2c2af6d0bbb60a20a8e13214dfea9f0ba7a98f96d30ad59",
       "first_frame": "000.jpg",
       "last_frame": "578.jpg",
       "sampled_image_sizes": [
@@ -1745,6 +1808,7 @@
       "relative_directory": "R02/training/frames/15",
       "frames": 612,
       "names_sha256": "fd725ac88c98aad0725f5543964b0482fa5982cd50b18773911007416c0ffff3",
+      "frames_content_sha256": "a5f52507f67c6a557aa48a674de52ed6db11b341347d4ab95817de3a162dbda0",
       "first_frame": "000.jpg",
       "last_frame": "611.jpg",
       "sampled_image_sizes": [
@@ -1771,6 +1835,7 @@
       "relative_directory": "R02/training/frames/16",
       "frames": 588,
       "names_sha256": "ee1f3965c8c0a044fc59fa180d5c7b4ff627a556e0b4645ef1d25801c4373601",
+      "frames_content_sha256": "12bed8a15e73cb0d9ba8dda929eddf5f6ac3ca08e7d86273b4a17c67a1549bf7",
       "first_frame": "000.jpg",
       "last_frame": "587.jpg",
       "sampled_image_sizes": [
@@ -1797,6 +1862,7 @@
       "relative_directory": "R02/training/frames/17",
       "frames": 574,
       "names_sha256": "7af52c6cb74d76ab222be6e311765c41d7caba47aae5d719015206da41b07958",
+      "frames_content_sha256": "1ea7582c39cdaaba7b380672c18bda02ee72d9d17a5057751aa7fe1917d6bebc",
       "first_frame": "000.jpg",
       "last_frame": "573.jpg",
       "sampled_image_sizes": [
@@ -1823,6 +1889,7 @@
       "relative_directory": "R02/training/frames/18",
       "frames": 579,
       "names_sha256": "415f2c777d2fe3123e8524108d83bc2cfaf93aa14fde8c4502b72eade85d229e",
+      "frames_content_sha256": "520cbc4976b8c5a9d82e3acbcd70af3890ea0bc9b5877922fb522350ec05c18e",
       "first_frame": "000.jpg",
       "last_frame": "578.jpg",
       "sampled_image_sizes": [
@@ -1849,6 +1916,7 @@
       "relative_directory": "R02/training/frames/19",
       "frames": 602,
       "names_sha256": "06c69c7925ad926b4fc4bfc0b16f7028f20b7f8beae4b8396a06a9290dfcbc56",
+      "frames_content_sha256": "ed8e34c3c7e2c6e4cc2a86dcd3ea1634372fd4beecc71c9e3d01dbb2be898fad",
       "first_frame": "000.jpg",
       "last_frame": "601.jpg",
       "sampled_image_sizes": [
@@ -1875,6 +1943,7 @@
       "relative_directory": "R02/training/frames/20",
       "frames": 609,
       "names_sha256": "6c3a5f7d874d10452895fc76636d745faa8d3b078ab4d4ca84272651bdbe6378",
+      "frames_content_sha256": "dabc93d37bda683700f010d796b1fb728984ce1ae438763113fa00307b5103c5",
       "first_frame": "000.jpg",
       "last_frame": "608.jpg",
       "sampled_image_sizes": [
@@ -1901,6 +1970,7 @@
       "relative_directory": "R02/training/frames/21",
       "frames": 584,
       "names_sha256": "93858e6ca03098d486e14aa12cbc430040c58728482271eb58ba5e248e960ee2",
+      "frames_content_sha256": "1805d1bf38a7552dddac72f4afcb16522290874b6dc5d5af3e0380a1dd95ba12",
       "first_frame": "000.jpg",
       "last_frame": "583.jpg",
       "sampled_image_sizes": [
@@ -1927,6 +1997,7 @@
       "relative_directory": "R02/training/frames/22",
       "frames": 601,
       "names_sha256": "8f408ae0ff23c8a52ae482b0969b62c429b9c419255ff54560d24af81c15a117",
+      "frames_content_sha256": "4b72c7107db3988695061389a3a5575a02285fdd09f5dc1e53211f982da1d847",
       "first_frame": "000.jpg",
       "last_frame": "600.jpg",
       "sampled_image_sizes": [
@@ -1953,6 +2024,7 @@
       "relative_directory": "R02/training/frames/23",
       "frames": 612,
       "names_sha256": "fd725ac88c98aad0725f5543964b0482fa5982cd50b18773911007416c0ffff3",
+      "frames_content_sha256": "8b8f9fb5387dd84da603fb6893feb4a1086a9b0389462518ab47dd5fbce5e04e",
       "first_frame": "000.jpg",
       "last_frame": "611.jpg",
       "sampled_image_sizes": [
@@ -1979,6 +2051,7 @@
       "relative_directory": "R02/training/frames/24",
       "frames": 568,
       "names_sha256": "c79197d900ea171a5e2e51d9ab4e7ed97b6505da4eb83c69c934e960fdf3975c",
+      "frames_content_sha256": "f923107fd410856ac5d76a3201ed34ba9d7df5e39099ba1d5dc9fed4dab1bb51",
       "first_frame": "000.jpg",
       "last_frame": "567.jpg",
       "sampled_image_sizes": [
@@ -2005,6 +2078,7 @@
       "relative_directory": "R02/training/frames/25",
       "frames": 588,
       "names_sha256": "ee1f3965c8c0a044fc59fa180d5c7b4ff627a556e0b4645ef1d25801c4373601",
+      "frames_content_sha256": "6d5da0924f2b9f0d02f3648298eeac76a190f55731260efda1f30f03c5a920b7",
       "first_frame": "000.jpg",
       "last_frame": "587.jpg",
       "sampled_image_sizes": [
@@ -2031,6 +2105,7 @@
       "relative_directory": "R02/training/frames/26",
       "frames": 574,
       "names_sha256": "7af52c6cb74d76ab222be6e311765c41d7caba47aae5d719015206da41b07958",
+      "frames_content_sha256": "7c43b83c4db85805689e94a7c6e732fedd84a7fd1b088ff818acf66cf01304da",
       "first_frame": "000.jpg",
       "last_frame": "573.jpg",
       "sampled_image_sizes": [
@@ -2057,6 +2132,7 @@
       "relative_directory": "R02/training/frames/27",
       "frames": 589,
       "names_sha256": "e741df484106462c31bbb87eb3572d8e9e708b6481ffe9eb859a31a3f1c486c0",
+      "frames_content_sha256": "c68c27e9b86343dfa19f2063e97a69b9a6beda31c4b33b413d8c6dcd8c029399",
       "first_frame": "000.jpg",
       "last_frame": "588.jpg",
       "sampled_image_sizes": [
@@ -2083,6 +2159,7 @@
       "relative_directory": "R02/training/frames/28",
       "frames": 592,
       "names_sha256": "bb4907dde969ed1c078cd9a86e38b680b5f6fb20d75b8a8589dbd2ad987cad83",
+      "frames_content_sha256": "2994457c5ee38c580857958707d944c0195324de6341063b532fe434fd6a26ed",
       "first_frame": "000.jpg",
       "last_frame": "591.jpg",
       "sampled_image_sizes": [
@@ -2109,6 +2186,7 @@
       "relative_directory": "R02/training/frames/29",
       "frames": 585,
       "names_sha256": "341a9c94d232c5e6a4a617046f3a4fb979a5146d6cc8e7ca15e5591d83226b04",
+      "frames_content_sha256": "e6c8b9d89626eea8cd4e935c32fb7d2ef43c88b831eabe32ae55ad590f9c4917",
       "first_frame": "000.jpg",
       "last_frame": "584.jpg",
       "sampled_image_sizes": [
@@ -2135,6 +2213,7 @@
       "relative_directory": "R02/training/frames/30",
       "frames": 568,
       "names_sha256": "c79197d900ea171a5e2e51d9ab4e7ed97b6505da4eb83c69c934e960fdf3975c",
+      "frames_content_sha256": "758ff25eb14cf4e86db82655fa691a86f19d0357da713c7b4dcdec1bf1703751",
       "first_frame": "000.jpg",
       "last_frame": "567.jpg",
       "sampled_image_sizes": [
@@ -2161,6 +2240,7 @@
       "relative_directory": "R02/testing/frames/01",
       "frames": 583,
       "names_sha256": "ed8d91d68d943fa8ed278eb534871570fbe47c66589e56f2f44380af033f661e",
+      "frames_content_sha256": "d53b5483b4d5175f8dc2e52415401bcf253f15a5ddb5d30a34bab6741731a2d6",
       "first_frame": "000.jpg",
       "last_frame": "582.jpg",
       "sampled_image_sizes": [
@@ -2192,6 +2272,7 @@
       "relative_directory": "R02/testing/frames/02",
       "frames": 595,
       "names_sha256": "5ec3c5b850e54154d5b7881531ad8ec6d6098945cdb361872b6b5d2a49cfc777",
+      "frames_content_sha256": "27e81ebe68d4880651c5f427d702d1c7992a62165d0170db7cdc83a6b5d812b8",
       "first_frame": "000.jpg",
       "last_frame": "594.jpg",
       "sampled_image_sizes": [
@@ -2223,6 +2304,7 @@
       "relative_directory": "R02/testing/frames/03",
       "frames": 573,
       "names_sha256": "e2a119f9558980188cf7fddcccb4670312bb3d2e5e90ec6f5b10ab0097bc7b38",
+      "frames_content_sha256": "f9fa3dc23044d70b61e190d6ae2dbfcc69258ee5f0611124e5f8f20a7acdfa1e",
       "first_frame": "000.jpg",
       "last_frame": "572.jpg",
       "sampled_image_sizes": [
@@ -2257,6 +2339,7 @@
       "relative_directory": "R02/testing/frames/04",
       "frames": 578,
       "names_sha256": "71e58e5d2b8c7e55a551743982a6b5750d63e37314eb84c20779cf180f3030fb",
+      "frames_content_sha256": "ab82937be4ba06b1314de8b8292791b16f2b1c656e2a11b56368d75a5257f690",
       "first_frame": "000.jpg",
       "last_frame": "577.jpg",
       "sampled_image_sizes": [
@@ -2291,6 +2374,7 @@
       "relative_directory": "R02/testing/frames/05",
       "frames": 583,
       "names_sha256": "ed8d91d68d943fa8ed278eb534871570fbe47c66589e56f2f44380af033f661e",
+      "frames_content_sha256": "101e79d30e3bf173e6050a3705337a96b29d239e2d0f36a5a5d992ff8ecb65fe",
       "first_frame": "000.jpg",
       "last_frame": "582.jpg",
       "sampled_image_sizes": [
@@ -2325,6 +2409,7 @@
       "relative_directory": "R02/testing/frames/06",
       "frames": 604,
       "names_sha256": "a4393706ccb33d053ae2c208da1162a7e700a2b2503235a3a2da0feb651a31d0",
+      "frames_content_sha256": "05b3048bc45f17ebd135742793869467dc42417fa76247fcfaee976473901c70",
       "first_frame": "000.jpg",
       "last_frame": "603.jpg",
       "sampled_image_sizes": [
@@ -2359,6 +2444,7 @@
       "relative_directory": "R02/testing/frames/07",
       "frames": 536,
       "names_sha256": "ff3d8136afcb13addcae90f631f92242a3f302ef8b70f724bdc4e5a775ad15a9",
+      "frames_content_sha256": "4c04a4a06d3814355e595f8cc1ef41af68655e55d7d512a804aec43cf267091c",
       "first_frame": "000.jpg",
       "last_frame": "535.jpg",
       "sampled_image_sizes": [
@@ -2393,6 +2479,7 @@
       "relative_directory": "R02/testing/frames/08",
       "frames": 784,
       "names_sha256": "fa00825ee1f7dde3a0ca7974be580e1d09ec317469f72dc0e9b428612a60848d",
+      "frames_content_sha256": "4a0990f6f775587fe295a1d48ff1199fc41c8a78155050d77fba971cb5a701e3",
       "first_frame": "000.jpg",
       "last_frame": "783.jpg",
       "sampled_image_sizes": [
@@ -2433,6 +2520,7 @@
       "relative_directory": "R02/testing/frames/09",
       "frames": 853,
       "names_sha256": "709a5460ad776c68f2097a0d9ebdaf52296bc11238f296143cd4c6a5c9cce0ec",
+      "frames_content_sha256": "98f84b3b166d5c51759ef4623f882143a394d5d56e65882f7cc81595e04a287c",
       "first_frame": "000.jpg",
       "last_frame": "852.jpg",
       "sampled_image_sizes": [
@@ -2469,6 +2557,7 @@
       "relative_directory": "R02/testing/frames/10",
       "frames": 612,
       "names_sha256": "fd725ac88c98aad0725f5543964b0482fa5982cd50b18773911007416c0ffff3",
+      "frames_content_sha256": "158ac4702a441c00a4e5175c70d90ccd6b3cd58fab853dea25fac892bdc419a9",
       "first_frame": "000.jpg",
       "last_frame": "611.jpg",
       "sampled_image_sizes": [
@@ -2502,6 +2591,7 @@
       "relative_directory": "R02/testing/frames/11",
       "frames": 590,
       "names_sha256": "250332626d4fc36755f3601befc10db69100ae0ea7cd0277be5324907c36dbea",
+      "frames_content_sha256": "0fa8deaff6bd207e8d313f8f5589e47d5c42628e477fcd3ee8a53a14c7a00aef",
       "first_frame": "000.jpg",
       "last_frame": "589.jpg",
       "sampled_image_sizes": [
@@ -2535,6 +2625,7 @@
       "relative_directory": "R02/testing/frames/12",
       "frames": 806,
       "names_sha256": "a0f504d91556f2604e371bf3240d2b6743f5499d5a8f29d703c4b684336da6a6",
+      "frames_content_sha256": "c56a741f666f457b3a2af34071340e4f1b15dbd6409002174e1651ce335a058f",
       "first_frame": "000.jpg",
       "last_frame": "805.jpg",
       "sampled_image_sizes": [
@@ -2569,6 +2660,7 @@
       "relative_directory": "R02/testing/frames/13",
       "frames": 609,
       "names_sha256": "6c3a5f7d874d10452895fc76636d745faa8d3b078ab4d4ca84272651bdbe6378",
+      "frames_content_sha256": "9014bc6a068b37e8a7bff6cf02b9fcdccdbfa5aca099a828fe197ea2510614f0",
       "first_frame": "000.jpg",
       "last_frame": "608.jpg",
       "sampled_image_sizes": [
@@ -2605,6 +2697,7 @@
       "relative_directory": "R02/testing/frames/14",
       "frames": 497,
       "names_sha256": "33fbaed7a504994062b4e3f6896d812dab66ecbbddb32917051bed8732e22a22",
+      "frames_content_sha256": "678fd88682c9523ee6ad45eba025475c4ac2a8dd400cdda33e9954ae0c95729d",
       "first_frame": "000.jpg",
       "last_frame": "496.jpg",
       "sampled_image_sizes": [
@@ -2641,6 +2734,7 @@
       "relative_directory": "R02/testing/frames/15",
       "frames": 815,
       "names_sha256": "2644bc360bee0dfc3a8e03bcdb5000292d354a8ddedfc92091d0dcd0aed57093",
+      "frames_content_sha256": "753311bf4c28b87e9c2ec4bff27a732632b77b1dbb4b830992a0b9a3d5b87ed9",
       "first_frame": "000.jpg",
       "last_frame": "814.jpg",
       "sampled_image_sizes": [
@@ -2677,6 +2771,7 @@
       "relative_directory": "R03/training/frames/01",
       "frames": 668,
       "names_sha256": "db92fa6023977f01d0527a97e7b56e88b09ec3b489c646dbfa66a5a46ba2aabf",
+      "frames_content_sha256": "dc48f4fcb637ec5c4948ddab77a8872013f5eb461920f877fc86b8f91ddd6700",
       "first_frame": "000.jpg",
       "last_frame": "667.jpg",
       "sampled_image_sizes": [
@@ -2703,6 +2798,7 @@
       "relative_directory": "R03/training/frames/02",
       "frames": 692,
       "names_sha256": "ac4b2b2a14342aa5721675ab8fb5ab57da8295060707ce02b142fb66445065c5",
+      "frames_content_sha256": "e5189f4b3f13d9e3b413fbb7fe497971b39e994d9466a9138ac6ced330cf4cba",
       "first_frame": "000.jpg",
       "last_frame": "691.jpg",
       "sampled_image_sizes": [
@@ -2729,6 +2825,7 @@
       "relative_directory": "R03/training/frames/03",
       "frames": 723,
       "names_sha256": "d5b4962c2e633da6cc19e9af8433bc38ea9092545f3483a9af457accd20a97d9",
+      "frames_content_sha256": "200d79b62fc4f3b92519e286887892740e36428e10ab614e3b9b8cfdc2639636",
       "first_frame": "000.jpg",
       "last_frame": "722.jpg",
       "sampled_image_sizes": [
@@ -2755,6 +2852,7 @@
       "relative_directory": "R03/training/frames/04",
       "frames": 688,
       "names_sha256": "4bd3e42906e4682ce13c878b76c2ac7409a3cc17e26e9b3b77a3c76d863d9fb9",
+      "frames_content_sha256": "982bc005591018d7cc6cecd25ca0ee7abd2c403ea2d0e2f66c7c2afb8ad1e8b3",
       "first_frame": "000.jpg",
       "last_frame": "687.jpg",
       "sampled_image_sizes": [
@@ -2781,6 +2879,7 @@
       "relative_directory": "R03/training/frames/05",
       "frames": 705,
       "names_sha256": "3f52b5fa64fa03079b3532bbb5f2bc455e4b10d7d4ea8e8d27d001d7043f91e1",
+      "frames_content_sha256": "4feaeeb8ae142bd8a2dd0efbb2a7acd1eec0d98556c6452983e23d805e764c4f",
       "first_frame": "000.jpg",
       "last_frame": "704.jpg",
       "sampled_image_sizes": [
@@ -2807,6 +2906,7 @@
       "relative_directory": "R03/training/frames/06",
       "frames": 706,
       "names_sha256": "294f842b4291766e6b12d2d0ab029b124519050ff2feb12b74810f92dcf70119",
+      "frames_content_sha256": "a1afd290e31baae44d0dbf0d33ce150ac6e4857aa174ca5a730345a50893250f",
       "first_frame": "000.jpg",
       "last_frame": "705.jpg",
       "sampled_image_sizes": [
@@ -2833,6 +2933,7 @@
       "relative_directory": "R03/training/frames/07",
       "frames": 689,
       "names_sha256": "a9564e8c748a79c47577c0cca2bc300004370072c36bea07a922d116e3f22494",
+      "frames_content_sha256": "871b1a32584b3385f2a1870c926c6a09233d47433798f6d87dc877f522586473",
       "first_frame": "000.jpg",
       "last_frame": "688.jpg",
       "sampled_image_sizes": [
@@ -2859,6 +2960,7 @@
       "relative_directory": "R03/training/frames/08",
       "frames": 708,
       "names_sha256": "292f3273a9f7a35a9d0994f34e50c8740ac50921699886c113f6b0cce2f56414",
+      "frames_content_sha256": "7daeae0af0311dc45ae87be310c8fb42307d7ad97580e36e232af69dec7279b2",
       "first_frame": "000.jpg",
       "last_frame": "707.jpg",
       "sampled_image_sizes": [
@@ -2885,6 +2987,7 @@
       "relative_directory": "R03/training/frames/09",
       "frames": 742,
       "names_sha256": "98c7706982a7e2956d08ae616b1664df1ce05f5b4aa45e06a834b175b53d1505",
+      "frames_content_sha256": "2dc860db071388b13633f06a7055374fe4059d8564bf956620221e19f802d686",
       "first_frame": "000.jpg",
       "last_frame": "741.jpg",
       "sampled_image_sizes": [
@@ -2911,6 +3014,7 @@
       "relative_directory": "R03/training/frames/10",
       "frames": 697,
       "names_sha256": "458aec9d9671e2c308a715f407a3971f6a02cf5b3a95a5ae5cbc3d4176d48b75",
+      "frames_content_sha256": "5f37fc343061b9635f33f8c6c585932063389c4361536691ae2e65e66d339456",
       "first_frame": "000.jpg",
       "last_frame": "696.jpg",
       "sampled_image_sizes": [
@@ -2937,6 +3041,7 @@
       "relative_directory": "R03/training/frames/11",
       "frames": 696,
       "names_sha256": "94f88c41505a96d5aa55ee5172726ae313705aa37665a999768a007bd033fd4e",
+      "frames_content_sha256": "d3489b842a862f647c55f3cb6d33a46c9f860069e704f42c2f84b8978f0df307",
       "first_frame": "000.jpg",
       "last_frame": "695.jpg",
       "sampled_image_sizes": [
@@ -2963,6 +3068,7 @@
       "relative_directory": "R03/training/frames/12",
       "frames": 745,
       "names_sha256": "b0fc1bed14683a7cd5ece12c9a072b78de6e23dc172e8fc3d3d7f1033eb64808",
+      "frames_content_sha256": "e8240e7534a16746f41dfe4b0d5df7dd7717552bcd445faceb8907a0f5436021",
       "first_frame": "000.jpg",
       "last_frame": "744.jpg",
       "sampled_image_sizes": [
@@ -2989,6 +3095,7 @@
       "relative_directory": "R03/training/frames/13",
       "frames": 720,
       "names_sha256": "009369f3bbfafca8d1894d6ecbbd657dba9eab0034b7fcb1281647d2d261987c",
+      "frames_content_sha256": "327e9be2490c79728c22e1bc1c62ecf7b08734598dd6911d15b15adf6cfe8639",
       "first_frame": "000.jpg",
       "last_frame": "719.jpg",
       "sampled_image_sizes": [
@@ -3015,6 +3122,7 @@
       "relative_directory": "R03/training/frames/14",
       "frames": 630,
       "names_sha256": "5c03f5f193d003de094dbdda954994dcaac61a863db63dcfd00f02c0b2529e01",
+      "frames_content_sha256": "0ca3354cd606d978439a669f1f9e2d43bfd9480fdb59cacb61600808e1507e19",
       "first_frame": "000.jpg",
       "last_frame": "629.jpg",
       "sampled_image_sizes": [
@@ -3041,6 +3149,7 @@
       "relative_directory": "R03/training/frames/15",
       "frames": 706,
       "names_sha256": "294f842b4291766e6b12d2d0ab029b124519050ff2feb12b74810f92dcf70119",
+      "frames_content_sha256": "6d257472fbb0ed484968d02510a1f8c91baaeafb9afc24216d131022a8e91cfe",
       "first_frame": "000.jpg",
       "last_frame": "705.jpg",
       "sampled_image_sizes": [
@@ -3067,6 +3176,7 @@
       "relative_directory": "R03/training/frames/16",
       "frames": 656,
       "names_sha256": "3707ba256c50bb0c0a3e35b4419ee1fb8b5d7c995d7b910eaa855185b4774cd2",
+      "frames_content_sha256": "9401ebbd8dc44c26e3aabaca5b7b914354b3150f225adbbfd14716682f8e3814",
       "first_frame": "000.jpg",
       "last_frame": "655.jpg",
       "sampled_image_sizes": [
@@ -3093,6 +3203,7 @@
       "relative_directory": "R03/training/frames/17",
       "frames": 685,
       "names_sha256": "f38d11122be66f9d527ffbef734c0eed014990091c5c55024d443cbb31435421",
+      "frames_content_sha256": "e592ae8fd5a5a905d63d3140f043e1800c000f36941b7ee2422cc8bfee33d347",
       "first_frame": "000.jpg",
       "last_frame": "684.jpg",
       "sampled_image_sizes": [
@@ -3119,6 +3230,7 @@
       "relative_directory": "R03/training/frames/18",
       "frames": 690,
       "names_sha256": "bba4a4ea835df79d92c28f14388d0118504a879f0c770a5feca2e2a57a4b8a8d",
+      "frames_content_sha256": "b9af73cb51a9743303f250bb08e4358a4bcf39b0a460cbce3f6f2732198c1612",
       "first_frame": "000.jpg",
       "last_frame": "689.jpg",
       "sampled_image_sizes": [
@@ -3145,6 +3257,7 @@
       "relative_directory": "R03/training/frames/19",
       "frames": 694,
       "names_sha256": "50f545948fe5100912f0603abe72826808c800c5deda3636a826e53d7c37e2ad",
+      "frames_content_sha256": "2820f4ba2264c09ac754ec642f4ce47deb40d8142c39fe379c2fdf65aeb7dd18",
       "first_frame": "000.jpg",
       "last_frame": "693.jpg",
       "sampled_image_sizes": [
@@ -3171,6 +3284,7 @@
       "relative_directory": "R03/training/frames/20",
       "frames": 690,
       "names_sha256": "bba4a4ea835df79d92c28f14388d0118504a879f0c770a5feca2e2a57a4b8a8d",
+      "frames_content_sha256": "77cf2713ef0088a50cf9d92c920a1de636e9cefaf0d3149ea224327873a758ea",
       "first_frame": "000.jpg",
       "last_frame": "689.jpg",
       "sampled_image_sizes": [
@@ -3197,6 +3311,7 @@
       "relative_directory": "R03/training/frames/21",
       "frames": 713,
       "names_sha256": "945d0873e81a38f47f77e0a98e9a4018fd39023c41147934f0949330c0377ded",
+      "frames_content_sha256": "46bb21c1ab02b03bd1e752235232faeb941cd4f7db2314dcce8b8367c7e8dd2a",
       "first_frame": "000.jpg",
       "last_frame": "712.jpg",
       "sampled_image_sizes": [
@@ -3223,6 +3338,7 @@
       "relative_directory": "R03/training/frames/22",
       "frames": 703,
       "names_sha256": "70f4e85618e8e5bf89c03b209998a0b3ee25bc4ea80e59f027dd73ea15c213af",
+      "frames_content_sha256": "8fdb6196eb0792e050b04740fb830b7ba494d3f469d98ca5eee2c1a16ebb2377",
       "first_frame": "000.jpg",
       "last_frame": "702.jpg",
       "sampled_image_sizes": [
@@ -3249,6 +3365,7 @@
       "relative_directory": "R03/testing/frames/01",
       "frames": 720,
       "names_sha256": "009369f3bbfafca8d1894d6ecbbd657dba9eab0034b7fcb1281647d2d261987c",
+      "frames_content_sha256": "31a02037be1d46878fb373088154e8e3598332ef2648718ddc15e3f4f0e0deae",
       "first_frame": "000.jpg",
       "last_frame": "719.jpg",
       "sampled_image_sizes": [
@@ -3280,6 +3397,7 @@
       "relative_directory": "R03/testing/frames/02",
       "frames": 676,
       "names_sha256": "96d62251955ed68edb53e1176ff097fedf8f195e5764b163385d566f76d725eb",
+      "frames_content_sha256": "b67d3c1f5dd217607c04710217f3ecfecd5eda2e13d19c752ef259df22f18d3b",
       "first_frame": "000.jpg",
       "last_frame": "675.jpg",
       "sampled_image_sizes": [
@@ -3311,6 +3429,7 @@
       "relative_directory": "R03/testing/frames/03",
       "frames": 674,
       "names_sha256": "f450359ff702091e4a4333265fd820e8f899257276831aa5a5cfd51250ce786a",
+      "frames_content_sha256": "c84439e3efc3ce70770772f0583ce44a4cc973020408958ae2b26be3c934da54",
       "first_frame": "000.jpg",
       "last_frame": "673.jpg",
       "sampled_image_sizes": [
@@ -3342,6 +3461,7 @@
       "relative_directory": "R03/testing/frames/04",
       "frames": 683,
       "names_sha256": "2327d7cfd2ceb688d1829d52b675e4c35b19a081742a7fbd804772fd9b333900",
+      "frames_content_sha256": "4f95e809b6a58c7e990e0a0912627e30aa380e512d75a78e56ce61d54bcd06fd",
       "first_frame": "000.jpg",
       "last_frame": "682.jpg",
       "sampled_image_sizes": [
@@ -3373,6 +3493,7 @@
       "relative_directory": "R03/testing/frames/05",
       "frames": 574,
       "names_sha256": "7af52c6cb74d76ab222be6e311765c41d7caba47aae5d719015206da41b07958",
+      "frames_content_sha256": "e0f0d4f5a85e3a80514b1d63b9480113478834fec8b337581e14b249b9a7fbe8",
       "first_frame": "000.jpg",
       "last_frame": "573.jpg",
       "sampled_image_sizes": [
@@ -3407,6 +3528,7 @@
       "relative_directory": "R03/testing/frames/06",
       "frames": 582,
       "names_sha256": "9ae7bd348665dea00ecfeecb088c55290b72ad48cec6c4a6c7d9e74e09c478c8",
+      "frames_content_sha256": "bb1ebe93ca6c23412333b1908265ec46eb9884bba28066071538b14288a62895",
       "first_frame": "000.jpg",
       "last_frame": "581.jpg",
       "sampled_image_sizes": [
@@ -3440,6 +3562,7 @@
       "relative_directory": "R03/testing/frames/07",
       "frames": 686,
       "names_sha256": "658e3645b078c5a2db1628bceca56322a76862b8ccf6228d6b67504328ca9a83",
+      "frames_content_sha256": "c64596616f5d243a8990797fd26d31046f38529a26a03073557e8dfd4d953572",
       "first_frame": "000.jpg",
       "last_frame": "685.jpg",
       "sampled_image_sizes": [
@@ -3473,6 +3596,7 @@
       "relative_directory": "R03/testing/frames/08",
       "frames": 695,
       "names_sha256": "63664d48984021cec6955f8d20e400ce85bcf852717e868bcef825ea6fc0a5a8",
+      "frames_content_sha256": "019d92883252ff54e52036e2d272eb702a881d79300d17448c9d47e91c2d3285",
       "first_frame": "000.jpg",
       "last_frame": "694.jpg",
       "sampled_image_sizes": [
@@ -3507,6 +3631,7 @@
       "relative_directory": "R03/testing/frames/09",
       "frames": 712,
       "names_sha256": "98027b30e6230454c589cfdaf38473cb5a5c8ecc9d2e1d476273dbf2e3eb5afd",
+      "frames_content_sha256": "68b1dc6079a8ab7db5356bd7ff77d5e2df5698e6b28db5e1735519a4d81ea035",
       "first_frame": "000.jpg",
       "last_frame": "711.jpg",
       "sampled_image_sizes": [
@@ -3540,6 +3665,7 @@
       "relative_directory": "R03/testing/frames/10",
       "frames": 647,
       "names_sha256": "a0792f299bcb2abe8be53a800074ebeada04dcf4493d45a8b23d135f85774f60",
+      "frames_content_sha256": "b55e9f980ee0f41fc44b1158d5f25fb6a76d42fed252b0627ca05a6eff74561b",
       "first_frame": "000.jpg",
       "last_frame": "646.jpg",
       "sampled_image_sizes": [
@@ -3573,6 +3699,7 @@
       "relative_directory": "R03/testing/frames/11",
       "frames": 706,
       "names_sha256": "294f842b4291766e6b12d2d0ab029b124519050ff2feb12b74810f92dcf70119",
+      "frames_content_sha256": "70c52089f5341f1a8e43f951705d5469586af377160e9db9af7c8af1b50fb9f3",
       "first_frame": "000.jpg",
       "last_frame": "705.jpg",
       "sampled_image_sizes": [
@@ -3606,6 +3733,7 @@
       "relative_directory": "R03/testing/frames/12",
       "frames": 841,
       "names_sha256": "b7d2fffbeeead12ac92a84081c0b2317886922c343485d9c5ab316db5742e95e",
+      "frames_content_sha256": "e831b5ad1b9a667012d4ef130fe4a45afe21a3d652624759d7173a2a153eefa4",
       "first_frame": "000.jpg",
       "last_frame": "840.jpg",
       "sampled_image_sizes": [
@@ -3642,6 +3770,7 @@
       "relative_directory": "R03/testing/frames/13",
       "frames": 766,
       "names_sha256": "905ecdb5d03ec396227613456ca0f8bda2c234072a4f8e543a52950cd8c74197",
+      "frames_content_sha256": "6df87ebf11155dcd28a149406bc801f1370005781af17882412c4d8455d43942",
       "first_frame": "000.jpg",
       "last_frame": "765.jpg",
       "sampled_image_sizes": [
@@ -3676,6 +3805,7 @@
       "relative_directory": "R03/testing/frames/14",
       "frames": 908,
       "names_sha256": "0825b38833208f1d8c3ab2ef0572e9a273d360206d7997914f7d8626470a7304",
+      "frames_content_sha256": "db51dce2c0bcaceed43cdb6282d7147b40147050228a6eb61b9c39a54955785a",
       "first_frame": "000.jpg",
       "last_frame": "907.jpg",
       "sampled_image_sizes": [
@@ -3712,6 +3842,7 @@
       "relative_directory": "R03/testing/frames/15",
       "frames": 692,
       "names_sha256": "ac4b2b2a14342aa5721675ab8fb5ab57da8295060707ce02b142fb66445065c5",
+      "frames_content_sha256": "9d9842aaa6ccff3f9b56a970ac7584b15028658df163f3e32267572b87496ce3",
       "first_frame": "000.jpg",
       "last_frame": "691.jpg",
       "sampled_image_sizes": [
@@ -3745,6 +3876,7 @@
       "relative_directory": "R03/testing/frames/16",
       "frames": 730,
       "names_sha256": "f21be7ee6608796140499f820c3928cda523d4d8cdcd879dabb684fcf1b826cb",
+      "frames_content_sha256": "e45d3308a24cc9dad932257fd5e04a2824130ca100909993dcbcd55ef5641ac5",
       "first_frame": "000.jpg",
       "last_frame": "729.jpg",
       "sampled_image_sizes": [
@@ -3776,6 +3908,7 @@
       "relative_directory": "R03/testing/frames/17",
       "frames": 713,
       "names_sha256": "945d0873e81a38f47f77e0a98e9a4018fd39023c41147934f0949330c0377ded",
+      "frames_content_sha256": "e7eee2a90470c95d21cb223600c48562754235ae58a768f023ff8baaff6b7d54",
       "first_frame": "000.jpg",
       "last_frame": "712.jpg",
       "sampled_image_sizes": [
@@ -3807,6 +3940,7 @@
       "relative_directory": "R04/training/frames/01",
       "frames": 309,
       "names_sha256": "7e728540f856c9be0db4bbecc89c5a125aa1d405fccd9a018ccb0af1a1ef081a",
+      "frames_content_sha256": "c7de5aeadb4ad065db24caf7320a045959c3e5a31158cc911e56d271cb4fb319",
       "first_frame": "000.jpg",
       "last_frame": "308.jpg",
       "sampled_image_sizes": [
@@ -3833,6 +3967,7 @@
       "relative_directory": "R04/training/frames/02",
       "frames": 409,
       "names_sha256": "e7a022837f23d45ba903d60a88f2af50096107d3b8a674a1c23463f5442a9fbd",
+      "frames_content_sha256": "9058f7ab9716979e130089fc68382df960704e18fc0be4a4a9ec6d3e5ca1074d",
       "first_frame": "000.jpg",
       "last_frame": "408.jpg",
       "sampled_image_sizes": [
@@ -3859,6 +3994,7 @@
       "relative_directory": "R04/training/frames/03",
       "frames": 461,
       "names_sha256": "3cb2f42cb5a6bf4ba2dc4e3ce168a02b03620e2731a6dac58cff4fb325dac91a",
+      "frames_content_sha256": "489d07d3319217300fce25390db92e64dd694a2b541e818074e97ccbf40e7e60",
       "first_frame": "000.jpg",
       "last_frame": "460.jpg",
       "sampled_image_sizes": [
@@ -3885,6 +4021,7 @@
       "relative_directory": "R04/training/frames/04",
       "frames": 408,
       "names_sha256": "df7b719646568b9e86a7a71f119a839e7d76fc67ddd3841b33917fe248795c48",
+      "frames_content_sha256": "fe2af66d8bc709c0de604a47ae17b6717ba114d672cdf7a8b1eb265c496f32f6",
       "first_frame": "000.jpg",
       "last_frame": "407.jpg",
       "sampled_image_sizes": [
@@ -3911,6 +4048,7 @@
       "relative_directory": "R04/training/frames/05",
       "frames": 437,
       "names_sha256": "8bb4d0e34cfbb83b092c1fc0bcd60aecbdda156c1fd615e49f79004720d30a85",
+      "frames_content_sha256": "2ec56dace83533dbeea90990be52c9f1af6cd3865f6c2aaacc3aadb51514ae02",
       "first_frame": "000.jpg",
       "last_frame": "436.jpg",
       "sampled_image_sizes": [
@@ -3937,6 +4075,7 @@
       "relative_directory": "R04/training/frames/06",
       "frames": 448,
       "names_sha256": "0492203bc15fa4325a3aef0dd7334715b2bbb5faf3363440e8081be04c209233",
+      "frames_content_sha256": "e0ccdb12f5108151a2de688c260b8d437bd124bf8403f0f679a362ec3587386f",
       "first_frame": "000.jpg",
       "last_frame": "447.jpg",
       "sampled_image_sizes": [
@@ -3963,6 +4102,7 @@
       "relative_directory": "R04/training/frames/07",
       "frames": 385,
       "names_sha256": "7c1fde383be2ca00d10348e11034fec7e569024fdd5d00d0a23b527e20f1ad43",
+      "frames_content_sha256": "25d9c35e2fd63f5ce1bc7403b666f2a71ac981ecad44cd66a98cad03f7722e42",
       "first_frame": "000.jpg",
       "last_frame": "384.jpg",
       "sampled_image_sizes": [
@@ -3989,6 +4129,7 @@
       "relative_directory": "R04/training/frames/08",
       "frames": 413,
       "names_sha256": "e48d69e60f06da244894b960d5aca5352248edee1fa9ffbe1001bd972560c39d",
+      "frames_content_sha256": "9092706e61365ecd6a6dfa3b48310b3ae65d5677138979e892acf99a6c7ea48e",
       "first_frame": "000.jpg",
       "last_frame": "412.jpg",
       "sampled_image_sizes": [
@@ -4015,6 +4156,7 @@
       "relative_directory": "R04/training/frames/09",
       "frames": 417,
       "names_sha256": "9194107dde90b183f9900674e54b4f8dd5a00779d116b353f8c915a4fe1cb99f",
+      "frames_content_sha256": "90d62fb70268eea6335a3906f63d29f1f546f9b35fc744cc50b738f2c6259b3c",
       "first_frame": "000.jpg",
       "last_frame": "416.jpg",
       "sampled_image_sizes": [
@@ -4041,6 +4183,7 @@
       "relative_directory": "R04/training/frames/10",
       "frames": 376,
       "names_sha256": "cc76f348ea0d59f96951a7e43a47b93c56a5265860412cc0d3518a921ef8bd4b",
+      "frames_content_sha256": "fb613e05afb03bc5b503b025e903b10df2183d28d43f3a1b07b2c046e5c28b7e",
       "first_frame": "000.jpg",
       "last_frame": "375.jpg",
       "sampled_image_sizes": [
@@ -4067,6 +4210,7 @@
       "relative_directory": "R04/training/frames/11",
       "frames": 340,
       "names_sha256": "4a00cfe44942e2fbbe3f78d48b913028093677442767d705927608f314ea6251",
+      "frames_content_sha256": "d042977541a061ff0fb414c3b2f32251808871c10b184c92a418aa55df6ba105",
       "first_frame": "000.jpg",
       "last_frame": "339.jpg",
       "sampled_image_sizes": [
@@ -4093,6 +4237,7 @@
       "relative_directory": "R04/training/frames/12",
       "frames": 382,
       "names_sha256": "752420c2875e10adfba2c5cc074b6554c899738feb6ef6dc4b5e5ffb424c006e",
+      "frames_content_sha256": "fcc9faef4e30c9cebc91a9c5f1d69b0631c5c59318edeafe9ed19257e9b845f6",
       "first_frame": "000.jpg",
       "last_frame": "381.jpg",
       "sampled_image_sizes": [
@@ -4119,6 +4264,7 @@
       "relative_directory": "R04/training/frames/13",
       "frames": 382,
       "names_sha256": "752420c2875e10adfba2c5cc074b6554c899738feb6ef6dc4b5e5ffb424c006e",
+      "frames_content_sha256": "b79c6ef53f38258b321a3666464d72c710c0dfefecb5711fa166de32eebcda45",
       "first_frame": "000.jpg",
       "last_frame": "381.jpg",
       "sampled_image_sizes": [
@@ -4145,6 +4291,7 @@
       "relative_directory": "R04/training/frames/14",
       "frames": 323,
       "names_sha256": "3f9ea1fa4a7e9fecf106afa4d34e05678ec47fddcc8be7e9256f4c6f5adc9116",
+      "frames_content_sha256": "8b356df1076f98db99f41de5e8fb974e0606bccd622095c1eba71620f427fd90",
       "first_frame": "000.jpg",
       "last_frame": "322.jpg",
       "sampled_image_sizes": [
@@ -4171,6 +4318,7 @@
       "relative_directory": "R04/training/frames/15",
       "frames": 340,
       "names_sha256": "4a00cfe44942e2fbbe3f78d48b913028093677442767d705927608f314ea6251",
+      "frames_content_sha256": "e7e46e363649f2479f53c1e973405fef8f72cd4de8a6b5010cd4a0b297fea602",
       "first_frame": "000.jpg",
       "last_frame": "339.jpg",
       "sampled_image_sizes": [
@@ -4197,6 +4345,7 @@
       "relative_directory": "R04/training/frames/16",
       "frames": 373,
       "names_sha256": "a2187ef9f5e23dd1b100bb3f7f52aad657950cf52370f80c0018cc3d69ac8aa5",
+      "frames_content_sha256": "e3f3efe15c0f3fc0f2bdb16ddac50daa02ab25e72f76ed67bcd198f526d370c8",
       "first_frame": "000.jpg",
       "last_frame": "372.jpg",
       "sampled_image_sizes": [
@@ -4223,6 +4372,7 @@
       "relative_directory": "R04/training/frames/17",
       "frames": 372,
       "names_sha256": "806aa500499e68a113b0b1fcb2b6840cb0e3b8edd8e22f8e5f5f388e95d1c6bd",
+      "frames_content_sha256": "7da57769d3cfc319e494421a391d9e27017401bc02e07acf2c77db52e249ee5f",
       "first_frame": "000.jpg",
       "last_frame": "371.jpg",
       "sampled_image_sizes": [
@@ -4249,6 +4399,7 @@
       "relative_directory": "R04/training/frames/18",
       "frames": 412,
       "names_sha256": "c29fdab21a723d439ad4ee38081504b730d87f99c88944164eec87488632c276",
+      "frames_content_sha256": "167551892885876aff2ecc3378375c7ea65639d85e71b8c3f56b37298e7c21ec",
       "first_frame": "000.jpg",
       "last_frame": "411.jpg",
       "sampled_image_sizes": [
@@ -4275,6 +4426,7 @@
       "relative_directory": "R04/training/frames/19",
       "frames": 396,
       "names_sha256": "51372efe424b94f0857068bdbc3dc881e3c11643b0a150d4aaa3a6a7772b28e2",
+      "frames_content_sha256": "c4b862a79b9a954b9c8da724009516df94649dde28abce2d15783f55198d2930",
       "first_frame": "000.jpg",
       "last_frame": "395.jpg",
       "sampled_image_sizes": [
@@ -4301,6 +4453,7 @@
       "relative_directory": "R04/training/frames/20",
       "frames": 404,
       "names_sha256": "d968016a9753659d66459ff8a044ec9199bf337a4a0dcfbb13f27e77127bdb24",
+      "frames_content_sha256": "7f63abb0fdca9dbb3a6c467b3cc128572deca6c022727eef5974f0d3643f6ff3",
       "first_frame": "000.jpg",
       "last_frame": "403.jpg",
       "sampled_image_sizes": [
@@ -4327,6 +4480,7 @@
       "relative_directory": "R04/training/frames/21",
       "frames": 417,
       "names_sha256": "9194107dde90b183f9900674e54b4f8dd5a00779d116b353f8c915a4fe1cb99f",
+      "frames_content_sha256": "64a559af9685df7e47503e5ca6f7808228702dd59edb404a18d9515edfea515e",
       "first_frame": "000.jpg",
       "last_frame": "416.jpg",
       "sampled_image_sizes": [
@@ -4353,6 +4507,7 @@
       "relative_directory": "R04/training/frames/22",
       "frames": 380,
       "names_sha256": "058b689da6d030e5d45915bf01414e85200d967566e96124dda79dc24cb404b0",
+      "frames_content_sha256": "29e20de7fd777e778308fa638a37585c6e82959a9e13350c949ddf897b635bd6",
       "first_frame": "000.jpg",
       "last_frame": "379.jpg",
       "sampled_image_sizes": [
@@ -4379,6 +4534,7 @@
       "relative_directory": "R04/training/frames/23",
       "frames": 377,
       "names_sha256": "be83a15e0e4b9367674eb3829b48a6d6e21884cf0bbdff68fb3433480b0d6ccb",
+      "frames_content_sha256": "d405f415228e373d59e908c3143a9e3d9f4341f3b5b0aa74d556d8dd7ca24caa",
       "first_frame": "000.jpg",
       "last_frame": "376.jpg",
       "sampled_image_sizes": [
@@ -4405,6 +4561,7 @@
       "relative_directory": "R04/training/frames/24",
       "frames": 368,
       "names_sha256": "13d6022b5e246089a3f7043a7346d89f9fc0fd730a35a6e7f7458709f5a54d8a",
+      "frames_content_sha256": "798b9acbe2ff072d5b09206a540146e7e4e1456e6be9bc2820ceba9c95781189",
       "first_frame": "000.jpg",
       "last_frame": "367.jpg",
       "sampled_image_sizes": [
@@ -4431,6 +4588,7 @@
       "relative_directory": "R04/training/frames/25",
       "frames": 403,
       "names_sha256": "b3697ef875560b9571b98dbff4ae42239d4602eeb0d34ddfeebdced33e870bac",
+      "frames_content_sha256": "c1978956773dd7096d6e6149a1da99cde060fb17f90e1ac57b2269a5df8efd55",
       "first_frame": "000.jpg",
       "last_frame": "402.jpg",
       "sampled_image_sizes": [
@@ -4457,6 +4615,7 @@
       "relative_directory": "R04/testing/frames/01",
       "frames": 411,
       "names_sha256": "dde1750d718b8d5da7252abee6c6cbc775cd848a781816769a84c3e88d4c8e24",
+      "frames_content_sha256": "b353c76fa2b15fc2a973276c31dc50f9686953f885da7a22743d1ce9621dedb6",
       "first_frame": "000.jpg",
       "last_frame": "410.jpg",
       "sampled_image_sizes": [
@@ -4491,6 +4650,7 @@
       "relative_directory": "R04/testing/frames/02",
       "frames": 398,
       "names_sha256": "ab54cdbc7877bc5f3268f6101ca52bf1383fa61f4e5498de34fc37aed54b86ad",
+      "frames_content_sha256": "c4588411bc048bf6a4c40ec31bb3f3b87f31e30791984d849c06f80fc6524691",
       "first_frame": "000.jpg",
       "last_frame": "397.jpg",
       "sampled_image_sizes": [
@@ -4525,6 +4685,7 @@
       "relative_directory": "R04/testing/frames/03",
       "frames": 381,
       "names_sha256": "3e04e54de0e862defd25c663bcb90410b9e58ec49dc2edbb810a9b09664a1b65",
+      "frames_content_sha256": "11f40f7e45a4b6f23d35badab59d40d4b5c5b1b633e3c49781aeac4abead3c7c",
       "first_frame": "000.jpg",
       "last_frame": "380.jpg",
       "sampled_image_sizes": [
@@ -4558,6 +4719,7 @@
       "relative_directory": "R04/testing/frames/04",
       "frames": 379,
       "names_sha256": "f035539c29b0e1bea0747c14f04324bc53164137ffcf587423a90d381196a334",
+      "frames_content_sha256": "3600c03f85a589be3752a2cb1b6be8bb42749af39aca92f959129f4fcfddf3e9",
       "first_frame": "000.jpg",
       "last_frame": "378.jpg",
       "sampled_image_sizes": [
@@ -4591,6 +4753,7 @@
       "relative_directory": "R04/testing/frames/05",
       "frames": 465,
       "names_sha256": "c57ae1cef4d33ac41eec705bc0c68e34c9831dd28f2b895cbb5a332ae6061385",
+      "frames_content_sha256": "44893722b0be9662cc8ec9480c92f68f1c9c454fbc7506d1a844dc958529aeca",
       "first_frame": "000.jpg",
       "last_frame": "464.jpg",
       "sampled_image_sizes": [
@@ -4624,6 +4787,7 @@
       "relative_directory": "R04/testing/frames/06",
       "frames": 505,
       "names_sha256": "e8d7a745ad3a002dfbeb359bdcc0696281b2253eacae90076ab8e14d83028e4e",
+      "frames_content_sha256": "da8722164d36910da6db262b7e00da926afc33986728f24f78999d2004561f89",
       "first_frame": "000.jpg",
       "last_frame": "504.jpg",
       "sampled_image_sizes": [
@@ -4657,6 +4821,7 @@
       "relative_directory": "R04/testing/frames/07",
       "frames": 550,
       "names_sha256": "6e8b6eb09b7bcd67360d709e8bf3c778597ead307b48d3b00e72c19ffdce7d25",
+      "frames_content_sha256": "92fb6758ff5ceb5efec3b431e1cebe4607a39ab369fd1317c9242f1f5c75591c",
       "first_frame": "000.jpg",
       "last_frame": "549.jpg",
       "sampled_image_sizes": [
@@ -4693,6 +4858,7 @@
       "relative_directory": "R04/testing/frames/08",
       "frames": 653,
       "names_sha256": "d504cc4af3ad170b711c06be75475e66c9731cf6d8aeb6c73b98f4e94b35c009",
+      "frames_content_sha256": "1d1562f38b9851eeffe45d66cce238baf062a950be4fd9331a15ac2ba74358a0",
       "first_frame": "000.jpg",
       "last_frame": "652.jpg",
       "sampled_image_sizes": [
@@ -4731,6 +4897,7 @@
       "relative_directory": "R04/testing/frames/09",
       "frames": 334,
       "names_sha256": "2c4f3bdc5f4320a6d5379fffda8d8a7ecef53898e33817b270be2634a8014509",
+      "frames_content_sha256": "0d9a45b49dc34b9e2236b0cadc8290802915c7d80b535cbd505957fbc925421c",
       "first_frame": "000.jpg",
       "last_frame": "333.jpg",
       "sampled_image_sizes": [
@@ -4764,6 +4931,7 @@
       "relative_directory": "R04/testing/frames/10",
       "frames": 223,
       "names_sha256": "745369f35e0ec754d171a0bb140917d53bab352c171b6f7e7596e9f684eeca1a",
+      "frames_content_sha256": "bc00c1529606044a2941fa8625ffaddafd2f399c1f1702cc9418f17c160cc684",
       "first_frame": "000.jpg",
       "last_frame": "222.jpg",
       "sampled_image_sizes": [
@@ -4797,6 +4965,7 @@
       "relative_directory": "R04/testing/frames/11",
       "frames": 424,
       "names_sha256": "b4dfdd6c6b1d8cd98acf8c995935f051cb223bca881598002f645860eed1205a",
+      "frames_content_sha256": "318a4c523fe6dc272bb7e50c7c3cf8690f42e44c84ed7b91ed6b8cc3ed1b50ba",
       "first_frame": "000.jpg",
       "last_frame": "423.jpg",
       "sampled_image_sizes": [
@@ -4833,6 +5002,7 @@
       "relative_directory": "R04/testing/frames/12",
       "frames": 686,
       "names_sha256": "658e3645b078c5a2db1628bceca56322a76862b8ccf6228d6b67504328ca9a83",
+      "frames_content_sha256": "f918b88490fba7984c6ce6092adbfdb2f96290743bc203d8db405f8327cc56af",
       "first_frame": "000.jpg",
       "last_frame": "685.jpg",
       "sampled_image_sizes": [
@@ -4871,6 +5041,7 @@
       "relative_directory": "R04/testing/frames/13",
       "frames": 464,
       "names_sha256": "7c52f1a4086a8d6d54facfc38cc665225ba7a9322cd5f3f6589aef99457347ce",
+      "frames_content_sha256": "ab838d8b67cda3338cb77cb9335a00444b44c7fbcb26c2703615744ffb53b4af",
       "first_frame": "000.jpg",
       "last_frame": "463.jpg",
       "sampled_image_sizes": [
@@ -4904,6 +5075,7 @@
       "relative_directory": "R04/testing/frames/14",
       "frames": 385,
       "names_sha256": "7c1fde383be2ca00d10348e11034fec7e569024fdd5d00d0a23b527e20f1ad43",
+      "frames_content_sha256": "0baad7dbd4149e254b282452e9379f21c5c855a1c827ec49533a08ddeb292256",
       "first_frame": "000.jpg",
       "last_frame": "384.jpg",
       "sampled_image_sizes": [
@@ -4937,6 +5109,7 @@
       "relative_directory": "R04/testing/frames/15",
       "frames": 376,
       "names_sha256": "cc76f348ea0d59f96951a7e43a47b93c56a5265860412cc0d3518a921ef8bd4b",
+      "frames_content_sha256": "329968d75e22871e510aae34c35fb72dc5e4c6122b7d84db0497cb8da29a746f",
       "first_frame": "000.jpg",
       "last_frame": "375.jpg",
       "sampled_image_sizes": [
@@ -4970,6 +5143,7 @@
       "relative_directory": "R04/testing/frames/16",
       "frames": 418,
       "names_sha256": "7062e0f2414517586848bd52abb6ff33f2479d779d06d2ab348abad1618c732d",
+      "frames_content_sha256": "8427cd6a0b49c0da11ffb47e5228b2c4a43414f6e999c0f4df480a7d3bf43732",
       "first_frame": "000.jpg",
       "last_frame": "417.jpg",
       "sampled_image_sizes": [
@@ -5003,6 +5177,7 @@
       "relative_directory": "R04/testing/frames/17",
       "frames": 582,
       "names_sha256": "9ae7bd348665dea00ecfeecb088c55290b72ad48cec6c4a6c7d9e74e09c478c8",
+      "frames_content_sha256": "5f4662ea6ce3d3bc252014dc740d2d697b72503a8f92349b7ecac397524f076b",
       "first_frame": "000.jpg",
       "last_frame": "581.jpg",
       "sampled_image_sizes": [
@@ -5039,6 +5214,7 @@
       "relative_directory": "R04/testing/frames/18",
       "frames": 243,
       "names_sha256": "1b898b497e183ab99c2bd670dba89c2ee044ee740f43a144a8ec010e8766cdf5",
+      "frames_content_sha256": "ae56416297b68e906a6276edecf858082b79c3d30073d9e2a498bfac404b021e",
       "first_frame": "000.jpg",
       "last_frame": "242.jpg",
       "sampled_image_sizes": [
@@ -5073,6 +5249,7 @@
       "relative_directory": "R04/testing/frames/19",
       "frames": 277,
       "names_sha256": "1d75124dc23a7ad6973bb5929b240c649c705da038bfb5cb021b637c9004977c",
+      "frames_content_sha256": "507776ffb1fa1dd0a883b1f7852d699c6ffd3c8ffac4d4c093aaccc4f3e6ef1e",
       "first_frame": "000.jpg",
       "last_frame": "276.jpg",
       "sampled_image_sizes": [

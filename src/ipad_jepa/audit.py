@@ -40,12 +40,16 @@ def inspect_frames(folder: Path) -> dict:
     if ids != list(range(len(ids))):
         raise ValueError(f"Frames must be unique and contiguous from zero: {folder}")
     name_hash = hashlib.sha256("\n".join(p.name for p in frames).encode()).hexdigest()
+    content_hash = hashlib.sha256()
+    for path in frames:
+        content_hash.update(path.name.encode()+b"\0")
+        content_hash.update(bytes.fromhex(digest(path)))
     sizes = []
     for i in sorted({0, len(frames)//2, len(frames)-1}):
         with Image.open(frames[i]) as image:
             sizes.append(list(image.size))
             image.verify()
-    return {"frames": len(frames), "names_sha256": name_hash,
+    return {"frames": len(frames), "names_sha256": name_hash, "frames_content_sha256": content_hash.hexdigest(),
             "first_frame": frames[0].name, "last_frame": frames[-1].name,
             "sampled_image_sizes": sizes, "image_check": "first_middle_last_only"}
 
