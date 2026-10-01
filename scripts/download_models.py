@@ -8,6 +8,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
 MODELS = {
+    "vjepa21-b": ("https://dl.fbaipublicfiles.com/vjepa2/vjepa2_1_vitb_dist_vitG_384.pt", "vjepa2_1_vitb_dist_vitG_384.pt"),
     "vjepa21-l": ("https://dl.fbaipublicfiles.com/vjepa2/vjepa2_1_vitl_dist_vitG_384.pt", "vjepa2_1_vitl_dist_vitG_384.pt"),
     "dinov3-l": ("https://dl.fbaipublicfiles.com/dinov3/dinov3_vitl16/dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pth", "dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pth"),
 }

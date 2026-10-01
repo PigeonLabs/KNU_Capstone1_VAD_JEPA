@@ -46,3 +46,7 @@ python scripts/verify_runtime_parity.py \
 DINO full-clip BF16과 과거 특징 재사용 BF16의 수치 일치 게이트는 실패했다. FP32 특징 비교는 통과했지만, 실제 점수·알람과 실행 시간을 확인해야 한다. 재사용 구현의 숫자를 주 BF16 조건의 성능으로 대체하지 않으며, precision과 대응하는 full 계산 조건을 명시한다. 세부 근거는 [Stage 03](STAGE03.md)에 있다.
 
 진단 17개 정상 주기의 stall/reverse, occlusion/local colour, 혼합 변환과 4종 evidence confusion matrix·macro-F1, clip/history/bin/budget/k/표현/teacher weight 제거 실험 및 작은 온라인 백본도 [고정 실험 행렬](../configs/experiment_matrix.yaml)에 따라 수행해야 한다. 완료된 실측 근거가 없으므로 Stage 05 완료 태그를 생성하지 않는다.
+
+## 작은 온라인 백본 준비
+
+V-JEPA 2.1 ViT-B의 가중치를 고정된 공식 README 경로에서 취득했다. [다운로드 출처·크기·SHA256](../results/setup/vjepa21-b.json)을 공개하며, 1.66 GB 모델 파일은 로컬에만 보관한다. `python scripts/download_models.py --model vjepa21-b`로 재현할 수 있다. 엄격한 모델 로드·768차원 특징 처리·이상탐지 평가·실시간 측정은 아직 수행하지 않았다. 이 준비 기록을 작은 백본 실험 결과로 해석하지 않는다.
