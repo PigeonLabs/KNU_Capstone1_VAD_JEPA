@@ -45,7 +45,9 @@ def main():
             axis.set(xticks=x,xticklabels=devices+['Macro4'],ylim=(0,100),
                      ylabel='AUROC (%)' if metric=='auroc' else 'AP (%)',title=names.get(model,model))
             axis.spines[['top','right']].set_visible(False)
-            if row_index==0 and column==0: axis.legend(frameon=False,fontsize=9,loc='upper left')
+            if row_index==0 and column==0:
+                axis.legend(frameon=True,facecolor='white',edgecolor='white',framealpha=1,
+                            fontsize=9,loc='upper right')
     fig.suptitle(f'Frozen encoders / {args.mode} / mean of 3 seeds; 95% video-bootstrap CI',fontsize=13)
     fig.text(.015,-.045,'Macro4 gives each device equal weight. Videos resampled independently within devices; conditions paired.\nSource: device_summary.json and macro_summary.json. Scores/frame counts are never pooled across devices.',fontsize=9)
     args.out.mkdir(parents=True,exist_ok=True)

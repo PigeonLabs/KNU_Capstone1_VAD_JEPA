@@ -1,0 +1,117 @@
+{
+  "reference_code_commit": "aa15d5d9e78b1aef36a4ad485d3b2c01d47fd4a8",
+  "reference_code_sha256": "a35c4911ec7bbd3c80d06c76795c91caca37bffca2c3047917a4e95d623411e7",
+  "reference_device_variant_groups": 48,
+  "reference_sources": {
+    "reference_device_summary.json": "4f560a26e7d612786163c9b4f90effb277af3242ced6dc820935394650041237",
+    "reference_macro_summary.json": "0a4717614d1a1700c84bc38a68675df515146570c3e50a7bc3555733fa5994eb"
+  },
+  "real_draw_check": {
+    "condition": "DINOv3 R02 online P3, 3 seeds",
+    "frames_per_seed": 9210,
+    "paired_draws": 100,
+    "maximum_absolute_auroc_ap_difference": 2.220446049250313e-16,
+    "absolute_tolerance": 1e-12,
+    "status": "passed",
+    "sources": {
+      "seed0/metrics.json": "24c707680d06ca3925aed6483733eb5fa39354b580b4b2b88c29fe80f8dffc67",
+      "seed1/metrics.json": "f0b752c80034b55d44d393de1ac10d1503ab0b65ad9cb2ba502044def358d415",
+      "seed2/metrics.json": "a4cc13d2c98677c37a5f99d3e3d88f1295d8696a6ebfae12ac87be648d3a8bb3",
+      "seed0/P3/01.csv": "4a11dcb20331fd8c8dff0ad1832fee99c148f3afaef2b782623075ef22bde77b",
+      "seed0/P3/02.csv": "91035b777f27d74ce1ce843a3be6d9e698a69150af6a7daf9a6e0a63c37ccc78",
+      "seed0/P3/03.csv": "fd18666a08aa7da8d7fe417f647cfce6fb4d97d468b2930760aa3693f8cbdab4",
+      "seed0/P3/04.csv": "514edc2299b531171499eef2d20e2a7482aa30b39024fe0c30c4b42e05604065",
+      "seed0/P3/05.csv": "c87b68af029c66da98d33ff203b1d6e40c830fabc30b1a8fecaa8502f903a1bc",
+      "seed0/P3/06.csv": "8a0a5b2bac5c1accdb72f86247ff8323dfbba874c1c9760600b0edc832daa3c0",
+      "seed0/P3/07.csv": "6b368ba9c3bca570d9b85185ab3a9c08ba376ae937156c57672e81b66a617005",
+      "seed0/P3/08.csv": "3e004c5ef0b607eb83a1432dc458b22e0ffcff14663fbd32ce5eb087bb120430",
+      "seed0/P3/09.csv": "1baf61927934933f2e4381ab7e708875f8550d6e178c835ac6a7ee76e47cfd04",
+      "seed0/P3/10.csv": "7890a2e1737fdd8300fc1df3a32cd686fa845e484bdcddd4397bec8b0f6a23ba",
+      "seed0/P3/11.csv": "8c1417b09dc765a0c45800f652bae9e2931c024fc7d12f7e419d7a25a1a4bdee",
+      "seed0/P3/12.csv": "2e50afac59c5eb3ff57e38e6b553ef17731b46a06e347c5bd4cc8b7da13b9bbc",
+      "seed0/P3/13.csv": "cb930f5709cb0bd1ce16b11f97727936f4df4ae87c413861a6f70a40e97291de",
+      "seed0/P3/14.csv": "8c48edd1963b0b724d9ebd2c817f5ca438dcf39d6b9e1b2f43328291c40d0357",
+      "seed0/P3/15.csv": "89f258e81f9e394af5a333a8039884eff87244efb41ed923c6a2442560d80248",
+      "seed1/P3/01.csv": "2b487fe69b24b962d2cf04f273298a9e82c3642d4e8f1309b10641fb9d6d57a8",
+      "seed1/P3/02.csv": "263ee938a427be8ea54162c6aee273b9b0b2b32b9ec5a916353e4061dafeece5",
+      "seed1/P3/03.csv": "bc10cd4e80c09b67cae3c1998b3d81d9a58080f7585fe158a52bb648c80991d2",
+      "seed1/P3/04.csv": "9f51a19c4e8009c1be5285e2861958f66a3be417de36b75f7a665dc852e8abe5",
+      "seed1/P3/05.csv": "139caceeae0db80fbbfda7bb816272cb6589c3cefe3986699f4166fc7efe90ce",
+      "seed1/P3/06.csv": "fa762fbc2d00b46dd187a1233197c7ca7de739fbc9ce50b1db116860246ff30d",
+      "seed1/P3/07.csv": "d527270a6f0a3f2aaf9079c8eef5acaf949ee43b5a7b43dc17ef6ba5f113413a",
+      "seed1/P3/08.csv": "2f44cf63863eb8f80a9dd1b390ff2f21fbf4b8f20e248f9153b132da1bbd8b3d",
+      "seed1/P3/09.csv": "952e328012c1063ba62b53bc6378bb70d8a09898e98a3f25bed33b038eaeba25",
+      "seed1/P3/10.csv": "7c5c447fc40f7b8585d93fdfd77ae4668283089b2e481d68c9e9e805dbffe629",
+      "seed1/P3/11.csv": "bd49fa7cc424dc8c5d1e86d5b4553ef52a3dc0e3c7d05ba1f92270375b8dd965",
+      "seed1/P3/12.csv": "130f8f0b950ab164b73c1a07ea7bd5feb02f67734092b8bf32051ea7680d6922",
+      "seed1/P3/13.csv": "f42596de083ca384e14da3bb8095b2808f6cc4eb2d134263ae4b6c851abe60c2",
+      "seed1/P3/14.csv": "5128ec5fb97a0fc28694b4c0999879a638bffe51b219e12200c1f9dd113c0f71",
+      "seed1/P3/15.csv": "899dada073599838296181ebbd4413a4808b37480b1d4e0fb16eb9593e96bd5f",
+      "seed2/P3/01.csv": "5d94132b85e8e092f66cb951880f63317fa9853f43425c1d54745b8aaef8e02a",
+      "seed2/P3/02.csv": "c6a08491f5a1ab9c0657b1ba02a79b50dcf8c7f728371e0b6fe4adbcead3284d",
+      "seed2/P3/03.csv": "2e1f9527cf97dfd772022a5970aab09e23b770b637046be17670d5a9dacb1af1",
+      "seed2/P3/04.csv": "0c027aa022fbf5529daceee9e1bdc9e4398d1202a0e24f01db27c021084d4263",
+      "seed2/P3/05.csv": "d0a3a089af2a11b9bf529b35595f0db4f9e911106d6609c3d5d645747f3093f2",
+      "seed2/P3/06.csv": "dc360fccbca8bb5ba277221c6873d6a615027a7d43670b8a92f445ca03bad2e4",
+      "seed2/P3/07.csv": "617cc550f1ec60fc96303ad876e76059ad4e3c8bc0d789b3f6b17822f47c27bb",
+      "seed2/P3/08.csv": "2f46495e7d0017f488645c74047df41cdd85e40ba43588f6a3b66b2825bccb20",
+      "seed2/P3/09.csv": "a124e75d55402a30d35dfe1bb348a8b34708b8110f66d842299c4241c77518ef",
+      "seed2/P3/10.csv": "4fc01243a2dc8fd67185410a7b5b61e9e1cabfaa473ec0896563f1f1413223c6",
+      "seed2/P3/11.csv": "35ace77c0764e3537e289d72c290ca8dc59edc36b8d3da2650e9042150b1dc0d",
+      "seed2/P3/12.csv": "4deb2b5ed5f5ccd3442663f25d4081e7bf505b5f972b97b3a0c2583140c1f35d",
+      "seed2/P3/13.csv": "833c8490cbf393ecaa39adf41aa0d1ab5f514d55e0404d4f0983f72cb8c963f9",
+      "seed2/P3/14.csv": "2ee87165b473d786d387078dd99d2726e372405a173f70c9beef07e4560ce661",
+      "seed2/P3/15.csv": "00409ea093b9c3059cf1fca702ffc3fa78dea8ee1ed21b14136a1cbb2db6633a"
+    },
+    "relative_root": "dinov3-l/online/R02"
+  },
+  "scope": "Optimization preserves whole-video draws, ties, 3-seed metric averaging, independent device streams and paired comparisons. It does not change the sampling or anomaly scores.",
+  "status": "reference_subset_summary_comparison_passed",
+  "optimized_metric_sha256": "59e3449cb88d1b75ad2e52651f3fa7985dfcce99fabae48c9e6b3fe64a5c93be",
+  "native_single_seed_summary_check": {
+    "status": "passed",
+    "reference_commit": "aa15d5d9e78b1aef36a4ad485d3b2c01d47fd4a8",
+    "reference_path": "results/stage01/controlled/IPAD-native-repaired/offline/R01/seed0/single_seed_summary.json",
+    "reference_sha256": "70578eda25c142c923726f4b0e1b31e3e9138d376ba39ebac58320b08fc5c417",
+    "current_sha256": "42be5b5752347edf9b638e1dfacb57868674e337e5aff2e924acbde63b61bd96",
+    "float_values_compared": 18,
+    "maximum_absolute_difference": 2.220446049250313e-16,
+    "absolute_tolerance": 1e-12,
+    "scope": "R01 native controlled seed0: aggregate B0/B1 means, 1000 paired whole-video percentile CIs and paired differences; identity and source hashes unchanged. No 3-seed uncertainty or full per-draw equivalence claim."
+  },
+  "summary_comparison": {
+    "absolute_tolerance": 1e-12,
+    "float_values_compared": 684,
+    "maximum_absolute_difference": 2.220446049250313e-16,
+    "inventories": {
+      "device_summary.json/results": {
+        "reference_rows_compared": 48,
+        "current_rows": 52,
+        "additional_rows": 4
+      },
+      "device_summary.json/paired_deltas": {
+        "reference_rows_compared": 52,
+        "current_rows": 57,
+        "additional_rows": 5
+      },
+      "macro_summary.json/results": {
+        "reference_rows_compared": 8,
+        "current_rows": 8,
+        "additional_rows": 0
+      },
+      "macro_summary.json/paired_deltas": {
+        "reference_rows_compared": 6,
+        "current_rows": 6,
+        "additional_rows": 0
+      }
+    },
+    "scope": "All saved reference rows, means, percentile CIs, paired differences, seed/video/frame counts and rejected-draw counts. Additional completed conditions may be present; their old outputs are unavailable."
+  },
+  "optimized_sources": {
+    "device_summary.json": "60f03581adec0afb4d5cdf995795f638d1a95b22503fc2dbe3b4edab7b8be204",
+    "macro_summary.json": "96ad067feb0793515d4f1d90558bce2f847ad369967335f11f66c211193b9c15",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "src/ipad_jepa/bootstrap_metrics.py": "59e3449cb88d1b75ad2e52651f3fa7985dfcce99fabae48c9e6b3fe64a5c93be",
+    "scripts/verify_bootstrap_summary.py": "c0cd29e56297ad352acdb1f17f24ebc950ff7433da525a11ca82f44280ee1bd8"
+  }
+}

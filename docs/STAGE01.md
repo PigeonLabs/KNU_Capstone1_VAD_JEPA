@@ -16,7 +16,7 @@ R01 controlled seed 0의 **50/50 epoch** 정상 학습과 같은 최종 체크�
 | 실행 | 정상 학습 | seed | epoch | 상태 |
 |---|---|---|---|---|
 | GPU 예비 검증 R01 | fit 23개 영상에서 2 batch | 0 | 부분 epoch | 통과; 성능 평가에 사용하지 않음 |
-| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 seed 0 학습·평가 완료, seed 1 학습 중; 나머지 미완료 |
+| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 seed 0 학습·평가 완료, seed 1·2 학습 중; 다른 장비 미완료 |
 | Reference | 장비별 정상 training, 합계 111개 영상 | 0 | 50 | 미실행 |
 
 Reference는 논문의 전체 정상 training 범위를 비교하려는 조건이다. 정상 calibration 영상이 학습에도 포함되는 점을 별도로 기록하고, 제안 방법과의 주 비교는 calibration을 제외한 controlled 조건으로 수행한다. 장비 간 데이터를 합쳐 학습하지 않는다.

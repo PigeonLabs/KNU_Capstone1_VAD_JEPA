@@ -99,6 +99,7 @@ def main():
         summary['sources'][name] = digest(args.results/name)
     summary['plot_code_sha256'] = digest(Path(__file__))
     summary['bootstrap_code_sha256'] = digest(Path(__file__).with_name('summarize_experiments.py'))
+    summary['bootstrap_metric_sha256'] = digest(Path(__file__).resolve().parents[1]/'src/ipad_jepa/bootstrap_metrics.py')
     summary['limitation'] = 'Single seed; no training-seed uncertainty, macro4, runtime or paper-exact reproduction claim'
     (args.results/'single_seed_summary.json').write_text(json.dumps(summary, indent=2)+'\n')
     fig, axes = plt.subplots(1, 3, figsize=(15, 4.8), layout='constrained')
