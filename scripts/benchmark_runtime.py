@@ -14,9 +14,11 @@ import torch
 from ipad_jepa.alignment import align
 from ipad_jepa.audit import inspect_frames
 from ipad_jepa.backbones import Backbone,PhaseHead
+from ipad_jepa.adaptation import install_adapters,load_adapter_state,adapter_training_mode
 from ipad_jepa.features import ClipDataset,file_hash
 from ipad_jepa.experiment import metrics
 from ipad_jepa.runtime_state import StreamingScore,event_metrics
+from ipad_jepa.runtime_adaptation import selected_runtime_adapter
 from ipad_jepa.streaming import DinoFrameRing
 from ipad_jepa.temporal import circular_phase,common_mask
 from ipad_jepa.torch_memory import TorchMemory
@@ -38,6 +40,8 @@ def fixed_components(args):
     if (meta['status']!='normal_fit_and_calibration_complete' or
         (meta['backbone'],meta['mode'],meta['device'],meta['seed'])!=(args.model,args.mode,args.device,args.seed) or
         phase_meta['status']!='complete' or phase_meta['epochs']!=20 or phase_meta['seed']!=args.seed or
+        tuple(phase_meta.get(key) for key in ['backbone','mode','device'])!=(args.model,args.mode,args.device) or
+        meta.get('phase_selected_epoch')!=phase_meta.get('selected_epoch') or
         sorted(meta['normal_cache_fingerprints'])!=sorted(phase_meta['cache_fingerprints']) or
         file_hash(args.run/'phase_head.pt')!=meta['phase_checkpoint_sha256']):
         raise ValueError('Fixed normal fit/head does not match completed primary condition')
@@ -45,9 +49,11 @@ def fixed_components(args):
     commit=subprocess.check_output(['git','-C',str(args.upstream),'rev-parse','HEAD'],text=True).strip()
     expected={'backbone':args.model,'mode':args.mode,'weights_sha256':file_hash(args.weights),
               'upstream_commit':commit,'adapter_sha256':file_hash(source/'backbones.py'),
-              'reader_sha256':file_hash(source/'features.py'),'image_size':384,'clip_frames':16,'fit_stride':4}
-    if any(identity.get(key)!=value for key,value in expected.items()):
-        raise ValueError('Runtime encoder/reader differs from the normal training protocol')
+              'reader_sha256':file_hash(source/'features.py'),'image_size':384,'clip_frames':16,'fit_stride':4,
+              'preprocessing':'RGB full-frame PIL bilinear resize; ImageNet mean/std',
+              'feature_dtype':'float16 from BF16 inference'}
+    phase_state=torch.load(args.run/'phase_head.pt',map_location='cpu',weights_only=True)
+    adapter,adaptation=selected_runtime_adapter(args,identity,phase_meta,phase_state,expected)
     with np.load(args.run/'memory.npz',allow_pickle=False) as data:
         mean,components,prototypes=data['mean'].copy(),data['components'].copy(),data['prototypes'].copy()
         temperature,cycle=float(data['temperature']),float(data['cycle_length'])
@@ -59,9 +65,13 @@ def fixed_components(args):
         pca=SimpleNamespace(mean_=mean,components_=components),prototypes=prototypes)
     scorer=TorchMemory(memory).cuda().eval()
     head=PhaseHead().cuda().eval()
-    head.load_state_dict(torch.load(args.run/'phase_head.pt',map_location='cpu',weights_only=True),strict=True)
+    head.load_state_dict(phase_state,strict=True)
     model=Backbone(args.model,args.upstream,args.weights,args.mode).cuda().eval()
-    return model,head,scorer,meta,cycle
+    if adapter is not None:
+        install_adapters(model)
+        load_adapter_state(model,adapter)
+        adapter_training_mode(model,False)
+    return model,head,scorer,meta,cycle,adaptation
 
 
 def score_features(local,global_features,head,scorer,precision):
@@ -165,6 +175,8 @@ def main():
     parser.add_argument('--mode',choices=['online','offline'],required=True)
     parser.add_argument('--device',choices=['R01','R02','R03','R04'],required=True)
     parser.add_argument('--seed',type=int,default=0)
+    parser.add_argument('--adaptation',choices=['frozen','lora'],default='frozen')
+    parser.add_argument('--lora-run',type=Path,help='Completed joint training directory; required for LoRA')
     parser.add_argument('--implementation',choices=['full','buffer','reuse'],default='full')
     parser.add_argument('--precision',choices=['bf16','fp32'],default='bf16')
     parser.add_argument('--arrival-fps',type=float,default=30)
@@ -189,7 +201,7 @@ def main():
           (args.sequences is None or row['sequence'] in args.sequences)]
     if not rows or (args.sequences and set(args.sequences)!={row['sequence'] for row in rows}):
         raise ValueError('Invalid test-video selection')
-    model,head,scorer,meta,cycle=fixed_components(args)
+    model,head,scorer,meta,cycle,adaptation=fixed_components(args)
     normal=next(row for row in manifest if row['device']==args.device and row.get('split')=='fit')
     warm=ClipDataset(args.data_root/normal['relative_directory'],np.array([20]),args.mode)[0][0][None].cuda()
     warm_ring=DinoFrameRing(model.encoder) if args.implementation=='reuse' else None
@@ -250,6 +262,8 @@ def main():
         'normal_fit_sha256':file_hash(args.results/'normal_fit.json'),'phase_head_sha256':file_hash(args.run/'phase_head.pt'),
         'memory_sha256':file_hash(args.run/'memory.npz'),'weights_sha256':meta['cache_identity']['weights_sha256'],
         'manifest_sha256':file_hash(args.manifest),
+        **adaptation,
+        'runtime_adaptation_sha256':file_hash(Path(__file__).resolve().parents[1]/'src/ipad_jepa/runtime_adaptation.py'),
         'torch':str(torch.__version__),'gpu':torch.cuda.get_device_name(),
         'cuda_matmul_tf32':torch.backends.cuda.matmul.allow_tf32,
         'cudnn_tf32':torch.backends.cudnn.allow_tf32,

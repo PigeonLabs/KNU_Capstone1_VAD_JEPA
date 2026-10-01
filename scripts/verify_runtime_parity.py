@@ -57,6 +57,8 @@ def compare(reference, candidate):
               'normal_fit_sha256', 'phase_head_sha256', 'memory_sha256', 'weights_sha256',
               'runtime_code_sha256', 'score_state_sha256', 'cuda_matmul_tf32', 'cudnn_tf32',
               'manifest_sha256',
+              'adaptation','selected_adapter_sha256','lora_training_sha256','teacher_weight',
+              'runtime_adaptation_sha256',
               'all_test_videos', 'alarm_warmup_target', 'lookahead_frames', 'test_bank_updates']
     if any(a.get(key) != b.get(key) or key not in a for key in fields):
         raise ValueError('Paired runtime conditions/provenance differ')
@@ -87,7 +89,8 @@ def compare(reference, candidate):
         sources.append({'sequence': sequence, 'reference_sha256': digest(paths[0]), 'candidate_sha256': digest(paths[1])})
     return {'status': 'passed' if all(row['passed'] for row in results) else 'failed',
             'scope': 'All emitted eligible targets, including online tail and unknown GT; no GT exclusion or test tuning',
-            'condition': {key: a[key] for key in ['backbone', 'mode', 'device', 'seed', 'precision', 'all_test_videos']},
+            'condition': {key: a[key] for key in ['backbone', 'mode', 'device', 'seed', 'precision', 'all_test_videos',
+                                                'adaptation','teacher_weight','selected_adapter_sha256']},
             'reference_implementation': a['implementation'], 'candidate_implementation': b['implementation'],
             'gates': GATES, 'sequences': results, 'trace_sources': sources,
             'reference_runtime_sha256': digest(reference/'runtime.json'),

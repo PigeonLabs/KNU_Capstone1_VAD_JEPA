@@ -1,4 +1,5 @@
 import importlib.util
+import csv
 import json
 from pathlib import Path
 import pytest
@@ -52,3 +53,40 @@ def test_runtime_parity_refuses_partial_or_different_conditions(tmp_path):
     for folder in [a, b]:
         (folder/'runtime.json').write_text(json.dumps({'status': 'complete_measured_replay', 'mode': 'online'}))
     with pytest.raises(ValueError, match='provenance differ'): mod.compare(a, b)
+
+
+def test_runtime_parity_binds_selected_adapter_memory_and_input_sources(tmp_path):
+    mod = module(); folders = [tmp_path/'full', tmp_path/'buffer']
+    common = {'status': 'complete_measured_replay', 'backbone': 'dinov3-l', 'mode': 'online',
+        'device': 'R01', 'seed': 0, 'variant': 'P3', 'precision': 'bf16', 'arrival_fps': 30.,
+        'normal_fit_sha256': 'normal-fit', 'phase_head_sha256': 'selected-head',
+        'memory_sha256': 'rebuilt-memory', 'weights_sha256': 'base',
+        'runtime_code_sha256': 'runtime', 'score_state_sha256': 'state',
+        'cuda_matmul_tf32': False, 'cudnn_tf32': False, 'manifest_sha256': 'manifest',
+        'adaptation': 'lora', 'selected_adapter_sha256': 'selected-adapter',
+        'lora_training_sha256': 'completed-training', 'teacher_weight': 1.,
+        'runtime_adaptation_sha256': 'adapter-loader', 'all_test_videos': False,
+        'alarm_warmup_target': 19, 'lookahead_frames': 0, 'test_bank_updates': False,
+        'sequences': [{'sequence': '03', 'input_frames': 40, 'eligible_targets': 21,
+                       'frames_content_sha256': 'frames', 'label_sha256': 'labels'}]}
+    trace = [{'arrival_frame': str(i), 'target_frame': str(i) if i >= 15 else '',
+        'inference_valid': str(int(i >= 19)), 'label': '-1' if i == 25 else '0',
+        'shared_metric_valid': str(int(19 <= i <= 32 and i != 25)),
+        'phase': '.2', 'feature_raw': '2', 'time_raw': '.01', 'score': '3', 'alarm': '0'}
+        for i in range(40)]
+    for folder, implementation in zip(folders, ['full', 'buffer']):
+        folder.mkdir()
+        (folder/'runtime.json').write_text(json.dumps({**common, 'implementation': implementation}))
+        with (folder/'03.csv').open('w', newline='') as stream:
+            writer = csv.DictWriter(stream, fieldnames=list(trace[0]))
+            writer.writeheader(); writer.writerows(trace)
+    assert mod.compare(*folders)['status'] == 'passed'
+    assert mod.compare(*folders)['condition']['selected_adapter_sha256'] == 'selected-adapter'
+    for field in ['selected_adapter_sha256', 'memory_sha256', 'runtime_adaptation_sha256']:
+        changed = {**common, 'implementation': 'buffer', field: 'different'}
+        (folders[1]/'runtime.json').write_text(json.dumps(changed))
+        with pytest.raises(ValueError, match='provenance differ'): mod.compare(*folders)
+    changed = {**common, 'implementation': 'buffer', 'sequences': [
+        {**common['sequences'][0], 'frames_content_sha256': 'other-frames'}]}
+    (folders[1]/'runtime.json').write_text(json.dumps(changed))
+    with pytest.raises(ValueError, match='test sources differ'): mod.compare(*folders)

@@ -32,9 +32,26 @@ python scripts/benchmark_runtime.py --model dinov3-l --mode online \
   --out results/stage05/runtime/dinov3-l/online/R01/seed0/full_bf16
 ```
 
-GPU 측정이 완료된 경우에만 `runtime.json`을 완료 마커로 저장한다. 일부 영상을 지정한 실행은 전체 장비 평가로 표시하지 않는다. 현재 이 코드는 고정 백본과 해당 정상 메모리를 대상으로 하며, LoRA 체크포인트의 실행 경로는 추가 구현해야 한다.
+GPU 측정이 완료된 경우에만 `runtime.json`을 완료 마커로 저장한다. 일부 영상을 지정한 실행은 전체 장비 평가로 표시하지 않는다. 기본 `--adaptation frozen`은 고정 백본과 해당 정상 메모리를 사용한다.
 
-[verify_runtime_parity.py](../scripts/verify_runtime_parity.py)는 완료된 `full` 실행과 같은 precision의 `buffer` 또는 허용된 FP32 `reuse` 실행을 비교한다. 모델·위상 head·메모리·입력 manifest·영상/라벨 해시가 같은지 확인하고, 알람이 유효한 모든 target의 위상·특징/시간 점수·최종 점수·알람을 비교한다. 온라인 마지막 7프레임과 미확정 GT도 제외하지 않는다. 사전에 고정한 게이트는 위상 circular 최대 차이 1e−5, raw 점수 `rtol=1e−5/atol=1e−7`, 최종 점수 `rtol=1e−5/atol=1e−4`, 알람 불일치 0개다. 게이트 통과는 해당 실제 측정 쌍에만 적용하며, 기존 batch 4 정확도 캐시와의 일치까지 의미하지 않는다. 아직 실제 GPU 비교 결과는 없다.
+`--adaptation lora --lora-run <완료된 joint 학습 경로>`는 같은 seed의 정상 검증 CE로 선택된 adapter와 joint 위상 head를 사용한다. 20 epoch 전체 곡선·선택 epoch·학습/adapter 소스·기본 가중치를 검증하고, 실제 head 텐서가 선택 체크포인트와 같은지 확인한다. adapter 해시가 해당 seed에서 재구성한 정상 특징·PCA/메모리와 일치해야 하므로 고정 백본의 메모리를 대신 사용할 수 없다. 완료 전 학습, 다른 seed·teacher·head 또는 선택 epoch를 거부한다. 가중치와 adapter는 로컬에서만 읽는다.
+
+```bash
+# 해당 LoRA 학습·특징 재구성·정상 메모리 평가가 완료된 후 실행
+python scripts/benchmark_runtime.py --model dinov3-l --mode online \
+  --device R01 --seed 0 --adaptation lora \
+  --lora-run artifacts/lora/dinov3-l/online/R01/seed0 \
+  --implementation full --precision bf16 \
+  --data-root "$IPAD_DATA_ROOT" --upstream third_party/dinov3 \
+  --weights artifacts/weights/dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pth \
+  --run artifacts/runs_lora/dinov3-l/online/R01/seed0 \
+  --results results/stage04/dinov3-l/online/R01/seed0 \
+  --out results/stage05/runtime_lora/dinov3-l/online/R01/seed0/full_bf16
+```
+
+LoRA의 `full`/`buffer`, DINO 온라인 FP32 `full`/`reuse`도 각각 같은 선택 adapter·head·재구성 메모리로 비교해야 한다. 고정 백본의 특징 재사용 검증을 LoRA에 적용하지 않으며, 실제 LoRA 점수·알람 일치 게이트는 아직 실행하지 않았다. 체크포인트 선택과 혼합 조건 거부는 CPU 테스트 대상이며 실제 GPU 처리량을 뜻하지 않는다.
+
+[verify_runtime_parity.py](../scripts/verify_runtime_parity.py)는 완료된 `full` 실행과 같은 precision의 `buffer` 또는 허용된 FP32 `reuse` 실행을 비교한다. 모델·위상 head·메모리·선택 adapter·teacher 손실 비중·입력 manifest·영상/라벨 해시가 같은지 확인하고, 알람이 유효한 모든 target의 위상·특징/시간 점수·최종 점수·알람을 비교한다. 온라인 마지막 7프레임과 미확정 GT도 제외하지 않는다. 사전에 고정한 게이트는 위상 circular 최대 차이 1e−5, raw 점수 `rtol=1e−5/atol=1e−7`, 최종 점수 `rtol=1e−5/atol=1e−4`, 알람 불일치 0개다. 게이트 통과는 해당 실제 측정 쌍에만 적용하며, 기존 batch 4 정확도 캐시와의 일치까지 의미하지 않는다. 아직 실제 GPU 비교 결과는 없다.
 
 ```bash
 python scripts/verify_runtime_parity.py \
