@@ -1,0 +1,198 @@
+{
+  "status": "input_inventory_checked_not_experiment_results",
+  "planned_seed_conditions": 48,
+  "backbones": [
+    "dinov3-l",
+    "vjepa21-l"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "groups": [
+    {
+      "mode": "offline",
+      "device": "R01",
+      "fit_videos": 23,
+      "calibration_videos": 5,
+      "held_out_diagnostic_videos": 6,
+      "test_videos": 15,
+      "clip_counts": {
+        "T8": {
+          "fit": 1294,
+          "calibration": 1127,
+          "test": 3580
+        },
+        "T16": {
+          "fit": 1248,
+          "calibration": 1087,
+          "test": 3460
+        }
+      },
+      "normal_q99_common_frames": 1032
+    },
+    {
+      "mode": "offline",
+      "device": "R02",
+      "fit_videos": 21,
+      "calibration_videos": 5,
+      "held_out_diagnostic_videos": 4,
+      "test_videos": 15,
+      "clip_counts": {
+        "T8": {
+          "fit": 3084,
+          "calibration": 2904,
+          "test": 9513
+        },
+        "T16": {
+          "fit": 3042,
+          "calibration": 2864,
+          "test": 9393
+        }
+      },
+      "normal_q99_common_frames": 2809
+    },
+    {
+      "mode": "offline",
+      "device": "R03",
+      "fit_videos": 15,
+      "calibration_videos": 4,
+      "held_out_diagnostic_videos": 3,
+      "test_videos": 17,
+      "clip_counts": {
+        "T8": {
+          "fit": 2594,
+          "calibration": 2803,
+          "test": 11886
+        },
+        "T16": {
+          "fit": 2564,
+          "calibration": 2771,
+          "test": 11750
+        }
+      },
+      "normal_q99_common_frames": 2727
+    },
+    {
+      "mode": "offline",
+      "device": "R04",
+      "fit_videos": 17,
+      "calibration_videos": 4,
+      "held_out_diagnostic_videos": 4,
+      "test_videos": 19,
+      "clip_counts": {
+        "T8": {
+          "fit": 1630,
+          "calibration": 1578,
+          "test": 8021
+        },
+        "T16": {
+          "fit": 1596,
+          "calibration": 1546,
+          "test": 7869
+        }
+      },
+      "normal_q99_common_frames": 1502
+    },
+    {
+      "mode": "online",
+      "device": "R01",
+      "fit_videos": 23,
+      "calibration_videos": 5,
+      "held_out_diagnostic_videos": 6,
+      "test_videos": 15,
+      "clip_counts": {
+        "T8": {
+          "fit": 1335,
+          "calibration": 1127,
+          "test": 3580
+        },
+        "T16": {
+          "fit": 1335,
+          "calibration": 1087,
+          "test": 3460
+        }
+      },
+      "normal_q99_common_frames": 1032
+    },
+    {
+      "mode": "online",
+      "device": "R02",
+      "fit_videos": 21,
+      "calibration_videos": 5,
+      "held_out_diagnostic_videos": 4,
+      "test_videos": 15,
+      "clip_counts": {
+        "T8": {
+          "fit": 3117,
+          "calibration": 2904,
+          "test": 9513
+        },
+        "T16": {
+          "fit": 3117,
+          "calibration": 2864,
+          "test": 9393
+        }
+      },
+      "normal_q99_common_frames": 2809
+    },
+    {
+      "mode": "online",
+      "device": "R03",
+      "fit_videos": 15,
+      "calibration_videos": 4,
+      "held_out_diagnostic_videos": 3,
+      "test_videos": 17,
+      "clip_counts": {
+        "T8": {
+          "fit": 2618,
+          "calibration": 2803,
+          "test": 11886
+        },
+        "T16": {
+          "fit": 2618,
+          "calibration": 2771,
+          "test": 11750
+        }
+      },
+      "normal_q99_common_frames": 2727
+    },
+    {
+      "mode": "online",
+      "device": "R04",
+      "fit_videos": 17,
+      "calibration_videos": 4,
+      "held_out_diagnostic_videos": 4,
+      "test_videos": 19,
+      "clip_counts": {
+        "T8": {
+          "fit": 1655,
+          "calibration": 1578,
+          "test": 8021
+        },
+        "T16": {
+          "fit": 1655,
+          "calibration": 1546,
+          "test": 7869
+        }
+      },
+      "normal_q99_common_frames": 1502
+    }
+  ],
+  "comparison_mask": "t=19..N-8 inclusive; actual GT uncertainty intersection performed by evaluator",
+  "normal_split_totals": {
+    "fit": 76,
+    "calibration": 18,
+    "diagnostic": 17
+  },
+  "sources_sha256": {
+    "src/ipad_jepa/clip8_features.py": "e38eeea3d4e6b8eb2c55f6848f4e836b2dbaacfe5a57d3362ecd53e64dc576b1",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "scripts/run_clip8_matrix.py": "3478c51f0d84b98a827c7e81e7a324b4c685f11d0802acddd8611f84c78e3e4c",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce"
+  }
+}
