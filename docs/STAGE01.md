@@ -13,14 +13,14 @@ R01 controlled seed 0의 **50/50 epoch** 정상 학습과 같은 최종 체크�
 [학습 CSV/JSON](../results/stage01/controlled/training/R01/seed0)은 30,950개 optimizer step의 완료 기록이며, 정상 학습 loss를 이상탐지 성능으로 해석하지 않는다.
 학습 실행은 epoch 49 기록 후 `/tmp` 공간 부족으로 배치 전송에 오류가 발생했다. 실제 checkpoint의 epoch 45를 확인하고 같은 소스·설정에서 `--resume`으로 복구해 epoch 50을 완료했다. 임시 파일은 외장 디스크의 `artifacts/tmp`에 저장한다. [복구 기록](../results/setup/resource_recovery.json)은 최종 학습 완료 또는 GPU resume의 비트 단위 일치를 뜻하지 않는다. 복구 전후 epoch 46/47의 누적 step 수는 같지만 loss는 일치하지 않았다. 원인은 확인되지 않았으며, CPU resume 테스트로 GPU에서의 정확한 궤적 재현을 주장하지 않는다.
 
-R01 controlled seed 1도 정상 fit 23개 영상에서 **50/50 epoch, 30,950 optimizer step** 학습을 완료했다. [완료 학습 CSV/JSON](../results/stage01/controlled/training/R01/seed1)과 곡선을 공개하며, 테스트 평가는 진행 중이다. 최종 학습 loss 0.10618, 재구성 MSE 0.00156, 위상 CE 5.22669는 정상 학습 지표이며 탐지 성능을 나타내지 않는다.
+R01 controlled seed 1도 정상 fit 23개 영상에서 **50/50 epoch, 30,950 optimizer step** 학습을 완료했다. [완료 학습 CSV/JSON](../results/stage01/controlled/training/R01/seed1)과 곡선을 공개하며, 같은 최종 체크포인트의 B0/B1 테스트 평가도 완료했고 아래에 별도로 기록했다. 최종 학습 loss 0.10618, 재구성 MSE 0.00156, 위상 CE 5.22669는 정상 학습 지표이며 탐지 성능을 나타내지 않는다.
 
 ![R01 seed 1 완료된 정상 학습 곡선](figures/stage01/R01_controlled_seed1_training.png)
 
 | 실행 | 정상 학습 | seed | epoch | 상태 |
 |---|---|---|---|---|
 | GPU 예비 검증 R01 | fit 23개 영상에서 2 batch | 0 | 부분 epoch | 통과; 성능 평가에 사용하지 않음 |
-| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 seed 0 학습·평가 완료, seed 1 학습 완료·평가 진행, seed 2 학습 중; 다른 장비 미완료 |
+| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 seed 0 학습·평가 완료, seed 1 학습·평가 완료, seed 2 학습 중; 다른 장비 미완료 |
 | Reference | 장비별 정상 training, 합계 111개 영상 | 0 | 50 | 미실행 |
 
 Reference는 논문의 전체 정상 training 범위를 비교하려는 조건이다. 정상 calibration 영상이 학습에도 포함되는 점을 별도로 기록하고, 제안 방법과의 주 비교는 calibration을 제외한 controlled 조건으로 수행한다. 장비 간 데이터를 합쳐 학습하지 않는다.
@@ -43,6 +43,22 @@ CI는 동일 테스트 영상의 paired whole-video bootstrap 1,000회로 계산
 ![고정 테스트 영상 03의 기준선 점수와 알람](figures/stage01/IPAD_R01_controlled_seed0_sequence03.png)
 
 위 영상 03의 공통 평가 구간은 383프레임이며 GT 이상 구간은 frame 65–259(195프레임)다. 고정 정상 q99 임계값에서 B0는 이상 195프레임과 정상 186프레임에 알람을 냈고, B1은 이상 구간에 알람을 내지 않고 정상 4프레임에서 알람을 냈다. 이 사례는 AUROC/AP와 고정 임계값의 알람 품질을 함께 확인해야 함을 보여 준다. 테스트에 맞춰 임계값을 변경하지 않았다. 가로축은 프레임 번호이며 실제 처리 시간·FPS·벽시계 알람 지연은 아직 측정하지 않았다.
+
+## R01 controlled seed 1 평가
+
+seed 0과 같은 정상 fit 23개·calibration 5개 영상, 최종 epoch 50 선택 정책과 **3,295개 유효 테스트 프레임(이상 1,227)**을 사용했다. 각 seed의 고정 정상 보정과 q99 임계값을 적용했다.
+
+| 점수 | AUROC (%) / 95% CI | AP (%) / 95% CI |
+|---|---:|---:|
+| B0 픽셀 −PSNR | 81.61 / 66.56..93.49 | 60.11 / 48.04..77.91 |
+| B1 메모리 전후 특징 잔차 | 76.30 / 56.90..90.75 | 64.06 / 35.89..81.34 |
+
+CI는 이 한 학습 seed에서 paired whole-video bootstrap 1,000회로 계산했다(기각 0회). B1−B0 차이는 AUROC −5.31pp(95% CI −23.65..+9.04pp), AP +3.96pp(−28.82..+25.14pp)로 두 CI에 모두 0이 포함된다. seed 0·1의 B1 수치가 다르지만, seed 2가 완료되지 않았으므로 3-seed 결과 또는 전체 기준선의 우열로 해석하지 않는다.
+
+![R01 seed 1 기준선 지표와 ROC/PR](figures/stage01/IPAD_R01_controlled_seed1_evaluation.png)
+![R01 seed 1 고정 테스트 영상 03의 점수와 알람](figures/stage01/IPAD_R01_controlled_seed1_sequence03.png)
+
+고정 영상 03에서 B0는 이상 195프레임과 정상 186프레임, B1은 이상 195프레임과 정상 169프레임에 알람을 냈다. AP 향상과 고정 임계값의 정상 오탐이 함께 존재한다. 테스트에서 임계값을 다시 맞추지 않았다. 이 수는 프레임별 알람이며 실제 이벤트 지연·벽시계 처리량이 아니다. [원본 지표·정상 보정·CSV](../results/stage01/controlled/IPAD-native-repaired/offline/R01/seed1)와 [한 seed의 CI 및 소스 해시 검증](../results/stage01/controlled/IPAD-native-repaired/offline/R01/seed1/single_seed_summary.json)을 제공한다.
 
 ## 공개 코드의 실행 오류와 명시적인 수정
 

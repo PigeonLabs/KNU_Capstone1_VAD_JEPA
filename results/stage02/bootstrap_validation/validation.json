@@ -86,30 +86,30 @@
     "inventories": {
       "device_summary.json/results": {
         "reference_rows_compared": 48,
-        "current_rows": 52,
-        "additional_rows": 4
+        "current_rows": 64,
+        "additional_rows": 16
       },
       "device_summary.json/paired_deltas": {
         "reference_rows_compared": 52,
-        "current_rows": 57,
-        "additional_rows": 5
+        "current_rows": 80,
+        "additional_rows": 28
       },
       "macro_summary.json/results": {
         "reference_rows_compared": 8,
-        "current_rows": 8,
-        "additional_rows": 0
+        "current_rows": 16,
+        "additional_rows": 8
       },
       "macro_summary.json/paired_deltas": {
         "reference_rows_compared": 6,
-        "current_rows": 6,
-        "additional_rows": 0
+        "current_rows": 20,
+        "additional_rows": 14
       }
     },
     "scope": "All saved reference rows, means, percentile CIs, paired differences, seed/video/frame counts and rejected-draw counts. Additional completed conditions may be present; their old outputs are unavailable."
   },
   "optimized_sources": {
-    "device_summary.json": "60f03581adec0afb4d5cdf995795f638d1a95b22503fc2dbe3b4edab7b8be204",
-    "macro_summary.json": "96ad067feb0793515d4f1d90558bce2f847ad369967335f11f66c211193b9c15",
+    "device_summary.json": "bc7a7ff277d7b23469c176d0f383dbdbf9364888471a563e0902fd0b55099200",
+    "macro_summary.json": "8a61b5cb1773b9129075654ffa43cd824cf63bc19e9fbb3ce4af7d3c553e9ec5",
     "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
     "src/ipad_jepa/bootstrap_metrics.py": "59e3449cb88d1b75ad2e52651f3fa7985dfcce99fabae48c9e6b3fe64a5c93be",
     "scripts/verify_bootstrap_summary.py": "c0cd29e56297ad352acdb1f17f24ebc950ff7433da525a11ca82f44280ee1bd8"
