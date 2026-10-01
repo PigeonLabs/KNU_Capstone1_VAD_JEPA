@@ -35,7 +35,9 @@ P3의 개선은 장비별로 달랐다. R01 DINOv3 P3는 전역 메모리 P0보�
 
 IPAD 공개 모델의 R01 seed 0은 50 epoch 학습·평가를 완료했다. B0 픽셀 AUROC/AP **80.42/58.74%**, B1 특징 잔차 **65.70/46.65%**는 한 seed의 결과다. seed 1도 학습·평가를 완료했고 B0 **81.61/60.11%**, B1 **76.30/64.06%**다. seed 2는 학습 중이며 아직 3-seed 기준선 결과가 아니다. 공개 코드 수정·재현 차이·CI·알람 실패 사례는 [Stage 01](docs/STAGE01.md)에 기록한다.
 
-두 백본의 R01 LoRA 20 epoch·3 seeds 실행은 진행 중이다. [Stage 04](docs/STAGE04.md)에 정상-only teacher 손실과 검증 범위를 제공한다. 순차 이벤트 평가와 30 FPS FIFO 측정 코드는 [Stage 05](docs/STAGE05.md)에 있으며, 실제 GPU 측정과 점수·알람 동등성 검증은 남아 있다. `—`는 미측정이다.
+시간 이력 5·15·31의 144개 고정 백본 조건도 같은 정상 보정·평가 구간에서 비교했다. 온라인 두 백본의 장기 이력 개선량은 AUROC/AP 모두 CI에 0을 포함했다. [상세 수치·그래프·재현 검증](docs/ABLATION_HISTORY.md)을 제공하며 기본 이력 5를 유지한다.
+
+두 백본의 R01 오프라인 LoRA seed 0은 20 epoch 학습을 완료했다. 최소 정상 CE로 DINOv3는 epoch 18, V-JEPA는 epoch 1을 선택했으며, 선택된 V-JEPA head의 정상 위상 오차는 여전히 크다. 3 seeds 실행과 특징·메모리 재구성은 진행 중이다. 정상 학습 곡선과 선택 근거는 [Stage 04](docs/STAGE04.md)에 제공한다. 순차 이벤트 평가와 30 FPS FIFO 측정 코드는 [Stage 05](docs/STAGE05.md)에 있으며, 실제 GPU 측정과 점수·알람 동등성 검증은 남아 있다. `—`는 미측정이다.
 
 ## 재현 환경
 
@@ -81,7 +83,7 @@ V-JEPA 2.1의 엄격한 가중치 로딩과 실제 정상 16프레임 GPU 연산
 모델 smoke 결과는 형태·엄격한 가중치 로딩·실제 영상 연산 검증이다. cold forward 시간을 FPS 또는 이상탐지 성능으로 해석하지 않는다.
 두 백본 모두 동일한 출력 형태와 백본 고정을 확인했다. 근거는 [환경 메타데이터](results/setup/environment.json), [V-JEPA GPU smoke](results/setup/vjepa21-l_smoke.json), [DINOv3 GPU smoke](results/setup/dinov3-l_smoke.json)에 있다.
 
-CI는 핵심 검증 **74개**와 업로드 검사를 실행한다. 정상 분할·위상·메모리·LoRA·기준선·resume·업로드 제외, Macro4 비중·paired bootstrap, 온라인 EOF 알람·FIFO 입력·이벤트 지연과 GPU 동시 작업 거부를 확인한다. LoRA 런타임의 선택 adapter·joint head·재구성 메모리와 paired 입력 출처도 검증한다. 재생 제어는 CPU 모형으로 검증했으며 실제 GPU 처리량을 입증하지 않는다. 실제 학습·추론 근거는 각 Stage에 별도로 기록한다.
+CI는 핵심 검증 **80개**와 업로드 검사를 실행한다. 정상 분할·위상·메모리·LoRA·기준선·resume·업로드 제외, Macro4 비중·paired bootstrap, 온라인 EOF 알람·FIFO 입력·이벤트 지연과 GPU 동시 작업 거부를 확인한다. LoRA 런타임의 선택 adapter·joint head·재구성 메모리와 paired 입력 출처도 검증한다. 재생 제어는 CPU 모형으로 검증했으며 실제 GPU 처리량을 입증하지 않는다. 실제 학습·추론 근거는 각 Stage에 별도로 기록한다.
 
 전체 실험 행렬은 [experiment_matrix.yaml](configs/experiment_matrix.yaml)에 고정했다. 이 목록은 전체 요구 범위이며 완료 여부는 실제 결과로 확인한다.
 
@@ -102,8 +104,8 @@ CI는 핵심 검증 **74개**와 업로드 검사를 실행한다. 정상 분할
 | 01 IPAD 기준선 | R01 seed 0의 50 epoch 학습·B0/B1 평가·CI/그래프 완료, seed 1 학습·평가 완료, seed 2 학습 중; 다른 장비·reference 조건 남음 |
 | 02 오프라인 비교 | R01–R04 두 백본 3 seeds 완료, 두 백본 Macro4 확보 |
 | 03 온라인 비교 | R01–R04 두 백본 3 seeds 완료, 온라인 Macro4 확보; 실시간 측정 남음 |
-| 04 LoRA·추가 실험 | 공식 q/v 래퍼·joint 학습·재추출 구현, 두 백본 GPU 예비 학습 통과·전체 학습 실행 중 |
-| 05 실시간·진단·재현성 | 순차 알람·FIFO·점수 일치 검증 구현, 실제 GPU 측정·진단·제거 실험 남음 |
+| 04 LoRA·추가 실험 | 두 백본 R01 오프라인 seed 0의 20 epoch 정상 학습·선택 곡선 공개, 전체 3-seed 평가 진행 중 |
+| 05 실시간·진단·재현성 | 순차 알람·FIFO·점수 일치 검증 구현, 이력 5/15/31 144개 조건·paired CI/그래프 완료; 실제 GPU 측정·진단·나머지 제거 실험 남음 |
 
 ## 출처
 

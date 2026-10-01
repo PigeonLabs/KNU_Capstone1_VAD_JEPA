@@ -1,0 +1,19 @@
+{
+  "status": "complete_device_evaluation",
+  "backbone": "vjepa21-l",
+  "mode": "online",
+  "device": "R04",
+  "seed": 2,
+  "history": 31,
+  "valid_mask": "t=45..N-8 inclusive, intersect original shared annotation uncertainty mask",
+  "test_videos": 19,
+  "variants": {
+    "P3": {
+      "frame_auroc": 0.6988667517287174,
+      "frame_ap": 0.7473430837493937,
+      "frames": 7166,
+      "anomaly_frames": 4501
+    }
+  },
+  "note": "History-only cached-score OFAT with shared calibration/evaluation mask; not the primary H5 mask or runtime performance"
+}

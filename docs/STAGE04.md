@@ -53,6 +53,25 @@ R01 정상 fit에서 각 백본의 8개 micro-batch를 누적한 optimizer 업�
 
 이 값은 초기 8개 학습 clip의 손실이며 학습 완료나 모델의 우열을 뜻하지 않는다. [예비 결과 JSON](../results/stage04/pilots)에 source/teacher fingerprint와 학습 후 q/v B 행렬 norm을 공개한다. 백본별 배치 구성과 특징 정밀도 차이를 포함하므로 초기 teacher loss를 이상탐지 성능으로 비교하지 않는다.
 
-두 백본의 R01 오프라인 20 epoch·3-seed 학습과 후속 특징·메모리 평가를 실행 중이다. 선택된 LoRA 특징과 재구성된 PCA·메모리의 실제 테스트 평가는 아직 완료되지 않았다.
+## 완료된 정상 학습 — R01 오프라인 seed 0
+
+두 백본 모두 20 epoch와 3,120회 optimizer 업데이트를 완료했다. 각 epoch에서 정상 fit 23개 영상의 1,248개 clip과 정상 calibration 5개 영상의 1,087개 clip을 사용했다. 아래 결과는 사전에 정한 **최소 정상 calibration CE**로 선택한 adapter와 joint head의 결과다. 원형 MAE는 주기 대비 백분율이며 선택 기준이 아니다.
+
+| 백본 | 선택 epoch | 정상 calibration CE | 같은 epoch의 원형 MAE |
+|---|---:|---:|---:|
+| DINOv3-L | 18 | 4.7632 | 0.66% |
+| V-JEPA 2.1-L | 1 | 5.3101 | 23.80% |
+
+V-JEPA의 마지막 epoch 원형 MAE는 3.89%로 낮아졌지만 CE는 6.2001로 선택 epoch보다 높다. CE와 원형 MAE는 다른 지표이므로 선택 규칙을 바꾸지 않았고, 선택된 V-JEPA head의 위상 오차는 여전히 크다. 이 정상 학습 결과만으로 이상탐지 성능의 우열을 판단하지 않는다.
+
+![DINOv3 정상 LoRA 학습 곡선](figures/stage04/dinov3-l_R01_offline_seed0_joint_training.png)
+
+![V-JEPA 정상 LoRA 학습 곡선](figures/stage04/vjepa21-l_R01_offline_seed0_joint_training.png)
+
+별표는 두 지표에서 동일한 CE 선택 epoch를 표시한다. teacher 곡선은 고정 teacher와의 정상 fit 특징 오차다. 이 그래프는 이상탐지 AUROC/AP나 실시간 FPS 측정 결과가 아니다. V-JEPA 학습은 앞서 기록한 저장공간 장애 이후 resume했으며, GPU 연속 학습과의 수치적 동일성을 입증하지 않는다.
+
+완료된 [DINOv3 학습 CSV·JSON·검증 기록](../results/stage04/training/dinov3-l/offline/R01/seed0)과 [V-JEPA 학습 CSV·JSON·검증 기록](../results/stage04/training/vjepa21-l/offline/R01/seed0)을 공개한다. 기록에는 원본 곡선·metadata 해시와 선택 checkpoint 해시를 포함하며, checkpoint 파일은 업로드하지 않는다. [그래프 생성 코드](../scripts/plot_lora_training.py)는 20 epoch 완료와 최소 CE 선택을 검증한다.
+
+두 백본의 R01 오프라인 3-seed 실행과 후속 특징·메모리 평가를 계속 진행 중이다. seed 0은 선택된 adapter/head로 특징을 다시 추출하고 있으며, 재구성된 PCA·메모리의 실제 테스트 평가는 아직 완료되지 않았다.
 
 전체 장비·3 seeds·2 modes의 LoRA 평가와 teacher weight 0/1을 포함한 추가 실험은 아직 완료되지 않았다. 실험 행렬은 [experiment_matrix.yaml](../configs/experiment_matrix.yaml), 예비 결과는 [results/stage04](../results/stage04)에 공개한다.

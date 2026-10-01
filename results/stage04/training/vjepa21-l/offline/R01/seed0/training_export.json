@@ -1,0 +1,14 @@
+{
+  "status": "complete_training_export",
+  "backbone": "vjepa21-l",
+  "mode": "offline",
+  "device": "R01",
+  "seed": 0,
+  "epochs": 20,
+  "training_metadata_sha256": "2cceacf89252bf6e6a24145f997e7873ee13db20dae88b027956d3ee31fbacee",
+  "training_curve_sha256": "34f7382c567a0cfcf1ff167fb936933c694b0f4fad969d108818751299bc4f7c",
+  "selected_checkpoint_sha256": "c78f8010ce21eac6aaa63bd2780dd2c546ce00e967272295da6627b5c464d8f3",
+  "selected_epoch": 1,
+  "selected_normal_calibration_circular_mae": 0.23799710648759703,
+  "scope": "Completed normal-only training and normal-CE selection; anomaly evaluation, 3-seed and runtime results pending"
+}

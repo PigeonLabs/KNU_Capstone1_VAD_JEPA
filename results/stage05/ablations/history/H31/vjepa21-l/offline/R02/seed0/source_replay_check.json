@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "backbone": "vjepa21-l",
+  "mode": "offline",
+  "device": "R02",
+  "seed": 0,
+  "primary_H5_original_mask": "t=19..N-8 inclusive",
+  "normal_time_max_absolute_error": 0.0,
+  "calibration_and_test_score_max_absolute_error": 0.0,
+  "alarm_mismatches": 0,
+  "test_videos_checked": 15,
+  "sources": {
+    "metrics.json": "a1b3a537aad065e30d9b83859c94e9b4aff8979b475221bab97a936cfc509937",
+    "normal_fit.json": "d327722d39373b7dd5dd4def70b41387f229d2889daafb2704854714dc849f18",
+    "normal_calibration.csv": "bbd212dc43ff95a2b76bc71170471c2c2f12f8594236f9e2c7510f14ce5098ef",
+    "P3/01.csv": "32e5b66bd44bfc5147b6f1bf250b06f786401a7c8796b446261c69d584d79a3b",
+    "P3/02.csv": "8e27d626e4512e4a9a8866ea20d64b9796a7f26fc8ae28b80fbf8ea091a30c4c",
+    "P3/03.csv": "95de83f127e404d97bbdc8a64a05674ea7b94ab2d73ccf2efc1e7fad3ec8be2e",
+    "P3/04.csv": "79b4dda6a830f2498939df3598f5340e57b5c333917d52dd2c1936ec1b4ab1e5",
+    "P3/05.csv": "5db2e9abbb1171a4dc53306d2c225748381b2f7a70a09f1ad969c0f6b901628f",
+    "P3/06.csv": "785f4462b2ed08213911d2e50a245ead388d087f1c7090d86e9df4aba74da4d2",
+    "P3/07.csv": "668f10471e84bca903314d2b4ea35652bd933d8c3b7a1829a0a04c16db241eb0",
+    "P3/08.csv": "7ed44a1ecad9b503656722707bac9b41a6444b1629eafda48e5306bbd11b2ccc",
+    "P3/09.csv": "8d64d950422959bf98d245afbd8e9e9029e69df743e1de4c43d9787e2c0b43d4",
+    "P3/10.csv": "52c7a7b73c344861787b0406f338e28273642eccf6008617fd7445657cb03cd1",
+    "P3/11.csv": "a62ec969b75d3f5500462db059e23fac412f86ba0b0b83a8389b3d5831f44186",
+    "P3/12.csv": "55f0d9c59c91d13aaa05c2b3bc5f28034ee2e22b2572d55cbae1d0a4272ede92",
+    "P3/13.csv": "72955099545dcfaa3eb788db1c244c8c22e5400743dcc8a45705a215589bdfbc",
+    "P3/14.csv": "f74b6a5e52e86a786d2686028b408f82d61d8ed338aa17491fad45865a53ec7a",
+    "P3/15.csv": "f4b96ac2ce8763666bd9872b3b54a3f5cb34c23212bed59a8d70e857043b75b1"
+  },
+  "scope": "Replay of published residuals/phases; encoder features are not independently re-extracted"
+}

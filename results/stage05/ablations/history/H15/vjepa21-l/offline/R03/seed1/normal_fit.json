@@ -1,0 +1,60 @@
+{
+  "status": "normal_fit_and_calibration_complete",
+  "backbone": "vjepa21-l",
+  "mode": "offline",
+  "device": "R03",
+  "seed": 1,
+  "history": 15,
+  "shared_comparison_history": 31,
+  "calibration_mask": "t=45..N-8 inclusive",
+  "cycle_length_fit_median": 696.0,
+  "score_weights": [
+    0.5,
+    0.5
+  ],
+  "calibration_quantile": 0.99,
+  "calibration": {
+    "P3": {
+      "median": [
+        0.506300687789917,
+        0.011497342498059579
+      ],
+      "mad_scale": [
+        0.01746338392496109,
+        0.004661082235894011
+      ],
+      "threshold": 18.391188319535612,
+      "component_thresholds": [
+        0.6207103872299197,
+        0.17461104927893648
+      ]
+    }
+  },
+  "source_normal_fit_sha256": "51c6740f893d02afba34397cf2f8cc68ac53924ca0dba6485e329ae7aa9b8e6b",
+  "source_phase_checkpoint_sha256": "b9a267afead97505937fe58e5f64ef04361afb0181b0d5cc521caf3a44461e2f",
+  "source_cache_identity": {
+    "backbone": "vjepa21-l",
+    "mode": "offline",
+    "weights_sha256": "7ea9b7cb4a75d10644a8a8d42cff9e177b10dca8f02173f0eaf2b0bed82838c6",
+    "upstream_commit": "204698b45b3712590f06245fbfba32d3be539812",
+    "adapter_sha256": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "reader_sha256": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "image_size": 384,
+    "clip_frames": 16,
+    "fit_stride": 4,
+    "preprocessing": "RGB full-frame PIL bilinear resize; ImageNet mean/std",
+    "feature_dtype": "float16 from BF16 inference"
+  },
+  "unchanged_components": [
+    "frozen_encoder",
+    "phase_head",
+    "PCA",
+    "prototypes",
+    "neighbours",
+    "temperature",
+    "feature_residual"
+  ],
+  "code_sha256": "8a92dea23a2182c031b664352fae6c40a06b693b1015393a3427dcb047a8099c",
+  "temporal_code_sha256": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+  "scope": "Normal-only recalibration on shared history31 mask; cached accuracy ablation, not a GPU or runtime benchmark"
+}

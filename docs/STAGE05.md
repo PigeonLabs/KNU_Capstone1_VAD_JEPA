@@ -1,6 +1,6 @@
 # Stage 05 — 실시간 탐지와 진단
 
-실제 FPS·지연·알람 지연은 아직 측정하지 않았다. 특징 캐시 생성 시간, 모델 smoke 시간, LoRA 예비 학습 시간은 처리량 결과로 사용하지 않는다.
+고정 백본의 이력 5·15·31 OFAT 144개 seed 조건을 완료했다. [공통 구간의 수치·paired CI·그래프와 재현 근거](ABLATION_HISTORY.md)를 제공한다. 실제 FPS·지연·알람 지연은 아직 측정하지 않았다. 특징 캐시 생성 시간, 모델 smoke 시간, LoRA 예비 학습 시간은 처리량 결과로 사용하지 않는다.
 
 ## 준비된 스트리밍 점수와 평가
 
@@ -62,7 +62,7 @@ python scripts/verify_runtime_parity.py \
 
 DINO full-clip BF16과 과거 특징 재사용 BF16의 수치 일치 게이트는 실패했다. FP32 특징 비교는 통과했지만, 실제 점수·알람과 실행 시간을 확인해야 한다. 재사용 구현의 숫자를 주 BF16 조건의 성능으로 대체하지 않으며, precision과 대응하는 full 계산 조건을 명시한다. 세부 근거는 [Stage 03](STAGE03.md)에 있다.
 
-진단 17개 정상 주기의 stall/reverse, occlusion/local colour, 혼합 변환과 4종 evidence confusion matrix·macro-F1, clip/history/bin/budget/k/표현/teacher weight 제거 실험 및 작은 온라인 백본도 [고정 실험 행렬](../configs/experiment_matrix.yaml)에 따라 수행해야 한다. 완료된 실측 근거가 없으므로 Stage 05 완료 태그를 생성하지 않는다.
+진단 17개 정상 주기의 stall/reverse, occlusion/local colour, 혼합 변환과 4종 evidence confusion matrix·macro-F1, clip/bin/budget/k/표현/teacher weight 제거 실험 및 작은 온라인 백본도 [고정 실험 행렬](../configs/experiment_matrix.yaml)에 따라 수행해야 한다. 완료된 실측 근거가 없으므로 Stage 05 완료 태그를 생성하지 않는다.
 
 ## 작은 온라인 백본 준비
 

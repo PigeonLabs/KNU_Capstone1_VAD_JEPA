@@ -1,0 +1,14 @@
+{
+  "status": "complete_training_export",
+  "backbone": "dinov3-l",
+  "mode": "offline",
+  "device": "R01",
+  "seed": 0,
+  "epochs": 20,
+  "training_metadata_sha256": "d85516dcdfad03e7d18d963679332db9ac0b04c050d57f918a73c91d5c94a968",
+  "training_curve_sha256": "970805b7533416e00849ca96eda2cf48c4fd8e027e5a7949712406e5cd549183",
+  "selected_checkpoint_sha256": "16337a114197e104402304f60da73552fb01539cce24b6fd5d77bacb8d20453a",
+  "selected_epoch": 18,
+  "selected_normal_calibration_circular_mae": 0.0066059228659627,
+  "scope": "Completed normal-only training and normal-CE selection; anomaly evaluation, 3-seed and runtime results pending"
+}

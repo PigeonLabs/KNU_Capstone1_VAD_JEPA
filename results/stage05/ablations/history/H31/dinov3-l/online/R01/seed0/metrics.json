@@ -1,0 +1,19 @@
+{
+  "status": "complete_device_evaluation",
+  "backbone": "dinov3-l",
+  "mode": "online",
+  "device": "R01",
+  "seed": 0,
+  "history": 31,
+  "valid_mask": "t=45..N-8 inclusive, intersect original shared annotation uncertainty mask",
+  "test_videos": 15,
+  "variants": {
+    "P3": {
+      "frame_auroc": 0.5956873515219281,
+      "frame_ap": 0.4135971763252918,
+      "frames": 2905,
+      "anomaly_frames": 1158
+    }
+  },
+  "note": "History-only cached-score OFAT with shared calibration/evaluation mask; not the primary H5 mask or runtime performance"
+}

@@ -1,0 +1,60 @@
+{
+  "status": "normal_fit_and_calibration_complete",
+  "backbone": "dinov3-l",
+  "mode": "online",
+  "device": "R01",
+  "seed": 1,
+  "history": 5,
+  "shared_comparison_history": 31,
+  "calibration_mask": "t=45..N-8 inclusive",
+  "cycle_length_fit_median": 231.0,
+  "score_weights": [
+    0.5,
+    0.5
+  ],
+  "calibration_quantile": 0.99,
+  "calibration": {
+    "P3": {
+      "median": [
+        0.4988643676042557,
+        0.010902226095570441
+      ],
+      "mad_scale": [
+        0.14449746821522713,
+        0.0003465893047559784
+      ],
+      "threshold": 1.749791736824646,
+      "component_thresholds": [
+        0.7115431487560272,
+        0.011792750424463327
+      ]
+    }
+  },
+  "source_normal_fit_sha256": "2bd92a64042958b6df4dd49a06d5f5a6ae20e13d8cf00b57bfcaa37195c26492",
+  "source_phase_checkpoint_sha256": "03ae99211b47f31d503ce395706bafb0c3a5494a8144e58e943eb94e16d16f09",
+  "source_cache_identity": {
+    "backbone": "dinov3-l",
+    "mode": "online",
+    "weights_sha256": "8aa4cbddda325040fc78db2c272754af6ebe8ff2c55f6ec4f1964d8890f66035",
+    "upstream_commit": "6876159a11b4df116f30f667f8c9888617df0751",
+    "adapter_sha256": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "reader_sha256": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "image_size": 384,
+    "clip_frames": 16,
+    "fit_stride": 4,
+    "preprocessing": "RGB full-frame PIL bilinear resize; ImageNet mean/std",
+    "feature_dtype": "float16 from BF16 inference"
+  },
+  "unchanged_components": [
+    "frozen_encoder",
+    "phase_head",
+    "PCA",
+    "prototypes",
+    "neighbours",
+    "temperature",
+    "feature_residual"
+  ],
+  "code_sha256": "8a92dea23a2182c031b664352fae6c40a06b693b1015393a3427dcb047a8099c",
+  "temporal_code_sha256": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+  "scope": "Normal-only recalibration on shared history31 mask; cached accuracy ablation, not a GPU or runtime benchmark"
+}
