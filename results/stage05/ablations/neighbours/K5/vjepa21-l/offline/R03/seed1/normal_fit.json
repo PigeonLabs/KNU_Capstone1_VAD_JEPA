@@ -1,0 +1,62 @@
+{
+  "status": "normal_fit_and_calibration_complete",
+  "backbone": "vjepa21-l",
+  "mode": "offline",
+  "device": "R03",
+  "seed": 1,
+  "neighbours": 5,
+  "calibration_mask": "t=19..N-8 inclusive",
+  "history": 5,
+  "score_weights": [
+    0.5,
+    0.5
+  ],
+  "cycle_length_fit_median": 696.0,
+  "temperature": 1.021008014678955,
+  "temperature_definition": "unchanged normal median fifth-neighbour distance",
+  "source_memory_sha256": "bccd6c755b31128b7b8e7b55c778d5f7afbcd4d2bdf92189ccaf71d3e5cc4292",
+  "source_cache_identity": {
+    "backbone": "vjepa21-l",
+    "mode": "offline",
+    "weights_sha256": "7ea9b7cb4a75d10644a8a8d42cff9e177b10dca8f02173f0eaf2b0bed82838c6",
+    "upstream_commit": "204698b45b3712590f06245fbfba32d3be539812",
+    "adapter_sha256": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "reader_sha256": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "image_size": 384,
+    "clip_frames": 16,
+    "fit_stride": 4,
+    "preprocessing": "RGB full-frame PIL bilinear resize; ImageNet mean/std",
+    "feature_dtype": "float16 from BF16 inference"
+  },
+  "source_normal_fit_sha256": "51c6740f893d02afba34397cf2f8cc68ac53924ca0dba6485e329ae7aa9b8e6b",
+  "source_phase_checkpoint_sha256": "b9a267afead97505937fe58e5f64ef04361afb0181b0d5cc521caf3a44461e2f",
+  "calibration": {
+    "P3": {
+      "median": [
+        0.5057325959205627,
+        0.004999494949893807
+      ],
+      "mad_scale": [
+        0.017900726294517517,
+        0.003097953305636159
+      ],
+      "threshold": 16.154218126604245,
+      "component_thresholds": [
+        0.6196291780471801,
+        0.1008619999586457
+      ]
+    }
+  },
+  "code_sha256": "0e2e0d135d71960d09d1a0fec27b56216206759334b7d2aca217fac372831a56",
+  "search_code_sha256": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+  "temporal_code_sha256": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+  "unchanged_components": [
+    "frozen_encoder",
+    "phase_head",
+    "PCA",
+    "prototypes",
+    "temperature",
+    "time_history5"
+  ],
+  "scope": "Neighbour-only OFAT; normal-only recalibration before testing; cached features, not real-time throughput"
+}

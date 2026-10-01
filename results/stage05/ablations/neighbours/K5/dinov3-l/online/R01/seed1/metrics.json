@@ -1,0 +1,19 @@
+{
+  "status": "complete_device_evaluation",
+  "backbone": "dinov3-l",
+  "mode": "online",
+  "device": "R01",
+  "seed": 1,
+  "neighbours": 5,
+  "test_videos": 15,
+  "valid_mask": "t=19..N-8 inclusive, intersect original shared annotation uncertainty mask",
+  "variants": {
+    "P3": {
+      "frame_auroc": 0.5844269569754665,
+      "frame_ap": 0.40693157526218443,
+      "frames": 3295,
+      "anomaly_frames": 1227
+    }
+  },
+  "note": "Neighbour-only frozen feature search; online EOF alarms active; runtime not isolated or measured"
+}

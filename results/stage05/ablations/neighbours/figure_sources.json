@@ -1,0 +1,21 @@
+{
+  "status": "rendered_from_verified_summaries",
+  "matrix_complete": true,
+  "reporting_runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "completed_groups": 16,
+  "validation_sha256": "437741b4048d85559eca7c9223b30cea87603fb369caeea56d46ef644d1c2318",
+  "device_summary_sha256": "488d11f0d3d562549a7d523846abccb32431273939c235c0cf609a59df131ec7",
+  "macro_summary_sha256": "d7dc34639af9f1a045207834c54ee22407f6fb44f232a659632d314d05318b12",
+  "plot_code_sha256": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
+  "figures": {
+    "neighbours_macro4.png": "b113dce1eac0debb2e886089abd0e007a5c3bdaea37098b0cf7b85b99056357e",
+    "neighbours_macro4.svg": "77dda8f7941a127e30e9bfd1bd2fbb44ed8d4751bbee7b07cd42fd75e17ab12d",
+    "neighbours_paired_differences.png": "7325388fb1efe7231492427edbd629786fe321d3078bf2b0d4c27a2013582c29",
+    "neighbours_paired_differences.svg": "a571268e50fccf7998dba671b5b437934212ec9bae14e55606f7f5d58f347f35"
+  },
+  "scope": "Accuracy and uncertainty plots; visual inspection recorded separately"
+}

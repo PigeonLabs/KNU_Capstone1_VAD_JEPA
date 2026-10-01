@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "comparisons": 24,
+  "max_absolute_error": 0.0,
+  "scope": "K5 four model/mode Macro4 points and confidence limits replay frozen P3 at shared t=19..N-8 mask",
+  "neighbour_macro_sha256": "d7dc34639af9f1a045207834c54ee22407f6fb44f232a659632d314d05318b12",
+  "primary_macro_sha256": "8a61b5cb1773b9129075654ffa43cd824cf63bc19e9fbb3ce4af7d3c553e9ec5",
+  "visual_inspection": {
+    "figures": [
+      "neighbours_macro4.png",
+      "neighbours_paired_differences.png"
+    ],
+    "status": "inspected; labels, bounds, legends and source footnotes readable"
+  }
+}

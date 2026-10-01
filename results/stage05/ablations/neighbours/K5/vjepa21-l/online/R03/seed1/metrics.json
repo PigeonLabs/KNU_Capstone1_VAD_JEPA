@@ -1,0 +1,19 @@
+{
+  "status": "complete_device_evaluation",
+  "backbone": "vjepa21-l",
+  "mode": "online",
+  "device": "R03",
+  "seed": 1,
+  "neighbours": 5,
+  "test_videos": 17,
+  "valid_mask": "t=19..N-8 inclusive, intersect original shared annotation uncertainty mask",
+  "variants": {
+    "P3": {
+      "frame_auroc": 0.5209192326662445,
+      "frame_ap": 0.4487424572923966,
+      "frames": 11563,
+      "anomaly_frames": 4922
+    }
+  },
+  "note": "Neighbour-only frozen feature search; online EOF alarms active; runtime not isolated or measured"
+}
