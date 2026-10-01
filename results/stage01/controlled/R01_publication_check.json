@@ -1,0 +1,16 @@
+{
+  "status": "inspected",
+  "figures": {
+    "docs/figures/stage01/R01_controlled_seed2_training.svg": "acb03fa01729c90456a200eb4f13dbb8bfcf25a4b89275f762b6ffba4052105e",
+    "docs/figures/stage01/R01_controlled_seed2_training.png": "b9260c263f2daecd80b650e291f6ba687a5a1a7386d174902ef0f084a0f021b8",
+    "docs/figures/stage01/IPAD_R01_controlled_seed2_sequence03.svg": "a9e82afa28249c77f6536f005f9e58648662ff0ec78d83d9b0c597061c7daccf",
+    "docs/figures/stage01/IPAD_R01_controlled_seed2_evaluation.png": "3ae148ac341472eb0ee1d2881000d91f0adecf7dc8dd3d5f55aaba28fc3de0ce",
+    "docs/figures/stage01/IPAD_R01_controlled_seed2_sequence03.png": "d98a34d54f65eaf234cfc6c5fe222351a9b13b5d39c24be55e3774bc4c28c8e3",
+    "docs/figures/stage01/IPAD_R01_controlled_seed2_evaluation.svg": "0b31eff59746ed3cc061cfb3574f8a62db5ad4e564b5abdc31f92e0e289f38b1",
+    "docs/figures/stage01/IPAD_R01_controlled_three_seed.svg": "d452595ee10607cabdf57d294c1124c3a8c603c18ea7b0f60934c66dbd02f699",
+    "docs/figures/stage01/IPAD_R01_controlled_three_seed.png": "7c33443da86557e92a9bf37ad2268f12eadaaa57c7e759a5f20c7c614b9928aa"
+  },
+  "scope": "Four final PNGs visually inspected: mean/paired plot, seed2 ROC/PR, fixed video03 score/alarm, completed normal training curve",
+  "aggregate_validation_sha256": "6463095bc725268dca37afefd46d614aff4949fd7827922c8fa7016688bdf43d",
+  "single_seed_summary_sha256": "cf40a3f17600293fc91f8e6a68f93175f921ea14ae3636bbae10eee06c4bbb2b"
+}

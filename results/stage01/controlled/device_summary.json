@@ -1,0 +1,57 @@
+{
+  "scope": "Device results; macro4 requires all four devices. Mean of three seed metrics.",
+  "bootstrap": "1000 paired whole-video resamples, seed=2026; percentile 95% CI. Frames within a video stay together.",
+  "results": [
+    {
+      "backbone": "IPAD-native-repaired",
+      "mode": "offline",
+      "device": "R01",
+      "variant": "B0",
+      "seeds": 3,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.8151222993079102,
+      "auroc_ci_low": 0.6644383371664966,
+      "auroc_ci_high": 0.9361286863851126,
+      "ap_mean": 0.5979179379470513,
+      "ap_ci_low": 0.4517099959640811,
+      "ap_ci_high": 0.7959409528390332,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    },
+    {
+      "backbone": "IPAD-native-repaired",
+      "mode": "offline",
+      "device": "R01",
+      "variant": "B1",
+      "seeds": 3,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.6872114212929903,
+      "auroc_ci_low": 0.5385389932943091,
+      "auroc_ci_high": 0.8141612552070479,
+      "ap_mean": 0.5064721658187562,
+      "ap_ci_low": 0.3140707759952385,
+      "ap_ci_high": 0.6689007990114483,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    }
+  ],
+  "paired_deltas": [
+    {
+      "backbone": "IPAD-native-repaired",
+      "mode": "offline",
+      "device": "R01",
+      "comparison": "B1_minus_B0",
+      "auroc_delta": -0.12791087801492007,
+      "auroc_delta_ci_low": -0.2832363668481064,
+      "auroc_delta_ci_high": 0.010435567227353925,
+      "ap_delta": -0.09144577212829512,
+      "ap_delta_ci_low": -0.331174131104612,
+      "ap_delta_ci_high": 0.06811120936178257
+    }
+  ],
+  "macro_summary": "macro_summary.json"
+}

@@ -1,0 +1,21 @@
+{
+  "status": "normal_calibration_complete",
+  "checkpoint_sha256": "bd07310d5db93df7c73d4280c46dcd1d478e7b2cc46da0a6ceb20e8874b479cc",
+  "training_scope": "controlled",
+  "calibration_overlap_with_training": false,
+  "selection": "Fixed final epoch50; normal calibration only",
+  "variants": {
+    "B0": {
+      "median": -29.253703117370605,
+      "mad_scale": 0.6921055669784546,
+      "threshold": 19.239530108863356
+    },
+    "B1": {
+      "median": 0.9450285136699677,
+      "mad_scale": 0.0002625026285648346,
+      "threshold": 10.06269369470688
+    }
+  },
+  "B0": "Anomaly-high -PSNR at input frame8",
+  "B1": "Central latent temporal cell2 MSE over all 768 channels and 8x8 cells; no decoder in latent_score()"
+}

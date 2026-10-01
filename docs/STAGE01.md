@@ -20,10 +20,27 @@ R01 controlled seed 1도 정상 fit 23개 영상에서 **50/50 epoch, 30,950 opt
 | 실행 | 정상 학습 | seed | epoch | 상태 |
 |---|---|---|---|---|
 | GPU 예비 검증 R01 | fit 23개 영상에서 2 batch | 0 | 부분 epoch | 통과; 성능 평가에 사용하지 않음 |
-| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 seed 0 학습·평가 완료, seed 1 학습·평가 완료, seed 2의 평가 결과 미공개; 다른 장비 미완료 |
+| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 세 seeds의 50 epoch 학습·평가 및 평균·paired CI 완료; 다른 장비 미완료 |
 | Reference | 장비별 정상 training, 합계 111개 영상 | 0 | 50 | 미실행 |
 
 Reference는 논문의 전체 정상 training 범위를 비교하려는 조건이다. 정상 calibration 영상이 학습에도 포함되는 점을 별도로 기록하고, 제안 방법과의 주 비교는 calibration을 제외한 controlled 조건으로 수행한다. 장비 간 데이터를 합쳐 학습하지 않는다.
+
+## R01 controlled 세-seed 평가
+
+**seed 0·1·2 모두 50/50 epoch 학습과 최종 체크포인트 평가를 완료했다.** 동일 정상 fit 23개 영상에서 학습하고 별도 정상 calibration 5개 영상으로 median/MAD와 q99를 고정했다. 실제 테스트 15개 영상의 공통 `t=19..N−8` 구간, 3,295프레임(이상 1,227프레임)에서 seed별 지표를 계산한 뒤 평균했다. seed 점수를 합쳐 지표를 만들지 않는다.
+
+| 점수 | AUROC / 95% CI (%) | AP / 95% CI (%) |
+|---|---:|---:|
+| B0 픽셀 −PSNR | 81.51 (66.44..93.61) | 59.79 (45.17..79.59) |
+| B1 메모리 전후 특징 잔차 | 68.72 (53.85..81.42) | 50.65 (31.41..66.89) |
+
+![R01 기준선 세-seed 평균과 paired 차이](figures/stage01/IPAD_R01_controlled_three_seed.png)
+
+B1−B0 차이는 AUROC **-12.79pp**(95% CI -28.32..+1.04pp), AP **-9.14pp**(-33.12..+6.81pp)다. 평균은 B0가 높았으나 두 paired CI가 0을 포함한다.
+
+CI는 같은 테스트 영상을 paired 재표본한 bootstrap 1,000회(기각 0회)로, 세 개의 고정 학습 seeds에 조건부인 영상 불확실성이다. 학습 seed 모집단의 불확실성이나 다른 장비의 결과까지 나타내지 않는다. R01 한 장비의 결과이며 네 장비 Macro4는 아직 없다. B0/B1 모두 디코더를 사용해 학습하고 B1은 독립 추론에서만 디코더를 제외한다. 제안한 디코더 없는 방법 P0–P3와 구분한다.
+
+15개 실제 annotation·유효 프레임·정상 q99 6개·점수 정규화·3회 연속 초과 알람·50 epoch 학습 출처를 확인했다. 집계 평균·CI·paired 차이 18개 값은 최적화 지표 코드를 거치지 않고 sklearn으로 직접 재계산해 최대 차이 1.12e−16이었다. [세-seed 수치](../results/stage01/controlled/device_summary.json), [검증·소스·그래프 해시](../results/stage01/controlled/R01_three_seed_validation.json)를 제공한다. 이 검사는 CSV와 집계의 재현성이며 독립 모델 재추론이나 실시간 처리량 검증은 아니다.
 
 ## R01 controlled seed 0 평가
 
@@ -53,12 +70,25 @@ seed 0과 같은 정상 fit 23개·calibration 5개 영상, 최종 epoch 50 선�
 | B0 픽셀 −PSNR | 81.61 / 66.56..93.49 | 60.11 / 48.04..77.91 |
 | B1 메모리 전후 특징 잔차 | 76.30 / 56.90..90.75 | 64.06 / 35.89..81.34 |
 
-CI는 이 한 학습 seed에서 paired whole-video bootstrap 1,000회로 계산했다(기각 0회). B1−B0 차이는 AUROC −5.31pp(95% CI −23.65..+9.04pp), AP +3.96pp(−28.82..+25.14pp)로 두 CI에 모두 0이 포함된다. seed 0·1의 B1 수치가 다르지만, seed 2가 완료되지 않았으므로 3-seed 결과 또는 전체 기준선의 우열로 해석하지 않는다.
+CI는 이 한 학습 seed에서 paired whole-video bootstrap 1,000회로 계산했다(기각 0회). B1−B0 차이는 AUROC −5.31pp(95% CI −23.65..+9.04pp), AP +3.96pp(−28.82..+25.14pp)로 두 CI에 모두 0이 포함된다. seed별 B1 수치의 편차가 크며, 세-seed 집계와 그 해석은 위의 별도 절에 제공한다. 전체 장비의 우열로 해석하지 않는다.
 
 ![R01 seed 1 기준선 지표와 ROC/PR](figures/stage01/IPAD_R01_controlled_seed1_evaluation.png)
 ![R01 seed 1 고정 테스트 영상 03의 점수와 알람](figures/stage01/IPAD_R01_controlled_seed1_sequence03.png)
 
 고정 영상 03에서 B0는 이상 195프레임과 정상 186프레임, B1은 이상 195프레임과 정상 169프레임에 알람을 냈다. AP 향상과 고정 임계값의 정상 오탐이 함께 존재한다. 테스트에서 임계값을 다시 맞추지 않았다. 이 수는 프레임별 알람이며 실제 이벤트 지연·벽시계 처리량이 아니다. [원본 지표·정상 보정·CSV](../results/stage01/controlled/IPAD-native-repaired/offline/R01/seed1)와 [한 seed의 CI 및 소스 해시 검증](../results/stage01/controlled/IPAD-native-repaired/offline/R01/seed1/single_seed_summary.json)을 제공한다.
+
+## R01 controlled seed 2 평가
+
+정상 fit 23개 영상에서 **50/50 epoch, 30,950 optimizer step**을 완료했다. [학습 CSV/JSON](../results/stage01/controlled/training/R01/seed2)과 완료 곡선을 공개한다. 한 epoch의 후보 clip 4,954개 중 batch 8의 `drop_last`로 4,952개를 사용했다.
+
+![R01 seed 2 정상 학습 곡선](figures/stage01/R01_controlled_seed2_training.png)
+
+같은 최종 epoch 50 체크포인트의 B0 AUROC/AP는 **82.51/60.53%**, B1은 **64.16/41.23%**다. 아래 그래프의 CI는 이 한 학습 seed를 고정한 영상 bootstrap이다. 세-seed 평균은 위의 별도 표를 사용한다.
+
+![R01 seed 2 기준선 지표와 ROC/PR](figures/stage01/IPAD_R01_controlled_seed2_evaluation.png)
+![R01 seed 2 고정 테스트 영상 03의 점수와 알람](figures/stage01/IPAD_R01_controlled_seed2_sequence03.png)
+
+고정 영상 03에서는 두 점수 모두 정상 q99를 넘는 구간이 넓었다. AUROC/AP와 고정 임계값의 오탐을 함께 읽어야 하며 테스트에서 임계값을 바꾸지 않았다. [실제 지표·정상 보정·CSV](../results/stage01/controlled/IPAD-native-repaired/offline/R01/seed2), [한 seed의 CI·출처](../results/stage01/controlled/IPAD-native-repaired/offline/R01/seed2/single_seed_summary.json)를 제공한다. 프레임별 알람은 벽시계 지연이나 이벤트별 탐지율을 나타내지 않는다.
 
 ## 공개 코드의 실행 오류와 명시적인 수정
 
@@ -105,5 +135,7 @@ python -m ipad_jepa.ipad_evaluate --data-root "$IPAD_DATA_ROOT" \
 python scripts/plot_native_evaluation.py \
   --results results/stage01/controlled/IPAD-native-repaired/offline/R01/seed0
 ```
+
+세-seed 집계 후 실제 annotation·q99·점수·알람과 sklearn 집계를 검증하려면 `python scripts/plot_native_three_seed.py --device R01`을 실행한다.
 
 학습 완료 시 CSV/JSON과 학습 곡선, 기준선 평가 완료 시 지표·ROC/PR·점수 시계열을 공개한다. 모델·optimizer 체크포인트와 원본 프레임은 로컬에만 보관한다. Stage 01 완료 태그는 전체 요구 조건이 검증된 뒤 생성한다.
