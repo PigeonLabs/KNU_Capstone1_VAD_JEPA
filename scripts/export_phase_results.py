@@ -3,7 +3,6 @@ import argparse
 import csv
 import json
 from pathlib import Path
-import shutil
 
 
 def main():
@@ -24,7 +23,7 @@ def main():
         target=args.out/metadata.parent.relative_to(args.runs)
         target.mkdir(parents=True,exist_ok=True)
         for name in ['phase_training.json','phase_training.csv']:
-            shutil.copyfile(metadata.parent/name,target/name)
+            (target/name).write_text((metadata.parent/name).read_text())
         summaries.append({k:info[k] for k in ['backbone','mode','device','seed','fit_clips','calibration_clips','selected_epoch']} | {
             'selected_normal_calibration_ce':float(selected['normal_calibration_ce']),
             'selected_normal_calibration_circular_mae':float(selected['normal_calibration_circular_mae']),
@@ -33,7 +32,7 @@ def main():
         raise ValueError('No completed phase-head training logs')
     args.out.mkdir(parents=True,exist_ok=True)
     with (args.out/'phase_summary.csv').open('w',newline='') as stream:
-        writer=csv.DictWriter(stream,fieldnames=list(summaries[0]))
+        writer=csv.DictWriter(stream,fieldnames=list(summaries[0]),lineterminator='\n')
         writer.writeheader(); writer.writerows(summaries)
     print(json.dumps({'exported_runs':len(summaries),'scope':'Normal-only phase prediction; no anomaly AUROC/AP/FPS'},indent=2))
 

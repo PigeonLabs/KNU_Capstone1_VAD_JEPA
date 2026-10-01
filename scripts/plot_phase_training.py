@@ -38,6 +38,8 @@ def main():
     args.out.parent.mkdir(parents=True,exist_ok=True)
     for suffix in (".png",".svg"):
         fig.savefig(args.out.with_suffix(suffix),dpi=180,bbox_inches="tight",facecolor="white")
+    svg=args.out.with_suffix(".svg")
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines())+"\n")
 
 
 if __name__=="__main__":
