@@ -1,0 +1,16 @@
+{
+  "status": "passed_exact_array_equality",
+  "source": "model.utils.np_load_frame",
+  "preprocessing": "OpenCV BGR resize 256 [-1,1]",
+  "input_shape": [
+    3,
+    16,
+    256,
+    256
+  ],
+  "phase_start_label": 0,
+  "query_target": 8,
+  "clips": 192,
+  "sequence": "01",
+  "device": "R01"
+}

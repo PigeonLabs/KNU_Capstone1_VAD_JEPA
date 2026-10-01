@@ -1,0 +1,134 @@
+{
+  "status": "complete_device_evaluation",
+  "device": "R02",
+  "backbone": "vjepa21-l",
+  "mode": "offline",
+  "seed": 2,
+  "test_videos": 15,
+  "valid_mask": "t=19..N-8 inclusive",
+  "variants": {
+    "P0": {
+      "frame_auroc": 0.5594243653042467,
+      "frame_ap": 0.351663001920445,
+      "frames": 9210,
+      "anomaly_frames": 2949
+    },
+    "P1": {
+      "frame_auroc": 0.5769871069643775,
+      "frame_ap": 0.3626872875082199,
+      "frames": 9210,
+      "anomaly_frames": 2949
+    },
+    "P2": {
+      "frame_auroc": 0.6021206000599338,
+      "frame_ap": 0.39542600480093326,
+      "frames": 9210,
+      "anomaly_frames": 2949
+    },
+    "P3": {
+      "frame_auroc": 0.639510825816011,
+      "frame_ap": 0.42368497651300707,
+      "frames": 9210,
+      "anomaly_frames": 2949
+    }
+  },
+  "alignment_policy": "Matched lengths: index alignment. Unresolved +/-1 length: consensus over label indices t-1,t,t+1; disagreements/out-of-bounds unknown. Assumes index offset stays within +/-1, not proven exact alignment.",
+  "unresolved_alignment_sequences": [
+    {
+      "sequence": "12",
+      "unknown_common_frames": 4
+    },
+    {
+      "sequence": "13",
+      "unknown_common_frames": 6
+    },
+    {
+      "sequence": "14",
+      "unknown_common_frames": 8
+    }
+  ],
+  "alignment_sensitivity": {
+    "P0": {
+      "-1": {
+        "frame_auroc": 0.5600058620037736,
+        "frame_ap": 0.35256544797595357,
+        "frames": 9228,
+        "anomaly_frames": 2959
+      },
+      "0": {
+        "frame_auroc": 0.5592643365436148,
+        "frame_ap": 0.351946502958812,
+        "frames": 9228,
+        "anomaly_frames": 2958
+      },
+      "1": {
+        "frame_auroc": 0.5586052237495205,
+        "frame_ap": 0.351552858128974,
+        "frames": 9228,
+        "anomaly_frames": 2957
+      }
+    },
+    "P1": {
+      "-1": {
+        "frame_auroc": 0.5772902016935768,
+        "frame_ap": 0.36352791768421266,
+        "frames": 9228,
+        "anomaly_frames": 2959
+      },
+      "0": {
+        "frame_auroc": 0.5772830525819743,
+        "frame_ap": 0.3634377061986275,
+        "frames": 9228,
+        "anomaly_frames": 2958
+      },
+      "1": {
+        "frame_auroc": 0.5766308261394235,
+        "frame_ap": 0.3627966189456761,
+        "frames": 9228,
+        "anomaly_frames": 2957
+      }
+    },
+    "P2": {
+      "-1": {
+        "frame_auroc": 0.6019477065489752,
+        "frame_ap": 0.39590309527867723,
+        "frames": 9228,
+        "anomaly_frames": 2959
+      },
+      "0": {
+        "frame_auroc": 0.6019907897163155,
+        "frame_ap": 0.3957695159344415,
+        "frames": 9228,
+        "anomaly_frames": 2958
+      },
+      "1": {
+        "frame_auroc": 0.601991080682468,
+        "frame_ap": 0.3954502099418532,
+        "frames": 9228,
+        "anomaly_frames": 2957
+      }
+    },
+    "P3": {
+      "-1": {
+        "frame_auroc": 0.6391746380627765,
+        "frame_ap": 0.4238140444473232,
+        "frames": 9228,
+        "anomaly_frames": 2959
+      },
+      "0": {
+        "frame_auroc": 0.6395256073061133,
+        "frame_ap": 0.4241320817936629,
+        "frames": 9228,
+        "anomaly_frames": 2958
+      },
+      "1": {
+        "frame_auroc": 0.6394663811231057,
+        "frame_ap": 0.4239305500605126,
+        "frames": 9228,
+        "anomaly_frames": 2957
+      }
+    }
+  },
+  "seconds": 152.7004562690272,
+  "note": "Device frame metrics only; not macro4 or throughput benchmark"
+}

@@ -47,7 +47,7 @@ def main():
             axis.hlines(low,xpos-.04,xpos+.04,color='#202020'); axis.hlines(high,xpos-.04,xpos+.04,color='#202020')
         axis.set(xticks=np.arange(4),xticklabels=variants,ylim=(0,100),ylabel=f'{title} (%)',xlabel='Memory/score variant')
         axis.spines[['top','right']].set_visible(False)
-    axes[0].legend(frameon=False,fontsize=9)
+    axes[0].legend(frameon=False,fontsize=9,loc='lower center',bbox_to_anchor=(.5,1.02),ncol=2)
     fig.suptitle(f'{args.device} / {args.mode} / 3-seed mean; 95% video-bootstrap CI',fontsize=13)
     save(fig,args.out/f'{args.device}_{args.mode}_variants','Source: device_summary.json. P0 global hard; P1 phase hard; P2 phase soft; P3 + temporal. Device results, not macro4.')
 
@@ -92,7 +92,7 @@ def main():
         axes[0].plot(frame,feature,label='Feature robust z',color='#245B86'); axes[0].plot(frame,temporal,label='Temporal robust z',color='#C17A1A')
         axes[0].set_ylabel('Component z'); axes[0].legend(frameon=False,fontsize=8)
         axes[1].plot(frame,score,color=COLORS[model],label='P3 total'); axes[1].axhline(c['threshold'],color='#333333',linestyle='--',label='Normal q99 threshold')
-        axes[1].set_ylabel('P3 score'); axes[1].legend(frameon=False,fontsize=8)
+        axes[1].set_ylabel('P3 score'); axes[1].legend(frameon=True,framealpha=1,facecolor='white',edgecolor='none',fontsize=8)
         axes[2].step(frame,label,where='mid',label='Binary ground truth',color='#B23B3B'); axes[2].step(frame,alarm*.8,where='mid',label='3-frame alarm',color='#245B86')
         axes[2].set(xlabel='Target frame index (not wall-clock detection time)',ylabel='GT / alarm',ylim=(-.1,1.2),yticks=[0,1]); axes[2].legend(frameon=False,fontsize=8)
         for a in axes: a.spines[['top','right']].set_visible(False)

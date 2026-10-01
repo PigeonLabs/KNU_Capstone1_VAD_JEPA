@@ -1,0 +1,7 @@
+{
+  "upstream_commit": "22764cbeeda3946303d236babdd2664fd6241b91",
+  "status": "unmodified_memory_forward_failed",
+  "error": "name 'i' is not defined",
+  "source": "model/memory_module.py:MemoryUnit.forward",
+  "details": "Undefined i at score[i] before period-address update; tested without changing upstream."
+}

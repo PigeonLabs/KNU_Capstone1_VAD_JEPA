@@ -6,7 +6,7 @@ from pathlib import Path
 import subprocess
 import torch
 
-names=["numpy","scipy","scikit-learn","matplotlib","Pillow","PyYAML","pytest","torch","torchvision","timm","einops"]
+names=["numpy","scipy","scikit-learn","matplotlib","Pillow","PyYAML","pytest","torch","torchvision","timm","einops","opencv-python-headless"]
 result={"python":platform.python_version(),"platform":platform.system(),
         "packages":{name:importlib.metadata.version(name) for name in names},
         "cuda_available":torch.cuda.is_available(),"cuda_runtime":torch.version.cuda,
@@ -18,4 +18,3 @@ if torch.cuda.is_available():
 Path("results/setup").mkdir(parents=True,exist_ok=True)
 Path("results/setup/environment.json").write_text(json.dumps(result,indent=2)+"\n")
 print(json.dumps(result,indent=2))
-

@@ -63,7 +63,10 @@ def summarize(root,count=1000):
     rows=[]; stored={}; deltas=[]
     for key,seeds in groups.items():
         if set(seeds)!={0,1,2}: continue
-        for variant in ['P0','P1','P2','P3']:
+        variants=list(seeds[0][1]['variants'])
+        if any(list(seeds[s][1]['variants'])!=variants for s in [1,2]):
+            raise ValueError('Seed variant inventories differ')
+        for variant in variants:
             runs=[load_run(seeds[s][0],variant,seeds[s][1]) for s in [0,1,2]]
             for r in runs[1:]: check_pair(runs[0],r)
             point=np.mean([statistic(r,list(r)) for r in runs],axis=0)
@@ -76,8 +79,8 @@ def summarize(root,count=1000):
                  'ap_mean':float(point[1]),'ap_ci_low':float(low[1]),'ap_ci_high':float(high[1]),
                  'bootstrap_draws':count,'bootstrap_rejected':rejected}
             rows.append(row); stored[(*key,variant)]=(runs,values)
-        p0,p3=stored[(*key,'P0')],stored[(*key,'P3')]
-        for a,b,label in [(p0,p3,'P3_minus_P0')]:
+        pair=('P0','P3') if 'P0' in variants and 'P3' in variants else ('B0','B1') if 'B0' in variants and 'B1' in variants else None
+        for a,b,label in ([] if pair is None else [(stored[(*key,pair[0])],stored[(*key,pair[1])],pair[1]+'_minus_'+pair[0])]):
             for ra,rb in zip(a[0],b[0]): check_pair(ra,rb)
             # Same RNG seed and video order make draws paired across variants.
             delta=b[1]-a[1]; low,high=np.quantile(delta,[.025,.975],axis=0)

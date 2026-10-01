@@ -4,7 +4,7 @@
 
 DINOv3-L와 V-JEPA 2.1-L의 R01 오프라인 정상 학습 23개 영상과 정상 검증 5개 영상에서 특징을 추출했다.
 학습은 4프레임 간격의 1,248개 clip, 검증은 1프레임 간격의 1,087개 clip이다. 테스트 영상과 진단 영상은 사용하지 않았다.
-각 백본의 seed 0/1/2에서 20 epoch 위상 예측기 학습을 완료했다. R01의 PCA·메모리 구성과 이상탐지 평가도 완료했으며 아래에 기록했다. R02–R04 및 온라인 비교는 아직 수행 중 또는 전이다. Stage 02 완료 태그는 생성하지 않는다.
+각 백본의 seed 0/1/2에서 20 epoch 위상 예측기 학습을 완료했다. R01·R02 두 백본의 PCA·메모리 구성과 이상탐지 평가도 완료했으며 아래에 기록했다. R03–R04 및 온라인 비교는 수행 중이다. Stage 02 완료 태그는 생성하지 않는다.
 
 ## 정상 검증 결과와 한계
 
@@ -122,14 +122,49 @@ python scripts/plot_experiments.py
 두 백본·세 seed 모두 실행한 뒤 요약/그림을 만든다. 메모리 NPZ는 `artifacts`에만 저장한다.
 공개 근거는 실행별 `normal_fit.json`, `normal_calibration.csv`, P0–P3 프레임 점수 CSV, `metrics.json`, [device_summary.json](../results/stage02/device_summary.json)이다.
 요약 도구는 공개 CSV에서 AUROC/AP를 다시 계산해 완료 메타데이터와 프레임 수·라벨 수·지표가 맞는지 확인한다. 모델 간 비교는 영상 ID·프레임 ID·라벨 일치를 검증한 뒤 같은 bootstrap 표본을 사용한다.
+R01·R02의 두 백본·3 seeds·4 구성에 대한 48개 정상 q99 임계값도 공개 calibration CSV에서 재계산해 저장값과 일치함을 확인했다. [검증 기록](../results/stage02/calibration_check.json)을 제공한다.
 NumPy 기준 검색과 FP32 배치 검색의 hard/soft 및 전역/위상 결과 일치를 테스트했다. 나머지 장비, 온라인, LoRA, IPAD 기준선, 합성 진단, 실시간 측정과 추가 제거 실험이 완료될 때까지 전체 실험 완료를 선언하지 않는다.
 
-## 후속 정상 위상 학습: R02 V-JEPA
+## R02 정상 위상 학습과 실제 이상탐지 평가
 
-R02 정상 fit 21개 영상에서 3,042개 clip, 정상 검증 5개 영상에서 2,864개 clip을 사용했다. seed 0/1/2 모두 20 epoch가 정상 검증 CE 기준으로 선택됐다.
-선택 모델의 원형 MAE는 각각 주기의 2.42%, 2.34%, 2.54%이며, CE는 3.5186/3.5121/3.5383이다. 동일 설정에서도 R01과 달리 위상 학습이 개선되어, 위상 문제를 모든 장비에 일반화할 수 없다.
-이는 정상 검증 결과이며 R02 이상탐지 성능이 아니다. 테스트 특징 추출을 완료한 뒤 미확정 라벨 마스크와 정렬 민감도를 포함해 평가한다.
+R02 정상 fit 21개 영상에서 3,042개 clip, 정상 검증 5개 영상에서 2,864개 clip을 사용했다. 두 백본의 seed 0/1/2 모두 20 epoch가 정상 검증 CE 기준으로 선택됐다.
+V-JEPA의 선택 모델 원형 MAE는 2.42/2.34/2.54% 주기, CE는 3.5186/3.5121/3.5383이다. DINOv3는 MAE 2.84/2.78/2.71%, CE 3.5991/3.5785/3.5681이다.
+R01과 달리 동일 설정에서 위상 학습이 개선되어, 위상 문제를 모든 장비에 일반화할 수 없다.
 
+![R02 DINOv3 정상 위상 학습](figures/stage02/dinov3-l_R02_offline_seed0_phase.png)
 ![R02 V-JEPA 정상 위상 학습](figures/stage02/vjepa21-l_R02_offline_seed0_phase.png)
+
+테스트 15개 영상의 공통 대상 9,228프레임 중 라벨 미확정 18프레임을 제외한 **9,210프레임, 이상 2,949프레임**에서 두 백본·3 seeds를 평가했다.
+미확정 영상도 유지하며, ±1 인덱스 오차 가정하에 후보 라벨이 모두 일치하는 프레임만 주 지표에 사용했다. 이 정책은 정확한 원본 정렬을 입증하지 않는다. 고정 점수의 −1/0/+1 offset 지표는 각 `metrics.json`에 별도 공개한다.
+
+| 구성 | DINOv3 AUROC (%) | DINOv3 AP (%) | V-JEPA AUROC (%) | V-JEPA AP (%) |
+|---|---:|---:|---:|---:|
+| P0 전역 메모리 / hard | 73.32 | 62.09 | 58.19 | 36.98 |
+| P1 위상 메모리 / hard | 72.20 | 59.04 | 57.18 | 36.65 |
+| P2 위상 메모리 / soft k=5 | 71.98 | 60.68 | 59.71 | 38.79 |
+| P3 P2 + 시간 점수 | 79.84 | 65.11 | 63.10 | 42.55 |
+
+수치는 3개 seed 지표의 평균이다. P3−P0 AUROC 차이는 DINOv3 +6.51pp(95% 영상 bootstrap CI −3.71..18.77pp), V-JEPA +4.92pp(−5.38..16.30pp)다. 평균은 증가하지만 개선을 확정할 수 없다.
+P3의 V-JEPA−DINOv3 차이는 −16.73pp(−28.73..−5.04pp)다. 이 장비 조건에서는 DINOv3가 더 높았으며, 전체 장비·온라인·LoRA 조건의 일반적인 우열은 아직 판단하지 않는다.
+
+![R02 구성요소 비교](figures/stage02/R02_offline_variants.png)
+![R02 seed 0 ROC와 PR](figures/stage02/R02_offline_roc_pr.png)
+
+<details>
+<summary>R02 정상 위상 정렬과 고정 테스트 영상 03</summary>
+
+![DINOv3 정상 위상 정렬](figures/stage02/dinov3-l_R02_offline_phase_alignment.png)
+![V-JEPA 정상 위상 정렬](figures/stage02/vjepa21-l_R02_offline_phase_alignment.png)
+![DINOv3 점수 시계열](figures/stage02/dinov3-l_R02_offline_sequence03.png)
+![V-JEPA 점수 시계열](figures/stage02/vjepa21-l_R02_offline_sequence03.png)
+
+</details>
+
+## 후속 정상 위상 학습: R03 V-JEPA
+
+정상 fit 15개 영상의 2,564 clip과 정상 검증 4개 영상의 2,771 clip으로 3 seeds 학습을 완료했다. 정상 검증 CE 기준으로 모두 epoch 20을 선택했다.
+실행별 CSV/JSON을 공개하며, 이는 R03 이상탐지 성능을 뜻하지 않는다. 테스트 평가와 DINOv3 비교는 진행 중이다.
+
+![R03 V-JEPA 정상 위상 학습](figures/stage02/vjepa21-l_R03_offline_seed0_phase.png)
 
 전체 요청 범위는 [experiment_matrix.yaml](../configs/experiment_matrix.yaml)에 선언했다. 행렬에 나열된 실험은 완료 표시가 아니며, 실행별 결과와 실제 프로세스로 진행 상태를 확인한다.

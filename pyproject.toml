@@ -11,7 +11,7 @@ dependencies = ["numpy>=1.26", "scikit-learn>=1.5", "matplotlib>=3.8", "Pillow>=
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
-gpu = ["torch==2.8.0", "torchvision==0.23.0", "timm>=1.0.20", "einops>=0.8", "huggingface-hub>=0.30"]
+gpu = ["torch==2.8.0", "torchvision==0.23.0", "timm>=1.0.20", "einops>=0.8", "huggingface-hub>=0.30", "opencv-python-headless>=4.10"]
 
 [project.scripts]
 ipad-audit = "ipad_jepa.audit:main"
