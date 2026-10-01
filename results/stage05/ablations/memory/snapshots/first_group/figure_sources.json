@@ -1,0 +1,24 @@
+{
+  "status": "rendered_from_verified_summaries",
+  "matrix_complete": false,
+  "completed_groups": 1,
+  "validation_sha256": "a4455ffe61195f18416a2536605ebf694a793e7ce99ed853e4efae7b8a0b30af",
+  "device_summary_sha256": "c4336e1613c2bf39e487a68c8746acb8051cd793d57920a4d2ae1fcbe36979d9",
+  "macro_summary_sha256": "9a9c58cc4f04ec51427d3fbbe7f17cf1d8551cc6ebfba63fbbb9640ab4feec5a",
+  "plot_code_sha256": "9b108d53e36d63b3baa43e4ea1958673a11a9cb8b254c77e2a42427cd16aba54",
+  "shared_plot_code_sha256": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
+  "reporting_runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "figures": {
+    "memory_dinov3-l_offline_budget.png": "ea1ed3f338faf5eedb2fdbfc417ca243ee4e8afb0ea8d4e914a60fcb55b96d93",
+    "memory_dinov3-l_offline_budget.svg": "299815ddcbd9544d8314f437e5b478d5fe1f814b4efd6bc1f3f6f9d88fa75cf1",
+    "memory_dinov3-l_offline_bins.png": "a43bbda706f066b930cc8c78d4419f531814999c48a3a7f690b54d669e95b926",
+    "memory_dinov3-l_offline_bins.svg": "3567d987d46bcb88f1af0f2232caca7dd5c999ab090976ae6aec8c0d7382938e",
+    "memory_dinov3-l_offline_paired_differences.png": "1af4e987a490d318e35287f3ab458e1278dbe32e1427a2bc3e8a9044d6e7f4bb",
+    "memory_dinov3-l_offline_paired_differences.svg": "c41dab0ff0df3771256fec2d079a1a6238d1f56bf05c8ae3966ab6d43c36bb80"
+  },
+  "scope": "Separate budget/bin plots and paired uncertainty; final visual inspection recorded separately"
+}
