@@ -16,8 +16,10 @@ def test_video_draws_are_shared_across_seeds(monkeypatch):
     def statistic(run,selected):
         seen.append(tuple(selected)); return np.array([.5,.5])
     monkeypatch.setattr(mod,'statistic',statistic)
+    monkeypatch.setattr(mod,'VideoBootstrapMetric',lambda run:lambda selected:statistic(run,selected))
     values,rejected=mod.bootstrap([dict.fromkeys(['01','02','03'])]*3,count=20)
     assert values.shape==(20,2) and rejected==0
+    assert len(seen)==60
     assert all(seen[i]==seen[i+1]==seen[i+2] and len(seen[i])==3 for i in range(0,len(seen),3))
     assert any(len(set(draw))<3 for draw in seen)
 
@@ -75,6 +77,7 @@ def test_macro4_video_draws_are_independent_between_devices_and_shared_between_c
         seen[id(run)][1].append(tuple(selected))
         return np.array([.5,.5])
     monkeypatch.setattr(mod,'statistic',statistic)
+    monkeypatch.setattr(mod,'VideoBootstrapMetric',lambda run:lambda selected:statistic(run,selected))
     mod.macro_four_devices(inputs,count=20)
     draws={key:history[3:] for key,history in seen.values()}
     # Each bootstrap video selection repeats for all three seeds.

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import numpy as np
 from sklearn.metrics import roc_auc_score,average_precision_score
+from ipad_jepa.bootstrap_metrics import VideoBootstrapMetric
 
 
 def load_run(path,variant,expected=None):
@@ -44,9 +45,10 @@ def statistic(run,selected):
 def bootstrap_draws(runs,count=1000,seed=2026):
     """Keep draw indices, including degenerate draws, for paired macro comparisons."""
     keys=list(runs[0]); rng=np.random.default_rng(seed); values=[]
+    prepared=[VideoBootstrapMetric(run) for run in runs]
     for _ in range(count):
         selected=rng.choice(keys,len(keys),replace=True)
-        value=np.mean([statistic(run,selected) for run in runs],axis=0)
+        value=np.mean([metric(selected) for metric in prepared],axis=0)
         values.append(value)
     return np.array(values)
 
