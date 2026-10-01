@@ -6,7 +6,7 @@
 제안 방법 P0–P3의 학습·추론에는 디코더가 없다. B1은 IPAD 디코더로 학습한 모델의 별도 추론 경로에서 디코더를 제외하므로, 처음부터 디코더를 사용하지 않은 제안 방법과 구분한다.
 
 R01 정상 fit 23개 영상으로 GPU 학습 2 step을 통과했다. [예비 학습 기록](../results/stage01/pilot/R01/seed0/training.json)은 16개 clip에 대한 동작 확인이며, 한 epoch 또는 이상탐지 평가를 완료했다는 의미가 아니다.
-R01 controlled seed 0의 **50/50 epoch** 정상 학습이 완료됐다. 아래 곡선은 완료된 학습 기록이다. 같은 최종 체크포인트의 B0/B1 이상탐지 평가는 진행 중이며, 완료된 기준선 AUROC/AP는 아직 없다.
+R01 controlled seed 0의 **50/50 epoch** 정상 학습과 같은 최종 체크포인트의 B0/B1 이상탐지 평가가 완료됐다. 아래 곡선은 완료된 학습 기록이다.
 
 ![R01 IPAD 기준선 50 epoch 정상 학습 곡선](figures/stage01/IPAD_R01_controlled_seed0_training.png)
 
@@ -16,10 +16,29 @@ R01 controlled seed 0의 **50/50 epoch** 정상 학습이 완료됐다. 아래 �
 | 실행 | 정상 학습 | seed | epoch | 상태 |
 |---|---|---|---|---|
 | GPU 예비 검증 R01 | fit 23개 영상에서 2 batch | 0 | 부분 epoch | 통과; 성능 평가에 사용하지 않음 |
-| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 seed 0 학습 완료·평가 진행, seed 1 학습 시작 |
+| Controlled | 장비별 fit, 합계 76개 영상 | 0/1/2 | 50 | R01 seed 0 학습·평가 완료, seed 1 학습 중; 나머지 미완료 |
 | Reference | 장비별 정상 training, 합계 111개 영상 | 0 | 50 | 미실행 |
 
 Reference는 논문의 전체 정상 training 범위를 비교하려는 조건이다. 정상 calibration 영상이 학습에도 포함되는 점을 별도로 기록하고, 제안 방법과의 주 비교는 calibration을 제외한 controlled 조건으로 수행한다. 장비 간 데이터를 합쳐 학습하지 않는다.
+
+## R01 controlled seed 0 평가
+
+실제 테스트 15개 영상의 공통 **3,295프레임(이상 1,227프레임)**에서 평가했다. 정상 학습은 fit 23개 영상, 점수 보정과 임계값 설정은 별도 정상 calibration 5개 영상만 사용했다.
+
+| 점수 | AUROC (%) / 95% CI | AP (%) / 95% CI |
+|---|---:|---:|
+| B0 픽셀 −PSNR | 80.42 / 61.89..93.44 | 58.74 / 41.35..78.27 |
+| B1 메모리 전후 특징 잔차 | 65.70 / 50.67..80.24 | 46.65 / 26.45..66.21 |
+
+![R01 seed 0 기준선 지표와 ROC/PR](figures/stage01/IPAD_R01_controlled_seed0_evaluation.png)
+
+CI는 동일 테스트 영상의 paired whole-video bootstrap 1,000회로 계산했다(기각 0회). **한 학습 seed를 고정한 CI**이며 학습 seed 간 변동, 3-seed 평균 또는 네 장비 Macro4를 나타내지 않는다. B1−B0 AUROC 차이는 −14.71pp(95% CI −27.13..−2.08pp), AP 차이는 −12.09pp(−31.92..+1.45pp)다. 다른 seed와 장비의 결과 없이 전체 기준선의 우열을 일반화하지 않는다.
+
+[지표·정상 보정·프레임 점수 CSV](../results/stage01/controlled/IPAD-native-repaired/offline/R01/seed0)와 [bootstrap 및 소스 해시 기록](../results/stage01/controlled/IPAD-native-repaired/offline/R01/seed0/single_seed_summary.json)을 제공한다. 그래프 생성 시 공개 CSV에서 AUROC/AP를 다시 계산하고, 정상 median/MAD·q99와 테스트 점수·3회 연속 초과 알람이 저장된 결과와 일치하는지 확인했다.
+
+![고정 테스트 영상 03의 기준선 점수와 알람](figures/stage01/IPAD_R01_controlled_seed0_sequence03.png)
+
+위 영상 03의 공통 평가 구간은 383프레임이며 GT 이상 구간은 frame 65–259(195프레임)다. 고정 정상 q99 임계값에서 B0는 이상 195프레임과 정상 186프레임에 알람을 냈고, B1은 이상 구간에 알람을 내지 않고 정상 4프레임에서 알람을 냈다. 이 사례는 AUROC/AP와 고정 임계값의 알람 품질을 함께 확인해야 함을 보여 준다. 테스트에 맞춰 임계값을 변경하지 않았다. 가로축은 프레임 번호이며 실제 처리 시간·FPS·벽시계 알람 지연은 아직 측정하지 않았다.
 
 ## 공개 코드의 실행 오류와 명시적인 수정
 
@@ -61,6 +80,10 @@ python -m ipad_jepa.ipad_baseline --data-root "$IPAD_DATA_ROOT" \
 python -m ipad_jepa.ipad_evaluate --data-root "$IPAD_DATA_ROOT" \
   --device R01 --training artifacts/ipad/controlled/R01/seed0 \
   --out results/stage01/controlled/IPAD-native-repaired/offline/R01/seed0
+
+# 공개 CSV 검증, 한 seed의 paired bootstrap 및 PNG/SVG 생성
+python scripts/plot_native_evaluation.py \
+  --results results/stage01/controlled/IPAD-native-repaired/offline/R01/seed0
 ```
 
 학습 완료 시 CSV/JSON과 학습 곡선, 기준선 평가 완료 시 지표·ROC/PR·점수 시계열을 공개한다. 모델·optimizer 체크포인트와 원본 프레임은 로컬에만 보관한다. Stage 01 완료 태그는 전체 요구 조건이 검증된 뒤 생성한다.

@@ -1,0 +1,30 @@
+{
+  "status": "complete_device_evaluation",
+  "device": "R01",
+  "backbone": "IPAD-native-repaired",
+  "mode": "offline",
+  "scope": "controlled",
+  "seed": 0,
+  "test_videos": 15,
+  "variants": {
+    "B0": {
+      "frame_auroc": 0.8041773270340613,
+      "frame_ap": 0.5874066324935445,
+      "frames": 3295,
+      "anomaly_frames": 1227
+    },
+    "B1": {
+      "frame_auroc": 0.6570386405804916,
+      "frame_ap": 0.4664626061223315,
+      "frames": 3295,
+      "anomaly_frames": 1227
+    }
+  },
+  "alignment_policy": "Matched lengths: index alignment. Unresolved +/-1 length: consensus over label indices t-1,t,t+1; disagreements/out-of-bounds unknown. Assumes index offset stays within +/-1, not proven exact alignment.",
+  "unresolved_alignment_sequences": [],
+  "alignment_sensitivity": {},
+  "addressing": "paper200",
+  "decoder_training": "Used for both B0 and B1; B1 excludes decoder during its independent inference path.",
+  "not_paper_exact": true,
+  "code_sha256": "3633f2a0dcb141f5b8936da892cea9ddd504887acb1547d6874c7dc63035444a"
+}
