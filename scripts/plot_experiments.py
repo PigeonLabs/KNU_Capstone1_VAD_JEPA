@@ -33,6 +33,8 @@ def main():
     args=p.parse_args()
     summary=json.loads((args.root/'device_summary.json').read_text())
     records=[r for r in summary['results'] if r['device']==args.device and r['mode']==args.mode]
+    if not records:
+        raise ValueError('No completed three-seed results in the summary; summarize completed runs first')
     models=sorted({r['backbone'] for r in records}); variants=['P0','P1','P2','P3']
     fig,axes=plt.subplots(1,2,figsize=(11,4.4),layout='constrained')
     for axis,metric,title in zip(axes,['auroc','ap'],['Frame AUROC','Frame AP']):

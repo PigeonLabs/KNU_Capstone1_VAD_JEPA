@@ -122,7 +122,7 @@ python scripts/plot_experiments.py
 두 백본·세 seed 모두 실행한 뒤 요약/그림을 만든다. 메모리 NPZ는 `artifacts`에만 저장한다.
 공개 근거는 실행별 `normal_fit.json`, `normal_calibration.csv`, P0–P3 프레임 점수 CSV, `metrics.json`, [device_summary.json](../results/stage02/device_summary.json)이다.
 요약 도구는 공개 CSV에서 AUROC/AP를 다시 계산해 완료 메타데이터와 프레임 수·라벨 수·지표가 맞는지 확인한다. 모델 간 비교는 영상 ID·프레임 ID·라벨 일치를 검증한 뒤 같은 bootstrap 표본을 사용한다.
-R01·R02의 두 백본·3 seeds·4 구성에 대한 48개 정상 q99 임계값도 공개 calibration CSV에서 재계산해 저장값과 일치함을 확인했다. [검증 기록](../results/stage02/calibration_check.json)을 제공한다.
+R01·R02 오프라인, R03 V-JEPA 오프라인, R01 두 백본 온라인의 84개 정상 q99 임계값을 공개 calibration CSV에서 재계산해 저장값과 일치함을 확인했다. 정상 검증 영상 목록과 공통 대상 마스크도 확인했다. [검증 기록](../results/stage02/calibration_check.json), 생성 코드 [verify_calibration.py](../scripts/verify_calibration.py)를 제공한다.
 NumPy 기준 검색과 FP32 배치 검색의 hard/soft 및 전역/위상 결과 일치를 테스트했다. 나머지 장비, 온라인, LoRA, IPAD 기준선, 합성 진단, 실시간 측정과 추가 제거 실험이 완료될 때까지 전체 실험 완료를 선언하지 않는다.
 
 ## R02 정상 위상 학습과 실제 이상탐지 평가
@@ -163,8 +163,32 @@ P3의 V-JEPA−DINOv3 차이는 −16.73pp(−28.73..−5.04pp)다. 이 장비 �
 ## 후속 정상 위상 학습: R03 V-JEPA
 
 정상 fit 15개 영상의 2,564 clip과 정상 검증 4개 영상의 2,771 clip으로 3 seeds 학습을 완료했다. 정상 검증 CE 기준으로 모두 epoch 20을 선택했다.
-실행별 CSV/JSON을 공개하며, 이는 R03 이상탐지 성능을 뜻하지 않는다. 테스트 평가와 DINOv3 비교는 진행 중이다.
+실행별 CSV/JSON을 공개한다. V-JEPA의 실제 테스트 평가는 아래에 기록하며 DINOv3 비교는 진행 중이다.
 
 ![R03 V-JEPA 정상 위상 학습](figures/stage02/vjepa21-l_R03_offline_seed0_phase.png)
 
 전체 요청 범위는 [experiment_matrix.yaml](../configs/experiment_matrix.yaml)에 선언했다. 행렬에 나열된 실험은 완료 표시가 아니며, 실행별 결과와 실제 프로세스로 진행 상태를 확인한다.
+
+## R03 V-JEPA 실제 이상탐지 평가
+
+테스트 17개 영상에서 공통 대상 11,563프레임, 이상 4,922프레임을 평가했다. 아래는 3개 seed 지표의 평균이며, DINOv3 결과와 Macro4는 아직 없다.
+
+| 구성 | AUROC (%) | AP (%) |
+|---|---:|---:|
+| P0 전역 메모리 | 45.67 | 37.98 |
+| P1 위상 hard | 50.38 | 41.57 |
+| P2 위상 soft | 50.49 | 42.74 |
+| P3 위상 soft + 시간 | 50.45 | 43.53 |
+
+P3−P0 AUROC 차이는 +4.77pp(95% 영상 bootstrap CI −0.33..10.32pp), AP 차이는 +5.55pp(1.55..10.00pp)다. P3 AUROC 자체는 50% 부근이고, AP는 이상 프레임 비율 42.57%와 비슷해 탐지 성능이 제한적이다. AP 개선만으로 우수한 이상탐지 방법이라고 판단하지 않는다.
+
+![R03 구성요소 비교](figures/stage02/R03_offline_variants.png)
+![R03 seed 0 ROC와 PR](figures/stage02/R03_offline_roc_pr.png)
+
+<details>
+<summary>R03 정상 위상 정렬과 고정 테스트 영상 03</summary>
+
+![R03 V-JEPA 정상 위상 정렬](figures/stage02/vjepa21-l_R03_offline_phase_alignment.png)
+![R03 V-JEPA 시계열](figures/stage02/vjepa21-l_R03_offline_sequence03.png)
+
+</details>
