@@ -1,0 +1,28 @@
+{
+  "python": "3.12.3",
+  "platform": "Linux",
+  "packages": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "Pillow": "12.3.0",
+    "PyYAML": "6.0.3",
+    "pytest": "9.1.1",
+    "torch": "2.8.0+cu128",
+    "torchvision": "0.23.0+cu128",
+    "timm": "1.0.30",
+    "einops": "0.8.2"
+  },
+  "cuda_available": true,
+  "cuda_runtime": "12.8",
+  "scope": "Environment evidence, not anomaly-detection performance",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "gpu_memory_bytes": 101978865664,
+  "bf16": true,
+  "capability": [
+    12,
+    0
+  ],
+  "driver": "610.43.02"
+}

@@ -1,0 +1,9 @@
+{
+  "model": "vjepa21-l",
+  "filename": "vjepa2_1_vitl_dist_vitG_384.pt",
+  "source": "https://dl.fbaipublicfiles.com/vjepa2/vjepa2_1_vitl_dist_vitG_384.pt",
+  "sha256": "7ea9b7cb4a75d10644a8a8d42cff9e177b10dca8f02173f0eaf2b0bed82838c6",
+  "bytes": 5151198524,
+  "download_seconds": 164.777,
+  "status": "downloaded_not_yet_validated"
+}

@@ -1,0 +1,5103 @@
+{
+  "schema_version": 1,
+  "sequences": [
+    {
+      "device": "R01",
+      "sequence": "01",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/01",
+      "frames": 207,
+      "names_sha256": "684005d9f81266a8ec82b54d594ff6a2855449f05372373571d580c1d4a03846",
+      "first_frame": "000.jpg",
+      "last_frame": "206.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "02",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/02",
+      "frames": 214,
+      "names_sha256": "be058f0390ae232e7b0e7826dd305303c12a62100535dd4904d25859b68e0711",
+      "first_frame": "000.jpg",
+      "last_frame": "213.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R01",
+      "sequence": "03",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/03",
+      "frames": 203,
+      "names_sha256": "6d6a0cd67876389152d6e8591c7af5e5615a31323cddbc799a9e3dc6eb2f9467",
+      "first_frame": "000.jpg",
+      "last_frame": "202.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R01",
+      "sequence": "04",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/04",
+      "frames": 232,
+      "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "first_frame": "000.jpg",
+      "last_frame": "231.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "05",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/05",
+      "frames": 233,
+      "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "first_frame": "000.jpg",
+      "last_frame": "232.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R01",
+      "sequence": "06",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/06",
+      "frames": 231,
+      "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "first_frame": "000.jpg",
+      "last_frame": "230.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "07",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/07",
+      "frames": 233,
+      "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "first_frame": "000.jpg",
+      "last_frame": "232.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "08",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/08",
+      "frames": 232,
+      "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "first_frame": "000.jpg",
+      "last_frame": "231.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "09",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/09",
+      "frames": 235,
+      "names_sha256": "6d33c1e07b795cbcc5cb6173edd937db5a487b1adbb77c27882e03034bf90a17",
+      "first_frame": "000.jpg",
+      "last_frame": "234.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R01",
+      "sequence": "10",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/10",
+      "frames": 236,
+      "names_sha256": "e9236c01c471797a746c1f767d4d2a1e12189448e9d534112c94708f7763676b",
+      "first_frame": "000.jpg",
+      "last_frame": "235.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "11",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/11",
+      "frames": 235,
+      "names_sha256": "6d33c1e07b795cbcc5cb6173edd937db5a487b1adbb77c27882e03034bf90a17",
+      "first_frame": "000.jpg",
+      "last_frame": "234.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "12",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/12",
+      "frames": 231,
+      "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "first_frame": "000.jpg",
+      "last_frame": "230.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R01",
+      "sequence": "13",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/13",
+      "frames": 232,
+      "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "first_frame": "000.jpg",
+      "last_frame": "231.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R01",
+      "sequence": "14",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/14",
+      "frames": 232,
+      "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "first_frame": "000.jpg",
+      "last_frame": "231.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R01",
+      "sequence": "15",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/15",
+      "frames": 236,
+      "names_sha256": "e9236c01c471797a746c1f767d4d2a1e12189448e9d534112c94708f7763676b",
+      "first_frame": "000.jpg",
+      "last_frame": "235.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R01",
+      "sequence": "16",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/16",
+      "frames": 230,
+      "names_sha256": "dace8138367895073dda4099b7f14cd2496cebc7d4759b900ff8d916904a53ce",
+      "first_frame": "000.jpg",
+      "last_frame": "229.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "17",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/17",
+      "frames": 234,
+      "names_sha256": "5066b5e6bfbfe227d0e046b49f757a426afdb06cda1bbb2b8aa0f88ce560ef34",
+      "first_frame": "000.jpg",
+      "last_frame": "233.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "18",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/18",
+      "frames": 228,
+      "names_sha256": "c12661f30fad918bdd0bd68753b6fd17b88a1fc304bd756034b0797544051885",
+      "first_frame": "000.jpg",
+      "last_frame": "227.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "19",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/19",
+      "frames": 233,
+      "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "first_frame": "000.jpg",
+      "last_frame": "232.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "20",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/20",
+      "frames": 229,
+      "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "first_frame": "000.jpg",
+      "last_frame": "228.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "21",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/21",
+      "frames": 229,
+      "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "first_frame": "000.jpg",
+      "last_frame": "228.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "22",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/22",
+      "frames": 234,
+      "names_sha256": "5066b5e6bfbfe227d0e046b49f757a426afdb06cda1bbb2b8aa0f88ce560ef34",
+      "first_frame": "000.jpg",
+      "last_frame": "233.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R01",
+      "sequence": "23",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/23",
+      "frames": 233,
+      "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "first_frame": "000.jpg",
+      "last_frame": "232.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "24",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/24",
+      "frames": 231,
+      "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "first_frame": "000.jpg",
+      "last_frame": "230.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "25",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/25",
+      "frames": 225,
+      "names_sha256": "8306a7666120aa3135e82b6b3e0ae3818d8fb31fd4334f41f23b3d90ca7d06aa",
+      "first_frame": "000.jpg",
+      "last_frame": "224.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "26",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/26",
+      "frames": 238,
+      "names_sha256": "33542804e2f998a5a79f558d02d856edbb64c2cbc0d5d601cc241a9904cd6c5c",
+      "first_frame": "000.jpg",
+      "last_frame": "237.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "27",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/27",
+      "frames": 231,
+      "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "first_frame": "000.jpg",
+      "last_frame": "230.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "28",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/28",
+      "frames": 228,
+      "names_sha256": "c12661f30fad918bdd0bd68753b6fd17b88a1fc304bd756034b0797544051885",
+      "first_frame": "000.jpg",
+      "last_frame": "227.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "29",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/29",
+      "frames": 233,
+      "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "first_frame": "000.jpg",
+      "last_frame": "232.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "30",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/30",
+      "frames": 229,
+      "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "first_frame": "000.jpg",
+      "last_frame": "228.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "31",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/31",
+      "frames": 233,
+      "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "first_frame": "000.jpg",
+      "last_frame": "232.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "32",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/32",
+      "frames": 230,
+      "names_sha256": "dace8138367895073dda4099b7f14cd2496cebc7d4759b900ff8d916904a53ce",
+      "first_frame": "000.jpg",
+      "last_frame": "229.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R01",
+      "sequence": "33",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/33",
+      "frames": 229,
+      "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "first_frame": "000.jpg",
+      "last_frame": "228.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R01",
+      "sequence": "34",
+      "partition": "training",
+      "relative_directory": "R01/training/frames/34",
+      "frames": 229,
+      "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "first_frame": "000.jpg",
+      "last_frame": "228.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R01",
+      "sequence": "01",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/01",
+      "frames": 230,
+      "names_sha256": "dace8138367895073dda4099b7f14cd2496cebc7d4759b900ff8d916904a53ce",
+      "first_frame": "000.jpg",
+      "last_frame": "229.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/001.npy",
+      "label_sha256": "63f69e6f102b0d207762fa451133b5292d5a2fabfaa5525782bb1255a3bf462f",
+      "label_count": 230,
+      "anomaly_labels": 141,
+      "label_transitions": [
+        43,
+        184
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "02",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/02",
+      "frames": 256,
+      "names_sha256": "26fcf5941a3b1004822632ed976984b0deeba5fd6c55b8c098f09cefedfca9b2",
+      "first_frame": "000.jpg",
+      "last_frame": "255.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/002.npy",
+      "label_sha256": "5adf21c6be62787fa5d7afc1d6c81ffe233d3d28d48a6b5ec534eaf61308a1ab",
+      "label_count": 256,
+      "anomaly_labels": 127,
+      "label_transitions": [
+        46,
+        173
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "03",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/03",
+      "frames": 409,
+      "names_sha256": "e7a022837f23d45ba903d60a88f2af50096107d3b8a674a1c23463f5442a9fbd",
+      "first_frame": "000.jpg",
+      "last_frame": "408.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/003.npy",
+      "label_sha256": "47a48ebca3883edfc8fb528cf4f108a87a84a562373798c68e0c64fb057843c6",
+      "label_count": 409,
+      "anomaly_labels": 195,
+      "label_transitions": [
+        65,
+        260
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "04",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/04",
+      "frames": 191,
+      "names_sha256": "8fd4b835d72c3071219ba63359ebcf46370b4e7ed7c11f80272272c378799eb4",
+      "first_frame": "000.jpg",
+      "last_frame": "190.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/004.npy",
+      "label_sha256": "dc36c4335eed18857c08df8dbdc418352d1d00723201d508e2313c5f93413bf8",
+      "label_count": 191,
+      "anomaly_labels": 90,
+      "label_transitions": [
+        54,
+        144
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "05",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/05",
+      "frames": 290,
+      "names_sha256": "96266a7f9685fce795563a386a2227a1a05bc3681489223d561dffcc65f88577",
+      "first_frame": "000.jpg",
+      "last_frame": "289.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/005.npy",
+      "label_sha256": "2ba78953c6a48c7a0f01fd839ca603c82e2c9e2e2e5511794570a5aac762bb61",
+      "label_count": 290,
+      "anomaly_labels": 92,
+      "label_transitions": [
+        94,
+        186
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "06",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/06",
+      "frames": 233,
+      "names_sha256": "46e7ef46e980cef3fdb4c55f1041ff171a8138dd7a1774556336f80a58bc804a",
+      "first_frame": "000.jpg",
+      "last_frame": "232.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/006.npy",
+      "label_sha256": "75d4bf18b13faf2e4b1d186d39abd5cc1e91833910c4a868b03b5adb9f270aa3",
+      "label_count": 233,
+      "anomaly_labels": 220,
+      "label_transitions": [
+        10,
+        230
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "07",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/07",
+      "frames": 231,
+      "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "first_frame": "000.jpg",
+      "last_frame": "230.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/007.npy",
+      "label_sha256": "9fb2febb72920b3802a50737aed9e3f0e786c23589bb2b05728a2326c676a7b6",
+      "label_count": 231,
+      "anomaly_labels": 195,
+      "label_transitions": [
+        5,
+        200
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "08",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/08",
+      "frames": 235,
+      "names_sha256": "6d33c1e07b795cbcc5cb6173edd937db5a487b1adbb77c27882e03034bf90a17",
+      "first_frame": "000.jpg",
+      "last_frame": "234.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/008.npy",
+      "label_sha256": "80863b8ee2a21c929bdafc3042caa3effc8b44479fbcf63f698eda8d3e04ae4c",
+      "label_count": 235,
+      "anomaly_labels": 194,
+      "label_transitions": [
+        30,
+        224
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "09",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/09",
+      "frames": 229,
+      "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "first_frame": "000.jpg",
+      "last_frame": "228.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/009.npy",
+      "label_sha256": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+      "label_count": 229,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "10",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/10",
+      "frames": 231,
+      "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "first_frame": "000.jpg",
+      "last_frame": "230.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/010.npy",
+      "label_sha256": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+      "label_count": 231,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "11",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/11",
+      "frames": 232,
+      "names_sha256": "277755a68793eb15ec811f45fd0f69dfd15a82f60074d9b63ebb939b808bc92a",
+      "first_frame": "000.jpg",
+      "last_frame": "231.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/011.npy",
+      "label_sha256": "b70714762036e1f6bc2875ace377bcff9d43daf68888f920a66a93d1bc3c4e03",
+      "label_count": 232,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "12",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/12",
+      "frames": 231,
+      "names_sha256": "d2cc3a939c44884d96d6a5f6d95e273b73a762814538b9f45cb695a8c3fd66e9",
+      "first_frame": "000.jpg",
+      "last_frame": "230.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/012.npy",
+      "label_sha256": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+      "label_count": 231,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "13",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/13",
+      "frames": 229,
+      "names_sha256": "3a62bfc0f6ea2bc0685e59577562f7d7219d94f04670ac32b0c9b5be9708943c",
+      "first_frame": "000.jpg",
+      "last_frame": "228.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/013.npy",
+      "label_sha256": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+      "label_count": 229,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "14",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/14",
+      "frames": 230,
+      "names_sha256": "dace8138367895073dda4099b7f14cd2496cebc7d4759b900ff8d916904a53ce",
+      "first_frame": "000.jpg",
+      "last_frame": "229.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/014.npy",
+      "label_sha256": "844ab1578775478063a48543c094bf6321a5c34791481f6097edca3a5c841b8a",
+      "label_count": 230,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R01",
+      "sequence": "15",
+      "partition": "testing",
+      "relative_directory": "R01/testing/frames/15",
+      "frames": 228,
+      "names_sha256": "c12661f30fad918bdd0bd68753b6fd17b88a1fc304bd756034b0797544051885",
+      "first_frame": "000.jpg",
+      "last_frame": "227.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R01/test_label/015.npy",
+      "label_sha256": "1fc8485d29da42736781b7a0883cfb91aface074944d30d409df587b3682212e",
+      "label_count": 228,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "01",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/01",
+      "frames": 642,
+      "names_sha256": "45465b5125b07392aa160cc832b9adf0d1543177c925b40f83e182754ad60a8c",
+      "first_frame": "000.jpg",
+      "last_frame": "641.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "02",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/02",
+      "frames": 608,
+      "names_sha256": "c4037f58c443206b5747d588d6f9a3a72a96e251939a7232fb66f9b6bc730425",
+      "first_frame": "000.jpg",
+      "last_frame": "607.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R02",
+      "sequence": "03",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/03",
+      "frames": 550,
+      "names_sha256": "6e8b6eb09b7bcd67360d709e8bf3c778597ead307b48d3b00e72c19ffdce7d25",
+      "first_frame": "000.jpg",
+      "last_frame": "549.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R02",
+      "sequence": "04",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/04",
+      "frames": 596,
+      "names_sha256": "74a358920a4f35cb5e80a0ff520872c18ea66b109f5f8d3a4854bd5fb61e871a",
+      "first_frame": "000.jpg",
+      "last_frame": "595.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "05",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/05",
+      "frames": 602,
+      "names_sha256": "06c69c7925ad926b4fc4bfc0b16f7028f20b7f8beae4b8396a06a9290dfcbc56",
+      "first_frame": "000.jpg",
+      "last_frame": "601.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R02",
+      "sequence": "06",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/06",
+      "frames": 610,
+      "names_sha256": "19f7fc7cf9a5c90eed569dfcd22d331d28fdff16df349cee7a4bf725d159c5c0",
+      "first_frame": "000.jpg",
+      "last_frame": "609.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "07",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/07",
+      "frames": 588,
+      "names_sha256": "ee1f3965c8c0a044fc59fa180d5c7b4ff627a556e0b4645ef1d25801c4373601",
+      "first_frame": "000.jpg",
+      "last_frame": "587.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "08",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/08",
+      "frames": 585,
+      "names_sha256": "341a9c94d232c5e6a4a617046f3a4fb979a5146d6cc8e7ca15e5591d83226b04",
+      "first_frame": "000.jpg",
+      "last_frame": "584.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "09",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/09",
+      "frames": 595,
+      "names_sha256": "5ec3c5b850e54154d5b7881531ad8ec6d6098945cdb361872b6b5d2a49cfc777",
+      "first_frame": "000.jpg",
+      "last_frame": "594.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R02",
+      "sequence": "10",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/10",
+      "frames": 595,
+      "names_sha256": "5ec3c5b850e54154d5b7881531ad8ec6d6098945cdb361872b6b5d2a49cfc777",
+      "first_frame": "000.jpg",
+      "last_frame": "594.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "11",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/11",
+      "frames": 600,
+      "names_sha256": "b24bd47623b3191e039de54c995f12e3b11efc59a266fd9f227f0ff14e6c6b08",
+      "first_frame": "000.jpg",
+      "last_frame": "599.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "12",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/12",
+      "frames": 590,
+      "names_sha256": "250332626d4fc36755f3601befc10db69100ae0ea7cd0277be5324907c36dbea",
+      "first_frame": "000.jpg",
+      "last_frame": "589.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R02",
+      "sequence": "13",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/13",
+      "frames": 591,
+      "names_sha256": "6836d77363ffa4d4b4eea8a133c94c4041871058d56cd4a636d2f439a0c1fa1a",
+      "first_frame": "000.jpg",
+      "last_frame": "590.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "14",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/14",
+      "frames": 579,
+      "names_sha256": "415f2c777d2fe3123e8524108d83bc2cfaf93aa14fde8c4502b72eade85d229e",
+      "first_frame": "000.jpg",
+      "last_frame": "578.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R02",
+      "sequence": "15",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/15",
+      "frames": 612,
+      "names_sha256": "fd725ac88c98aad0725f5543964b0482fa5982cd50b18773911007416c0ffff3",
+      "first_frame": "000.jpg",
+      "last_frame": "611.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R02",
+      "sequence": "16",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/16",
+      "frames": 588,
+      "names_sha256": "ee1f3965c8c0a044fc59fa180d5c7b4ff627a556e0b4645ef1d25801c4373601",
+      "first_frame": "000.jpg",
+      "last_frame": "587.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "17",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/17",
+      "frames": 574,
+      "names_sha256": "7af52c6cb74d76ab222be6e311765c41d7caba47aae5d719015206da41b07958",
+      "first_frame": "000.jpg",
+      "last_frame": "573.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "18",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/18",
+      "frames": 579,
+      "names_sha256": "415f2c777d2fe3123e8524108d83bc2cfaf93aa14fde8c4502b72eade85d229e",
+      "first_frame": "000.jpg",
+      "last_frame": "578.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "19",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/19",
+      "frames": 602,
+      "names_sha256": "06c69c7925ad926b4fc4bfc0b16f7028f20b7f8beae4b8396a06a9290dfcbc56",
+      "first_frame": "000.jpg",
+      "last_frame": "601.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "20",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/20",
+      "frames": 609,
+      "names_sha256": "6c3a5f7d874d10452895fc76636d745faa8d3b078ab4d4ca84272651bdbe6378",
+      "first_frame": "000.jpg",
+      "last_frame": "608.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "21",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/21",
+      "frames": 584,
+      "names_sha256": "93858e6ca03098d486e14aa12cbc430040c58728482271eb58ba5e248e960ee2",
+      "first_frame": "000.jpg",
+      "last_frame": "583.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "22",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/22",
+      "frames": 601,
+      "names_sha256": "8f408ae0ff23c8a52ae482b0969b62c429b9c419255ff54560d24af81c15a117",
+      "first_frame": "000.jpg",
+      "last_frame": "600.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "23",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/23",
+      "frames": 612,
+      "names_sha256": "fd725ac88c98aad0725f5543964b0482fa5982cd50b18773911007416c0ffff3",
+      "first_frame": "000.jpg",
+      "last_frame": "611.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "24",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/24",
+      "frames": 568,
+      "names_sha256": "c79197d900ea171a5e2e51d9ab4e7ed97b6505da4eb83c69c934e960fdf3975c",
+      "first_frame": "000.jpg",
+      "last_frame": "567.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "25",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/25",
+      "frames": 588,
+      "names_sha256": "ee1f3965c8c0a044fc59fa180d5c7b4ff627a556e0b4645ef1d25801c4373601",
+      "first_frame": "000.jpg",
+      "last_frame": "587.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "26",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/26",
+      "frames": 574,
+      "names_sha256": "7af52c6cb74d76ab222be6e311765c41d7caba47aae5d719015206da41b07958",
+      "first_frame": "000.jpg",
+      "last_frame": "573.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "27",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/27",
+      "frames": 589,
+      "names_sha256": "e741df484106462c31bbb87eb3572d8e9e708b6481ffe9eb859a31a3f1c486c0",
+      "first_frame": "000.jpg",
+      "last_frame": "588.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "28",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/28",
+      "frames": 592,
+      "names_sha256": "bb4907dde969ed1c078cd9a86e38b680b5f6fb20d75b8a8589dbd2ad987cad83",
+      "first_frame": "000.jpg",
+      "last_frame": "591.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R02",
+      "sequence": "29",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/29",
+      "frames": 585,
+      "names_sha256": "341a9c94d232c5e6a4a617046f3a4fb979a5146d6cc8e7ca15e5591d83226b04",
+      "first_frame": "000.jpg",
+      "last_frame": "584.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R02",
+      "sequence": "30",
+      "partition": "training",
+      "relative_directory": "R02/training/frames/30",
+      "frames": 568,
+      "names_sha256": "c79197d900ea171a5e2e51d9ab4e7ed97b6505da4eb83c69c934e960fdf3975c",
+      "first_frame": "000.jpg",
+      "last_frame": "567.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R02",
+      "sequence": "01",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/01",
+      "frames": 583,
+      "names_sha256": "ed8d91d68d943fa8ed278eb534871570fbe47c66589e56f2f44380af033f661e",
+      "first_frame": "000.jpg",
+      "last_frame": "582.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/001.npy",
+      "label_sha256": "62a5c7c4a58a1c8074232919b91d87ec80732d906198080de3c5bb93a6fff884",
+      "label_count": 583,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "02",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/02",
+      "frames": 595,
+      "names_sha256": "5ec3c5b850e54154d5b7881531ad8ec6d6098945cdb361872b6b5d2a49cfc777",
+      "first_frame": "000.jpg",
+      "last_frame": "594.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/002.npy",
+      "label_sha256": "4d07d365140125be836f23e92b31cefddf68a5339c101157aa70087e64da382d",
+      "label_count": 595,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "03",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/03",
+      "frames": 573,
+      "names_sha256": "e2a119f9558980188cf7fddcccb4670312bb3d2e5e90ec6f5b10ab0097bc7b38",
+      "first_frame": "000.jpg",
+      "last_frame": "572.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/003.npy",
+      "label_sha256": "b2cb20893345d80b5b1bb521b8085fc7ee6c838313acda188565e7791cbda976",
+      "label_count": 573,
+      "anomaly_labels": 296,
+      "label_transitions": [
+        8,
+        304
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "04",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/04",
+      "frames": 578,
+      "names_sha256": "71e58e5d2b8c7e55a551743982a6b5750d63e37314eb84c20779cf180f3030fb",
+      "first_frame": "000.jpg",
+      "last_frame": "577.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/004.npy",
+      "label_sha256": "a6538b208a71027fb8c3e412208536005f032fab443b2a6ef3a2b462cc85fbc5",
+      "label_count": 578,
+      "anomaly_labels": 294,
+      "label_transitions": [
+        10,
+        304
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "05",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/05",
+      "frames": 583,
+      "names_sha256": "ed8d91d68d943fa8ed278eb534871570fbe47c66589e56f2f44380af033f661e",
+      "first_frame": "000.jpg",
+      "last_frame": "582.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/005.npy",
+      "label_sha256": "31326c267c99c1357afd6ef6d9809720a1a62b4931dcf88d1dec2dc5c6755873",
+      "label_count": 583,
+      "anomaly_labels": 304,
+      "label_transitions": [
+        11,
+        315
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "06",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/06",
+      "frames": 604,
+      "names_sha256": "a4393706ccb33d053ae2c208da1162a7e700a2b2503235a3a2da0feb651a31d0",
+      "first_frame": "000.jpg",
+      "last_frame": "603.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/006.npy",
+      "label_sha256": "1ee06b6f9423e87f02071da9af92d6af10567b08b7b7cd2abfd8c1bf5e9e78f5",
+      "label_count": 604,
+      "anomaly_labels": 306,
+      "label_transitions": [
+        14,
+        320
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "07",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/07",
+      "frames": 536,
+      "names_sha256": "ff3d8136afcb13addcae90f631f92242a3f302ef8b70f724bdc4e5a775ad15a9",
+      "first_frame": "000.jpg",
+      "last_frame": "535.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/007.npy",
+      "label_sha256": "8de30eaeb48d4e73fa051a6d30990f733011a3a1baa19e2f7bf11dabd9834935",
+      "label_count": 536,
+      "anomaly_labels": 114,
+      "label_transitions": [
+        220,
+        334
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "08",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/08",
+      "frames": 784,
+      "names_sha256": "fa00825ee1f7dde3a0ca7974be580e1d09ec317469f72dc0e9b428612a60848d",
+      "first_frame": "000.jpg",
+      "last_frame": "783.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/008.npy",
+      "label_sha256": "9e300427398dbe4d3f013d81acac50289e6d3358e792125a90f74b55f320500b",
+      "label_count": 784,
+      "anomaly_labels": 194,
+      "label_transitions": [
+        118,
+        166,
+        265,
+        290,
+        496,
+        559,
+        669,
+        727
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "09",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/09",
+      "frames": 853,
+      "names_sha256": "709a5460ad776c68f2097a0d9ebdaf52296bc11238f296143cd4c6a5c9cce0ec",
+      "first_frame": "000.jpg",
+      "last_frame": "852.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/009.npy",
+      "label_sha256": "979afaaba7f197aa426802c620b4de5819da25ea5dc2805270eb8de7f9e4e9fa",
+      "label_count": 853,
+      "anomaly_labels": 152,
+      "label_transitions": [
+        221,
+        291,
+        608,
+        690
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "10",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/10",
+      "frames": 612,
+      "names_sha256": "fd725ac88c98aad0725f5543964b0482fa5982cd50b18773911007416c0ffff3",
+      "first_frame": "000.jpg",
+      "last_frame": "611.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/010.npy",
+      "label_sha256": "b7418ac99cc05b0ecc53abb4ad8c82789873d57c26b7065068bb3aa484773c69",
+      "label_count": 612,
+      "anomaly_labels": 312,
+      "label_transitions": [
+        300
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "11",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/11",
+      "frames": 590,
+      "names_sha256": "250332626d4fc36755f3601befc10db69100ae0ea7cd0277be5324907c36dbea",
+      "first_frame": "000.jpg",
+      "last_frame": "589.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/011.npy",
+      "label_sha256": "80efbbe75a00d20216773d5df9979d457b58cb0e14a22f41b16048499bfbc178",
+      "label_count": 590,
+      "anomaly_labels": 240,
+      "label_transitions": [
+        350
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R02",
+      "sequence": "12",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/12",
+      "frames": 806,
+      "names_sha256": "a0f504d91556f2604e371bf3240d2b6743f5499d5a8f29d703c4b684336da6a6",
+      "first_frame": "000.jpg",
+      "last_frame": "805.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/012.npy",
+      "label_sha256": "7a28529e301be23be7072835c18527afeb0633d735347f31b099ee76fad2c43a",
+      "label_count": 805,
+      "anomaly_labels": 270,
+      "label_transitions": [
+        287,
+        557
+      ],
+      "alignment_status": "review_required"
+    },
+    {
+      "device": "R02",
+      "sequence": "13",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/13",
+      "frames": 609,
+      "names_sha256": "6c3a5f7d874d10452895fc76636d745faa8d3b078ab4d4ca84272651bdbe6378",
+      "first_frame": "000.jpg",
+      "last_frame": "608.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/013.npy",
+      "label_sha256": "9918c0a71ed8277e78b5d1bb353767df4fbce7b2d45aa9045fd1a9e3d5719c18",
+      "label_count": 608,
+      "anomaly_labels": 31,
+      "label_transitions": [
+        11,
+        28,
+        303,
+        317
+      ],
+      "alignment_status": "review_required"
+    },
+    {
+      "device": "R02",
+      "sequence": "14",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/14",
+      "frames": 497,
+      "names_sha256": "33fbaed7a504994062b4e3f6896d812dab66ecbbddb32917051bed8732e22a22",
+      "first_frame": "000.jpg",
+      "last_frame": "496.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/014.npy",
+      "label_sha256": "6587f368313ddfbe739d314e7a67889d9984387c30ca39beb13df295c815e59a",
+      "label_count": 498,
+      "anomaly_labels": 100,
+      "label_transitions": [
+        134,
+        184,
+        340,
+        390
+      ],
+      "alignment_status": "review_required"
+    },
+    {
+      "device": "R02",
+      "sequence": "15",
+      "partition": "testing",
+      "relative_directory": "R02/testing/frames/15",
+      "frames": 815,
+      "names_sha256": "2644bc360bee0dfc3a8e03bcdb5000292d354a8ddedfc92091d0dcd0aed57093",
+      "first_frame": "000.jpg",
+      "last_frame": "814.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R02/test_label/015.npy",
+      "label_sha256": "fdc0cfdb464948e55d6b0efc576c69baf202731489ece71d3def0665bcc0bece",
+      "label_count": 815,
+      "anomaly_labels": 400,
+      "label_transitions": [
+        150,
+        350,
+        500,
+        700
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "01",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/01",
+      "frames": 668,
+      "names_sha256": "db92fa6023977f01d0527a97e7b56e88b09ec3b489c646dbfa66a5a46ba2aabf",
+      "first_frame": "000.jpg",
+      "last_frame": "667.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "02",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/02",
+      "frames": 692,
+      "names_sha256": "ac4b2b2a14342aa5721675ab8fb5ab57da8295060707ce02b142fb66445065c5",
+      "first_frame": "000.jpg",
+      "last_frame": "691.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R03",
+      "sequence": "03",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/03",
+      "frames": 723,
+      "names_sha256": "d5b4962c2e633da6cc19e9af8433bc38ea9092545f3483a9af457accd20a97d9",
+      "first_frame": "000.jpg",
+      "last_frame": "722.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R03",
+      "sequence": "04",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/04",
+      "frames": 688,
+      "names_sha256": "4bd3e42906e4682ce13c878b76c2ac7409a3cc17e26e9b3b77a3c76d863d9fb9",
+      "first_frame": "000.jpg",
+      "last_frame": "687.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "05",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/05",
+      "frames": 705,
+      "names_sha256": "3f52b5fa64fa03079b3532bbb5f2bc455e4b10d7d4ea8e8d27d001d7043f91e1",
+      "first_frame": "000.jpg",
+      "last_frame": "704.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R03",
+      "sequence": "06",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/06",
+      "frames": 706,
+      "names_sha256": "294f842b4291766e6b12d2d0ab029b124519050ff2feb12b74810f92dcf70119",
+      "first_frame": "000.jpg",
+      "last_frame": "705.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "07",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/07",
+      "frames": 689,
+      "names_sha256": "a9564e8c748a79c47577c0cca2bc300004370072c36bea07a922d116e3f22494",
+      "first_frame": "000.jpg",
+      "last_frame": "688.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "08",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/08",
+      "frames": 708,
+      "names_sha256": "292f3273a9f7a35a9d0994f34e50c8740ac50921699886c113f6b0cce2f56414",
+      "first_frame": "000.jpg",
+      "last_frame": "707.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "09",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/09",
+      "frames": 742,
+      "names_sha256": "98c7706982a7e2956d08ae616b1664df1ce05f5b4aa45e06a834b175b53d1505",
+      "first_frame": "000.jpg",
+      "last_frame": "741.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R03",
+      "sequence": "10",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/10",
+      "frames": 697,
+      "names_sha256": "458aec9d9671e2c308a715f407a3971f6a02cf5b3a95a5ae5cbc3d4176d48b75",
+      "first_frame": "000.jpg",
+      "last_frame": "696.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "11",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/11",
+      "frames": 696,
+      "names_sha256": "94f88c41505a96d5aa55ee5172726ae313705aa37665a999768a007bd033fd4e",
+      "first_frame": "000.jpg",
+      "last_frame": "695.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "12",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/12",
+      "frames": 745,
+      "names_sha256": "b0fc1bed14683a7cd5ece12c9a072b78de6e23dc172e8fc3d3d7f1033eb64808",
+      "first_frame": "000.jpg",
+      "last_frame": "744.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "13",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/13",
+      "frames": 720,
+      "names_sha256": "009369f3bbfafca8d1894d6ecbbd657dba9eab0034b7fcb1281647d2d261987c",
+      "first_frame": "000.jpg",
+      "last_frame": "719.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "14",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/14",
+      "frames": 630,
+      "names_sha256": "5c03f5f193d003de094dbdda954994dcaac61a863db63dcfd00f02c0b2529e01",
+      "first_frame": "000.jpg",
+      "last_frame": "629.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R03",
+      "sequence": "15",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/15",
+      "frames": 706,
+      "names_sha256": "294f842b4291766e6b12d2d0ab029b124519050ff2feb12b74810f92dcf70119",
+      "first_frame": "000.jpg",
+      "last_frame": "705.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "16",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/16",
+      "frames": 656,
+      "names_sha256": "3707ba256c50bb0c0a3e35b4419ee1fb8b5d7c995d7b910eaa855185b4774cd2",
+      "first_frame": "000.jpg",
+      "last_frame": "655.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "17",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/17",
+      "frames": 685,
+      "names_sha256": "f38d11122be66f9d527ffbef734c0eed014990091c5c55024d443cbb31435421",
+      "first_frame": "000.jpg",
+      "last_frame": "684.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "18",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/18",
+      "frames": 690,
+      "names_sha256": "bba4a4ea835df79d92c28f14388d0118504a879f0c770a5feca2e2a57a4b8a8d",
+      "first_frame": "000.jpg",
+      "last_frame": "689.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "19",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/19",
+      "frames": 694,
+      "names_sha256": "50f545948fe5100912f0603abe72826808c800c5deda3636a826e53d7c37e2ad",
+      "first_frame": "000.jpg",
+      "last_frame": "693.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "20",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/20",
+      "frames": 690,
+      "names_sha256": "bba4a4ea835df79d92c28f14388d0118504a879f0c770a5feca2e2a57a4b8a8d",
+      "first_frame": "000.jpg",
+      "last_frame": "689.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R03",
+      "sequence": "21",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/21",
+      "frames": 713,
+      "names_sha256": "945d0873e81a38f47f77e0a98e9a4018fd39023c41147934f0949330c0377ded",
+      "first_frame": "000.jpg",
+      "last_frame": "712.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R03",
+      "sequence": "22",
+      "partition": "training",
+      "relative_directory": "R03/training/frames/22",
+      "frames": 703,
+      "names_sha256": "70f4e85618e8e5bf89c03b209998a0b3ee25bc4ea80e59f027dd73ea15c213af",
+      "first_frame": "000.jpg",
+      "last_frame": "702.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R03",
+      "sequence": "01",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/01",
+      "frames": 720,
+      "names_sha256": "009369f3bbfafca8d1894d6ecbbd657dba9eab0034b7fcb1281647d2d261987c",
+      "first_frame": "000.jpg",
+      "last_frame": "719.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/001.npy",
+      "label_sha256": "d2699b9be0397e72503d15087e822f10632ee95f4edd673a70eb31f335b1ed70",
+      "label_count": 720,
+      "anomaly_labels": 720,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "02",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/02",
+      "frames": 676,
+      "names_sha256": "96d62251955ed68edb53e1176ff097fedf8f195e5764b163385d566f76d725eb",
+      "first_frame": "000.jpg",
+      "last_frame": "675.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/002.npy",
+      "label_sha256": "7aea3bcd9445326a3851f59d5299ef04858a55ccfa2ca70814e73742574e5857",
+      "label_count": 676,
+      "anomaly_labels": 676,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "03",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/03",
+      "frames": 674,
+      "names_sha256": "f450359ff702091e4a4333265fd820e8f899257276831aa5a5cfd51250ce786a",
+      "first_frame": "000.jpg",
+      "last_frame": "673.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/003.npy",
+      "label_sha256": "3af62993a9bc191dabb653ff8aa57e99367d3dca6a538659da08ed52bd8bd50a",
+      "label_count": 674,
+      "anomaly_labels": 674,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "04",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/04",
+      "frames": 683,
+      "names_sha256": "2327d7cfd2ceb688d1829d52b675e4c35b19a081742a7fbd804772fd9b333900",
+      "first_frame": "000.jpg",
+      "last_frame": "682.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/004.npy",
+      "label_sha256": "b27d2462015ba0e260c7abc8755c9f90c8cb376c8f5fdd49c42c0dfb8a14ccda",
+      "label_count": 683,
+      "anomaly_labels": 683,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "05",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/05",
+      "frames": 574,
+      "names_sha256": "7af52c6cb74d76ab222be6e311765c41d7caba47aae5d719015206da41b07958",
+      "first_frame": "000.jpg",
+      "last_frame": "573.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/005.npy",
+      "label_sha256": "ffb3316894add64ea870830d269f54c2c9926b944fb069f0f8014fde41c24ffd",
+      "label_count": 574,
+      "anomaly_labels": 59,
+      "label_transitions": [
+        348,
+        407
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "06",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/06",
+      "frames": 582,
+      "names_sha256": "9ae7bd348665dea00ecfeecb088c55290b72ad48cec6c4a6c7d9e74e09c478c8",
+      "first_frame": "000.jpg",
+      "last_frame": "581.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/006.npy",
+      "label_sha256": "a08cb96817e142f03eddef09502024c11f7130e2fe276dd62342b715d67f8354",
+      "label_count": 582,
+      "anomaly_labels": 451,
+      "label_transitions": [
+        131
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "07",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/07",
+      "frames": 686,
+      "names_sha256": "658e3645b078c5a2db1628bceca56322a76862b8ccf6228d6b67504328ca9a83",
+      "first_frame": "000.jpg",
+      "last_frame": "685.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/007.npy",
+      "label_sha256": "7e9170b0e697f3ea238afc6f96f5326319ac9612551cb1b4eff55b6d2a5e7854",
+      "label_count": 686,
+      "anomaly_labels": 417,
+      "label_transitions": [
+        269
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "08",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/08",
+      "frames": 695,
+      "names_sha256": "63664d48984021cec6955f8d20e400ce85bcf852717e868bcef825ea6fc0a5a8",
+      "first_frame": "000.jpg",
+      "last_frame": "694.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/008.npy",
+      "label_sha256": "ce1850fa1c2092a742f5b44a693a20e6f271c781da0759c5574b1506e1d89424",
+      "label_count": 695,
+      "anomaly_labels": 405,
+      "label_transitions": [
+        242,
+        647
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "09",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/09",
+      "frames": 712,
+      "names_sha256": "98027b30e6230454c589cfdaf38473cb5a5c8ecc9d2e1d476273dbf2e3eb5afd",
+      "first_frame": "000.jpg",
+      "last_frame": "711.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/009.npy",
+      "label_sha256": "864746f2710f73510f87547fee5f08b14af39a6d8bac3576033457541e83c609",
+      "label_count": 712,
+      "anomaly_labels": 92,
+      "label_transitions": [
+        620
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "10",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/10",
+      "frames": 647,
+      "names_sha256": "a0792f299bcb2abe8be53a800074ebeada04dcf4493d45a8b23d135f85774f60",
+      "first_frame": "000.jpg",
+      "last_frame": "646.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/010.npy",
+      "label_sha256": "79d4797c709fa72aef2aa2086777fae8186a6b019f0c9f6a4953677eb9474f0b",
+      "label_count": 647,
+      "anomaly_labels": 202,
+      "label_transitions": [
+        445
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "11",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/11",
+      "frames": 706,
+      "names_sha256": "294f842b4291766e6b12d2d0ab029b124519050ff2feb12b74810f92dcf70119",
+      "first_frame": "000.jpg",
+      "last_frame": "705.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/011.npy",
+      "label_sha256": "4caf20dd9b8d5098a75ed328515d9c340539b2eec39cd0fff2c9efa028bdd34c",
+      "label_count": 706,
+      "anomaly_labels": 216,
+      "label_transitions": [
+        490
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "12",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/12",
+      "frames": 841,
+      "names_sha256": "b7d2fffbeeead12ac92a84081c0b2317886922c343485d9c5ab316db5742e95e",
+      "first_frame": "000.jpg",
+      "last_frame": "840.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/012.npy",
+      "label_sha256": "8c2b4471a9394bd3f6c93124ce048a696bb4c2106db94de233a2ddbea0a6ddd4",
+      "label_count": 841,
+      "anomaly_labels": 171,
+      "label_transitions": [
+        95,
+        206,
+        325,
+        385
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "13",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/13",
+      "frames": 766,
+      "names_sha256": "905ecdb5d03ec396227613456ca0f8bda2c234072a4f8e543a52950cd8c74197",
+      "first_frame": "000.jpg",
+      "last_frame": "765.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/013.npy",
+      "label_sha256": "0b791490f396acab9f5304fb80c2348027b4c7433ed175c226f6855d7edaeffb",
+      "label_count": 766,
+      "anomaly_labels": 102,
+      "label_transitions": [
+        428,
+        530
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "14",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/14",
+      "frames": 908,
+      "names_sha256": "0825b38833208f1d8c3ab2ef0572e9a273d360206d7997914f7d8626470a7304",
+      "first_frame": "000.jpg",
+      "last_frame": "907.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/014.npy",
+      "label_sha256": "79622696ea236ee54dde4779cebe05bb66e570dcc1e9ec869ca8ab900d5662f7",
+      "label_count": 908,
+      "anomaly_labels": 128,
+      "label_transitions": [
+        363,
+        417,
+        645,
+        719
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "15",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/15",
+      "frames": 692,
+      "names_sha256": "ac4b2b2a14342aa5721675ab8fb5ab57da8295060707ce02b142fb66445065c5",
+      "first_frame": "000.jpg",
+      "last_frame": "691.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/015.npy",
+      "label_sha256": "2b66d764cff778d19a536296fb6ef9108d47d9c0558d5242dbb53265d87a8562",
+      "label_count": 692,
+      "anomaly_labels": 72,
+      "label_transitions": [
+        620
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "16",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/16",
+      "frames": 730,
+      "names_sha256": "f21be7ee6608796140499f820c3928cda523d4d8cdcd879dabb684fcf1b826cb",
+      "first_frame": "000.jpg",
+      "last_frame": "729.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/016.npy",
+      "label_sha256": "d14c3f31d7daa6ebad04c50a6a56a1f2ba3b2f96d88b14c3b52a4d41d5bb08ee",
+      "label_count": 730,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R03",
+      "sequence": "17",
+      "partition": "testing",
+      "relative_directory": "R03/testing/frames/17",
+      "frames": 713,
+      "names_sha256": "945d0873e81a38f47f77e0a98e9a4018fd39023c41147934f0949330c0377ded",
+      "first_frame": "000.jpg",
+      "last_frame": "712.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R03/test_label/017.npy",
+      "label_sha256": "73eb3313fb63d943852fb6caf3206abdb882c4173474490bdf593612b195eac1",
+      "label_count": 713,
+      "anomaly_labels": 0,
+      "label_transitions": [],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "01",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/01",
+      "frames": 309,
+      "names_sha256": "7e728540f856c9be0db4bbecc89c5a125aa1d405fccd9a018ccb0af1a1ef081a",
+      "first_frame": "000.jpg",
+      "last_frame": "308.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "02",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/02",
+      "frames": 409,
+      "names_sha256": "e7a022837f23d45ba903d60a88f2af50096107d3b8a674a1c23463f5442a9fbd",
+      "first_frame": "000.jpg",
+      "last_frame": "408.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R04",
+      "sequence": "03",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/03",
+      "frames": 461,
+      "names_sha256": "3cb2f42cb5a6bf4ba2dc4e3ce168a02b03620e2731a6dac58cff4fb325dac91a",
+      "first_frame": "000.jpg",
+      "last_frame": "460.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R04",
+      "sequence": "04",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/04",
+      "frames": 408,
+      "names_sha256": "df7b719646568b9e86a7a71f119a839e7d76fc67ddd3841b33917fe248795c48",
+      "first_frame": "000.jpg",
+      "last_frame": "407.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "05",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/05",
+      "frames": 437,
+      "names_sha256": "8bb4d0e34cfbb83b092c1fc0bcd60aecbdda156c1fd615e49f79004720d30a85",
+      "first_frame": "000.jpg",
+      "last_frame": "436.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R04",
+      "sequence": "06",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/06",
+      "frames": 448,
+      "names_sha256": "0492203bc15fa4325a3aef0dd7334715b2bbb5faf3363440e8081be04c209233",
+      "first_frame": "000.jpg",
+      "last_frame": "447.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "07",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/07",
+      "frames": 385,
+      "names_sha256": "7c1fde383be2ca00d10348e11034fec7e569024fdd5d00d0a23b527e20f1ad43",
+      "first_frame": "000.jpg",
+      "last_frame": "384.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "08",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/08",
+      "frames": 413,
+      "names_sha256": "e48d69e60f06da244894b960d5aca5352248edee1fa9ffbe1001bd972560c39d",
+      "first_frame": "000.jpg",
+      "last_frame": "412.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "09",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/09",
+      "frames": 417,
+      "names_sha256": "9194107dde90b183f9900674e54b4f8dd5a00779d116b353f8c915a4fe1cb99f",
+      "first_frame": "000.jpg",
+      "last_frame": "416.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R04",
+      "sequence": "10",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/10",
+      "frames": 376,
+      "names_sha256": "cc76f348ea0d59f96951a7e43a47b93c56a5265860412cc0d3518a921ef8bd4b",
+      "first_frame": "000.jpg",
+      "last_frame": "375.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "11",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/11",
+      "frames": 340,
+      "names_sha256": "4a00cfe44942e2fbbe3f78d48b913028093677442767d705927608f314ea6251",
+      "first_frame": "000.jpg",
+      "last_frame": "339.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "12",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/12",
+      "frames": 382,
+      "names_sha256": "752420c2875e10adfba2c5cc074b6554c899738feb6ef6dc4b5e5ffb424c006e",
+      "first_frame": "000.jpg",
+      "last_frame": "381.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "13",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/13",
+      "frames": 382,
+      "names_sha256": "752420c2875e10adfba2c5cc074b6554c899738feb6ef6dc4b5e5ffb424c006e",
+      "first_frame": "000.jpg",
+      "last_frame": "381.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "14",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/14",
+      "frames": 323,
+      "names_sha256": "3f9ea1fa4a7e9fecf106afa4d34e05678ec47fddcc8be7e9256f4c6f5adc9116",
+      "first_frame": "000.jpg",
+      "last_frame": "322.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R04",
+      "sequence": "15",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/15",
+      "frames": 340,
+      "names_sha256": "4a00cfe44942e2fbbe3f78d48b913028093677442767d705927608f314ea6251",
+      "first_frame": "000.jpg",
+      "last_frame": "339.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R04",
+      "sequence": "16",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/16",
+      "frames": 373,
+      "names_sha256": "a2187ef9f5e23dd1b100bb3f7f52aad657950cf52370f80c0018cc3d69ac8aa5",
+      "first_frame": "000.jpg",
+      "last_frame": "372.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "17",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/17",
+      "frames": 372,
+      "names_sha256": "806aa500499e68a113b0b1fcb2b6840cb0e3b8edd8e22f8e5f5f388e95d1c6bd",
+      "first_frame": "000.jpg",
+      "last_frame": "371.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "18",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/18",
+      "frames": 412,
+      "names_sha256": "c29fdab21a723d439ad4ee38081504b730d87f99c88944164eec87488632c276",
+      "first_frame": "000.jpg",
+      "last_frame": "411.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "19",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/19",
+      "frames": 396,
+      "names_sha256": "51372efe424b94f0857068bdbc3dc881e3c11643b0a150d4aaa3a6a7772b28e2",
+      "first_frame": "000.jpg",
+      "last_frame": "395.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "20",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/20",
+      "frames": 404,
+      "names_sha256": "d968016a9753659d66459ff8a044ec9199bf337a4a0dcfbb13f27e77127bdb24",
+      "first_frame": "000.jpg",
+      "last_frame": "403.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "21",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/21",
+      "frames": 417,
+      "names_sha256": "9194107dde90b183f9900674e54b4f8dd5a00779d116b353f8c915a4fe1cb99f",
+      "first_frame": "000.jpg",
+      "last_frame": "416.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "22",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/22",
+      "frames": 380,
+      "names_sha256": "058b689da6d030e5d45915bf01414e85200d967566e96124dda79dc24cb404b0",
+      "first_frame": "000.jpg",
+      "last_frame": "379.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "23",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/23",
+      "frames": 377,
+      "names_sha256": "be83a15e0e4b9367674eb3829b48a6d6e21884cf0bbdff68fb3433480b0d6ccb",
+      "first_frame": "000.jpg",
+      "last_frame": "376.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "diagnostic"
+    },
+    {
+      "device": "R04",
+      "sequence": "24",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/24",
+      "frames": 368,
+      "names_sha256": "13d6022b5e246089a3f7043a7346d89f9fc0fd730a35a6e7f7458709f5a54d8a",
+      "first_frame": "000.jpg",
+      "last_frame": "367.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "calibration"
+    },
+    {
+      "device": "R04",
+      "sequence": "25",
+      "partition": "training",
+      "relative_directory": "R04/training/frames/25",
+      "frames": 403,
+      "names_sha256": "b3697ef875560b9571b98dbff4ae42239d4602eeb0d34ddfeebdced33e870bac",
+      "first_frame": "000.jpg",
+      "last_frame": "402.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "split": "fit"
+    },
+    {
+      "device": "R04",
+      "sequence": "01",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/01",
+      "frames": 411,
+      "names_sha256": "dde1750d718b8d5da7252abee6c6cbc775cd848a781816769a84c3e88d4c8e24",
+      "first_frame": "000.jpg",
+      "last_frame": "410.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/001.npy",
+      "label_sha256": "67ef929f073b0ccea32e888e2d78c5313592d0057c1548d91f93f1f113b2cbb6",
+      "label_count": 411,
+      "anomaly_labels": 300,
+      "label_transitions": [
+        78,
+        378
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "02",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/02",
+      "frames": 398,
+      "names_sha256": "ab54cdbc7877bc5f3268f6101ca52bf1383fa61f4e5498de34fc37aed54b86ad",
+      "first_frame": "000.jpg",
+      "last_frame": "397.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/002.npy",
+      "label_sha256": "69b9adaf97723f3622a9e3e6ea8ee1d194e5a7972d9f035b5ba200bf0decfde2",
+      "label_count": 398,
+      "anomaly_labels": 286,
+      "label_transitions": [
+        67,
+        353
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "03",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/03",
+      "frames": 381,
+      "names_sha256": "3e04e54de0e862defd25c663bcb90410b9e58ec49dc2edbb810a9b09664a1b65",
+      "first_frame": "000.jpg",
+      "last_frame": "380.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/003.npy",
+      "label_sha256": "5f881cc578a1c37e311804b3609c2db1bbbb41d6e49d337d9a4b47c5ceac786b",
+      "label_count": 381,
+      "anomaly_labels": 316,
+      "label_transitions": [
+        65
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "04",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/04",
+      "frames": 379,
+      "names_sha256": "f035539c29b0e1bea0747c14f04324bc53164137ffcf587423a90d381196a334",
+      "first_frame": "000.jpg",
+      "last_frame": "378.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/004.npy",
+      "label_sha256": "2b149dd0f39ec4fac46611dae39361ea0db8483aa983714f9d7d286f68d56896",
+      "label_count": 379,
+      "anomaly_labels": 118,
+      "label_transitions": [
+        261
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "05",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/05",
+      "frames": 465,
+      "names_sha256": "c57ae1cef4d33ac41eec705bc0c68e34c9831dd28f2b895cbb5a332ae6061385",
+      "first_frame": "000.jpg",
+      "last_frame": "464.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/005.npy",
+      "label_sha256": "cc3b8f4facd224aa4bcf8a0c4630077539c0ec6123fbe92a06c2bd4e7f456510",
+      "label_count": 465,
+      "anomaly_labels": 330,
+      "label_transitions": [
+        135
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "06",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/06",
+      "frames": 505,
+      "names_sha256": "e8d7a745ad3a002dfbeb359bdcc0696281b2253eacae90076ab8e14d83028e4e",
+      "first_frame": "000.jpg",
+      "last_frame": "504.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/006.npy",
+      "label_sha256": "6980aa99d074233ed663f7b0d1cac922c41a784f4effba94c41b73371b16b388",
+      "label_count": 505,
+      "anomaly_labels": 413,
+      "label_transitions": [
+        92
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "07",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/07",
+      "frames": 550,
+      "names_sha256": "6e8b6eb09b7bcd67360d709e8bf3c778597ead307b48d3b00e72c19ffdce7d25",
+      "first_frame": "000.jpg",
+      "last_frame": "549.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/007.npy",
+      "label_sha256": "eb962d4dff0fa18bba9fd4bacc2043573e799bf926a402f22c1a2d09d783353f",
+      "label_count": 550,
+      "anomaly_labels": 151,
+      "label_transitions": [
+        122,
+        204,
+        412,
+        481
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "08",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/08",
+      "frames": 653,
+      "names_sha256": "d504cc4af3ad170b711c06be75475e66c9731cf6d8aeb6c73b98f4e94b35c009",
+      "first_frame": "000.jpg",
+      "last_frame": "652.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/008.npy",
+      "label_sha256": "bd4f6d515d01ef1a201605b963c30eac685b8ad939614fe5540f9080e7cb232a",
+      "label_count": 653,
+      "anomaly_labels": 230,
+      "label_transitions": [
+        134,
+        244,
+        371,
+        416,
+        500,
+        575
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "09",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/09",
+      "frames": 334,
+      "names_sha256": "2c4f3bdc5f4320a6d5379fffda8d8a7ecef53898e33817b270be2634a8014509",
+      "first_frame": "000.jpg",
+      "last_frame": "333.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/009.npy",
+      "label_sha256": "bf8e6ebd3add41de648cc0b59f5836ad752b1b2be5bdac5ef69c2f0894622ddd",
+      "label_count": 334,
+      "anomaly_labels": 206,
+      "label_transitions": [
+        128
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "10",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/10",
+      "frames": 223,
+      "names_sha256": "745369f35e0ec754d171a0bb140917d53bab352c171b6f7e7596e9f684eeca1a",
+      "first_frame": "000.jpg",
+      "last_frame": "222.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/010.npy",
+      "label_sha256": "b016150962e0b5f24f5b313750cbcca25618487d1de2ec9a818430477d2709cd",
+      "label_count": 223,
+      "anomaly_labels": 135,
+      "label_transitions": [
+        88
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "11",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/11",
+      "frames": 424,
+      "names_sha256": "b4dfdd6c6b1d8cd98acf8c995935f051cb223bca881598002f645860eed1205a",
+      "first_frame": "000.jpg",
+      "last_frame": "423.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/011.npy",
+      "label_sha256": "a00eaa8eaba08c8e3e07f20d7a64dda57c5b153bb8d50597a990741294929b34",
+      "label_count": 424,
+      "anomaly_labels": 126,
+      "label_transitions": [
+        170,
+        240,
+        279,
+        335
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "12",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/12",
+      "frames": 686,
+      "names_sha256": "658e3645b078c5a2db1628bceca56322a76862b8ccf6228d6b67504328ca9a83",
+      "first_frame": "000.jpg",
+      "last_frame": "685.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/012.npy",
+      "label_sha256": "9ad40e6c4d9462c361d779e31b4f2e90b39ae4ee58a47be57198af4ad531b2f7",
+      "label_count": 686,
+      "anomaly_labels": 224,
+      "label_transitions": [
+        155,
+        240,
+        370,
+        430,
+        531,
+        610
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "13",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/13",
+      "frames": 464,
+      "names_sha256": "7c52f1a4086a8d6d54facfc38cc665225ba7a9322cd5f3f6589aef99457347ce",
+      "first_frame": "000.jpg",
+      "last_frame": "463.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/013.npy",
+      "label_sha256": "ecc341370b3085e64a7277634a295b40038f6df2053018bf2cbcb39a001b8270",
+      "label_count": 464,
+      "anomaly_labels": 375,
+      "label_transitions": [
+        89
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "14",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/14",
+      "frames": 385,
+      "names_sha256": "7c1fde383be2ca00d10348e11034fec7e569024fdd5d00d0a23b527e20f1ad43",
+      "first_frame": "000.jpg",
+      "last_frame": "384.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/014.npy",
+      "label_sha256": "728e152be907def10a848b2146aa573cc7810ee08b5e35fd60ffe107e9b5949e",
+      "label_count": 385,
+      "anomaly_labels": 320,
+      "label_transitions": [
+        65
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "15",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/15",
+      "frames": 376,
+      "names_sha256": "cc76f348ea0d59f96951a7e43a47b93c56a5265860412cc0d3518a921ef8bd4b",
+      "first_frame": "000.jpg",
+      "last_frame": "375.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/015.npy",
+      "label_sha256": "a715667be6ab811d68fa240a01f45463bb4c275d470ea575acbf1a7412620b5e",
+      "label_count": 376,
+      "anomaly_labels": 322,
+      "label_transitions": [
+        54
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "16",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/16",
+      "frames": 418,
+      "names_sha256": "7062e0f2414517586848bd52abb6ff33f2479d779d06d2ab348abad1618c732d",
+      "first_frame": "000.jpg",
+      "last_frame": "417.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/016.npy",
+      "label_sha256": "f53619b73958cd3b5b4ce770507ce2f286861578b47a83b1e7c2d71b3b3d0c80",
+      "label_count": 418,
+      "anomaly_labels": 347,
+      "label_transitions": [
+        71
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "17",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/17",
+      "frames": 582,
+      "names_sha256": "9ae7bd348665dea00ecfeecb088c55290b72ad48cec6c4a6c7d9e74e09c478c8",
+      "first_frame": "000.jpg",
+      "last_frame": "581.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/017.npy",
+      "label_sha256": "109525fe482d55dba098a24d75bbbf42f46ac47d8fda14ff2cdef9ab1f3c8b04",
+      "label_count": 582,
+      "anomaly_labels": 127,
+      "label_transitions": [
+        95,
+        182,
+        510,
+        550
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "18",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/18",
+      "frames": 243,
+      "names_sha256": "1b898b497e183ab99c2bd670dba89c2ee044ee740f43a144a8ec010e8766cdf5",
+      "first_frame": "000.jpg",
+      "last_frame": "242.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/018.npy",
+      "label_sha256": "0b2d04963c6b7ed417331195979dc7e3afa4c35d92e87cd2980b75880ba345b6",
+      "label_count": 243,
+      "anomaly_labels": 141,
+      "label_transitions": [
+        65,
+        206
+      ],
+      "alignment_status": "matched"
+    },
+    {
+      "device": "R04",
+      "sequence": "19",
+      "partition": "testing",
+      "relative_directory": "R04/testing/frames/19",
+      "frames": 277,
+      "names_sha256": "1d75124dc23a7ad6973bb5929b240c649c705da038bfb5cb021b637c9004977c",
+      "first_frame": "000.jpg",
+      "last_frame": "276.jpg",
+      "sampled_image_sizes": [
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "image_check": "first_middle_last_only",
+      "label_file": "R04/test_label/019.npy",
+      "label_sha256": "af3c8a005105164ef1534a2ef8930ab01dc49543726798ee5ce690b3422fa97f",
+      "label_count": 277,
+      "anomaly_labels": 111,
+      "label_transitions": [
+        166
+      ],
+      "alignment_status": "matched"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "IPAD": {"url": "https://github.com/LJF1113/IPAD.git", "commit": "22764cbeeda3946303d236babdd2664fd6241b91"},
+  "vjepa2": {"url": "https://github.com/facebookresearch/vjepa2.git", "commit": "204698b45b3712590f06245fbfba32d3be539812"},
+  "dinov3": {"url": "https://github.com/facebookresearch/dinov3.git", "commit": "6876159a11b4df116f30f667f8c9888617df0751"}
+}

@@ -1,0 +1,23 @@
+{
+  "model": "dinov3-l",
+  "status": "strict_load_and_real_clip_passed",
+  "upstream_commit": "6876159a11b4df116f30f667f8c9888617df0751",
+  "torch": "2.8.0+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "bf16": true,
+  "local_shape": [
+    1,
+    576,
+    1024
+  ],
+  "global_shape": [
+    1,
+    1024
+  ],
+  "first_forward_seconds": 0.19616431201575324,
+  "peak_vram_mib": 1574.47314453125,
+  "trainable_parameters": 0,
+  "parameter_count": 303154176,
+  "scope": "Single real normal clip, cold forward; NOT AUROC or throughput benchmark"
+}

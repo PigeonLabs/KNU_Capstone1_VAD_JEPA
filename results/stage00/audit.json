@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "source": "Local IPAD_dataset/IPAD_dataset; R01-R04 only",
+  "split_seed": 42,
+  "devices": [
+    {
+      "device": "R01",
+      "training_sequences": 34,
+      "training_frames": 7808,
+      "testing_sequences": 15,
+      "testing_frames": 3685
+    },
+    {
+      "device": "R02",
+      "training_sequences": 30,
+      "training_frames": 17756,
+      "testing_sequences": 15,
+      "testing_frames": 9618
+    },
+    {
+      "device": "R03",
+      "training_sequences": 22,
+      "training_frames": 15346,
+      "testing_sequences": 17,
+      "testing_frames": 12005
+    },
+    {
+      "device": "R04",
+      "training_sequences": 25,
+      "training_frames": 9732,
+      "testing_sequences": 19,
+      "testing_frames": 8154
+    }
+  ],
+  "mismatches": [
+    {
+      "device": "R02",
+      "sequence": "12",
+      "frames": 806,
+      "labels": 805,
+      "transitions": [
+        287,
+        557
+      ]
+    },
+    {
+      "device": "R02",
+      "sequence": "13",
+      "frames": 609,
+      "labels": 608,
+      "transitions": [
+        11,
+        28,
+        303,
+        317
+      ]
+    },
+    {
+      "device": "R02",
+      "sequence": "14",
+      "frames": 497,
+      "labels": 498,
+      "transitions": [
+        134,
+        184,
+        340,
+        390
+      ]
+    }
+  ],
+  "training_sequences": 111,
+  "testing_sequences": 66,
+  "training_frames": 50642,
+  "testing_frames": 33462,
+  "label_alignment_complete": false,
+  "image_decode_scope": "3 sampled frames per sequence; not a full corruption scan",
+  "cycle_assumption": "One training directory is one cycle, following IPAD relative-position supervision",
+  "normality_assumption": "Training frames treated as normal by the dataset protocol"
+}

@@ -1,0 +1,28 @@
+devices: [R01, R02, R03, R04]
+backbones: [dinov3-l, vjepa21-l]
+modes: [offline, online]
+seeds: [0, 1, 2]
+split_seed: 42
+image_size: 384
+clip_frames: 16
+phase_classes: 200
+phase_bins: 16
+prototypes_per_bin: 128
+pca_dimensions: 256
+pca_samples: 50000
+candidate_limit: 10000
+neighbours: 5
+top_patch_fraction: 0.05
+phase_history: 5
+score_weights: [0.5, 0.5]
+calibration_quantile: 0.99
+alarm_consecutive: 3
+epochs: 20
+phase_lr: 0.001
+lora_lr: 0.0001
+weight_decay: 0.0001
+lora: {blocks: 4, rank: 8, alpha: 16, dropout: 0.05}
+micro_batch: 1
+gradient_accumulation: 8
+stream_fps: 30
+

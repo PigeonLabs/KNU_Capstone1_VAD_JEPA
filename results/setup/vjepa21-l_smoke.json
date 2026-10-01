@@ -1,0 +1,23 @@
+{
+  "model": "vjepa21-l",
+  "status": "strict_load_and_real_clip_passed",
+  "upstream_commit": "204698b45b3712590f06245fbfba32d3be539812",
+  "torch": "2.8.0+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "bf16": true,
+  "local_shape": [
+    1,
+    576,
+    1024
+  ],
+  "global_shape": [
+    1,
+    1024
+  ],
+  "first_forward_seconds": 0.2608772589592263,
+  "peak_vram_mib": 1369.390625,
+  "trainable_parameters": 0,
+  "parameter_count": 304680960,
+  "scope": "Single real normal clip, cold forward; NOT AUROC or throughput benchmark"
+}
