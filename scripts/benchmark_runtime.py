@@ -55,7 +55,8 @@ def fixed_components(args):
     phase_state=torch.load(args.run/'phase_head.pt',map_location='cpu',weights_only=True)
     adapter,adaptation=selected_runtime_adapter(args,identity,phase_meta,phase_state,expected)
     with np.load(args.run/'memory.npz',allow_pickle=False) as data:
-        mean,components,prototypes=data['mean'].copy(),data['components'].copy(),data['prototypes'].copy()
+        # Keep the fitted PCA strides; changing layout can change FP32 neighbour tie rounding.
+        mean,components,prototypes=(data[k].copy(order='K') for k in ['mean','components','prototypes'])
         temperature,cycle=float(data['temperature']),float(data['cycle_length'])
     if (mean.shape!=(1024,) or components.shape!=(256,1024) or prototypes.shape!=(16,128,256) or
         not all(np.isfinite(value).all() for value in [mean,components,prototypes]) or

@@ -2,6 +2,8 @@
 
 고정 백본의 이력 5·15·31 OFAT 144개 seed 조건을 완료했다. [공통 구간의 수치·paired CI·그래프와 재현 근거](ABLATION_HISTORY.md)를 제공한다. 실제 FPS·지연·알람 지연은 아직 측정하지 않았다. 특징 캐시 생성 시간, 모델 smoke 시간, LoRA 예비 학습 시간은 처리량 결과로 사용하지 않는다.
 
+이웃 수 k=1·5·10의 첫 공개 스냅샷은 DINOv3-L 오프라인 R01의 3 seeds, 9개 조건이다. 기본 k=5의 특징·시간·최종 점수 차이와 기존 구간의 알람 불일치가 모두 0이었으며 정상 임계값 9개를 재계산했다. [수치·paired CI·그래프·검색 출처](ABLATION_NEIGHBOURS.md)를 제공한다. 전체 144개 이웃 수 조건의 추가 검증·집계·공개는 진행 중이다.
+
 ## 준비된 스트리밍 점수와 평가
 
 [runtime_state.py](../src/ipad_jepa/runtime_state.py)는 고정 정상 calibration과 주기 길이로 P3 점수와 3프레임 연속 초과 알람을 순차 계산한다. 최근 5개 위상만 유지하며 영상의 최종 길이·테스트 라벨을 받지 않는다. 온라인은 target 15부터 위상을 쌓고, target 19부터 알람이 유효하다. 오프라인은 target 8부터 위상을 쌓되 같은 target 19부터 알람이 유효하다.
@@ -19,6 +21,8 @@ GT 이상 구간 안의 target에서 발생했더라도 실제 알람 출력은 
 30 FPS 도착, FIFO, 프레임 drop 없음, 메모리 갱신 없음으로 두 백본·두 모드를 비교한다. GPU에서 다른 학습·추론이 겹치지 않는 측정 조건을 기록한다. decode/resize, encoder, phase head, PCA/메모리 검색, score/alarm, queue/lookahead 대기를 분리하고 지속 FPS·p50/p95 지연·VRAM·queue 증가·miss·false alarm을 공개한다.
 
 [benchmark_runtime.py](../scripts/benchmark_runtime.py)는 이 측정을 위한 실행 코드를 제공한다. 아직 실제 GPU 측정으로 검증하지 않았다. 기본은 장비의 모든 실제 테스트 영상을 30 FPS 도착 시점에 맞춰 파일로 재생한다. `full`은 매 clip을 CPU 프레임 버퍼에서 조합·GPU로 전송하고 인코더를 재계산하며, `buffer`는 과거 픽셀 프레임을 GPU에 보관해 전송을 줄이고 같은 clip의 인코더를 재계산한다. DINO 온라인 FP32의 `reuse`는 과거 인코더 특징을 재사용하는 별도 조건이다. 정상 데이터로 20회 warmup 후 영상별 점수 상태를 초기화한다.
+
+메모리 복원 시 저장된 PCA의 Fortran layout을 유지한다. 이웃 수 재현에서 기본 C layout 복사로 FP32 검색 점수가 달라졌음을 확인했으며, layout 보존 후 k=5가 기존 점수와 정확히 일치했다. 런타임의 실제 로더도 동일하게 수정하고 CPU stride 회귀 테스트를 추가했다. 실제 GPU 런타임의 점수·알람 동등성 게이트는 여전히 별도로 수행해야 한다.
 
 입력 도착부터 실제 점수 계산 종료까지 벽시계 시간을 기록하고, GPU에 다른 compute PID가 있으면 측정을 거부한다. 검사 사이의 순간적인 외부 작업까지 감시하지는 않으므로 다른 실험 실행이 모두 끝난 상태에서 측정해야 한다. 원본 해시 검증은 측정 전 수행하므로 파일 캐시는 warm 조건이다. BF16 batch 1 점수와 기존 batch 4 캐시 점수의 차이, full/buffer 및 FP32 full/reuse의 점수·알람 일치도도 결과와 함께 검증해야 한다.
 

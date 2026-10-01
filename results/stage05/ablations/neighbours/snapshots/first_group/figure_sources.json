@@ -1,0 +1,21 @@
+{
+  "status": "rendered_from_verified_summaries",
+  "matrix_complete": false,
+  "reporting_runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "completed_groups": 1,
+  "validation_sha256": "1faee951f0cb90c89994b5170c76f1dbdf29b4509b7b7614d24b06f9bc90c775",
+  "device_summary_sha256": "f176eafb81e777b0e84c2d6b8e0f6955d56118e4af599ea2286d7a75dc519a6e",
+  "macro_summary_sha256": "39c4b2cc41b9873cddcba94f1aae57e99458f5af25706a6f1b10442aad024230",
+  "plot_code_sha256": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
+  "figures": {
+    "neighbours_dinov3-l_offline.png": "8ca4ee470a5158ec021124d3cb1435ca73de7050fa92cf2413f255f6894b6041",
+    "neighbours_dinov3-l_offline.svg": "f2a68b486b6ff5c654c56fe31578d3f5c3c5a9f3dc1b8ecd133570e1ba50ef98",
+    "neighbours_dinov3-l_offline_paired_differences.png": "1d3abdaa4ebf261d92342a55bbc9994bb072a1b7b0e2b2e91da1717d9308de8b",
+    "neighbours_dinov3-l_offline_paired_differences.svg": "f21a8e3bc181f6b5927036ea7404f5a1b81a2ee59a1fc8187e0380610f0cfc7e"
+  },
+  "scope": "Accuracy and uncertainty plots; visual inspection recorded separately"
+}

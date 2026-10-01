@@ -1,0 +1,14 @@
+{
+  "scope": "Temporary CPU reporting environment; same seven observed package versions as the GPU project venv; no encoder/search/FPS executed here",
+  "python": "3.12.3",
+  "packages": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "pillow": "12.3.0",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "reproduction": "uv venv --python /usr/bin/python3 /tmp/ipad-jepa-cpu-runtime; uv pip install --python /tmp/ipad-jepa-cpu-runtime/bin/python numpy==2.5.3 scipy==1.18.1 scikit-learn==1.9.1 matplotlib==3.11.2 pillow==12.3.0 joblib==1.6.0 threadpoolctl==3.7.0"
+}

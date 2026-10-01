@@ -84,3 +84,34 @@ def test_runtime_rejects_partial_phase_training_before_loading_models(tmp_path):
     (run/'phase_training.json').write_text(json.dumps({'status':'complete','epochs':19,'seed':0}))
     args=SimpleNamespace(results=results,run=run,model='dinov3-l',mode='online',device='R01',seed=0)
     with pytest.raises(ValueError,match='completed primary'): mod.fixed_components(args)
+
+
+def test_runtime_fixed_bank_preserves_fitted_pca_strides(tmp_path,monkeypatch):
+    mod=module(); results=tmp_path/'results'; run=tmp_path/'run'
+    results.mkdir(); run.mkdir()
+    weights=tmp_path/'weights'; weights.write_bytes(b'test weights')
+    source=Path(mod.__file__).resolve().parents[1]/'src/ipad_jepa'
+    identity={'backbone':'dinov3-l','mode':'online','weights_sha256':mod.file_hash(weights),
+        'upstream_commit':'test-commit','adapter_sha256':mod.file_hash(source/'backbones.py'),
+        'reader_sha256':mod.file_hash(source/'features.py'),'image_size':384,'clip_frames':16,'fit_stride':4,
+        'preprocessing':'RGB full-frame PIL bilinear resize; ImageNet mean/std',
+        'feature_dtype':'float16 from BF16 inference'}
+    torch.save(mod.PhaseHead().state_dict(),run/'phase_head.pt')
+    phase={'status':'complete','epochs':20,'seed':0,'backbone':'dinov3-l','mode':'online',
+        'device':'R01','selected_epoch':1,'cache_fingerprints':['normal']}
+    (run/'phase_training.json').write_text(json.dumps(phase))
+    meta={'status':'normal_fit_and_calibration_complete','backbone':'dinov3-l','mode':'online',
+        'device':'R01','seed':0,'phase_selected_epoch':1,'normal_cache_fingerprints':['normal'],
+        'phase_checkpoint_sha256':mod.file_hash(run/'phase_head.pt'),'cache_identity':identity,
+        'temperature':1.,'cycle_length_fit_median':100.}
+    (results/'normal_fit.json').write_text(json.dumps(meta))
+    components=np.zeros((256,1024),dtype=np.float32,order='F')
+    np.savez(run/'memory.npz',mean=np.zeros(1024,dtype=np.float32),components=components,
+        prototypes=np.zeros((16,128,256),dtype=np.float32),temperature=1.,cycle_length=100.)
+    monkeypatch.setattr(mod.subprocess,'check_output',lambda *a,**k:'test-commit')
+    monkeypatch.setattr(torch.nn.Module,'cuda',lambda self,*a,**k:self)
+    monkeypatch.setattr(mod,'Backbone',lambda *a,**k:torch.nn.Identity())
+    args=SimpleNamespace(results=results,run=run,model='dinov3-l',mode='online',device='R01',seed=0,
+        upstream=tmp_path,weights=weights)
+    scorer=mod.fixed_components(args)[2]
+    assert scorer.components.stride()==tuple(value//4 for value in components.strides)

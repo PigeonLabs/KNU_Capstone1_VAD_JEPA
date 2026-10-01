@@ -1,0 +1,15 @@
+{
+  "status": "complete_neighbour_group",
+  "groups": 1,
+  "conditions": 3,
+  "evaluated_seed_conditions": 9,
+  "neighbours": [
+    1,
+    5,
+    10
+  ],
+  "code_sha256": "0e2e0d135d71960d09d1a0fec27b56216206759334b7d2aca217fac372831a56",
+  "source_summary_sha256": "bc7a7ff277d7b23469c176d0f383dbdbf9364888471a563e0902fd0b55099200",
+  "manifest_sha256": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+  "scope": "Frozen neighbour OFAT; source replay and metrics complete; independent aggregation/publication checks still required"
+}

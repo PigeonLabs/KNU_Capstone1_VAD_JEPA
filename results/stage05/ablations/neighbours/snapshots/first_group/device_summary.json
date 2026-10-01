@@ -1,0 +1,88 @@
+{
+  "scope": "Three-seed mean, original t=19..N-8 shared GT mask; normal-only per-k recalibration, fixed encoder/head/PCA/prototypes/temperature/history5",
+  "results": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "neighbours": 1,
+      "score_variant": "P3",
+      "seeds": 3,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.47694509996179874,
+      "auroc_ci_low": 0.4115920539307367,
+      "auroc_ci_high": 0.534808981899572,
+      "ap_mean": 0.33659870515990714,
+      "ap_ci_low": 0.18359108845082367,
+      "ap_ci_high": 0.5034180165533687,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "neighbours": 5,
+      "score_variant": "P3",
+      "seeds": 3,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.47012246482932635,
+      "auroc_ci_low": 0.40291313834673176,
+      "auroc_ci_high": 0.52833663826405,
+      "ap_mean": 0.33210396074154036,
+      "ap_ci_low": 0.18067959706333225,
+      "ap_ci_high": 0.49840661747180554,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "neighbours": 10,
+      "score_variant": "P3",
+      "seeds": 3,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.46228686490352205,
+      "auroc_ci_low": 0.3953130132195002,
+      "auroc_ci_high": 0.5204533093269587,
+      "ap_mean": 0.3288988841844697,
+      "ap_ci_low": 0.1777539334417804,
+      "ap_ci_high": 0.4949949148253007,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    }
+  ],
+  "paired_deltas": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "comparison": "K1_minus_K5",
+      "auroc_delta": 0.006822635132472388,
+      "auroc_delta_ci_low": 0.000734916091150345,
+      "auroc_delta_ci_high": 0.012990019379593227,
+      "ap_delta": 0.004494744418366781,
+      "ap_delta_ci_low": 0.0008452835116711362,
+      "ap_delta_ci_high": 0.009485537629452612,
+      "device": "R01"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "comparison": "K10_minus_K5",
+      "auroc_delta": -0.007835599925804293,
+      "auroc_delta_ci_low": -0.010952461440434162,
+      "auroc_delta_ci_high": -0.004559219313366962,
+      "ap_delta": -0.0032050765570706408,
+      "ap_delta_ci_low": -0.0046332592746060304,
+      "ap_delta_ci_high": -0.0015934574673455732,
+      "device": "R01"
+    }
+  ]
+}
