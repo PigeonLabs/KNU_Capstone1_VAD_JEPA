@@ -85,7 +85,9 @@ V-JEPA 2.1의 엄격한 가중치 로딩과 실제 정상 16프레임 GPU 연산
 모델 smoke 결과는 형태·엄격한 가중치 로딩·실제 영상 연산 검증이다. cold forward 시간을 FPS 또는 이상탐지 성능으로 해석하지 않는다.
 두 백본 모두 동일한 출력 형태와 백본 고정을 확인했다. 근거는 [환경 메타데이터](results/setup/environment.json), [V-JEPA GPU smoke](results/setup/vjepa21-l_smoke.json), [DINOv3 GPU smoke](results/setup/dinov3-l_smoke.json)에 있다.
 
-핵심 불변식 테스트 34개가 통과했다. 테스트 범위는 정상 영상 분할, 프레임 순서, 온라인 입력 범위, 위상 경계, 메모리 검색·투영, 점수 보정, q/v LoRA gradient, 업로드 파일 제외다. 전체 이상탐지 실험 검증을 완료했다는 의미는 아니다.
+핵심 불변식 테스트 35개가 통과했다. 테스트 범위는 정상 영상 분할, 프레임 순서, 온라인 입력 범위, 위상 경계, 메모리 검색·투영, 점수 보정, q/v LoRA gradient, 업로드 파일 제외다. 전체 이상탐지 실험 검증을 완료했다는 의미는 아니다.
+
+전체 실험 행렬은 [experiment_matrix.yaml](configs/experiment_matrix.yaml)에 고정했다. 이 목록은 전체 요구 범위이며 완료 여부는 실제 결과로 확인한다.
 
 ## 실험·업로드 원칙
 

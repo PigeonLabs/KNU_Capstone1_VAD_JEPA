@@ -1,0 +1,91 @@
+# Required scope from the accepted experiment plan; declarations are not completion evidence.
+schema_version: 1
+devices: [R01, R02, R03, R04]
+seeds: [0, 1, 2]
+data: {source: IPAD_real_only, split_seed: 42, split_unit: whole_video, synthetic_training: false}
+primary:
+  backbones: [dinov3-l, vjepa21-l]
+  modes: [offline, online]
+  adaptation: [frozen, qv_lora_last4]
+  main_variant: P3
+  frozen_components: [P0_global_hard, P1_phase_hard, P2_phase_soft, P3_plus_temporal]
+  common_target_mask: 't=19..N-8 inclusive, intersect shared annotation-uncertainty mask'
+  fit_by_device: {R01: 23, R02: 21, R03: 15, R04: 17}
+  calibration_by_device: {R01: 5, R02: 5, R03: 4, R04: 4}
+  diagnostic_by_device: {R01: 6, R02: 4, R03: 3, R04: 4}
+ipad_baselines:
+  upstream: LJF1113/IPAD
+  reference: {normal_training: all_111_videos, seeds: [0], epochs: 50, batch: 8}
+  controlled: {normal_training: fit_76_videos, seeds: [0, 1, 2], epochs: 50, batch: 8}
+  paired_inference: [B0_pixel_PSNR, B1_before_after_memory_latent_residual]
+  b1_decoder_used_in_training: true
+  retain_public_model_architecture: true
+  report_parameter_count_and_paper_config_differences: true
+lora:
+  rank: 8
+  alpha: 16
+  dropout: 0.05
+  attention_projections: [q, v]
+  blocks: last_4
+  encoder_lr: 0.0001
+  head_lr: 0.001
+  epochs: 20
+  micro_batch: 1
+  accumulation: 8
+  precision: bf16
+  loss: 'phase CE + 1.0 * normalized dense L2 to fixed teacher'
+  rebuild_after_adaptation: [features, PCA, prototypes, calibration]
+ablations:
+  design: one_factor_at_a_time
+  phase_bins: [8, 16]
+  total_prototypes: [1024, 2048, 4096]
+  neighbours: [1, 5, 10]
+  clip_frames: [8, 16]
+  phase_history: [5, 15, 31]
+  local_representation: [patch, global_mean]
+  lora_teacher_weight: [0.0, 1.0]
+  smaller_online_backbones: [dinov3-b, vjepa21-b]
+  insufficient_candidates_policy: 'Extract more normal fit anchors for both paired representations; never repeat prototypes or fill from test data'
+diagnostics:
+  source: held_out_17_normal_cycles
+  training_or_threshold_tuning: false
+  temporal_transforms: [stall, reverse]
+  temporal_duration_frames: [8, 16, 32]
+  appearance_transforms: [occlusion, local_colour]
+  area_fractions: [0.01, 0.04, 0.09]
+  appearance_duration_frames: 32
+  transformation_position: middle_50_percent
+  transformation_seed: 0
+  mixed: true
+  classes: [normal, appearance, temporal, joint]
+  metrics: [confusion_matrix, macro_f1]
+  real_anomaly_types_available: false
+  pixel_ground_truth_available: false
+runtime:
+  arrival_fps_if_unspecified: 30
+  fifo_no_drops: true
+  warmup_frames: 19
+  alarm_consecutive: 3
+  online_no_future: true
+  offline_lookahead_frames: 7
+  implementations: [full_recompute, optimized_streaming]
+  optimized_dino_reuses_only_past_frame_features: true
+  test_memory_updates: false
+  include_costs: [decode_resize, encoder, phase_head, projection_search, score_alarm, queue_wait, lookahead_wait]
+  report: [sustained_fps, latency_p50, latency_p95, peak_vram, queue_growth, event_delay, missed_events, false_alarms]
+statistics:
+  metrics: [frame_auroc, frame_ap, per_device, macro_four_devices]
+  bootstrap_unit: whole_video
+  bootstrap_resamples: 1000
+  paired_across: [backbone, mode, variant]
+  confidence_interval: percentile_95_percent
+  aggregate_seeds: mean_of_metrics
+publication:
+  repository: https://github.com/PigeonLabs/KNU_Capstone1_VAD_JEPA
+  every_stage: true
+  include: [code, configs, json_csv_metrics, plot_sources, png_svg_figures]
+  readme: concise_core_results_with_detail_links
+  exclude: [original_images_video, weights, checkpoints, feature_cache, PCA_tensors, memory_tensors, credentials]
+  max_file_mib: 10
+  stage_tags: [stage-00, stage-01, stage-02, stage-03, stage-04, stage-05]
+  tag_only_when_full_stage_verified: true

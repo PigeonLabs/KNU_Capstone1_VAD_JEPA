@@ -97,6 +97,9 @@ def metrics(labels,scores):
 
 def run(cache,rows,phase_run,out,local,seed,data_root):
     started=time.perf_counter()
+    out.mkdir(parents=True,exist_ok=True)
+    # A failed rerun must not leave an old completion marker beside new partial outputs.
+    (out/'metrics.json').unlink(missing_ok=True)
     fit=sequences(cache,rows,'fit'); calibration=sequences(cache,rows,'calibration')
     if fit[0].identity!=calibration[0].identity:
         raise ValueError('Fit/calibration cache identity differs')
@@ -194,7 +197,9 @@ def run(cache,rows,phase_run,out,local,seed,data_root):
              'alignment_policy':POLICY,'unresolved_alignment_sequences':alignment_notes,
              'alignment_sensitivity':{v:{str(o):metrics(np.concatenate(r['labels']),np.concatenate(r['scores'])) for o,r in values.items()} for v,values in sensitivity.items()} if alignment_notes else {},
              'seconds':time.perf_counter()-started,'note':'Device frame metrics only; not macro4 or throughput benchmark'}
-    (out/'metrics.json').write_text(json.dumps(summary,indent=2)+'\n')
+    temporary=out/'metrics.json.tmp'
+    temporary.write_text(json.dumps(summary,indent=2)+'\n')
+    temporary.replace(out/'metrics.json')
     print(json.dumps(summary,indent=2),flush=True)
     return summary
 

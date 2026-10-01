@@ -30,3 +30,12 @@ def test_alarm_streak_resets_at_invalid_frames():
     assert values['frame_auroc']==1 and values['frame_ap']==1
     with pytest.raises(ValueError,match='Both labels'):
         metrics(np.array([0,0]),np.array([1.,2.]))
+
+
+def test_failed_rerun_removes_old_completion_marker(tmp_path):
+    from ipad_jepa.experiment import run
+    out=tmp_path/'result'; out.mkdir()
+    marker=out/'metrics.json'; marker.write_text('{"status":"complete_device_evaluation"}')
+    with pytest.raises(ValueError,match='Missing or mixed'):
+        run(tmp_path/'cache',[],tmp_path/'phase',out,tmp_path/'local',0,tmp_path/'data')
+    assert not marker.exists()

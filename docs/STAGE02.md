@@ -123,3 +123,13 @@ python scripts/plot_experiments.py
 공개 근거는 실행별 `normal_fit.json`, `normal_calibration.csv`, P0–P3 프레임 점수 CSV, `metrics.json`, [device_summary.json](../results/stage02/device_summary.json)이다.
 요약 도구는 공개 CSV에서 AUROC/AP를 다시 계산해 완료 메타데이터와 프레임 수·라벨 수·지표가 맞는지 확인한다. 모델 간 비교는 영상 ID·프레임 ID·라벨 일치를 검증한 뒤 같은 bootstrap 표본을 사용한다.
 NumPy 기준 검색과 FP32 배치 검색의 hard/soft 및 전역/위상 결과 일치를 테스트했다. 나머지 장비, 온라인, LoRA, IPAD 기준선, 합성 진단, 실시간 측정과 추가 제거 실험이 완료될 때까지 전체 실험 완료를 선언하지 않는다.
+
+## 후속 정상 위상 학습: R02 V-JEPA
+
+R02 정상 fit 21개 영상에서 3,042개 clip, 정상 검증 5개 영상에서 2,864개 clip을 사용했다. seed 0/1/2 모두 20 epoch가 정상 검증 CE 기준으로 선택됐다.
+선택 모델의 원형 MAE는 각각 주기의 2.42%, 2.34%, 2.54%이며, CE는 3.5186/3.5121/3.5383이다. 동일 설정에서도 R01과 달리 위상 학습이 개선되어, 위상 문제를 모든 장비에 일반화할 수 없다.
+이는 정상 검증 결과이며 R02 이상탐지 성능이 아니다. 테스트 특징 추출을 완료한 뒤 미확정 라벨 마스크와 정렬 민감도를 포함해 평가한다.
+
+![R02 V-JEPA 정상 위상 학습](figures/stage02/vjepa21-l_R02_offline_seed0_phase.png)
+
+전체 요청 범위는 [experiment_matrix.yaml](../configs/experiment_matrix.yaml)에 선언했다. 행렬에 나열된 실험은 완료 표시가 아니며, 실행별 결과와 실제 프로세스로 진행 상태를 확인한다.
