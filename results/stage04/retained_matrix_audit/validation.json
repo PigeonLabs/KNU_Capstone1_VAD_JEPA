@@ -2,8 +2,8 @@
   "status": "passed_mixed_current_retained_evidence",
   "kind": "lora",
   "matrix_complete": false,
-  "completed_conditions_or_pairs": 4,
-  "complete_three_seed_groups": 0,
+  "completed_conditions_or_pairs": 5,
+  "complete_three_seed_groups": 1,
   "condition_checks": [
     {
       "condition": [
@@ -72,9 +72,26 @@
         }
       ],
       "matched_controls": null
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R01",
+        2
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/vjepa21-l/offline/R01/seed2/condition_audit.json",
+          "condition_audit_sha256": "29dbc1cbf25829a396d438ebb370f4adba1baee4e8db02235832207ad6161c3b"
+        }
+      ],
+      "matched_controls": null
     }
   ],
-  "normal_thresholds_replayed": 32,
+  "normal_thresholds_replayed": 40,
   "retained_treatments_replayed": 1,
   "pending_conditions_or_pairs": [
     [
@@ -207,12 +224,6 @@
       "dinov3-l",
       "online",
       "R04",
-      2
-    ],
-    [
-      "vjepa21-l",
-      "offline",
-      "R01",
       2
     ],
     [
@@ -356,7 +367,7 @@
     "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce"
   },
   "manifest_sha256": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
-  "device_summary_sha256": "3cfee4e20889f1c83d1f34c89cf94ee02b06558b98aae25c0fe5c7ac9b3eed33",
-  "macro_summary_sha256": "810073ab949d6ad4e7ab1a050a5c743d110ac82a7eb36121fa2ab6a78185386d",
+  "device_summary_sha256": "95227bf94986242ef4fa4450f1db5ba24c154976b9b668f990094556ce5350ac",
+  "macro_summary_sha256": "e543eaea7664464ccadf554155e9c2f97785b04ca947d91d074ab1878634527c",
   "scope": "Independently audited current or explicitly retained conditions; exact seeds0/1/2 per group; mean of per-seed metrics, paired original-video bootstrap1000; equal-device Macro4 only with all4; retained payload hashes/finite checks are historical, current metadata/tensors/traces are replayed; no runtime claim"
 }

@@ -3,5 +3,86 @@
   "bootstrap": "1000 video resamples independently within each device; device-specific SeedSequence([2026, device_number]); shared draws across seeds and paired conditions; percentile 95% CI.",
   "results": [],
   "paired_deltas": [],
-  "incomplete_conditions": []
+  "incomplete_conditions": [
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "F_P0",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "F_P1",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "F_P2",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "F_P3",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "L_P0",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "L_P1",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "L_P2",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "vjepa21-l",
+      "mode": "offline",
+      "variant": "L_P3",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    }
+  ]
 }

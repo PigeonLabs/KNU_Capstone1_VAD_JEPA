@@ -1,0 +1,24 @@
+{
+  "status": "complete_actual_exit_zero_and_independently_audited_three_seed_group",
+  "condition": [
+    "dinov3-l",
+    "offline",
+    "R02",
+    2
+  ],
+  "actual_evaluator_exit_code": 0,
+  "selected_head_sha256": "87901daf21253bfdd011dc17cc6c6f1812ef7aae06fedf7362f2a4da9fd701ad",
+  "source_proof_sha256": "5d8fa620f4758095d46e01d029d82f9a85ab2b6d6d7b4f5b9bdc69e597b9e220",
+  "metrics_sha256": "4368ea59f298f4d513fe7f5313b02ad91b668a4ee6700ddd8fa8c4d76660f2ad",
+  "original_partial_output_preserved_privately": true,
+  "validated_clip8_conditions": 6,
+  "validated_three_seed_groups": 2,
+  "normal_thresholds_replayed": 12,
+  "validation_sha256": "182735d0d5234c09ed619d432991c6ce3d50abed9846ce0011c808c95e591615",
+  "device_summary_sha256": "4113d362fe60967c75035ec6b0c3d9431bd80a4472657118a746255f472b707b",
+  "pngs_visually_inspected": [
+    "docs/figures/stage05/clip_dinov3-l_offline_R01.png",
+    "docs/figures/stage05/clip_dinov3-l_offline_R02.png"
+  ],
+  "limits": "Existing full20 selected head preserved; new PCA/memory/calibration and all15 actual R02 test videos. Source/GT/P3/normal/alarm replay passed for both complete groups. Label alignment for R02/12/13/14 still unresolved with same18 uncertain targets excluded. Matrix remains6/48; no Macro4 or runtime result."
+}

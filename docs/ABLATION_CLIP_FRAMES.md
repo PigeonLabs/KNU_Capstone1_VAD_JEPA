@@ -2,7 +2,7 @@
 
 두 백본 모두 실제 IPAD 정상 영상의 **8프레임 온라인·오프라인 GPU 입력 검증**을 통과했다. 엄격한 가중치 로딩 후 유한한 `1×576×1024` 로컬 특징·`1×1024` 전역 특징을 확인했다. 근거는 [DINOv3 검증](../results/setup/dinov3-l_clip8_smoke.json), [V-JEPA 2.1 검증](../results/setup/vjepa21-l_clip8_smoke.json)에 있으며, 입력 검증을 이상탐지 정확도나 FPS로 해석하지 않는다.
 
-두 백본 × 두 모드 × 네 장치 × 세 seeds의 **48개 신규 조건**을 실행 중이다. DINOv3 오프라인 R01의 세 seeds는 완료했으며 실제 캐시·선택 head·은행·정상 보정·GT·점수·알람 검증을 통과했다. R02의 seeds 0/1도 개별 검증을 완료해 신규 **5/48조건**을 확보했다. 나머지 43조건과 전체 Macro4·실시간 FPS/지연은 아직 없다. 8프레임 입력 경계·정상 학습에서만 허용하는 왼쪽 padding·동일 정확도 평가 구간의 테스트 8개도 통과했다.
+두 백본 × 두 모드 × 네 장치 × 세 seeds의 **48개 신규 조건**을 실행 중이다. DINOv3 오프라인 R01·R02 각각 세 seeds가 실제 캐시·선택 head·은행·정상 보정·GT·점수·알람 검증을 통과해 **6/48조건·2/16개 그룹**을 확보했다. 나머지 42조건과 전체 Macro4·실시간 FPS/지연은 아직 없다. 8프레임 입력 경계·정상 학습에서만 허용하는 왼쪽 padding·동일 정확도 평가 구간의 테스트 8개도 통과했다.
 
 ## 첫 완료 장비의 세-seed 비교
 
@@ -16,9 +16,9 @@
 
 ![DINOv3 R01 오프라인의 8·16프레임 정확도와 paired 차이](figures/stage05/clip_dinov3-l_offline_R01.png)
 
-고정한 세 학습 seeds의 지표를 평균하고 원본 테스트 영상 단위로 1,000회 재표본했다. 두 차이의 paired CI 모두 0을 포함한다. 한 장비·오프라인 결과로 전체 백본 우위나 온라인 성능을 일반화하지 않는다. [수치와 paired CI](../results/stage05/ablations/clip_frames/device_summary.json), [6개 원본/신규 정상 보정·3개 신규 조건 검증](../results/stage05/ablations/clip_frames/validation.json), [그래프 출처·PNG/SVG 해시](../results/stage05/ablations/clip_frames/figure_sources.json)를 제공한다.
+고정한 세 학습 seeds의 지표를 평균하고 원본 테스트 영상 단위로 1,000회 재표본했다. R01의 두 차이 CI 모두 0을 포함한다. 한 장비·오프라인 결과로 전체 백본 우위나 온라인 성능을 일반화하지 않는다. [수치와 paired CI](../results/stage05/ablations/clip_frames/device_summary.json), [현재 12개 원본/신규 정상 보정·6개 신규 조건 검증](../results/stage05/ablations/clip_frames/validation.json), [그래프 출처·PNG/SVG 해시](../results/stage05/ablations/clip_frames/figure_sources.json)를 제공한다.
 
-[공개 198개 조건 파일의 해시·최종 그래프 검수](../results/stage05/ablations/clip_frames/first_group_publication_check.json)를 기록한다. 결과 그래프는 [독립 검증](../scripts/summarize_clip_ablation.py)이 통과한 완료 그룹만 [시각화 코드](../scripts/plot_clip_accuracy.py)로 그린다. 모델·RGB 영상·특징 캐시·은행은 로컬에만 보관한다.
+[최초 R01 공개 당시의 198개 조건 파일·그래프 검수 snapshot](../results/stage05/ablations/clip_frames/first_group_publication_check.json)을 보존한다. 현재 두 그룹의 결과 그래프는 [독립 검증](../scripts/summarize_clip_ablation.py)이 통과한 완료 그룹만 [시각화 코드](../scripts/plot_clip_accuracy.py)로 다시 그렸다. 모델·RGB 영상·특징 캐시·은행은 로컬에만 보관한다.
 
 ## R02의 개별 seed 0·1 결과
 
@@ -31,9 +31,9 @@ DINOv3-L 오프라인 R02는 8프레임 seeds 0/1의 20 epoch 정상 head 학습
 
 ![R02 개별 seed 0·1의 8·16프레임 비교](figures/stage05/clip_dinov3-l_offline_R02_individual_seeds.png)
 
-두 seed에서 AUROC 변화 방향이 다르고 AP는 낮아졌다. **개별 학습 seed의 관측값**이며, seed 2 평가가 미완료이므로 세-seed 평균·CI·장비 전체 결론을 보고하지 않는다. R02/12·13·14의 정확한 라벨 정렬도 미확정이며, 기존 ±1 인덱스 가정의 공통 GT 불확실성 18프레임을 두 문맥에서 똑같이 제외했다. GPU encoder/PCA/거리 재계산과 실제 FIFO 성능은 이 검증에 포함하지 않는다.
+두 seed에서 AUROC 변화 방향이 다르고 AP는 낮아졌다. 이 그림과 개별 검증은 **당시 먼저 완료한 seeds 0/1의 관측값**이며 세-seed 평균·CI를 만들지 않았다. 이후 seed 2 평가도 완료해 아래에서 전체 R02 세-seed 결과를 보고한다. R02/12·13·14의 정확한 라벨 정렬은 여전히 미확정이며, 기존 ±1 인덱스 가정의 공통 GT 불확실성 18프레임을 두 문맥에서 똑같이 제외했다. GPU encoder/PCA/거리 재계산과 실제 FIFO 성능은 이 개별 검증 범위에 포함하지 않는다.
 
-[개별 지표 JSON/CSV](../results/stage05/ablations/clip_frames/individual_pairs/dinov3-l/offline/R02/points.json), [네 정상 임계값·원본 GT·실제 cache/head/bank/P3 검증](../results/stage05/ablations/clip_frames/individual_pairs/dinov3-l/offline/R02/validation.json), [PNG/SVG 출처](../results/stage05/ablations/clip_frames/individual_pairs/dinov3-l/offline/R02/figure_sources.json)와 [8프레임 원본 평가 로그](../results/stage05/ablations/clip_frames/T8/dinov3-l/offline/R02)를 제공한다. 기존 `device_summary`·`macro_summary`·`validation.json`의 세-seed 그룹 집계는 R01만 포함하며 이 개별 결과는 별도 경로에 둔다.
+[개별 지표 JSON/CSV](../results/stage05/ablations/clip_frames/individual_pairs/dinov3-l/offline/R02/points.json), [당시 네 정상 임계값·원본 GT·실제 cache/head/bank/P3 검증](../results/stage05/ablations/clip_frames/individual_pairs/dinov3-l/offline/R02/validation.json), [PNG/SVG 출처](../results/stage05/ablations/clip_frames/individual_pairs/dinov3-l/offline/R02/figure_sources.json)와 [8프레임 원본 평가 로그](../results/stage05/ablations/clip_frames/T8/dinov3-l/offline/R02)를 제공한다. 개별 snapshot은 별도 경로에 보존하며 현재 표준 집계는 R01·R02의 완결된 세-seed 그룹을 포함한다.
 
 ```bash
 PYTHONPATH=src python scripts/audit_clip_seed_pairs.py \
@@ -43,6 +43,31 @@ PYTHONPATH=src python scripts/audit_clip_seed_pairs.py \
 ```
 
 [검증/그래프 코드](../scripts/audit_clip_seed_pairs.py)는 실제 출처와 paired frame/label을 확인한 한두 seed의 개별 값만 생성한다. 중복·범위 밖 seed와 세-seed 그룹을 이 경로에 넣으면 거부하며, 완성된 세-seed 그룹은 기존 전체 집계기로 검증한다.
+
+## R02의 완료된 세-seed 비교
+
+Seed 2는 기존 **20 epoch 정상 학습·선택 epoch 20**의 head를 유지하고, 같은 8프레임 특징으로 정상 PCA·메모리·temperature·MAD/q99를 다시 구성했다. 중단됐던 부분 출력과 기존 메모리는 로컬 별도 경로에 보존했다. 새 평가의 실제 종료 코드 0과 전체 15개 영상, 원래 선택 head 해시, 고정 과학 코드, 모든 출력 해시를 확인하고 기존 독립 집계기로 seeds 0/1/2를 검증했다. Seed 2의 16/8프레임 P3 AUROC/AP는 **82.80/67.52%, 78.33/63.20%**다.
+
+| 입력 | AUROC / 95% CI (%) | AP / 95% CI (%) |
+|---|---:|---:|
+| 16프레임 | 79.84 (68.19..89.67) | 65.11 (43.81..81.46) |
+| 8프레임 | 78.16 (64.98..89.20) | 62.84 (41.10..80.54) |
+| 8−16 차이 (pp) | −1.68 (−3.798..−0.006) | −2.26 (−3.89..−0.70) |
+
+![DINOv3 R02의 완료된 8·16프레임 세-seed 비교](figures/stage05/clip_dinov3-l_offline_R02.png)
+
+동일한 9,210개 공통 GT target·2,949개 이상 target과 기존 정렬 불확실성 마스크를 유지했다. 8프레임 차이의 두 CI는 음수이며, AUROC 상한은 0에 가깝다. 이 관측은 정상 head·메모리·보정까지 다시 학습한 **R02 오프라인 파이프라인 비교**다. 온라인 효과·전체 장비·실시간 속도나 지연의 결론으로 확대하지 않는다. [새 조건의 cache/head/bank/출력 출처](../results/stage05/ablations/clip_frames/T8/dinov3-l/offline/R02/seed2/clip8_source_proof.json), [두 그룹·12개 정상 임계값 검증](../results/stage05/ablations/clip_frames/validation.json), [평가 종료·공개 확인](../results/setup/clip8_R02_seed2_evaluation_publication_check.json)을 제공한다.
+
+동일한 선택 head·8프레임 캐시로 기존 공개 evaluator를 재실행하는 명령은 다음과 같다. 재현 출력과 메모리는 새 로컬 경로에 저장한다. 원 실행도 같은 evaluator를 사용했으며, 출처 검증과 세-seed 집계는 위 공개 결과에 기록했다.
+
+```bash
+PYTHONPATH=src .venv/bin/python -m ipad_jepa.experiment \
+  --cache artifacts/features_clip8/dinov3-l/offline \
+  --phase-run artifacts/runs_clip8/dinov3-l/offline/R02/seed2 \
+  --data-root ../IPAD_dataset/IPAD_dataset --device R02 --seed 2 \
+  --local artifacts/replay_clip8_R02_seed2/local \
+  --out artifacts/replay_clip8_R02_seed2/results
+```
 
 ## 비교 조건
 

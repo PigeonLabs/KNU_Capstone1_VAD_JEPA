@@ -1,10 +1,10 @@
 {
   "status": "rendered_from_verified_summaries",
   "matrix_complete": false,
-  "completed_groups": 1,
-  "validation_sha256": "01100d3d812792b3902359465d6dd2e9779e902b272611792d4edb4817c6add3",
-  "device_summary_sha256": "2a984b7829f28788b8e0894ac57965f1bec1e946335d4a856a33e8bcc89d0b38",
-  "macro_summary_sha256": "8bebb6c4e492d71c64ca72ea0ecd0e273fffbee05f238ea45a6a4af005dcdb5a",
+  "completed_groups": 2,
+  "validation_sha256": "182735d0d5234c09ed619d432991c6ce3d50abed9846ce0011c808c95e591615",
+  "device_summary_sha256": "4113d362fe60967c75035ec6b0c3d9431bd80a4472657118a746255f472b707b",
+  "macro_summary_sha256": "349b44dce3fc232399df26549ef15721cd4c282bc5503b6f260186d6988c3947",
   "plot_code_sha256": "580a2850fd4107d062c8bfdef2cc3f2fa748802016049a26a573199a06217462",
   "shared_plot_code_sha256": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
   "reporting_runtime": {
@@ -14,7 +14,9 @@
   },
   "figures": {
     "clip_dinov3-l_offline_R01.png": "ee649e4c30c61bfdb6e108f4be7be243c388b37bf0752bb18d34ff2cc50fc0fa",
-    "clip_dinov3-l_offline_R01.svg": "0e7cc3a91d65138d16137e8876913460e13ac479ae056aa04593d531d5e19dcf"
+    "clip_dinov3-l_offline_R01.svg": "bf966c18cc95a08b7a2f0506f65afb0febdc322b0c12a6ae101d714cbaadd750",
+    "clip_dinov3-l_offline_R02.png": "9c97ddb325619ad34c4bfd3e9e42812b379c660f584dbf7dab30a6775c339c09",
+    "clip_dinov3-l_offline_R02.svg": "e0beb8dcd2a8a630a11bba0e19152837253cf43b7f28963feefff386bf6baff6"
   },
   "scope": "Completed three-seed groups only; final visual inspection recorded separately"
 }

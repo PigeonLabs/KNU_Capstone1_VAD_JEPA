@@ -109,7 +109,7 @@ DINOv3 seed 1의 20 epoch·3,120회 업데이트와 선택 epoch **19**를 실�
 
 [고정 영상 03의 점수·알람 그래프](figures/stage04/dinov3-l_R01_offline_seed1_lora_sequence03.png), [학습 export와 선택 해시](../results/stage04/training/dinov3-l/offline/R01/seed1), [실제 P0–P3 CSV·보정·single-seed CI·provenance](../results/stage04/dinov3-l/offline/R01/seed1)를 제공한다. 점수 그래프의 x축은 target index이며 실측 알람 지연이 아니다.
 
-새 [current/retained 집계 검증](../results/stage04/retained_matrix_audit/validation.json)은 두 백본 R01 오프라인 seeds 0/1, **네 조건·정상 임계값 32개**를 독립 검증했다. 최초에는 네 현재 배열 조건을 검증했고, 아래 실제 캐시 정리 후에는 **현재 배열 세 조건·보존 증거 재검증 한 조건**을 확인했다. 현재 세-seed 그룹은 0개이고 device/Macro4 결과 행은 없다. 기존 세 조건의 `matrix_audit` 증거는 보존하며 새 경로의 검증 범위를 구분한다.
+[current/retained 집계 검증](../results/stage04/retained_matrix_audit/validation.json)은 최초 두 백본 R01 오프라인 seeds 0/1, 네 조건·정상 임계값 32개를 확인했다. 아래 캐시 정리 후에는 현재 배열 세 조건·보존 증거 한 조건을 사용했다. 이후 V-JEPA seed 2 완료를 반영한 현재 검증은 **다섯 조건·정상 임계값 40개·현재 배열 네 조건·보존 증거 한 조건**이며, V-JEPA R01 오프라인의 첫 세-seed 그룹을 집계했다. 기존 세 조건의 `matrix_audit` 증거를 보존하며 아래 새 결과의 범위를 구분한다. 전체 Macro4는 아직 없다.
 
 ```bash
 PYTHONPATH=src:scripts python scripts/export_lora_training.py \
@@ -207,4 +207,42 @@ PYTHONPATH=src python scripts/continue_lora_condition.py \
 
 실제 사용 시 CUDA 학습 환경의 Python으로 실행한다. 단일 accuracy lock과 live runtime controller의 측정 사이 hold, GPU 비사용을 확인한 뒤 child를 시작하고 실제 PID/boot/start identity·종료 코드·고정 source 해시를 기록한다. shortened epoch·pilot·다른 teacher/seed·checkpoint 없는 재개·활성 owner의 중복 실행은 거부한다. 8개 신규 continuation 검증을 포함한 전체 **299개 로컬 테스트**를 외부 `PYTHONPATH` 없이 통과했다. 실제 GPU 재개와 최종 정확도는 별도 완료 증거로 구분한다.
 
-V-JEPA 2.1-L R01 오프라인 seed 2는 기존 1 epoch·156 updates의 체크포인트에서 실제 재개했다. [시작 시점의 host owner/child·protocol/source 확인](../results/setup/lora_seed2_continuation_start_check.json)은 GPU 학습 child와 실시간 실행기의 hold를 확인한 snapshot이다. 이 조건의 새 정확도는 아직 없고 전체 LoRA 완료 수는 4/48이다.
+V-JEPA 2.1-L R01 오프라인 seed 2는 기존 1 epoch·156 updates의 체크포인트에서 실제 재개했다. [시작 시점의 host owner/child·protocol/source 확인](../results/setup/lora_seed2_continuation_start_check.json)은 GPU 학습 child와 실시간 실행기의 hold를 확인한 snapshot이다. 시작 snapshot과 아래 실제 학습·평가 완료 근거를 구분한다.
+
+## V-JEPA 2.1-L R01 오프라인 seed 2의 완료된 학습
+
+기존 checkpoint에서 재개한 원 trainer가 **20 epoch·3,120 updates**를 완료하고 실제 종료 코드 0을 반환했다. 정상 fit 23개 영상의 1,248 clips, 정상 calibration 5개 영상의 1,087 clips, teacher weight 1·accumulation 8과 원 학습 코드를 유지했다. 실제 선택 checkpoint의 protocol과 아래 20개 epoch 곡선을 검증했으며, 최소 정상 calibration CE로 epoch **18**을 선택했다.
+
+| 선택 epoch | 정상 calibration CE | 같은 epoch의 원형 MAE |
+|---:|---:|---:|
+| 18 | 5.250174 | 1.5681% |
+
+![V-JEPA seed 2의 완료된 정상 학습·CE 선택](figures/stage04/vjepa21-l_R01_offline_seed2_joint_training.png)
+
+[학습 CSV·JSON·선택 checkpoint 해시·export 검증](../results/stage04/training/vjepa21-l/offline/R01/seed2)을 제공한다. 그래프의 별표는 CE와 MAE 패널에서 같은 선택 epoch를 표시한다. MAE 최솟값으로 모델을 다시 선택하지 않았다. 모델 파일은 업로드하지 않는다.
+
+위 곡선은 **정상 학습**의 결과이며 AUROC/AP나 실시간 FPS를 나타내지 않는다. [특징 재추출 당시의 학습 단계 확인·소스/그래프 해시](../results/setup/lora_vjepa21_seed2_training_publication_check.json)는 학습 완료를 검증한 snapshot이다. 이후 전체 파이프라인도 실제 완료했으며 그 정확도는 아래에서 보고한다. 재개 학습이 중단 없는 GPU 학습과 bitwise 같다는 검증은 아직 없다.
+
+## V-JEPA R01 오프라인 첫 세-seed LoRA 비교
+
+Seed 2는 선택 epoch 18의 실제 fit/calibration/test 특징을 재추출하고, 새 PCA·프로토타입·정상 보정을 구성해 **15개 실제 테스트 영상**을 평가했다. 공통 GT target 3,295개 중 이상 target은 1,227개다. 원 trainer·재추출·전체 평가 child의 종료 코드 0, 선택 adapter/joint head·캐시 출처·메모리·정상 임계값·GT·시간/점수/알람·지표의 독립 검증과 실제 부모 프로세스의 종료를 확인했다.
+
+Seed 2 P3 AUROC/AP는 **41.13/31.85%**, 같은 seed 고정 백본 대비 **+2.21/+2.61pp**다. 1,000회 paired 영상 bootstrap의 95% CI는 각각 **−4.04..+8.51pp, −0.79..+7.51pp**로 0을 포함한다.
+
+![V-JEPA seed 2의 실제 고정 백본 비교·ROC/PR](figures/stage04/vjepa21-l_R01_offline_seed2_lora_evaluation.png)
+
+[고정 영상 03의 점수/알람 궤적](figures/stage04/vjepa21-l_R01_offline_seed2_lora_sequence03.png), [P0–P3 전체 CSV·정상 보정·개별 paired CI·provenance](../results/stage04/vjepa21-l/offline/R01/seed2), [원 파이프라인 완료 증거](../results/stage04/condition_pipeline_checks/vjepa21-l/offline/R01/seed2/pipeline_completion.json)를 공개한다. 궤적의 x축은 target index이며 실측 알람 지연이 아니다.
+
+동일 조건의 **seeds 0/1/2를 모두 검증**한 첫 LoRA 그룹은 다음과 같다. 각 seed의 지표를 계산한 뒤 평균하고, 두 처리·세 seeds에 같은 원본 영상 재표집을 적용한 1,000회 paired bootstrap의 percentile 95% CI를 구했다.
+
+| 처리 | AUROC 평균 (%) | AP 평균 (%) |
+|---|---:|---:|
+| 고정 백본 P3 | 37.58 | 28.83 |
+| LoRA P0 | 35.01 | 29.22 |
+| LoRA P3 | 37.98 | 29.76 |
+
+LoRA P3−고정 P3의 차이는 **AUROC +0.40pp [−2.11, +2.92], AP +0.93pp [−0.37, +2.79]**다. 두 CI 모두 0을 포함해 이 장비·모드에서 개선이 확인되지 않았다. seed 2의 정상 위상 MAE가 작다는 사실만으로 이상탐지 성능 개선을 주장하지 않는다.
+
+![첫 V-JEPA 세-seed LoRA 평균과 paired 차이](figures/stage04/retained/retained_lora_vjepa21-l_offline_R01.png)
+
+[다섯 조건·40개 정상 임계값 검증](../results/stage04/retained_matrix_audit/validation.json), [모든 P0–P3 평균·CI·paired 차이](../results/stage04/retained_matrix_audit/device_summary.json), [새 조건·그룹의 공개 확인](../results/setup/lora_vjepa21_seed2_evaluation_publication_check.json)을 제공한다. 전체는 **5/48조건**, 완결된 세-seed 그룹은 **1/16개**다. 이 CI는 고정된 세 seeds의 영상 재표집이며 seed 자체를 재표집하지 않았다. 다른 장비·온라인 LoRA·DINOv3 세-seed 그룹과 전체 Macro4·실시간 비교는 남아 있다.

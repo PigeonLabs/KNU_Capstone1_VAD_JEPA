@@ -9,7 +9,6 @@
       "mode": "offline",
       "variant": "T16",
       "missing_devices": [
-        "R02",
         "R03",
         "R04"
       ]
@@ -19,7 +18,6 @@
       "mode": "offline",
       "variant": "T8",
       "missing_devices": [
-        "R02",
         "R03",
         "R04"
       ]
