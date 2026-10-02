@@ -323,3 +323,27 @@ PYTHONPATH=src:scripts python scripts/plot_lora_backbone_comparison.py \
 [여섯 조건·48개 정상 임계값·두 세-seed 그룹 감사](../results/stage04/retained_matrix_audit/validation.json), [모든 F/L P0–P3 평균·CI와 18개 paired 비교](../results/stage04/retained_matrix_audit/device_summary.json), [fresh current/retained 그룹 그림 근거](../results/stage04/retained_matrix_audit/figure_sources.json), [실제 CSV에서 재검산한 백본 그림 수치·출처](../results/stage04/retained_matrix_audit/backbone_figure_sources.json)를 제공한다. 원 DINOv3 seed 0 배열은 의도적 정리 전 archive와 현재 보존 자료로 재검증했고 나머지 다섯 조건은 현재 실제 adapted 배열 증거를 사용했다. **전체 6/48조건·2/16그룹**이며 전체 Macro4는 아직 없다.
 
 다음 주 LoRA 조건은 **DINOv3-L 오프라인 R02 seed 0**이다. 기존 canonical 출력이 없는 새 조건과 전체 adapted 캐시+64 GiB 여유 공간을 확인하고 원래 20 epoch·teacher 1 프로토콜로 시작했다. [이번 완료 조건·그룹·그래프와 다음 실제 child 확인](../results/setup/lora_dinov3_seed2_evaluation_publication_check.json)을 제공한다. R02/12·13·14의 라벨 정렬은 계속 미확정이며 기존 공통 제외 mask와 오프셋 민감도 규칙을 유지한다.
+
+
+## DINOv3 R02 오프라인 seed 0의 완료된 정상 학습
+
+원래 teacher weight 1·accumulation 8·BF16 프로토콜로 **20 epoch·7,620 optimizer updates**를 완료했다. epoch마다 정상 fit **3,042 clips**, 정상 calibration **2,864 clips**를 사용했다. 최소 정상 calibration CE에 따라 epoch **13**을 선택했으며, 이상 라벨은 선택에 사용하지 않았다. 완료 metadata·20개 epoch CSV·선택 checkpoint protocol과 학습 child 종료 코드 0을 확인했다.
+
+| 선택 epoch | 정상 calibration CE | 같은 epoch의 원형 MAE |
+|---:|---:|---:|
+| 13 | 3.321761 | 1.9929% |
+
+![DINOv3 R02 seed 0의 완료된 정상 학습·CE 선택](figures/stage04/dinov3-l_R02_offline_seed0_joint_training.png)
+
+[학습 CSV·JSON·선택 checkpoint 해시·export 검증](../results/stage04/training/dinov3-l/offline/R02/seed0)을 제공한다. 두 별표는 같은 CE 선택 epoch이며 MAE로 재선택하지 않았다. teacher 곡선은 고정 teacher와의 정상 fit 특징 오차다. 이 곡선은 이상탐지 AUROC/AP나 실시간 FPS 결과가 아니다. 모델 텐서는 업로드하지 않는다.
+
+사용자 요청에 따라 20 epoch 이후 작업을 일시정지했고, 명시적인 재개 요청을 받은 뒤 **완료 모델을 유지한 채** 선택 특징 재추출·새 PCA/프로토타입 메모리·정상 보정·모든 실제 테스트 영상 평가를 이어간다. 원 실행 보호 조건을 유지하기 위해 종료된 실시간 제어기도 원래 resume 기능으로 복구해 측정 대기 상태로 두었다. [완료 학습·재개 단계 검증 snapshot](../results/setup/lora_dinov3_R02_seed0_training_publication_check.json)을 제공한다. 이 학습 단계 snapshot에서 독립 검증된 LoRA 정확도는 **6/48조건**이며, R02 정확도·세-seed 평균·Macro4는 아직 없다. R02/12·13·14의 라벨 정렬은 계속 미확정이므로 기존 공통 제외 mask와 오프셋 민감도 규칙을 유지한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/export_lora_training.py \
+  --run artifacts/lora/dinov3-l/offline/R02/seed0 \
+  --out results/stage04/training/dinov3-l/offline/R02/seed0
+PYTHONPATH=src:scripts python scripts/plot_lora_training.py \
+  --results results/stage04/training/dinov3-l/offline/R02/seed0 \
+  --out docs/figures/stage04/dinov3-l_R02_offline_seed0_joint_training
+```
