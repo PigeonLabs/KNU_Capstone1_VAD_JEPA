@@ -1,0 +1,5 @@
+{
+  "scope": "Independently audited current or explicitly retained conditions; exact seeds0/1/2 per group; mean of per-seed metrics, paired original-video bootstrap1000; equal-device Macro4 only with all4; retained payload hashes/finite checks are historical, current metadata/tensors/traces are replayed; no runtime claim",
+  "results": [],
+  "paired_deltas": []
+}

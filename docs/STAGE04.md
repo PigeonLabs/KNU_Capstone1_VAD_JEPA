@@ -97,3 +97,54 @@ PYTHONPATH=src:scripts python scripts/plot_lora_matrix.py --kind lora
 teacher 가중치 0/1은 [별도 통제 실험](ABLATION_TEACHER_WEIGHT.md)에서 실제 두 joint LoRA 처리를 비교한다. 주 LoRA의 고정 백본 대비 차이를 teacher 0/1 결과로 해석하지 않는다.
 
 전체 장비·3 seeds·2 modes의 LoRA 평가와 teacher weight 0/1을 포함한 추가 실험은 아직 완료되지 않았다. 실험 행렬은 [experiment_matrix.yaml](../configs/experiment_matrix.yaml), 예비 결과는 [results/stage04](../results/stage04)에 공개한다.
+
+
+## 신규 DINOv3 R01 오프라인 seed 1과 네 조건 재검증
+
+DINOv3 seed 1의 20 epoch·3,120회 업데이트와 선택 epoch **19**를 실제 checkpoint·정상 CE 곡선으로 확인했다. 같은 epoch 정상 위상 MAE는 **0.5977%**다. 실제 adapted 특징으로 PCA·프로토타입·보정을 다시 구성한 P3 AUROC/AP는 **83.55/76.47%**, 같은 seed 고정 백본 대비 **+39.86/+44.91pp**다. 1,000회 paired 영상 bootstrap의 95% CI는 각각 **+33.17..+48.42pp, +33.73..+55.12pp**로 0보다 높았다. 한 장비·한 시드 결과이며 세-seed 평균·전체 LoRA 우열을 뜻하지 않는다.
+
+![DINOv3 seed 1의 정상 학습·선택 곡선](figures/stage04/dinov3-l_R01_offline_seed1_joint_training.png)
+
+![DINOv3 seed 1의 실제 P3 비교·CI·ROC/PR](figures/stage04/dinov3-l_R01_offline_seed1_lora_evaluation.png)
+
+[고정 영상 03의 점수·알람 그래프](figures/stage04/dinov3-l_R01_offline_seed1_lora_sequence03.png), [학습 export와 선택 해시](../results/stage04/training/dinov3-l/offline/R01/seed1), [실제 P0–P3 CSV·보정·single-seed CI·provenance](../results/stage04/dinov3-l/offline/R01/seed1)를 제공한다. 점수 그래프의 x축은 target index이며 실측 알람 지연이 아니다.
+
+새 [current/retained 집계 검증](../results/stage04/retained_matrix_audit/validation.json)은 두 백본 R01 오프라인 seeds 0/1, **네 현재 배열 조건·정상 임계값 32개**를 독립 검증했다. 현재 세-seed 그룹은 0개이고 device/Macro4 결과 행은 없다. 기존 세 조건의 `matrix_audit` 증거는 보존하며 새 경로의 검증 범위를 구분한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/export_lora_training.py \
+  --run artifacts/lora/dinov3-l/offline/R01/seed1 \
+  --out results/stage04/training/dinov3-l/offline/R01/seed1
+PYTHONPATH=src:scripts python scripts/plot_lora_training.py \
+  --results results/stage04/training/dinov3-l/offline/R01/seed1 \
+  --out docs/figures/stage04/dinov3-l_R01_offline_seed1_joint_training
+```
+
+[export_lora_training.py](../scripts/export_lora_training.py)는 실제 선택 checkpoint protocol·20개 epoch·최소 정상 CE와 원본 곡선을 확인하고 CSV/JSON·선택 해시만 export한다. 모델 텐서는 업로드하지 않는다. 이상탐지 비교 그래프는 기존 `plot_lora_evaluation.py`에 실제 training/cache/local/frozen-local 경로를 전달해 생성했다.
+
+## 대형 adapted 특징 캐시의 보존·재검증 준비
+
+전체 기본 LoRA와 teacher=0 비교의 FP16 특징을 계속 보관하면 추정 **약 1.28 TiB**가 필요하므로, 완료 조건의 결과 재검증 증거를 보존하는 경로를 추가했다. 고정 teacher 특징·원본 영상·선택 adapter/head·PCA/메모리·metadata/target·원본 점수 CSV는 보존 대상이다.
+
+DINOv3 R01 오프라인 seed 0의 [실제 배열 inventory·원 감사 기록](../results/cache_retention/T1/dinov3-l/offline/R01/seed0)은 fresh 기존 감사 후 **43개 영상의 86개 NPY, 6,847,939,328 bytes(6.38 GiB)** 전체를 읽어 확인했다. 모든 FP16 값의 유한성, shape/dtype/contiguous layout, 전체 파일 SHA256·NPY header SHA256·파일 identity를 저장했다. **이 준비 명령은 파일을 삭제하지 않았으며, 현재 post-removal 검증 결과는 없다.**
+
+[실제 retained tensor 사전 검증](../results/setup/retained_lora_tensor_preflight.json)은 완료된 네 조건의 현재 선택 adapter·joint head 동등성·선택 epoch·재구성 메모리·고정 teacher 출처를 retained helper로 확인했다. 이 증거는 현재 배열 감사가 존재하는 상태의 사전 검증이다. 전체 encoder 재추출이나 캐시 제거 후 재현을 입증하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/prepare_lora_cache_retention.py \
+  --model dinov3-l --mode offline --device R01 --seed 0 \
+  --data-root "$IPAD_DATA_ROOT"
+PYTHONPATH=src:scripts python scripts/summarize_retained_lora_matrix.py \
+  --kind lora --data-root "$IPAD_DATA_ROOT"
+PYTHONPATH=src:scripts python scripts/check_retained_lora_tensors.py
+# 모든 장비·세 seeds가 완료된 최종 검증:
+PYTHONPATH=src:scripts python scripts/summarize_retained_lora_matrix.py \
+  --kind lora --require-full --data-root "$IPAD_DATA_ROOT"
+PYTHONPATH=src:scripts python scripts/plot_retained_lora.py \
+  --root results/stage04/retained_matrix_audit \
+  --data-root "$IPAD_DATA_ROOT" --out docs/figures/stage04/retained
+```
+
+새 집계기는 현재 payload가 있으면 기존 실제 배열 감사로 검증한다. payload가 없으면 완결된 의도적 제거 journal과 정확한 성공 CI revision에 archive된 inventory·원 감사가 있어야 retained replay를 허용한다. 제거 journal이 중간 상태이거나 파일이 임의로 없어진 조건은 통과시키지 않는다. retained 경로에서는 원 payload 유한값/해시 검사가 **과거 증거**임을 표시하고 현재 metadata/target·선택 텐서·보정·GT·시간·점수·알람을 다시 검사한다.
+
+같은 seeds 0/1/2가 모두 검증된 그룹만 평균·paired CI·그림을 만들고, 네 장비가 모두 있어야 동일 가중치 Macro4를 제공한다. teacher=0/1 경로는 두 실제 학습 조건과 일치하는 통제를 요구한다. 현 시점 teacher=0/1 완료 쌍이나 캐시 제거 후 검증은 없다. 최종 조건 전체의 GPU 평가, 안전한 실제 제거 실행·제거 후 감사와 최종 집계/그래프는 남아 있다.
