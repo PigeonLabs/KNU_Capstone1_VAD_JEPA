@@ -314,3 +314,33 @@ PYTHONPATH=src:scripts python scripts/report_cached_alarm_coverage.py \
 ```
 
 코드는 고정 백본 48조건 전체와 독립 검증 기록에 있는 완료된 LoRA 조건을 요구한다. 새 LoRA 조건이 완료돼 검증 기록에 추가되면 해당 조건도 다시 집계한다. 전체 실제 런타임 240회, 다른 장비·온라인 LoRA·진단·추가 실험은 계속 남아 있다.
+
+
+## R02 seed 0의 고정 임계값 알람 비교
+
+DINOv3-L 오프라인 R02 seed 0의 완료된 LoRA P3를 같은 seed 고정 백본과 비교했다. 두 조건 모두 **각자의 정상 calibration q99·연속 3개 유효 target** 규칙을 유지했다. 새 [단일 조건 비교 코드](../scripts/report_single_cached_alarm_pair.py)는 선택 adapter/joint head·새 메모리와 정상 보정의 독립 감사를 수행하고, P0–P3 전체 CSV의 GT·점수·정상 임계값·시간 점수·원래 알람을 다시 검산한다. 테스트에 맞춰 임계값을 바꾸지 않았다.
+
+| R02 seed 0 P3 | 관측 이상 구간 탐지 / 미탐 | 관측 구간 탐지율 | 정상 알람 프레임 / 6,261 | 정상 알람 프레임 비율 | 정상 episode 시작 |
+|---|---:|---:|---:|---:|---:|
+| 고정 DINOv3 | 6 / 14 | 30.00% | 6 | 0.0958% | 3 |
+| DINOv3 LoRA | 12 / 8 | 60.00% | 16 | 0.2556% | 6 |
+
+공통 캐시 target **19..N−8**의 15개 테스트 영상에서 이상 구간 20개를 관측했다. 정상 target는 6,261개이고, 이상 target 2,949개와 정렬 미확정 target 18개를 포함한 추론 target는 9,228개다. 두 조건의 영상별 target·GT 구간 경계·coverage가 정확히 같음을 확인했다. 관측 구간 중 **7개는 경계가 불확실**하며 R02 라벨 정렬은 계속 미확정이다. 관측 범위 밖의 GT 이상 구간은 0개다.
+
+![R02 seed 0 고정/LoRA의 캐시 탐지·정상 알람 비교](figures/stage05/cached_P3_dinov3-l_R02_offline_seed0_pair.png)
+
+LoRA는 같은 정상 임계값 규칙에서 더 많은 관측 구간을 탐지했지만 정상 알람 프레임과 episode 시작도 증가했다. AUROC/AP **87.06/76.85%**가 관측 이벤트 전부의 탐지를 보장하지 않으며 LoRA는 8구간을 미탐했다. 한 seed의 점 추정치이며 세-seed 평균이나 탐지율 차이의 CI는 아니다. 백본/head/메모리/보정 전체 프로토콜의 비교이며 단일 손실·구성요소의 효과를 분리하지 않는다.
+
+GT 구간 안의 알람 target가 하나라도 있으면 탐지로 센다. 이전 구간에서 계속된 알람도 구간 coverage에 포함한다. episode 시작은 미확정 GT를 제거하기 **전**에 계산하며, 미확정 GT는 알람 streak를 초기화하지 않는다. 이상에서 정상으로 이어진 알람은 정상 프레임 알람에는 포함되지만 새 정상 episode 시작은 아니다. 정상 알람 프레임 비율은 정상 **프레임** 수로 나눈 값이며 분당 오탐이나 실제 알림 수가 아니다. 캐시에는 emission 시간이 없으므로 실제 탐지 지연·FPS·운영 중 온라인 EOF 탐지를 계산하지 않았다.
+
+[영상별 관측 구간·첫 알람 target·미탐·정상 알람·출처 해시](../results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R02/seed0/cached_alarm_pair.json), [fresh 선택 모델/메모리/보정/GT·점수·알람 감사](../results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R02/seed0/audit/T1/dinov3-l/offline/R02/seed0/condition_audit.json), [분석·CPU 검증·활성 학습 확인](../results/setup/R02_single_alarm_publication_check.json)을 제공한다. 두 조건을 같은 데이터로 묶는 검사는 서로 다른 seed·장비·모드·백본, 동일 총계 안의 영상별 coverage/GT 경계 차이, 빠진 영상, 잘못된 집계·임계값 표시를 거부한다. PNG/SVG를 모두 제공하며 모델·원본·특징 배열은 업로드하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py \
+  --model dinov3-l --mode offline --device R02 --seed 0 \
+  --data-root "$IPAD_DATA_ROOT" \
+  --out results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R02/seed0 \
+  --figure docs/figures/stage05/cached_P3_dinov3-l_R02_offline_seed0_pair
+```
+
+위 기존 48 고정·6 LoRA 전체 캐시 보고서는 여섯 LoRA 조건의 역사적 그룹 snapshot으로 유지한다. 이번 보고서는 별도 경로의 **새 R02 단일 seed 쌍**이며 기존 세-seed 평균에 섞지 않는다. 전체 LoRA 48조건·240회 실제 런타임과 다른 계획된 실험은 계속 남아 있다.
