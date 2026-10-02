@@ -259,3 +259,58 @@ PYTHONPATH=src:scripts python scripts/summarize_runtime_search_probe.py \
   --reuse artifacts/probes/dinov3_R01_seed0_fp32_reuse \
   --figure docs/figures/stage05/runtime/dinov3_l_online_R01_seed0_fp32_search_capture
 ```
+
+## 캐시의 고정 임계값 알람 coverage
+
+고정 백본 **48조건**과 완료된 LoRA **6조건**의 기존 P3 점수·알람을 실제 annotation으로 검증했다. 모든 조건의 정상 보정과 P0–P3 q99·시간 점수·정규화 점수·3프레임 연속 알람을 기존 검증기로 다시 계산했고, P3 지표도 실제 CSV에서 재확인했다. 정상 q99와 연속 조건을 바꾸지 않았다. 검증된 54조건은 고정 백본 16개·LoRA 2개의 완성된 세-seed 그룹이다. 전체 LoRA는 여전히 6/48조건이다.
+
+아래 탐지율은 **각 GT의 연속 이상 구간 안에서 캐시 알람이 한 번 이상 있는 비율**이다. 실제 탐지 출력 시점을 측정한 값이 아니다. 같은 구간에서 지속 중인 알람도 탐지로 계산한다. 정상 알람 비율은 정상으로 확인된 평가 프레임 중 알람 프레임의 비율이다. 정상 episode 시작은 처음 알람이 켜진 target이 정상인 경우만 센다. 이상/미확정 구간에서 켜져 정상 구간까지 이어진 알람의 정상 프레임은 오탐 프레임에 포함하지만 새 정상 episode로 중복 계산하지 않는다. 미확정 GT를 제거하기 전에 episode 시작을 결정한다.
+
+캐시 알람의 공통 target는 **19..N−8**이다. 온라인 캐시의 마지막 7프레임은 이 집계에 포함되지 않으며 실제 스트리밍 EOF 알람은 별도 런타임으로 평가한다. GT 이벤트에 공통 target가 전혀 없으면 coverage 밖으로 기록하고 미탐 분모에서 제외한다. 영상 시작/끝 또는 미확정 라벨에 닿는 GT 구간의 경계를 표시했다. R02 라벨의 정확한 정렬은 여전히 미확정이며 기존 ±1 consensus 정책을 사용한다. R03/R04에도 영상 경계에 닿는 구간이 있으므로 경계 불확실성이 R02에만 존재하는 것은 아니다.
+
+표의 값은 seeds 0/1/2의 지표/횟수 평균이다. seed마다 같은 실제 GT 구간을 평가하므로 세 번의 독립 GT 표본으로 합치지 않았다. 그림의 원은 평균, ×는 개별 seed이며 CI가 아니다. FPS·초 단위 지연·분당 오탐을 캐시 프레임에서 추정하지 않았다.
+
+| 고정 P3 | 모드 | 장비 | 관측 GT 구간 탐지율 (%) | 정상 알람 프레임 비율 (%) | 정상 episode 시작 평균 |
+|---|---|---|---:|---:|---:|
+| DINOv3-L | offline | R01 | 0.00 | 0.13 | 1.33 |
+| DINOv3-L | offline | R02 | 36.67 | 0.74 | 9.00 |
+| DINOv3-L | offline | R03 | 35.29 | 0.68 | 7.00 |
+| DINOv3-L | offline | R04 | 30.77 | 0.26 | 5.00 |
+| DINOv3-L | online | R01 | 4.17 | 0.37 | 3.33 |
+| DINOv3-L | online | R02 | 28.33 | 0.50 | 13.00 |
+| DINOv3-L | online | R03 | 41.18 | 0.60 | 7.33 |
+| DINOv3-L | online | R04 | 41.03 | 0.26 | 5.00 |
+| V-JEPA 2.1-L | offline | R01 | 8.33 | 2.58 | 20.67 |
+| V-JEPA 2.1-L | offline | R02 | 25.00 | 0.13 | 4.00 |
+| V-JEPA 2.1-L | offline | R03 | 39.22 | 0.22 | 7.33 |
+| V-JEPA 2.1-L | offline | R04 | 48.72 | 0.41 | 3.67 |
+| V-JEPA 2.1-L | online | R01 | 41.67 | 1.14 | 11.67 |
+| V-JEPA 2.1-L | online | R02 | 31.67 | 0.32 | 11.33 |
+| V-JEPA 2.1-L | online | R03 | 50.98 | 0.24 | 9.00 |
+| V-JEPA 2.1-L | online | R04 | 48.72 | 0.81 | 8.33 |
+
+![고정 백본의 장비·모드별 캐시 탐지/정상 알람](figures/stage05/cached_P3_frozen_alarm_coverage.png)
+
+R01 오프라인의 GT 이상 구간은 8개, 공통 target는 3,295개이며 그중 정상은 2,068개다. DINOv3 LoRA의 탐지 평균은 95.83%지만 정상 알람 프레임 비율도 5.79%다. 고정 DINOv3 오프라인 P3는 같은 구간에서 세 seeds 모두 8개를 미탐하고 정상 알람 비율은 0.13%였다. AUROC/AP 개선만으로 고정 임계값의 운영 적합성을 판단하지 않는다. 이 결과를 보고 테스트에 맞춰 임계값을 재선택하지 않았다.
+
+| R01 오프라인 LoRA P3 | seed | 탐지 / 미탐 (8구간) | 정상 episode 시작 | 정상 알람 프레임 / 2,068 |
+|---|---:|---:|---:|---:|
+| DINOv3-L | 0 | 8 / 0 | 31 | 95 |
+| DINOv3-L | 1 | 8 / 0 | 44 | 130 |
+| DINOv3-L | 2 | 7 / 1 | 36 | 134 |
+| V-JEPA 2.1-L | 0 | 0 / 8 | 2 | 2 |
+| V-JEPA 2.1-L | 1 | 1 / 7 | 12 | 26 |
+| V-JEPA 2.1-L | 2 | 2 / 6 | 16 | 37 |
+
+![LoRA R01 오프라인 캐시 탐지와 정상 알람](figures/stage05/cached_P3_lora_alarm_coverage.png)
+
+V-JEPA LoRA의 관측 구간 탐지 평균은 12.50%, 정상 알람 프레임 비율은 1.05%다. 고정/LoRA의 별도 정상 학습·보정·메모리 때문에 이는 전체 프로토콜의 동작 비교다. 같은 장비의 온라인 고정 V-JEPA는 관측 구간 탐지율 41.67%였지만 실제 출력이 이벤트 종료 전에 도착했는지는 이 캐시 결과로 알 수 없다.
+
+[조건별·영상별 이벤트/coverage/미탐/오탐·출처 해시](../results/stage05/cached_alarm_coverage/cached_alarm_coverage.json)와 [재현 코드](../scripts/report_cached_alarm_coverage.py)를 제공한다. 실제 annotation 66개와 현재 CSV의 출처를 고정했고, LoRA 5조건의 현재 배열·1조건의 보존 산출물도 다시 확인했다. 삭제된 DINOv3 seed 0 배열의 검사는 과거 증거이며 인코더 추출·PCA/검색을 새로 실행한 결과가 아니다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_cached_alarm_coverage.py \
+  --data-root "$IPAD_DATA_ROOT"
+```
+
+코드는 고정 백본 48조건 전체와 독립 검증 기록에 있는 완료된 LoRA 조건을 요구한다. 새 LoRA 조건이 완료돼 검증 기록에 추가되면 해당 조건도 다시 집계한다. 전체 실제 런타임 240회, 다른 장비·온라인 LoRA·진단·추가 실험은 계속 남아 있다.
