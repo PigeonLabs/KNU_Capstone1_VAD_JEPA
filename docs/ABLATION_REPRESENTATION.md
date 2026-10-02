@@ -2,9 +2,25 @@
 
 IPAD 정상 영상의 같은 프레임에서 **576개 공간 패치**와 **그 패치의 공간 평균 1개**로 구성한 메모리를 비교한다. 두 표현 모두 디코더를 사용하지 않는다. 전체 비교는 두 백본 × 온라인·오프라인 × R01–R04 × 세 seeds × 두 표현의 **96개 조건**이다.
 
-현재 실제 manifest의 정상 후보 수 감사와 비교 코드 구현을 완료하고 **전체 96개 조건을 실행 중**이다. 후보 추출·평균 query·분할 및 캐시 변조 검증의 새 테스트 10개를 통과했다. 정확도·paired CI·실시간 처리 성능은 아직 검증된 결과가 없다. 아래 그래프는 정상 학습 후보 수를 보여주며 모델 성능을 나타내지 않는다.
+전체 **96개 조건 중 DINOv3-L 오프라인 R01의 세-seed 쌍, 6개 조건**은 실제 평가·독립 검증을 완료했다. 나머지 90조건과 전체 Macro4·실시간 처리 성능은 아직 없다. 후보 추출·평균 query·분할 및 캐시 변조 검증의 테스트 10개와 독립 검증 테스트 6개를 통과했다. 아래 후보 수 그래프는 입력 기하를 나타내며 모델 성능 그래프와 구분한다.
 
 ![위상 구간별 최소 정상 학습 후보 수](figures/stage05/representation_capacity.png)
+
+## 첫 장비의 세-seed paired 결과
+
+아래는 **R01 오프라인의 부분 결과**다. 두 표현 모두 stride 1로 정상 fit을 추출하고 각 seed의 동일 head·위상/시간 점수를 공유했다. 실제 테스트 15개 영상·유효 3,295프레임·이상 1,227프레임에서 P3를 비교했다.
+
+| 표현 | AUROC / 95% CI (%) | AP / 95% CI (%) |
+|---|---:|---:|
+| 패치 576개 | 75.75 (67.88..85.31) | 59.49 (34.36..80.65) |
+| 공간 평균 1개 | 71.45 (62.24..82.11) | 55.26 (32.69..74.96) |
+| 평균−패치 차이 (pp) | −4.30 (−9.42..+0.85) | −4.24 (−9.38..+1.95) |
+
+![패치·공간 평균의 R01 정확도와 paired 차이](figures/stage05/representation_dinov3-l_offline_R01.png)
+
+고정된 세 seeds의 지표를 평균하고 원본 영상 단위 paired bootstrap 1,000회로 CI를 계산했다. 두 차이의 CI 모두 0을 포함한다. 이 비교의 patch 기준은 **dense 정상 fit·공유 head 조건**이며 기존 Stage 02의 stride 4 patch P3와 다르다. 기존 조건 대비 향상을 평균/패치 표현의 단독 효과로 해석하지 않는다. 전체 백본·장비·온라인으로 일반화하지 않는다.
+
+[수치·paired CI](../results/stage05/ablations/representation/device_summary.json), [6조건 정상 보정·3쌍 공유 phase·실제 평균 20개 view 재계산 검증](../results/stage05/ablations/representation/validation.json), [그래프 출처와 PNG/SVG 해시](../results/stage05/ablations/representation/figure_sources.json)를 제공한다. 실제 정상 calibration/test의 모든 평균 query를 부모 패치에서 재계산했다. dense fit의 compact 평균은 추출 코드·관측 후보·배열 해시로 확인하며, 전체 dense encoder를 독립적으로 재실행한 검증과 구분한다.
 
 ## 학습 밀도를 함께 바꾸는 이유
 
@@ -79,12 +95,13 @@ python scripts/run_representation_matrix.py \
 
 ```bash
 python scripts/summarize_representation_ablation.py --require-full
+python scripts/plot_representation_accuracy.py
 ```
 
 검증은 실제 dense-fit 좌표·배열 해시·표본 수, 동일 head·phase·시간 점수, 정상 MAD·component/P3 q99, 실제 GT·공통 평가 구간·알람·CSV 지표를 확인한다. **정상 calibration과 테스트의 모든 평균 query**를 실제 부모 FP16 패치에서 독립적으로 FP32 공간 평균을 다시 계산해 정확히 비교한다. 평균 view의 해시만 검사하는 데 그치지 않는다.
 
 새 검증 테스트 6개는 평균 값 변조, 문맥 특징으로 바꾼 잘못된 query 형태/dtype, 서로 다른 head, 변경된 phase와 GT에 종속된 inference mask를 거부한다. 특징 점수 자체는 표현에 따라 달라도 허용하며 head·위상·시간 점수의 공유를 검증한다.
 
-독립 검증은 인코더·phase 학습·PCA/k-center 학습·GPU 거리/temperature 표본 계산을 다시 실행하지 않는다. 저장 용량을 줄인 dense-fit의 평균 특징은 추출 코드·실제 관측 후보·배열 해시로 검증한다. 실제 calibration/test 평균의 재계산과 구분한다. 이 검증 코드는 구현·단위 검증을 완료했으며, **실제 전체 96개 조건의 감사·정확도/CI는 아직 완료하지 않았다.**
+독립 검증은 인코더·phase 학습·PCA/k-center 학습·GPU 거리/temperature 표본 계산을 다시 실행하지 않는다. 저장 용량을 줄인 dense-fit의 평균 특징은 추출 코드·실제 관측 후보·배열 해시로 검증한다. 실제 calibration/test 평균의 재계산과 구분한다. R01 오프라인 6조건은 감사·정확도/CI를 완료했으며, **전체 96조건의 검증·Macro4는 아직 완료하지 않았다.**
 
 검증된 조건에서 영상 단위 paired bootstrap 1,000회 및 네 장비 동일 가중치 Macro4를 보고한다. 현재 코드는 공통 평가 구간의 batch 알람을 저장한다. 실시간 EOF 알람·FIFO·지연과 처리량은 별도의 실제 GPU 측정으로 검증한다.

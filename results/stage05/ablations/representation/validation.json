@@ -1,0 +1,449 @@
+{
+  "status": "passed",
+  "matrix_complete": false,
+  "completed_groups": 1,
+  "thresholds_checked": 6,
+  "shared_phase_pairs_checked": 3,
+  "actual_mean_views_recomputed": 20,
+  "mean_checks": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 216,
+      "mean_sha256": "b1323eea3a1e3f3e75327c783bea91173650804114bb020ceff60b86206e8a3b",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 217,
+      "mean_sha256": "ac6748c8caa1af0af1dfa7c0e819bed6cbf1a69aa83a05e3c9b09ed5b8b117a5",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 221,
+      "mean_sha256": "c56160d2ebff7c627402402b95b80e51faa4c43c0f40dd5d58367b8b486fd319",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 219,
+      "mean_sha256": "2b5c22a1b58d1654f62095948ef857bce91d77d3e2767d88d3344b65ef17b8e6",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 214,
+      "mean_sha256": "fbbf338b418d2a4c947d72b2df19a802f04e9784ee8e5145743fdf8925f51c14",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 215,
+      "mean_sha256": "145c90143399066204a6e392f2d265b041164d25c70100576a0a9d9d04ce4228",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 241,
+      "mean_sha256": "edba2846ae501b69d48cb96f499e296e16ba078e73499d37e629b667763953a9",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 394,
+      "mean_sha256": "6841d5ce317587696ecba3ef423624cf925cf9c8cb14e9728f2ce0b2de15a0e5",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 176,
+      "mean_sha256": "052cbd9a4f9a1b4acbf3dcab6b3344caf11ac6ff9f73b9cc973dd910e273c614",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 275,
+      "mean_sha256": "80193df0c9a4e1a09b4196df7fc3474afa84626801bcd459bca523c8c97fb2bf",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 218,
+      "mean_sha256": "6f6caa1f6b029108e2159698ee04130be6aaa8c13234d6604a45f5781a12400a",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 216,
+      "mean_sha256": "9a990279f4e4049cb20a976a1125e5e9009bd065c36e22049d6fd4e91bf5e479",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 220,
+      "mean_sha256": "0b8eb5c130f6b84f86cbf4a8af9e407e9ae571b3979e3cf9726985f977067ce7",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 214,
+      "mean_sha256": "2e495e08ad899414b777a86fe2997f9bcb2b821c80c846981797888a561ba06f",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 216,
+      "mean_sha256": "ad1077b4cb7c26278e79c0ce538488cdddabaaf1074382190df811242093f9de",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 217,
+      "mean_sha256": "b93f5a5b6de5cd7b210b7960f213e0268dab307e5245699a8654c0eddec352aa",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 216,
+      "mean_sha256": "bfd1beaa35c2f5918baeba3a8d7a1df8974057c7cbacebe3bb8c9cc496847203",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 214,
+      "mean_sha256": "945e7ea07768a0843200e7d5de6e69aa25fc40c2b5930d30efc2369244bbf6c1",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 215,
+      "mean_sha256": "b940504275085a8249e8e5f20b62fc788ce35b2e49c92bd8f04d3124d523a6b2",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "target_count": 213,
+      "mean_sha256": "31ad6ace0b60b881601fe3d8ae47de74e10337b0b8e51785abb855d1c5c3e859",
+      "pooling": "Independent FP32 mean over all 576 FP16 local patches; exact equality"
+    }
+  ],
+  "checks": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "representation": "patch",
+      "normal_common_frames": 1032,
+      "threshold": 4.918199820204074,
+      "temperature_samples": 50000,
+      "pca_actual_samples": 50000,
+      "phase_checkpoint_sha256": "033b30043904a2c84a59a45afeca9b07a936216833276d622f0c9070ecdb2317",
+      "memory_sha256": "aba7b4a8d3d692ece3e385cfd8550f16064b222c5c8d62d03bc27d33d77e4112",
+      "normal_fit_sha256": "ea32169fd7fdb4b17621ae0038cf2b2d15416a8b03d869bcbc60d65163577867",
+      "actual_annotation_sha256": {
+        "01": "63f69e6f102b0d207762fa451133b5292d5a2fabfaa5525782bb1255a3bf462f",
+        "02": "5adf21c6be62787fa5d7afc1d6c81ffe233d3d28d48a6b5ec534eaf61308a1ab",
+        "03": "47a48ebca3883edfc8fb528cf4f108a87a84a562373798c68e0c64fb057843c6",
+        "04": "dc36c4335eed18857c08df8dbdc418352d1d00723201d508e2313c5f93413bf8",
+        "05": "2ba78953c6a48c7a0f01fd839ca603c82e2c9e2e2e5511794570a5aac762bb61",
+        "06": "75d4bf18b13faf2e4b1d186d39abd5cc1e91833910c4a868b03b5adb9f270aa3",
+        "07": "9fb2febb72920b3802a50737aed9e3f0e786c23589bb2b05728a2326c676a7b6",
+        "08": "80863b8ee2a21c929bdafc3042caa3effc8b44479fbcf63f698eda8d3e04ae4c",
+        "09": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "10": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "11": "b70714762036e1f6bc2875ace377bcff9d43daf68888f920a66a93d1bc3c4e03",
+        "12": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "13": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "14": "844ab1578775478063a48543c094bf6321a5c34791481f6097edca3a5c841b8a",
+        "15": "1fc8485d29da42736781b7a0883cfb91aface074944d30d409df587b3682212e"
+      },
+      "source_proof_sha256": "7657666081cb5b52209177b923aa319840d9dd975059dc04b934bfadeb1b6fa4"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 1,
+      "representation": "patch",
+      "normal_common_frames": 1032,
+      "threshold": 2.622608109583155,
+      "temperature_samples": 50000,
+      "pca_actual_samples": 50000,
+      "phase_checkpoint_sha256": "ae5cbe06c03519da85b12398d25d7aa45311d3bd625f61f7d2d8cefc1f129d39",
+      "memory_sha256": "582dda2916eb6d0ec719c0d3289ae35e031b815c59e026c31d76dffa5800289b",
+      "normal_fit_sha256": "d32eb60f7ecec9106a975e165406bd8bf8167982ede772b6dd35a4ebdf98836c",
+      "actual_annotation_sha256": {
+        "01": "63f69e6f102b0d207762fa451133b5292d5a2fabfaa5525782bb1255a3bf462f",
+        "02": "5adf21c6be62787fa5d7afc1d6c81ffe233d3d28d48a6b5ec534eaf61308a1ab",
+        "03": "47a48ebca3883edfc8fb528cf4f108a87a84a562373798c68e0c64fb057843c6",
+        "04": "dc36c4335eed18857c08df8dbdc418352d1d00723201d508e2313c5f93413bf8",
+        "05": "2ba78953c6a48c7a0f01fd839ca603c82e2c9e2e2e5511794570a5aac762bb61",
+        "06": "75d4bf18b13faf2e4b1d186d39abd5cc1e91833910c4a868b03b5adb9f270aa3",
+        "07": "9fb2febb72920b3802a50737aed9e3f0e786c23589bb2b05728a2326c676a7b6",
+        "08": "80863b8ee2a21c929bdafc3042caa3effc8b44479fbcf63f698eda8d3e04ae4c",
+        "09": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "10": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "11": "b70714762036e1f6bc2875ace377bcff9d43daf68888f920a66a93d1bc3c4e03",
+        "12": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "13": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "14": "844ab1578775478063a48543c094bf6321a5c34791481f6097edca3a5c841b8a",
+        "15": "1fc8485d29da42736781b7a0883cfb91aface074944d30d409df587b3682212e"
+      },
+      "source_proof_sha256": "7133c0f8513a21389306a0f844c7c57bb5b2ef0048d6d97b4483f81f79699309"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 2,
+      "representation": "patch",
+      "normal_common_frames": 1032,
+      "threshold": 3.0399348135933324,
+      "temperature_samples": 50000,
+      "pca_actual_samples": 50000,
+      "phase_checkpoint_sha256": "6ebd84fc99831a4fc79b41219ae1a19656250aeccd09d97b2fe703d48b359adf",
+      "memory_sha256": "721e3b0d019aa3a90ff143c251940b9d79536e46a3599337cd3c39e58444adf4",
+      "normal_fit_sha256": "ed632b07dca0cd70fb27a46bece934bab9d27068bfa139b67172657678e1be5f",
+      "actual_annotation_sha256": {
+        "01": "63f69e6f102b0d207762fa451133b5292d5a2fabfaa5525782bb1255a3bf462f",
+        "02": "5adf21c6be62787fa5d7afc1d6c81ffe233d3d28d48a6b5ec534eaf61308a1ab",
+        "03": "47a48ebca3883edfc8fb528cf4f108a87a84a562373798c68e0c64fb057843c6",
+        "04": "dc36c4335eed18857c08df8dbdc418352d1d00723201d508e2313c5f93413bf8",
+        "05": "2ba78953c6a48c7a0f01fd839ca603c82e2c9e2e2e5511794570a5aac762bb61",
+        "06": "75d4bf18b13faf2e4b1d186d39abd5cc1e91833910c4a868b03b5adb9f270aa3",
+        "07": "9fb2febb72920b3802a50737aed9e3f0e786c23589bb2b05728a2326c676a7b6",
+        "08": "80863b8ee2a21c929bdafc3042caa3effc8b44479fbcf63f698eda8d3e04ae4c",
+        "09": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "10": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "11": "b70714762036e1f6bc2875ace377bcff9d43daf68888f920a66a93d1bc3c4e03",
+        "12": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "13": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "14": "844ab1578775478063a48543c094bf6321a5c34791481f6097edca3a5c841b8a",
+        "15": "1fc8485d29da42736781b7a0883cfb91aface074944d30d409df587b3682212e"
+      },
+      "source_proof_sha256": "3de3f8f99b673eda8ee550295d7b90e09c22a9410ad72c71324319ea6fb57b72"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 0,
+      "representation": "global_mean",
+      "normal_common_frames": 1032,
+      "threshold": 4.862938213809692,
+      "temperature_samples": 1087,
+      "pca_actual_samples": 4954,
+      "phase_checkpoint_sha256": "033b30043904a2c84a59a45afeca9b07a936216833276d622f0c9070ecdb2317",
+      "memory_sha256": "51b82c69a5fc10b176eea70b78291628531057ed1717736159ff3c9f655f3974",
+      "normal_fit_sha256": "14d853a82447a0aeacfd78b2fc9c4337a92f33da7a9511897ec6489838b03229",
+      "actual_annotation_sha256": {
+        "01": "63f69e6f102b0d207762fa451133b5292d5a2fabfaa5525782bb1255a3bf462f",
+        "02": "5adf21c6be62787fa5d7afc1d6c81ffe233d3d28d48a6b5ec534eaf61308a1ab",
+        "03": "47a48ebca3883edfc8fb528cf4f108a87a84a562373798c68e0c64fb057843c6",
+        "04": "dc36c4335eed18857c08df8dbdc418352d1d00723201d508e2313c5f93413bf8",
+        "05": "2ba78953c6a48c7a0f01fd839ca603c82e2c9e2e2e5511794570a5aac762bb61",
+        "06": "75d4bf18b13faf2e4b1d186d39abd5cc1e91833910c4a868b03b5adb9f270aa3",
+        "07": "9fb2febb72920b3802a50737aed9e3f0e786c23589bb2b05728a2326c676a7b6",
+        "08": "80863b8ee2a21c929bdafc3042caa3effc8b44479fbcf63f698eda8d3e04ae4c",
+        "09": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "10": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "11": "b70714762036e1f6bc2875ace377bcff9d43daf68888f920a66a93d1bc3c4e03",
+        "12": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "13": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "14": "844ab1578775478063a48543c094bf6321a5c34791481f6097edca3a5c841b8a",
+        "15": "1fc8485d29da42736781b7a0883cfb91aface074944d30d409df587b3682212e"
+      },
+      "source_proof_sha256": "4b8689dec23ff75fbb7769d89a3180d5ef59406cbbb5cb802311fe615c52aa6a"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 1,
+      "representation": "global_mean",
+      "normal_common_frames": 1032,
+      "threshold": 2.8679386050773417,
+      "temperature_samples": 1087,
+      "pca_actual_samples": 4954,
+      "phase_checkpoint_sha256": "ae5cbe06c03519da85b12398d25d7aa45311d3bd625f61f7d2d8cefc1f129d39",
+      "memory_sha256": "31ab8b13694e3458b41abe57836ecf3fcc59e4769aa4e3abe1ff88cd22e22f1f",
+      "normal_fit_sha256": "b5a8bac24e9fa68222dd0ca6729227c489f2bdb45119a905ae8f0d746f404e58",
+      "actual_annotation_sha256": {
+        "01": "63f69e6f102b0d207762fa451133b5292d5a2fabfaa5525782bb1255a3bf462f",
+        "02": "5adf21c6be62787fa5d7afc1d6c81ffe233d3d28d48a6b5ec534eaf61308a1ab",
+        "03": "47a48ebca3883edfc8fb528cf4f108a87a84a562373798c68e0c64fb057843c6",
+        "04": "dc36c4335eed18857c08df8dbdc418352d1d00723201d508e2313c5f93413bf8",
+        "05": "2ba78953c6a48c7a0f01fd839ca603c82e2c9e2e2e5511794570a5aac762bb61",
+        "06": "75d4bf18b13faf2e4b1d186d39abd5cc1e91833910c4a868b03b5adb9f270aa3",
+        "07": "9fb2febb72920b3802a50737aed9e3f0e786c23589bb2b05728a2326c676a7b6",
+        "08": "80863b8ee2a21c929bdafc3042caa3effc8b44479fbcf63f698eda8d3e04ae4c",
+        "09": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "10": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "11": "b70714762036e1f6bc2875ace377bcff9d43daf68888f920a66a93d1bc3c4e03",
+        "12": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "13": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "14": "844ab1578775478063a48543c094bf6321a5c34791481f6097edca3a5c841b8a",
+        "15": "1fc8485d29da42736781b7a0883cfb91aface074944d30d409df587b3682212e"
+      },
+      "source_proof_sha256": "1acd8aa4e8188206f02d38209d459360f4a6bfef18664e2741928e4589fadb3b"
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "seed": 2,
+      "representation": "global_mean",
+      "normal_common_frames": 1032,
+      "threshold": 2.9749831093659513,
+      "temperature_samples": 1087,
+      "pca_actual_samples": 4954,
+      "phase_checkpoint_sha256": "6ebd84fc99831a4fc79b41219ae1a19656250aeccd09d97b2fe703d48b359adf",
+      "memory_sha256": "7ba06ba7b68d11c0d76adf7ce525b17c40ce9d21053c3c57a6b3911063b9d340",
+      "normal_fit_sha256": "9cb4a7df2fd8241d1e045ae60f6e63ecb29466aaa9feb354e7721751445c8502",
+      "actual_annotation_sha256": {
+        "01": "63f69e6f102b0d207762fa451133b5292d5a2fabfaa5525782bb1255a3bf462f",
+        "02": "5adf21c6be62787fa5d7afc1d6c81ffe233d3d28d48a6b5ec534eaf61308a1ab",
+        "03": "47a48ebca3883edfc8fb528cf4f108a87a84a562373798c68e0c64fb057843c6",
+        "04": "dc36c4335eed18857c08df8dbdc418352d1d00723201d508e2313c5f93413bf8",
+        "05": "2ba78953c6a48c7a0f01fd839ca603c82e2c9e2e2e5511794570a5aac762bb61",
+        "06": "75d4bf18b13faf2e4b1d186d39abd5cc1e91833910c4a868b03b5adb9f270aa3",
+        "07": "9fb2febb72920b3802a50737aed9e3f0e786c23589bb2b05728a2326c676a7b6",
+        "08": "80863b8ee2a21c929bdafc3042caa3effc8b44479fbcf63f698eda8d3e04ae4c",
+        "09": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "10": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "11": "b70714762036e1f6bc2875ace377bcff9d43daf68888f920a66a93d1bc3c4e03",
+        "12": "2af361f61a829a443e27b0ed778adb4f94d03272a09c33539523e596c0fbc12e",
+        "13": "6904b9b28cfb9b752e996e40b8af441c2143bd5a3d8f51db7c104208893130c2",
+        "14": "844ab1578775478063a48543c094bf6321a5c34791481f6097edca3a5c841b8a",
+        "15": "1fc8485d29da42736781b7a0883cfb91aface074944d30d409df587b3682212e"
+      },
+      "source_proof_sha256": "4915bbe6388ebe734c8b45657a3b1374b093eae12ab172921d70fbc5fcd1b9aa"
+    }
+  ],
+  "excluded_groups": [
+    [
+      "dinov3-l",
+      "offline",
+      "R02"
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R03"
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R04"
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R01"
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02"
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03"
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04"
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R01"
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R02"
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R03"
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R04"
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01"
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02"
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03"
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04"
+    ]
+  ],
+  "device_summary_sha256": "8b70954fc2bae745d10e3c46c08577eafab687948680dd29d0203f434271f66b",
+  "macro_summary_sha256": "526146e04a29eadd5ef8b1bc727d8e6299ef4d240d7fcaa6006f6eb0f7fdec1c",
+  "verifier_sha256": "4e2036c152cd7309904d2af51bbe0f3a500f30c6722b9c96a6c46c5606b8491a",
+  "shared_trace_audit_sha256": "af25ff897d7cbe8286748bd2725d9daac9717d238c59c572ad165745445dbfd6",
+  "shared_bootstrap_sha256": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+  "manifest_sha256": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+  "scope": "P3; both representations fit stride1/shared head/clip16/history5; three fixed seed metrics averaged; shared t=19..N-8/GT mask; whole-video bootstrap1000; per-representation PCA/memory/calibration; no runtime claim",
+  "audit_limits": "Checks actual dense samples/coords/hashes, parent query metadata/targets, full mean pooling, shared head/phase/time, bank geometry/hash, normal q99 and actual GT/metrics. Does not rerun encoders, phase training, PCA/k-center fitting or GPU distance/temperature sampling. Batch common-mask alarms do not prove streaming EOF/FIFO/runtime."
+}

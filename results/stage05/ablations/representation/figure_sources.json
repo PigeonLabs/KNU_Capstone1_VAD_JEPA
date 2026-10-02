@@ -1,0 +1,20 @@
+{
+  "status": "rendered_from_verified_summaries",
+  "matrix_complete": false,
+  "completed_groups": 1,
+  "validation_sha256": "cb3c55c6c039abee6e35e1ec2e612e8ded813aa859ff4ab274435f42995c7952",
+  "device_summary_sha256": "8b70954fc2bae745d10e3c46c08577eafab687948680dd29d0203f434271f66b",
+  "macro_summary_sha256": "526146e04a29eadd5ef8b1bc727d8e6299ef4d240d7fcaa6006f6eb0f7fdec1c",
+  "plot_code_sha256": "e0ac8170dac3efc064af8c5fb3e21919af401b0c3fdd6f4ca26febee7fe41e31",
+  "shared_plot_code_sha256": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
+  "reporting_runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "figures": {
+    "representation_dinov3-l_offline_R01.png": "55910d63413171694500af448d78b83b24ac5b3e0fbf4eecd65ca8c4b1753b6f",
+    "representation_dinov3-l_offline_R01.svg": "e93552861017637b864d6b7b179f651e2d8c19496e194fe9b2ba244021f2dc10"
+  },
+  "scope": "Completed three-seed shared-head representation groups only; final PNG review required"
+}

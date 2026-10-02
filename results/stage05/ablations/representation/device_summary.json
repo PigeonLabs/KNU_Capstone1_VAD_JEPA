@@ -1,0 +1,59 @@
+{
+  "scope": "P3; both representations fit stride1/shared head/clip16/history5; three fixed seed metrics averaged; shared t=19..N-8/GT mask; whole-video bootstrap1000; per-representation PCA/memory/calibration; no runtime claim",
+  "results": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "representation": "patch",
+      "variant": "patch",
+      "score_variant": "P3",
+      "seeds": 3,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.7575204524041853,
+      "auroc_ci_low": 0.6787853218477784,
+      "auroc_ci_high": 0.8530539683125278,
+      "ap_mean": 0.5949499437780429,
+      "ap_ci_low": 0.34357813118199726,
+      "ap_ci_high": 0.8065279274817231,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "representation": "global_mean",
+      "variant": "global_mean",
+      "score_variant": "P3",
+      "seeds": 3,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.7145353288385072,
+      "auroc_ci_low": 0.6224226904394405,
+      "auroc_ci_high": 0.8211258504179257,
+      "ap_mean": 0.5525792370553131,
+      "ap_ci_low": 0.32687738586401505,
+      "ap_ci_high": 0.7496015137848561,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    }
+  ],
+  "paired_deltas": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "comparison": "global_mean_minus_patch",
+      "auroc_delta": -0.042985123565678074,
+      "auroc_delta_ci_low": -0.09419450722690881,
+      "auroc_delta_ci_high": 0.008540589093725607,
+      "ap_delta": -0.0423707067227298,
+      "ap_delta_ci_low": -0.09379465955887167,
+      "ap_delta_ci_high": 0.019462541391164934,
+      "device": "R01"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "status": "complete_device_evaluation",
+  "representation": "patch",
+  "seed": 2,
+  "backbone": "dinov3-l",
+  "mode": "offline",
+  "device": "R01",
+  "test_videos": 15,
+  "valid_mask": "t=19..N-8 inclusive",
+  "alignment_policy": "Matched lengths: index alignment. Unresolved +/-1 length: consensus over label indices t-1,t,t+1; disagreements/out-of-bounds unknown. Assumes index offset stays within +/-1, not proven exact alignment.",
+  "unresolved_alignment_sequences": [],
+  "variants": {
+    "P0": {
+      "frame_auroc": 0.7953284338994165,
+      "frame_ap": 0.5912138572343377,
+      "frames": 3295,
+      "anomaly_frames": 1227
+    },
+    "P1": {
+      "frame_auroc": 0.7478730498030295,
+      "frame_ap": 0.6031401675487766,
+      "frames": 3295,
+      "anomaly_frames": 1227
+    },
+    "P2": {
+      "frame_auroc": 0.793498042906304,
+      "frame_ap": 0.6564811049259003,
+      "frames": 3295,
+      "anomaly_frames": 1227
+    },
+    "P3": {
+      "frame_auroc": 0.7634312747198353,
+      "frame_ap": 0.6270924339221765,
+      "frames": 3295,
+      "anomaly_frames": 1227
+    }
+  },
+  "alignment_sensitivity": {},
+  "seconds": 209.34214041300584,
+  "note": "Device frame metrics; common-mask batch alarms only; no streaming EOF or real-time claim"
+}
