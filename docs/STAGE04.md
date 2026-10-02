@@ -148,3 +148,31 @@ PYTHONPATH=src:scripts python scripts/plot_retained_lora.py \
 새 집계기는 현재 payload가 있으면 기존 실제 배열 감사로 검증한다. payload가 없으면 완결된 의도적 제거 journal과 정확한 성공 CI revision에 archive된 inventory·원 감사가 있어야 retained replay를 허용한다. 제거 journal이 중간 상태이거나 파일이 임의로 없어진 조건은 통과시키지 않는다. retained 경로에서는 원 payload 유한값/해시 검사가 **과거 증거**임을 표시하고 현재 metadata/target·선택 텐서·보정·GT·시간·점수·알람을 다시 검사한다.
 
 같은 seeds 0/1/2가 모두 검증된 그룹만 평균·paired CI·그림을 만들고, 네 장비가 모두 있어야 동일 가중치 Macro4를 제공한다. teacher=0/1 경로는 두 실제 학습 조건과 일치하는 통제를 요구한다. 현 시점 teacher=0/1 완료 쌍이나 캐시 제거 후 검증은 없다. 최종 조건 전체의 GPU 평가, 안전한 실제 제거 실행·제거 후 감사와 최종 집계/그래프는 남아 있다.
+
+
+## 캐시 정리 실행 코드와 중단 재개 검증
+
+[retire_lora_cache.py](../scripts/retire_lora_cache.py)와 [cache_retirement.py](../src/ipad_jepa/cache_retirement.py)는 archive된 inventory에 열거된 완료 조건의 `patch.npy`·`global.npy`만 처리한다. 원본·teacher 특징·선택 모델·head·PCA/메모리·metadata/target·평가 CSV를 삭제 대상에 넣으면 거부한다. 같은 조건의 kernel lock과 현재 실제 GPU 비사용, live runtime controller의 측정 사이 hold를 확인한다.
+
+준비 모드는 정확한 inventory 공개 revision의 **CPU invariants and upload guard 성공 CI**를 실제 GitHub에서 확인한다. 현재 metadata/target·선택 텐서·정상 보정·GT/P3와 86개 원 파일의 전체 SHA256·NPY header·파일 identity를 재검증하고 [삭제 없는 구체적인 계획](../results/cache_retention/T1/dinov3-l/offline/R01/seed0/retirement_plan.json)을 저장했다. 실제 삭제는 구현 코드와 이 계획이 같은 성공 CI revision에 공개된 후 별도 `--execute`로만 진행한다.
+
+실행은 모든 남은 파일을 먼저 검증한 뒤 각 파일을 삭제 직전에 다시 전체 해시 검증한다. fsync한 journal에 unlink 의도를 먼저 저장하고, 실제 파일 부재를 확인한 뒤 완료 항목을 저장한다. 중단 후 재개는 정확한 같은 조건·source·plan, 이전 owner의 실제 종료, 완료 prefix와 다음 파일의 durable intent를 확인한다. 기록 없는 누락·완료 파일의 재생성·활성 owner·symlink 교체·다른 성공 workflow는 통과시키지 않는다. 완료된 삭제 journal과 이후 retained 과학적 감사는 별도 증거로 저장한다.
+
+27개 신규 파일시스템/CLI 검증을 포함한 전체 **291개 로컬 테스트**를 통과했다. 실제 파일 삭제 전후의 중단 창, size/inode/mtime를 보존한 payload 변조, 누락·재생성·경로 이탈과 잘못된 CI/실시간 동시 작업을 확인했다. 이 테스트는 fixture 기반이며 실제 모델 조건의 post-removal 감사는 아직 없다.
+
+```bash
+# 기본은 삭제 없는 prepare:
+PYTHONPATH=src:scripts python scripts/retire_lora_cache.py \
+  --receipt results/cache_retention/T1/dinov3-l/offline/R01/seed0/payload_inventory.json \
+  --publication-revision 8e8abbb323ad5e24eb8fec1ec9c5c71a6533f69a \
+  --publication-ci-id 36984566442 --data-root "$IPAD_DATA_ROOT"
+# 위 계획/구현을 공개한 정확한 성공 revision과 CI ID를 지정한 뒤 실행:
+PYTHONPATH=src:scripts python scripts/retire_lora_cache.py \
+  --receipt results/cache_retention/T1/dinov3-l/offline/R01/seed0/payload_inventory.json \
+  --publication-revision 8e8abbb323ad5e24eb8fec1ec9c5c71a6533f69a \
+  --publication-ci-id 36984566442 \
+  --implementation-revision "$RETIRE_IMPLEMENTATION_REV" \
+  --implementation-ci-id "$RETIRE_IMPLEMENTATION_CI" \
+  --data-root "$IPAD_DATA_ROOT" --execute
+# 실제 중단 journal이 있을 때만 같은 인자에 --resume 추가.
+```

@@ -171,3 +171,21 @@ PYTHONPATH=src:scripts python scripts/plot_runtime_pairs.py \
 ```
 
 [plot_runtime_pairs.py](../scripts/plot_runtime_pairs.py)는 네 trace 감사와 두 저장 gate를 실제 소스로 다시 계산한다. 실패 기록을 통과로 바꾼 파일이나 precision 간 선택 head/메모리/데이터가 다른 조건을 거부한다. 비교 그림은 실제 측정치와 실패 상태를 함께 보존하며 세-seed 평균·CI를 만들지 않는다.
+
+
+### R01 온라인 seed 1의 BF16 쌍 추가
+
+고정 DINOv3-L 온라인 R01 seed 1도 같은 15개 실제 테스트 영상·30 FPS 도착·FIFO/no drops로 BF16 full/buffer를 측정했다. 두 실행의 실제 종료 코드 0과 전체 3,685 input·3,400 eligible·3,295 shared GT target을 확인하고 저장 trace를 독립 재생했다.
+
+| 구현 | 지속 입력 FPS | target p50 / p95 (ms) | peak allocated (MiB) | 공통 AUROC / AP (%) |
+|---|---:|---:|---:|---:|
+| BF16 full | 17.2397 | 3,084.87 / 6,424.45 | 1,577.67 | 58.0966 / 40.5557 |
+| BF16 buffer | 18.2508 | 2,661.86 / 5,613.61 | 1,605.99 | 58.0966 / 40.5557 |
+
+15개 영상의 위상·특징/시간 점수·최종 점수·알람은 모두 정확히 같았고 사전 gate를 통과했다. 두 구현 모두 30 FPS 도착을 따라가지 못해 queue가 증가했다. 고정 정상 q99에서는 두 구현 모두 operational GT 이벤트 **0/8개 탐지·8개 미탐**, 정상 알람 episode **3개·7프레임**이었다. 탐지된 이벤트가 없으므로 onset 지연 백분위는 null이다. 위 target p95를 성공적인 이상 알람 지연으로 해석하지 않는다.
+
+![seed 1 BF16 full의 실제 비용·지연·queue](figures/stage05/runtime/dinov3-l_online_R01_seed1_frozen_bf16_full.png)
+
+![seed 1 BF16 buffer의 실제 비용·지연·queue](figures/stage05/runtime/dinov3-l_online_R01_seed1_frozen_bf16_buffer.png)
+
+[전체 두 실행 CSV·JSON·trace 감사·일치 gate](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed1/bf16), [full 그림 소스](figures/stage05/runtime/dinov3-l_online_R01_seed1_frozen_bf16_full.json), [buffer 그림 소스](figures/stage05/runtime/dinov3-l_online_R01_seed1_frozen_bf16_buffer.json)를 제공한다. 전체 240회 중 6회가 완료됐지만 이 seed의 FP32 쌍과 seed 2, 다른 장비·백본·LoRA 실시간 비교는 남아 있다. 서로 다른 seed의 이 측정치를 반복 실행 CI나 완결된 세-seed 실시간 평균으로 사용하지 않는다.

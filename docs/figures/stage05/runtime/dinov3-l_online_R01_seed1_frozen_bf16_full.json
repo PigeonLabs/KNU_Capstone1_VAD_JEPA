@@ -1,0 +1,94 @@
+{
+  "status": "exported_actual_audited_runtime_figures",
+  "runtime_sha256": "3dedba8f50eaa63a1472ce01634deff8110b68ef688ee9f7be2e6224597c4dd2",
+  "audit_sha256": "d970d353b69e55bf9d4e12b662c433c860cc42bb64430c05bdae2534b7c6b07f",
+  "plot_code_sha256": "170b677f2b1b875cf9a99df58befac364d3e559bb5a7924130ceb2e0ea6a5cba",
+  "condition": {
+    "backbone": "dinov3-l",
+    "mode": "online",
+    "device": "R01",
+    "seed": 1,
+    "adaptation": "frozen",
+    "precision": "bf16",
+    "implementation": "full"
+  },
+  "test_videos": 15,
+  "eligible_targets": 3400,
+  "per_video_latency_seconds": {
+    "01": {
+      "p50": 2.6160357076668026,
+      "p95": 4.825692779666467
+    },
+    "02": {
+      "p50": 3.698902069332629,
+      "p95": 6.260557931732813
+    },
+    "03": {
+      "p50": 4.901565093333495,
+      "p95": 9.163144078782873
+    },
+    "04": {
+      "p50": 2.2574226986669297,
+      "p95": 4.1623221328166675
+    },
+    "05": {
+      "p50": 3.582406032666646,
+      "p95": 6.885813432666116
+    },
+    "06": {
+      "p50": 2.851802360166918,
+      "p95": 5.335879925416699
+    },
+    "07": {
+      "p50": 2.9812963355003372,
+      "p95": 5.415461547050254
+    },
+    "08": {
+      "p50": 2.9352013098332765,
+      "p95": 5.420318606082841
+    },
+    "09": {
+      "p50": 3.07961327933311,
+      "p95": 5.6164917929331954
+    },
+    "10": {
+      "p50": 2.917120559499926,
+      "p95": 5.75825687629982
+    },
+    "11": {
+      "p50": 2.880673198333473,
+      "p95": 5.397505955733735
+    },
+    "12": {
+      "p50": 2.8811025054993475,
+      "p95": 5.375575662399396
+    },
+    "13": {
+      "p50": 3.0109708843339225,
+      "p95": 5.624607579983306
+    },
+    "14": {
+      "p50": 3.003267355666927,
+      "p95": 5.545744583666389
+    },
+    "15": {
+      "p50": 2.908890277999854,
+      "p95": 5.445985429799547
+    }
+  },
+  "stage_mean_ms": {
+    "decode_resize_ms": 2.4980187261722033,
+    "encoder_ms": 55.243115852661724,
+    "feature_cast_ms": 0.12836726205050047,
+    "phase_head_ms": 0.4728226238199461,
+    "projection_search_ms": 0.944004597351576,
+    "score_alarm_ms": 0.06966300824120374,
+    "service_ms": 59.36631552028435
+  },
+  "fixed_trajectory_sequence": "03",
+  "files_sha256": {
+    "docs/figures/stage05/runtime/dinov3-l_online_R01_seed1_frozen_bf16_full.png": "954bef8468cbd60101f745770ff9ff276e719259b1a06d0c4e8c64d74da5a365",
+    "docs/figures/stage05/runtime/dinov3-l_online_R01_seed1_frozen_bf16_full.svg": "05ec5bb4b8c268c4ad8d71a63b29c5b9ef1b61a087f010f1168f0133325f6b1a"
+  },
+  "scope": "Measured single-condition distributions and stage means; no repeat-run CI or speedup/parity claim."
+}
