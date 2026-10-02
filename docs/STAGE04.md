@@ -246,3 +246,33 @@ LoRA P3−고정 P3의 차이는 **AUROC +0.40pp [−2.11, +2.92], AP +0.93pp [�
 ![첫 V-JEPA 세-seed LoRA 평균과 paired 차이](figures/stage04/retained/retained_lora_vjepa21-l_offline_R01.png)
 
 [다섯 조건·40개 정상 임계값 검증](../results/stage04/retained_matrix_audit/validation.json), [모든 P0–P3 평균·CI·paired 차이](../results/stage04/retained_matrix_audit/device_summary.json), [새 조건·그룹의 공개 확인](../results/setup/lora_vjepa21_seed2_evaluation_publication_check.json)을 제공한다. 전체는 **5/48조건**, 완결된 세-seed 그룹은 **1/16개**다. 이 CI는 고정된 세 seeds의 영상 재표집이며 seed 자체를 재표집하지 않았다. 다른 장비·온라인 LoRA·DINOv3 세-seed 그룹과 전체 Macro4·실시간 비교는 남아 있다.
+
+
+## DINOv3 R01 오프라인 seed 2의 완료된 정상 학습
+
+기본 teacher weight 1·accumulation 8·BF16의 원 정상-only trainer로 **20 epoch·3,120 updates**를 완료했다. 정상 fit 23개 영상의 1,248 clips와 calibration 5개 영상의 1,087 clips를 사용했다. trainer child의 종료 코드 0과 완료 metadata·20개 epoch CSV·선택 checkpoint protocol을 확인했다. 최소 정상 calibration CE로 epoch **11**을 선택했다.
+
+| 선택 epoch | 정상 calibration CE | 같은 epoch의 원형 MAE |
+|---:|---:|---:|
+| 11 | 4.336612 | 1.0314% |
+
+![DINOv3 seed 2의 완료된 정상 학습·CE 선택](figures/stage04/dinov3-l_R01_offline_seed2_joint_training.png)
+
+[실제 학습 CSV·JSON·선택 checkpoint 해시·export 검증](../results/stage04/training/dinov3-l/offline/R01/seed2)을 제공한다. 그래프의 두 별표는 같은 선택 epoch를 표시하며 MAE 최솟값으로 재선택하지 않았다. 모델 텐서는 업로드하지 않는다. **정상 학습 곡선은 AUROC/AP나 FPS 결과가 아니다.** [학습 단계의 소스·검증·선택 특징 재추출 시작 snapshot](../results/setup/lora_dinov3_seed2_training_publication_check.json)과 이후 전체 평가 완료 증거를 구분한다. 이 학습 단계 snapshot에서 독립 검증된 정확도는 여전히 5/48조건이며 DINOv3의 세-seed 그룹은 아직 없다.
+
+선택 epoch의 fit/calibration/test 특징 재추출·새 PCA/메모리·정상 보정·전체 실제 테스트 평가·독립 감사를 기존 파이프라인에서 이어간다. epoch·loss·데이터 분할·점수 부호·정상 임계값을 테스트 결과에 맞춰 바꾸지 않는다.
+
+### 완결된 LoRA 백본 쌍의 비교 그래프
+
+[plot_lora_backbone_comparison.py](../scripts/plot_lora_backbone_comparison.py)는 같은 장비·모드에서 **DINOv3와 V-JEPA 각각 seeds 0/1/2가 모두 검증된 그룹**만 사용한다. frozen P3·LoRA P0·LoRA P3의 평균·CI와 V-JEPA−DINOv3 paired 차이를 실제 CSV에서 다시 계산한다. current/retained 조건 감사도 새로 수행하며 정리된 배열의 원 해시·유한성 검사는 과거 증거임을 유지한다.
+
+부분 seed·서로 다른 장비/모드·GT/target 불일치·잘못된 paired 방향·틀린 요약 수치는 거부한다. 네 장비가 모두 있어야 Macro4를 제공하고, seed 지표의 평균과 영상 재표집을 사용한다. seed 자체나 pooled seed 점수는 재표집하지 않는다. 새 9개 비교 검사를 포함한 전체 CPU 테스트 **364개**를 통과했다. 이는 실제 완결된 백본 쌍의 결과를 뜻하지 않으며, 학습 단계 snapshot의 한 완결 그룹만으로 비교 그림을 만드는 실제 CLI 요청도 거부했다.
+
+```bash
+# 두 백본의 같은 조건 세 seeds가 모두 실제 평가·검증된 후:
+PYTHONPATH=src:scripts python scripts/summarize_retained_lora_matrix.py \
+  --kind lora --data-root "$IPAD_DATA_ROOT"
+PYTHONPATH=src:scripts python scripts/plot_lora_backbone_comparison.py \
+  --root results/stage04/retained_matrix_audit \
+  --data-root "$IPAD_DATA_ROOT" --out docs/figures/stage04/retained
+```
