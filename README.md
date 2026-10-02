@@ -51,6 +51,8 @@ IPAD 공개 모델의 **R01 세 seeds**는 각각 50 epoch 학습·평가를 완
 
 두 백본의 R01 오프라인 LoRA **seed 0**은 20 epoch 학습·특징/메모리 재구성·실제 평가를 완료했다. P3 AUROC/AP는 DINOv3 **79.81/70.83%**, V-JEPA **33.06/27.52%**다. 같은 seed의 고정 백본 대비 DINOv3 P3는 개선됐지만 전역 P0는 악화됐고, V-JEPA P3 차이의 CI는 0을 포함했다. [상세 비교·CI·그래프](docs/LORA_R01_SEED0.md)를 제공하며 나머지 seeds·장비·온라인 LoRA는 진행 중이다. 정상 학습 곡선과 선택 근거는 [Stage 04](docs/STAGE04.md)에 있다. 순차 이벤트 평가와 30 FPS FIFO 측정 코드는 [Stage 05](docs/STAGE05.md)에 있으며, 실제 GPU 측정과 점수·알람 동등성 검증은 남아 있다. `—`는 미측정이다.
 
+LoRA teacher 손실 가중치 **0 대 1** 비교의 신규 48조건도 별도 경로에서 시작했다. 기존 가중치 1과 같은 데이터·seed·학습 코드로 가중치 0을 학습하고 선택 특징·메모리·보정을 다시 구성한다. [통제 조건·손실 도식·실행/검증 근거](docs/ABLATION_TEACHER_WEIGHT.md)를 제공하며 완료된 정확도·CI는 아직 없다.
+
 ## 재현 환경
 
 ```bash
