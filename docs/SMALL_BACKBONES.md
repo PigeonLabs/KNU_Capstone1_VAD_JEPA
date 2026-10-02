@@ -1,6 +1,24 @@
-# 작은 B 백본의 온라인 비교 준비
+# 작은 B 백본의 온라인 비교
 
-추가 모델 크기 비교는 **DINOv3-B / V-JEPA 2.1-B**, 같은 16프레임 온라인 입력에서 수행한다. 두 모델의 네 장비 × 세 seeds, 총 **24개 고정 B 조건**을 기존 고정 L 온라인 24개 조건과 비교한다. 두 B 모델의 실제 strict GPU 입력 검증을 완료했고 768차원 전용 학습·평가 경로의 **전체 24조건을 시작했다**. B 모델의 전체 학습·정확도·실시간 결과는 아직 없다.
+추가 모델 크기 비교는 **DINOv3-B / V-JEPA 2.1-B**, 같은 16프레임 온라인 입력에서 수행한다. 두 모델의 네 장비 × 세 seeds, 총 **24개 고정 B 조건**을 기존 고정 L 온라인 24개 조건과 비교한다. 두 B 모델의 실제 strict GPU 입력 검증을 완료했고 전체 24조건을 실행 중이다. **DINOv3 R01의 세 seeds**는 실제 학습·평가와 B/L 독립 검증을 완료했다. 나머지 21개 B 조건·전체 Macro4·실시간 측정은 아직 완료하지 않았다.
+
+## 첫 장비의 세-seed paired 결과
+
+각 B seed에서 768차원 정상 특징·20-epoch phase head·PCA/메모리·온도·MAD·q99를 새로 학습했다. 기존 L 온라인의 같은 장비·seed와 **15개 테스트 영상, 유효 3,295프레임, 이상 1,227프레임**을 공유한다. 아래 수치는 고정된 세 seed별 P3 지표의 평균이며 CI는 원본 영상 단위 paired bootstrap 1,000회다.
+
+| 조건 | AUROC / 95% CI (%) | AP / 95% CI (%) |
+|---|---:|---:|
+| DINOv3-L 온라인 R01 | 53.69 (50.53..57.21) | 36.92 (20.20..55.65) |
+| DINOv3-B 온라인 R01 | 43.86 (38.15..48.96) | 31.35 (17.02..48.73) |
+| B−L 차이 (pp) | −9.84 (−18.46..−1.82) | −5.57 (−9.87..−1.43) |
+
+![DINOv3 B/L R01 온라인 정확도와 paired 차이](figures/stage05/backbone_size_dinov3-l_online_R01.png)
+
+이 조건에서는 B의 두 지표가 L보다 낮고 paired CI 모두 0을 포함하지 않는다. R01 온라인의 탐색적 부분 비교이므로 다른 장비·V-JEPA·전체 Macro4로 일반화하지 않는다. B와 L은 **별도의 사전학습 체크포인트·특징 너비·정상 학습 head/메모리**를 사용한다. 파라미터 수 하나의 효과만 분리한 실험으로 해석하지 않는다. 속도·VRAM·정확도 대비 비용의 결론도 별도 실제 측정이 필요하다.
+
+[수치·paired CI](../results/stage05/ablations/backbone_size/device_summary.json), [정상 임계값 6개·B 출처 3조건·실제 GT 검증](../results/stage05/ablations/backbone_size/validation.json), [198개 공개 조건 파일의 해시·그래프 검수 근거](../results/stage05/ablations/backbone_size/first_group_publication_check.json), [PNG/SVG 출처와 해시](../results/stage05/ablations/backbone_size/figure_sources.json)를 제공한다.
+
+## 공통 입력·메모리 조건
 
 | 항목 | B 비교 조건 |
 |---|---|
@@ -67,6 +85,24 @@ python scripts/run_small_matrix.py --data-root "$IPAD_DATA_ROOT"
 python scripts/plot_small_backbone_setup.py
 ```
 
-기본 캐시는 `artifacts/features_small`, head/은행은 `artifacts/runs_small`, 공개 조건 결과는 `results/stage05/ablations/backbone_size/B`다. 기존 L 온라인의 같은 장비·seed·GT 구간과 paired 비교한다. 전체 B 결과의 독립 정상 보정/annotation/지표 재검증·paired CI·정확도 그래프와 독립 GPU 런타임 검증은 아직 남아 있다. 실행기는 출처를 고정하고 완료된 조건에만 파일 해시 증명을 기록한다. 중단 시 기존 경로를 자동 덮어쓰거나 재시작하지 않는다.
+기본 캐시는 `artifacts/features_small`, head/메모리는 `artifacts/runs_small`, 공개 조건 결과는 `results/stage05/ablations/backbone_size/B`다. 기존 L 온라인의 같은 장비·seed·GT 구간과 paired 비교한다. 실행기는 출처를 고정하고 완료된 조건에만 파일 해시 증명을 기록한다. 중단 시 기존 경로를 자동 덮어쓰거나 재시작하지 않는다. R01 DINOv3 세-seed 결과는 검증했고, 나머지 조건·전체 Macro4·독립 GPU 런타임 검증은 진행해야 한다.
 
 [실제 전체 행렬 시작·소스 고정·15개 신규 테스트·그래프 검수 근거](../results/setup/small_backbone_implementation_check.json)를 제공한다. 시작 기록은 전체 학습·평가의 완료 증명이 아니다.
+
+## 독립 검증과 정확도 집계
+
+[summarize_backbone_size.py](../scripts/summarize_backbone_size.py)는 완료된 세-seed B 그룹과 대응하는 세 L 조건만 비교한다. B의 실제 strict GPU 기록·소스 고정·메타데이터와 target 배열·768차원 특징 형상·유한 문맥 입력·20-epoch 정상 CE 선택·실제 head/메모리 해시·PCA 형상·정상 후보의 영상/위상 균형 quota를 검사한다. 그 뒤 B와 L 모두 정상 MAD·component/P3 q99, 시간 점수, 원본 라벨의 해시·공통 GT/추론 구간, P3 점수·알람·AUROC/AP를 독립 재계산한다. 다른 크기의 head나 L 메모리를 B 조건에 대입할 수 없다.
+
+검증용 새 테스트 **12개**는 fingerprint를 다시 계산한 의미 변경, 잘못된 입력 길이/너비, 미래/변경 target, 테스트 데이터가 섞인 정상 fit, 비유한 phase 입력, 잘못 선택하거나 불완전한 head, 메모리 온도 변경, 누락·중복·변조된 소스를 거부했다. 테스트는 CPU fixture이며 실제 R01 감사 결과와 구분한다.
+
+```bash
+export PYTHONPATH=src
+python scripts/summarize_backbone_size.py
+python scripts/plot_backbone_size_accuracy.py
+# 전체 B 24조건과 L paired 기준이 완료된 후:
+python scripts/summarize_backbone_size.py --require-full
+```
+
+부분 집계는 완료된 세-seed 장비만 명시하고 `--require-full`은 8개 그룹이 모두 없으면 거부한다. 네 장비가 모두 검증된 백본에만 동일 가중치 Macro4를 계산한다. 그래프는 현 검증·집계 해시가 일치할 때만 생성한다.
+
+이 감사는 인코더 재실행, 모든 patch 값의 독립 재추출, head/PCA/k-center 재학습, GPU 특징 거리와 온도 표본 계산을 재실행하지 않는다. 공개할 P0–P3 CSV의 출처/해시는 검사하지만 주 정확도 비교의 보정·점수/알람 재계산은 **P3**다. 공통 평가 구간의 batch 알람이며 온라인 EOF 알람·FIFO·처리량을 입증하지 않는다. 큰 특징 배열·head·메모리·모델과 원본 영상은 로컬에만 보관한다.

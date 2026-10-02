@@ -1,0 +1,28 @@
+{
+  "scope": "Equal-weight mean of R01/R02/R03/R04 device metrics, each a mean of three seed metrics. No pooling of frames or seed scores.",
+  "bootstrap": "1000 video resamples independently within each device; device-specific SeedSequence([2026, device_number]); shared draws across seeds and paired conditions; percentile 95% CI.",
+  "results": [],
+  "paired_deltas": [],
+  "incomplete_conditions": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "online",
+      "variant": "B",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "online",
+      "variant": "L",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    }
+  ]
+}

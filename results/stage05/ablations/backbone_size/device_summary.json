@@ -1,0 +1,61 @@
+{
+  "scope": "Frozen online B vs L P3; separately refitted normal head/PCA/bank/temperature/MAD/q99; fixed three-seed means; shared t=19..N-8/GT; original-video paired bootstrap1000; equal-device Macro4 only with all four devices; different pretrained checkpoint/width; no runtime claim",
+  "results": [
+    {
+      "backbone": "dinov3-l",
+      "actual_backbone": "dinov3-l",
+      "mode": "online",
+      "device": "R01",
+      "variant": "L",
+      "score_variant": "P3",
+      "seeds": 3,
+      "feature_dimension": 1024,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.5369204714260117,
+      "auroc_ci_low": 0.5052951340501178,
+      "auroc_ci_high": 0.5720505118831921,
+      "ap_mean": 0.36920380373195694,
+      "ap_ci_low": 0.20204832646983922,
+      "ap_ci_high": 0.5565032694294225,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    },
+    {
+      "backbone": "dinov3-l",
+      "actual_backbone": "dinov3-b",
+      "mode": "online",
+      "device": "R01",
+      "variant": "B",
+      "score_variant": "P3",
+      "seeds": 3,
+      "feature_dimension": 768,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.43856462455276374,
+      "auroc_ci_low": 0.3814837851211968,
+      "auroc_ci_high": 0.48955057657388723,
+      "ap_mean": 0.3134890461300895,
+      "ap_ci_low": 0.1702227750216082,
+      "ap_ci_high": 0.48730288509785047,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    }
+  ],
+  "paired_deltas": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "online",
+      "comparison": "B_minus_L",
+      "auroc_delta": -0.098355846873248,
+      "auroc_delta_ci_low": -0.18463077704680236,
+      "auroc_delta_ci_high": -0.01824246450416812,
+      "ap_delta": -0.05571475760186745,
+      "ap_delta_ci_low": -0.0986919578269012,
+      "ap_delta_ci_high": -0.014313814884082334,
+      "device": "R01"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "status": "rendered_from_verified_summaries",
+  "matrix_complete": false,
+  "completed_groups": 1,
+  "validation_sha256": "baf88e30013a230917cb309a3a130f42ca1ace919a21e10a214dcf48076036d7",
+  "device_summary_sha256": "a3aa695cdf4df234eb2d4ea99ebd92331c1228d259441ef68553a97fc9fd11fc",
+  "macro_summary_sha256": "fe522376b08e3f0e038d1e37efa7b3e1107788dbcd2d95e331bd43d77c3daa46",
+  "plot_code_sha256": "1b236c3fe081537e8def17109b18b9bde11c89a9ed21dfa8d71028a037aeda2e",
+  "shared_plot_code_sha256": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
+  "reporting_runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "figures": {
+    "backbone_size_dinov3-l_online_R01.png": "813ee9ba30da33eab8852442a654708e51eb3ea05df48a399113eaee7f3878ff",
+    "backbone_size_dinov3-l_online_R01.svg": "cbe8a6e4a32bc66c39dfe0e5835bfd817de6a734190fd1b831ee749847377918"
+  },
+  "scope": "Completed three-seed paired B/L groups only; final PNG review required"
+}
