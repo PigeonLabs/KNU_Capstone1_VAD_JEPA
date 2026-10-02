@@ -5,6 +5,86 @@
   "paired_deltas": [],
   "incomplete_conditions": [
     {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "F_P0",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "F_P1",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "F_P2",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "F_P3",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "L_P0",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "L_P1",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "L_P2",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "variant": "L_P3",
+      "missing_devices": [
+        "R02",
+        "R03",
+        "R04"
+      ]
+    },
+    {
       "backbone": "vjepa21-l",
       "mode": "offline",
       "variant": "F_P0",

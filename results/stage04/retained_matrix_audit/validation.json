@@ -2,8 +2,8 @@
   "status": "passed_mixed_current_retained_evidence",
   "kind": "lora",
   "matrix_complete": false,
-  "completed_conditions_or_pairs": 5,
-  "complete_three_seed_groups": 1,
+  "completed_conditions_or_pairs": 6,
+  "complete_three_seed_groups": 2,
   "condition_checks": [
     {
       "condition": [
@@ -35,6 +35,23 @@
           "evidence": "current_actual_adapted_arrays",
           "condition_audit": "T1/dinov3-l/offline/R01/seed1/condition_audit.json",
           "condition_audit_sha256": "835d7b3988b5535302c262352d4fac17edf64f1f3d27dc15a8756c21c9087ec3"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R01",
+        2
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/dinov3-l/offline/R01/seed2/condition_audit.json",
+          "condition_audit_sha256": "b16e63331e1f77583d41a031d6f5509686e155ce0b5deb8ea5410f834c5507fd"
         }
       ],
       "matched_controls": null
@@ -91,15 +108,9 @@
       "matched_controls": null
     }
   ],
-  "normal_thresholds_replayed": 40,
+  "normal_thresholds_replayed": 48,
   "retained_treatments_replayed": 1,
   "pending_conditions_or_pairs": [
-    [
-      "dinov3-l",
-      "offline",
-      "R01",
-      2
-    ],
     [
       "dinov3-l",
       "offline",
@@ -367,7 +378,7 @@
     "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce"
   },
   "manifest_sha256": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
-  "device_summary_sha256": "95227bf94986242ef4fa4450f1db5ba24c154976b9b668f990094556ce5350ac",
-  "macro_summary_sha256": "e543eaea7664464ccadf554155e9c2f97785b04ca947d91d074ab1878634527c",
+  "device_summary_sha256": "6a46f017555f419a6f7c7b54aa2ac5a65d60836727af1c8a08d5672a8c5c9c52",
+  "macro_summary_sha256": "d5dfee89c4494c31815d9e42382593e075a91d23b089c71936c27e6be0d7ac98",
   "scope": "Independently audited current or explicitly retained conditions; exact seeds0/1/2 per group; mean of per-seed metrics, paired original-video bootstrap1000; equal-device Macro4 only with all4; retained payload hashes/finite checks are historical, current metadata/tensors/traces are replayed; no runtime claim"
 }
