@@ -1,0 +1,21 @@
+{
+  "status": "complete_device_evaluation",
+  "backbone": "dinov3-l",
+  "mode": "offline",
+  "device": "R01",
+  "seed": 0,
+  "configuration": "B16_M1024",
+  "bins": 16,
+  "total_prototypes": 1024,
+  "test_videos": 15,
+  "valid_mask": "t=19..N-8 inclusive, intersect shared annotation uncertainty mask",
+  "variants": {
+    "P3": {
+      "frame_auroc": 0.46169322103099353,
+      "frame_ap": 0.32953242291268275,
+      "frames": 3295,
+      "anomaly_frames": 1227
+    }
+  },
+  "note": "Normal-memory OFAT; online EOF alarms remain active; no isolated runtime measurement"
+}

@@ -1,0 +1,90 @@
+{
+  "status": "running_full_matrix_no_completed_groups_at_snapshot",
+  "observed_utc": "2026-10-02T03:27:15.443471+00:00",
+  "models": [
+    "dinov3-l",
+    "vjepa21-l"
+  ],
+  "modes": [
+    "offline",
+    "online"
+  ],
+  "devices": [
+    "R01",
+    "R02",
+    "R03",
+    "R04"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "original_held_out_normal_videos": 17,
+  "scenarios_per_original_video": 49,
+  "planned_encoder_scenario_videos": 3332,
+  "planned_seed_traces": 9996,
+  "synthetic_training_or_threshold_tuning": false,
+  "initial_dispatch": {
+    "terminal_exit_code": 1,
+    "completed_groups": 0,
+    "scenario_evaluation_reached": false,
+    "error": "AttributeError(\"'str' object has no attribute 'open'\")",
+    "private_failed_ledger_sha256": "55fb92ca7d8e601f57abbab2498b78728e1cfc7d8dd679def02acdf4cddbcdfa",
+    "failed_evaluator_sha256": "d04dbb922ed1eeb37d1bb0bf123616851a826fffb98be84a2efa565368ea5d82"
+  },
+  "recovery": {
+    "owner_terminal_verified": true,
+    "new_private_ledger": "artifacts/tmp/diagnostic_pipeline_v2.json",
+    "output_namespace": "results/stage05/diagnostics",
+    "output_absent_before_retry": true,
+    "owner_pid": 3047804,
+    "owner_start_ticks": 34404440,
+    "owner_uid": 1000,
+    "actual_process_observation": "PID3047804/start34404440 live; NVIDIA device open and model/normal source reads advancing; no completed diagnostic group at snapshot",
+    "running_ledger_sha256_at_snapshot": "74f1e90fe0abaea79b407a29366371e0ed1e7b0137fcc1f7ae839decdb9e71a8",
+    "running_source_sha256": {
+      "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/src/ipad_jepa/diagnostic_evaluation.py": "fa245e568bb5f67dbff36db1a89ebea40c78b6613b2428bdbc4ff808f8bbcd83",
+      "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/src/ipad_jepa/diagnostics.py": "c4cd551e4c68faf4da25db1c171ecef1df122fceaef3882b96172866d62acca6",
+      "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+      "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+      "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+      "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+      "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+      "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+      "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+      "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+      "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b"
+    }
+  },
+  "focused_tests": {
+    "transforms_and_labels": {
+      "passed": 10,
+      "seconds": 1.94
+    },
+    "actual_rgb_clips_and_source_path_regression": {
+      "passed": 4,
+      "seconds": 277.23
+    },
+    "independent_trace_cluster_statistics_and_source_inventory": {
+      "passed": 14,
+      "seconds": 74.96
+    },
+    "total_passed": 28
+  },
+  "source_sha256": {
+    "src/ipad_jepa/diagnostics.py": "c4cd551e4c68faf4da25db1c171ecef1df122fceaef3882b96172866d62acca6",
+    "src/ipad_jepa/diagnostic_evaluation.py": "fa245e568bb5f67dbff36db1a89ebea40c78b6613b2428bdbc4ff808f8bbcd83",
+    "src/ipad_jepa/diagnostic_audit.py": "b263265f538c119dae9402ecb51141d6e3a85e38efb3b567ba75ad9edc4f9d86",
+    "scripts/summarize_diagnostics.py": "74a107c561096dcffa369b7263c5606410345c85945a2b8cfc3d5dc13ad462f9",
+    "scripts/plot_diagnostic_protocol.py": "4fca1766d3f12896cf3b7519859943bf2220cf196c269e3683130de0b6c8ca03",
+    "tests/test_diagnostics.py": "31b9521f2eef64b20c4ee97a1f2a1c8b670ea2ebfcafb9f9d35525c019ffa2d3",
+    "tests/test_diagnostic_clips.py": "a115283bec49b86c4cd00671d41e579a43dcb32b596661fb78f73660e429d401",
+    "tests/test_diagnostic_audit.py": "ec9178e65f87f9de7d2832ef186e1efcd55c0608ebdf48bc2e06fa33d6685eb5",
+    "scripts/plot_diagnostics.py": "66135cc9809f66b9c355d164e0d24bce75198b03f9e9ab349fd1b734972fdf7f"
+  },
+  "protocol_figure_sources_sha256": "0cc261f7a32d3e50857001f2851aa04028730a140183b82b73c946ce0392033c",
+  "protocol_visual_review": "Final PNG inspected; class labels, held-out inventory, 49 scenario counts and partial overlap timeline readable without overlap; SVG from same figure",
+  "scope": "Full fixed diagnostic evaluator and independent verifier implemented and dispatched. Actual full GPU evaluation, independent result audit, Macro4/CI and confusion visualization remain pending; CPU tests/illustrative intervention labels are not measured diagnostic performance.",
+  "pending_actual_result_renderer": "scripts/plot_diagnostics.py; gate requires independent validation; no model-output figures rendered at snapshot"
+}

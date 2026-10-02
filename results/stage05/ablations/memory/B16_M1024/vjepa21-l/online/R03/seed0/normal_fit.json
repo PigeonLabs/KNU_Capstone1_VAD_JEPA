@@ -1,0 +1,412 @@
+{
+  "status": "normal_fit_and_calibration_complete",
+  "backbone": "vjepa21-l",
+  "mode": "online",
+  "device": "R03",
+  "seed": 0,
+  "configuration": "B16_M1024",
+  "bins": 16,
+  "total_prototypes": 1024,
+  "prototypes_per_bin": 64,
+  "pca_dimensions": 256,
+  "pca_samples": 50000,
+  "pca_explained_variance_ratio": 0.9548115730285645,
+  "candidate_sampling": [
+    {
+      "phase_bin": 0,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 666,
+        "06": 667,
+        "07": 667,
+        "08": 667,
+        "10": 667,
+        "11": 666,
+        "12": 667,
+        "13": 666,
+        "15": 666,
+        "16": 667,
+        "17": 667,
+        "18": 667,
+        "19": 666,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 1,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 666,
+        "06": 667,
+        "07": 667,
+        "08": 666,
+        "10": 666,
+        "11": 666,
+        "12": 667,
+        "13": 667,
+        "15": 667,
+        "16": 667,
+        "17": 667,
+        "18": 667,
+        "19": 666,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 2,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 666,
+        "06": 667,
+        "07": 667,
+        "08": 667,
+        "10": 666,
+        "11": 666,
+        "12": 666,
+        "13": 667,
+        "15": 667,
+        "16": 667,
+        "17": 666,
+        "18": 667,
+        "19": 667,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 3,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 666,
+        "06": 667,
+        "07": 667,
+        "08": 667,
+        "10": 666,
+        "11": 667,
+        "12": 667,
+        "13": 667,
+        "15": 666,
+        "16": 667,
+        "17": 666,
+        "18": 667,
+        "19": 667,
+        "22": 666
+      }
+    },
+    {
+      "phase_bin": 4,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 666,
+        "06": 666,
+        "07": 667,
+        "08": 667,
+        "10": 666,
+        "11": 667,
+        "12": 667,
+        "13": 666,
+        "15": 667,
+        "16": 667,
+        "17": 667,
+        "18": 667,
+        "19": 667,
+        "22": 666
+      }
+    },
+    {
+      "phase_bin": 5,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 666,
+        "06": 667,
+        "07": 667,
+        "08": 667,
+        "10": 666,
+        "11": 667,
+        "12": 667,
+        "13": 666,
+        "15": 667,
+        "16": 667,
+        "17": 666,
+        "18": 666,
+        "19": 667,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 6,
+      "tokens": 10000,
+      "per_video": {
+        "01": 666,
+        "04": 667,
+        "06": 666,
+        "07": 666,
+        "08": 666,
+        "10": 667,
+        "11": 667,
+        "12": 666,
+        "13": 667,
+        "15": 667,
+        "16": 667,
+        "17": 667,
+        "18": 667,
+        "19": 667,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 7,
+      "tokens": 10000,
+      "per_video": {
+        "01": 666,
+        "04": 667,
+        "06": 666,
+        "07": 667,
+        "08": 667,
+        "10": 667,
+        "11": 667,
+        "12": 667,
+        "13": 666,
+        "15": 666,
+        "16": 667,
+        "17": 666,
+        "18": 667,
+        "19": 667,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 8,
+      "tokens": 10000,
+      "per_video": {
+        "01": 666,
+        "04": 667,
+        "06": 667,
+        "07": 666,
+        "08": 667,
+        "10": 667,
+        "11": 667,
+        "12": 667,
+        "13": 666,
+        "15": 667,
+        "16": 666,
+        "17": 667,
+        "18": 667,
+        "19": 667,
+        "22": 666
+      }
+    },
+    {
+      "phase_bin": 9,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 667,
+        "06": 667,
+        "07": 666,
+        "08": 667,
+        "10": 666,
+        "11": 667,
+        "12": 667,
+        "13": 667,
+        "15": 667,
+        "16": 667,
+        "17": 666,
+        "18": 666,
+        "19": 666,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 10,
+      "tokens": 10000,
+      "per_video": {
+        "01": 666,
+        "04": 666,
+        "06": 667,
+        "07": 667,
+        "08": 667,
+        "10": 666,
+        "11": 667,
+        "12": 667,
+        "13": 666,
+        "15": 667,
+        "16": 666,
+        "17": 667,
+        "18": 667,
+        "19": 667,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 11,
+      "tokens": 10000,
+      "per_video": {
+        "01": 666,
+        "04": 667,
+        "06": 667,
+        "07": 666,
+        "08": 667,
+        "10": 666,
+        "11": 667,
+        "12": 667,
+        "13": 667,
+        "15": 667,
+        "16": 666,
+        "17": 667,
+        "18": 667,
+        "19": 666,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 12,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 667,
+        "06": 666,
+        "07": 666,
+        "08": 667,
+        "10": 667,
+        "11": 666,
+        "12": 667,
+        "13": 667,
+        "15": 667,
+        "16": 666,
+        "17": 666,
+        "18": 667,
+        "19": 667,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 13,
+      "tokens": 10000,
+      "per_video": {
+        "01": 666,
+        "04": 666,
+        "06": 666,
+        "07": 667,
+        "08": 666,
+        "10": 667,
+        "11": 667,
+        "12": 666,
+        "13": 667,
+        "15": 667,
+        "16": 667,
+        "17": 667,
+        "18": 667,
+        "19": 667,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 14,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 666,
+        "06": 667,
+        "07": 666,
+        "08": 666,
+        "10": 667,
+        "11": 666,
+        "12": 666,
+        "13": 667,
+        "15": 667,
+        "16": 667,
+        "17": 667,
+        "18": 667,
+        "19": 667,
+        "22": 667
+      }
+    },
+    {
+      "phase_bin": 15,
+      "tokens": 10000,
+      "per_video": {
+        "01": 667,
+        "04": 667,
+        "06": 666,
+        "07": 667,
+        "08": 666,
+        "10": 667,
+        "11": 666,
+        "12": 667,
+        "13": 667,
+        "15": 666,
+        "16": 667,
+        "17": 667,
+        "18": 667,
+        "19": 666,
+        "22": 667
+      }
+    }
+  ],
+  "calibration_mask": "t=19..N-8 inclusive",
+  "history": 5,
+  "neighbours": 5,
+  "score_weights": [
+    0.5,
+    0.5
+  ],
+  "cycle_length_fit_median": 696.0,
+  "temperature": 1.1926583051681519,
+  "temperature_samples": 50000,
+  "temperature_definition": "Per-bank normal calibration median fifth squared-neighbour distance; floor1e-6",
+  "bank_sha256": "00d3e49eeacba376b0cfcc5d465453edeff99bae205d8afe45f8266c77813493",
+  "source_memory_sha256": "5f53cd5ec3b8bb946f73d969b457b82b24b584d1d3f866ac123321cfb6bf97c7",
+  "source_cache_identity": {
+    "backbone": "vjepa21-l",
+    "mode": "online",
+    "weights_sha256": "7ea9b7cb4a75d10644a8a8d42cff9e177b10dca8f02173f0eaf2b0bed82838c6",
+    "upstream_commit": "204698b45b3712590f06245fbfba32d3be539812",
+    "adapter_sha256": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "reader_sha256": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "image_size": 384,
+    "clip_frames": 16,
+    "fit_stride": 4,
+    "preprocessing": "RGB full-frame PIL bilinear resize; ImageNet mean/std",
+    "feature_dtype": "float16 from BF16 inference"
+  },
+  "source_normal_fit_sha256": "ce1c4ade3a471ae87bc7135ff450b480720668707af0cd7c2e6ddbdecb21b6b1",
+  "source_phase_checkpoint_sha256": "8da9a067ba100127d93ad5a692b264ad87d439651a76ef45e0a993ccce9fc9ac",
+  "calibration": {
+    "P3": {
+      "median": [
+        0.6059699058532715,
+        0.005398043606441715
+      ],
+      "mad_scale": [
+        0.012144049394130706,
+        0.0035227812528846837
+      ],
+      "threshold": 9.115620627955991,
+      "component_thresholds": [
+        0.6645959508419035,
+        0.05989311052861817
+      ]
+    }
+  },
+  "code_sha256": "8a1896999a6ca4531b2ef95c697d0e4bae3289cfd26049f7fd1a8689f50b8965",
+  "memory_code_sha256": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+  "candidate_code_sha256": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+  "temperature_code_sha256": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+  "search_code_sha256": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+  "temporal_code_sha256": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+  "unchanged_components": [
+    "frozen_encoder",
+    "phase_head",
+    "clip16",
+    "time_history5",
+    "P3_weights"
+  ],
+  "sampling_policy": "Budget comparison shares candidates and PCA; bin comparison refits phase-stratified normal candidates/PCA. K-center prefixes have the same RNG initial centres as separate fits.",
+  "scope": "Normal bank geometry OFAT and per-bank normal-only recalibration before test scoring"
+}

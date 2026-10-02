@@ -1,0 +1,21 @@
+{
+  "status": "complete_device_evaluation",
+  "backbone": "vjepa21-l",
+  "mode": "offline",
+  "device": "R01",
+  "seed": 1,
+  "configuration": "B16_M1024",
+  "bins": 16,
+  "total_prototypes": 1024,
+  "test_videos": 15,
+  "valid_mask": "t=19..N-8 inclusive, intersect shared annotation uncertainty mask",
+  "variants": {
+    "P3": {
+      "frame_auroc": 0.37917606591850983,
+      "frame_ap": 0.2908369911048333,
+      "frames": 3295,
+      "anomaly_frames": 1227
+    }
+  },
+  "note": "Normal-memory OFAT; online EOF alarms remain active; no isolated runtime measurement"
+}

@@ -4,9 +4,9 @@
 
 이웃 수 k=1·5·10의 두 백본 × 두 모드 × 네 장비 × 세 seeds, **144개 조건**도 완료했다. 기존 k=5의 48개 원본 조건을 점수·알람 차이 0으로 재현하고 정상 임계값 144개를 재계산했다. [Macro4·장비별 수치·paired CI·그래프·검색 출처](ABLATION_NEIGHBOURS.md)를 제공한다. 백본·모드 전체에 일관된 우위는 없어 기본 k=5를 유지한다.
 
-메모리 크기와 bin 수 비교의 첫 R01 DINOv3 오프라인 3-seed, 12개 조건을 검증했다. 기본 은행의 배열·temperature·점수·알람을 정확히 재현하고 정상 q99 12개를 재계산했다. [수치·paired CI·그래프와 재구성 근거](ABLATION_MEMORY.md)를 제공한다. 전체 192개 메모리 조건은 실행 중이며 기본 16 bins·2,048개를 유지한다.
+메모리 크기와 bin 수의 **192개 GPU 조건·독립 검증을 완료**했다. 기본 48조건의 실제 배열·정상 temperature·점수·알람을 정확히 재현하고 정상 q99 192개를 재계산했다. V-JEPA의 4,096개 조건은 오프라인 AUROC/AP +4.79/+3.49pp, 온라인 +3.26/+2.94pp였고 두 모드의 두 paired CI 모두 0을 포함하지 않았다. [전체 Macro4·장비별 수치·paired CI·6개 그래프·검증 근거](ABLATION_MEMORY.md)를 제공하며 사전 기본 16 bins·2,048개를 유지한다.
 
-두 백본의 실제 8프레임 온라인·오프라인 GPU 입력 검증을 통과하고 전체 48개 신규 조건의 특징 추출·정상 학습·메모리 재구성을 시작했다. [8·16프레임 입력 문맥 도식·GPU 검증, 실제 manifest의 입력 수, 같은 정확도 평가 구간과 재현 명령](ABLATION_CLIP_FRAMES.md)을 제공한다. 독립 CPU 검증기도 추가했으며, 아직 이 비교의 AUROC/AP·CI·FPS를 보고하지 않는다.
+8·16프레임 비교의 신규 48조건 중 DINOv3 오프라인 R01 세 seeds의 실제 평가·독립 검증을 완료했다. 8프레임 P3 AUROC/AP는 44.71/32.20%로, 16프레임 대비 −2.31/−1.01pp이며 두 paired CI는 0을 포함한다. [부분 결과·CI·그래프·입력 구간·재현 명령](ABLATION_CLIP_FRAMES.md)을 제공한다. 전체 Macro4와 실제 FPS/지연은 아직 없다.
 
 ## 준비된 스트리밍 점수와 평가
 
@@ -70,8 +70,8 @@ python scripts/verify_runtime_parity.py \
 
 DINO full-clip BF16과 과거 특징 재사용 BF16의 수치 일치 게이트는 실패했다. FP32 특징 비교는 통과했지만, 실제 점수·알람과 실행 시간을 확인해야 한다. 재사용 구현의 숫자를 주 BF16 조건의 성능으로 대체하지 않으며, precision과 대응하는 full 계산 조건을 명시한다. 세부 근거는 [Stage 03](STAGE03.md)에 있다.
 
-진단 17개 정상 주기의 stall/reverse, occlusion/local colour, 혼합 변환과 4종 evidence confusion matrix·macro-F1, clip/bin/budget/k/표현/teacher weight 제거 실험 및 작은 온라인 백본도 [고정 실험 행렬](../configs/experiment_matrix.yaml)에 따라 수행해야 한다. 완료된 실측 근거가 없으므로 Stage 05 완료 태그를 생성하지 않는다.
+정상 진단 **17개 영상 × 49시나리오**의 stall/reverse·가림/국소 색 변화·36개 혼합 조합에 대해 전체 GPU 평가를 시작했다. [고정 위치/강도·네 증거 유형 정답·입력 문맥 도식·코드·검증 범위](DIAGNOSTICS.md)를 제공한다. 실제 confusion/Macro-F1은 전체 trace의 독립 검증 후 공개한다. 나머지 OFAT·LoRA·실시간 측정도 남아 있어 Stage 05 완료 태그는 생성하지 않는다.
 
-## 작은 온라인 백본 준비
+## 작은 온라인 백본
 
-V-JEPA 2.1 ViT-B의 가중치를 고정된 공식 README 경로에서 취득했다. [다운로드 출처·크기·SHA256](../results/setup/vjepa21-b.json)을 공개하며, 1.66 GB 모델 파일은 로컬에만 보관한다. `python scripts/download_models.py --model vjepa21-b`로 재현할 수 있다. 엄격한 모델 로드·768차원 특징 처리·이상탐지 평가·실시간 측정은 아직 수행하지 않았다. 이 준비 기록을 작은 백본 실험 결과로 해석하지 않는다.
+DINOv3-B와 V-JEPA 2.1-B의 실제 strict GPU 로딩·16프레임 온라인 입력 검증을 통과했고, 별도 768차원 캐시·head·PCA/메모리·정상 보정의 **24개 조건을 실행 중**이다. [실제 파라미터 수 그래프·모델 출처·GPU 기록·전체 재현 경로](SMALL_BACKBONES.md)를 제공한다. 작은 모델의 전체 정확도와 독립 실시간 성능은 아직 없다.

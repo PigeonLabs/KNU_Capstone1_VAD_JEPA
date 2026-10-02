@@ -1,0 +1,30 @@
+{
+  "status": "rendered_from_verified_summaries",
+  "matrix_complete": true,
+  "completed_groups": 16,
+  "validation_sha256": "5249f0783e60afa1a96a7a8719d404e90c16237609ccaaeea191f06e70ef0dcc",
+  "device_summary_sha256": "9e658de033883ab9df84a7ecf3368ce9d77ef25b61c2a80197f9af4ff27c410a",
+  "macro_summary_sha256": "1576cb2ab6b656d3941f816677669ec1bf78ae5d5e2f2b4d951da9fc894ea6cc",
+  "plot_code_sha256": "9b108d53e36d63b3baa43e4ea1958673a11a9cb8b254c77e2a42427cd16aba54",
+  "shared_plot_code_sha256": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
+  "reporting_runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "figures": {
+    "memory_dinov3-l_macro4_budget.png": "661d14176cd32081b6f8a8939f9dbc8181e86a95faae0ba6d328a371500375ee",
+    "memory_dinov3-l_macro4_budget.svg": "2d834356c651adda24b04ffe68a4ef684df0a53ad8671e1865ea8b65dd391a76",
+    "memory_dinov3-l_macro4_bins.png": "d9bcf41c1054a09382381bbd93d616e0b48a1066dacd006ce8520db341e89636",
+    "memory_dinov3-l_macro4_bins.svg": "c105fd33ed416c48890a06b514465102dbf2228c5ebad9be81d93214db071f4c",
+    "memory_dinov3-l_macro4_paired_differences.png": "f5f5891d314f4479cdaf2b8ad761d1d39d7dd8fe27b84ba65480890700f10a56",
+    "memory_dinov3-l_macro4_paired_differences.svg": "7d3b7143427bf30fb65f921095871213084048a7fd79aa21b4534275665c859d",
+    "memory_vjepa21-l_macro4_budget.png": "ef2ad7cb1b927405d5d46e22d7128d6c5b43eb5bda4010ca8a5ef1269b481532",
+    "memory_vjepa21-l_macro4_budget.svg": "417c4b5c470ea8f815d86d574591fc6439fe6fe1557258b3a850b24a34f20eac",
+    "memory_vjepa21-l_macro4_bins.png": "a44ffd9821aeb33c01465f9b8c5f24625d6f7c69e32a5de361fa70dae6d1f463",
+    "memory_vjepa21-l_macro4_bins.svg": "63d73af0b3a34db87dccb28e82ec6594f6d16e19f88efc85756be23985f62c9b",
+    "memory_vjepa21-l_macro4_paired_differences.png": "47efd8da822fe77438639c21c3abfdc6839c15fd0820b4641ba3f13695bfe9d0",
+    "memory_vjepa21-l_macro4_paired_differences.svg": "6a9670104dbe7134b3841973447508f973ac4766c58b400e8805840959d5de4a"
+  },
+  "scope": "Separate budget/bin plots and paired uncertainty; final visual inspection recorded separately"
+}

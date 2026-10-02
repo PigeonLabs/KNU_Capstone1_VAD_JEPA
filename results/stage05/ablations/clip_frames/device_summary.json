@@ -1,0 +1,59 @@
+{
+  "scope": "P3; mean of three fixed seed metrics; shared t=19..N-8/GT mask; whole-video bootstrap1000; per-context normal head/PCA/bank/temperature/MAD/q99 refit; no test selection or runtime claim",
+  "results": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "clip_frames": 16,
+      "variant": "T16",
+      "score_variant": "P3",
+      "seeds": 3,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.47012246482932635,
+      "auroc_ci_low": 0.40291313834673176,
+      "auroc_ci_high": 0.52833663826405,
+      "ap_mean": 0.33210396074154036,
+      "ap_ci_low": 0.18067959706333225,
+      "ap_ci_high": 0.49840661747180554,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    },
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "clip_frames": 8,
+      "variant": "T8",
+      "score_variant": "P3",
+      "seeds": 3,
+      "test_videos": 15,
+      "frames": 3295,
+      "anomaly_frames": 1227,
+      "auroc_mean": 0.4470675647911251,
+      "auroc_ci_low": 0.38942822551640144,
+      "auroc_ci_high": 0.49814672181253417,
+      "ap_mean": 0.32197274418102767,
+      "ap_ci_low": 0.1732464810063129,
+      "ap_ci_high": 0.48431337513915873,
+      "bootstrap_draws": 1000,
+      "bootstrap_rejected": 0
+    }
+  ],
+  "paired_deltas": [
+    {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "comparison": "T8_minus_T16",
+      "auroc_delta": -0.023054900038201265,
+      "auroc_delta_ci_low": -0.056324727801517364,
+      "auroc_delta_ci_high": 0.011834887374008727,
+      "ap_delta": -0.01013121656051269,
+      "ap_delta_ci_low": -0.023941556122958164,
+      "ap_delta_ci_high": 0.0030811009170300077,
+      "device": "R01"
+    }
+  ]
+}

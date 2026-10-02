@@ -1,0 +1,260 @@
+{
+  "status": "normal_fit_and_calibration_complete",
+  "backbone": "vjepa21-l",
+  "mode": "offline",
+  "device": "R04",
+  "seed": 1,
+  "configuration": "B8_M2048",
+  "bins": 8,
+  "total_prototypes": 2048,
+  "prototypes_per_bin": 256,
+  "pca_dimensions": 256,
+  "pca_samples": 50000,
+  "pca_explained_variance_ratio": 0.9460287094116211,
+  "candidate_sampling": [
+    {
+      "phase_bin": 0,
+      "tokens": 10000,
+      "per_video": {
+        "01": 588,
+        "04": 589,
+        "06": 588,
+        "07": 588,
+        "08": 588,
+        "10": 588,
+        "11": 588,
+        "12": 588,
+        "13": 588,
+        "16": 588,
+        "17": 589,
+        "18": 588,
+        "19": 588,
+        "20": 588,
+        "21": 589,
+        "22": 589,
+        "25": 588
+      }
+    },
+    {
+      "phase_bin": 1,
+      "tokens": 10000,
+      "per_video": {
+        "01": 588,
+        "04": 588,
+        "06": 589,
+        "07": 588,
+        "08": 588,
+        "10": 588,
+        "11": 589,
+        "12": 589,
+        "13": 588,
+        "16": 588,
+        "17": 588,
+        "18": 588,
+        "19": 589,
+        "20": 588,
+        "21": 588,
+        "22": 588,
+        "25": 588
+      }
+    },
+    {
+      "phase_bin": 2,
+      "tokens": 10000,
+      "per_video": {
+        "01": 588,
+        "04": 588,
+        "06": 588,
+        "07": 589,
+        "08": 589,
+        "10": 588,
+        "11": 588,
+        "12": 588,
+        "13": 588,
+        "16": 588,
+        "17": 588,
+        "18": 589,
+        "19": 588,
+        "20": 588,
+        "21": 588,
+        "22": 589,
+        "25": 588
+      }
+    },
+    {
+      "phase_bin": 3,
+      "tokens": 10000,
+      "per_video": {
+        "01": 588,
+        "04": 589,
+        "06": 588,
+        "07": 589,
+        "08": 588,
+        "10": 588,
+        "11": 589,
+        "12": 589,
+        "13": 588,
+        "16": 588,
+        "17": 588,
+        "18": 588,
+        "19": 588,
+        "20": 588,
+        "21": 588,
+        "22": 588,
+        "25": 588
+      }
+    },
+    {
+      "phase_bin": 4,
+      "tokens": 10000,
+      "per_video": {
+        "01": 589,
+        "04": 588,
+        "06": 588,
+        "07": 588,
+        "08": 588,
+        "10": 589,
+        "11": 588,
+        "12": 588,
+        "13": 589,
+        "16": 588,
+        "17": 588,
+        "18": 588,
+        "19": 589,
+        "20": 588,
+        "21": 588,
+        "22": 588,
+        "25": 588
+      }
+    },
+    {
+      "phase_bin": 5,
+      "tokens": 10000,
+      "per_video": {
+        "01": 589,
+        "04": 588,
+        "06": 589,
+        "07": 589,
+        "08": 589,
+        "10": 588,
+        "11": 588,
+        "12": 588,
+        "13": 588,
+        "16": 588,
+        "17": 588,
+        "18": 588,
+        "19": 588,
+        "20": 588,
+        "21": 588,
+        "22": 588,
+        "25": 588
+      }
+    },
+    {
+      "phase_bin": 6,
+      "tokens": 10000,
+      "per_video": {
+        "01": 588,
+        "04": 588,
+        "06": 588,
+        "07": 588,
+        "08": 588,
+        "10": 588,
+        "11": 588,
+        "12": 588,
+        "13": 589,
+        "16": 588,
+        "17": 588,
+        "18": 589,
+        "19": 588,
+        "20": 588,
+        "21": 588,
+        "22": 589,
+        "25": 589
+      }
+    },
+    {
+      "phase_bin": 7,
+      "tokens": 10000,
+      "per_video": {
+        "01": 588,
+        "04": 588,
+        "06": 588,
+        "07": 588,
+        "08": 589,
+        "10": 588,
+        "11": 588,
+        "12": 589,
+        "13": 588,
+        "16": 589,
+        "17": 588,
+        "18": 588,
+        "19": 588,
+        "20": 588,
+        "21": 588,
+        "22": 589,
+        "25": 588
+      }
+    }
+  ],
+  "calibration_mask": "t=19..N-8 inclusive",
+  "history": 5,
+  "neighbours": 5,
+  "score_weights": [
+    0.5,
+    0.5
+  ],
+  "cycle_length_fit_median": 385.0,
+  "temperature": 0.9507197141647339,
+  "temperature_samples": 50000,
+  "temperature_definition": "Per-bank normal calibration median fifth squared-neighbour distance; floor1e-6",
+  "bank_sha256": "7592ee3a14124a3e2036008bbff0b7890f056c6da4e41fe86114a8d2965d2452",
+  "source_memory_sha256": "d791642c4fb42768ad62ef15e6dfa041f7babedb862dac6447778f41c6620446",
+  "source_cache_identity": {
+    "backbone": "vjepa21-l",
+    "mode": "offline",
+    "weights_sha256": "7ea9b7cb4a75d10644a8a8d42cff9e177b10dca8f02173f0eaf2b0bed82838c6",
+    "upstream_commit": "204698b45b3712590f06245fbfba32d3be539812",
+    "adapter_sha256": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "reader_sha256": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "image_size": 384,
+    "clip_frames": 16,
+    "fit_stride": 4,
+    "preprocessing": "RGB full-frame PIL bilinear resize; ImageNet mean/std",
+    "feature_dtype": "float16 from BF16 inference"
+  },
+  "source_normal_fit_sha256": "8300572bf937a6c9992374484e80b4c9e26237c3e987f884ae9134cc52029fbe",
+  "source_phase_checkpoint_sha256": "a6a39fb095c5a887e1b7786a875d783fdf8f21ce583aa17468cf3f76ae9359dd",
+  "calibration": {
+    "P3": {
+      "median": [
+        0.472934752702713,
+        0.012651979899501243
+      ],
+      "mad_scale": [
+        0.01362075371146202,
+        0.011072481137452432
+      ],
+      "threshold": 4.259963807700968,
+      "component_thresholds": [
+        0.5089708292484283,
+        0.098589772369812
+      ]
+    }
+  },
+  "code_sha256": "8a1896999a6ca4531b2ef95c697d0e4bae3289cfd26049f7fd1a8689f50b8965",
+  "memory_code_sha256": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+  "candidate_code_sha256": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+  "temperature_code_sha256": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+  "search_code_sha256": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+  "temporal_code_sha256": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+  "unchanged_components": [
+    "frozen_encoder",
+    "phase_head",
+    "clip16",
+    "time_history5",
+    "P3_weights"
+  ],
+  "sampling_policy": "Budget comparison shares candidates and PCA; bin comparison refits phase-stratified normal candidates/PCA. K-center prefixes have the same RNG initial centres as separate fits.",
+  "scope": "Normal bank geometry OFAT and per-bank normal-only recalibration before test scoring"
+}

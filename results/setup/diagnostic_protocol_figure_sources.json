@@ -1,0 +1,101 @@
+{
+  "status": "rendered_fixed_protocol_only",
+  "diagnostic_videos_by_device": {
+    "R01": 6,
+    "R02": 4,
+    "R03": 3,
+    "R04": 4
+  },
+  "source_videos": 17,
+  "scenarios_per_video": 49,
+  "scenario_families": {
+    "normal": 1,
+    "temporal": 6,
+    "appearance": 6,
+    "mixed": 36
+  },
+  "planned_scenario_videos": 833,
+  "example_source": {
+    "device": "R01",
+    "sequence": "02",
+    "frames": 214
+  },
+  "examples": [
+    {
+      "name": "stall_16",
+      "frames": 214,
+      "image_size": 384,
+      "temporal": "stall",
+      "temporal_start": 103,
+      "temporal_duration": 16,
+      "appearance": null,
+      "appearance_start": 0,
+      "appearance_duration": 0,
+      "area_fraction": 0.0,
+      "box": null,
+      "seed": 0,
+      "source_mapping_sha256": "964ccb0b036b2afaa1b33eabc9ee290339dc090ed857017d5c0ad68495deee58",
+      "intervention_labels_sha256": "697edd3e924fe721c702a0f5583aa7740028b5fded7d324c2f2b89c526332cfa",
+      "actual_area_fraction": 0,
+      "colour_shift_rgb_unit": null
+    },
+    {
+      "name": "local_colour_4",
+      "frames": 214,
+      "image_size": 384,
+      "temporal": null,
+      "temporal_start": 0,
+      "temporal_duration": 0,
+      "appearance": "local_colour",
+      "appearance_start": 95,
+      "appearance_duration": 32,
+      "area_fraction": 0.04,
+      "box": [
+        256,
+        333,
+        98,
+        175
+      ],
+      "seed": 0,
+      "source_mapping_sha256": "9084ecbea3e0b5015a563f787755eec578aa3f4c2f6357b80de20637d4165637",
+      "intervention_labels_sha256": "c7959e78432f641ea016ffa7912d4b2db8ac561bab1d8ff5f03907a42e8112ca",
+      "actual_area_fraction": 0.04020860460069445,
+      "colour_shift_rgb_unit": [
+        0.25,
+        -0.15,
+        0.15
+      ]
+    },
+    {
+      "name": "stall_8__occlusion_1",
+      "frames": 214,
+      "image_size": 384,
+      "temporal": "stall",
+      "temporal_start": 107,
+      "temporal_duration": 8,
+      "appearance": "occlusion",
+      "appearance_start": 95,
+      "appearance_duration": 32,
+      "area_fraction": 0.01,
+      "box": [
+        275,
+        313,
+        117,
+        155
+      ],
+      "seed": 0,
+      "source_mapping_sha256": "31e3f887b57e04582a7610b58173a6325a14e73c3868f0b91b57f7b17ff9458e",
+      "intervention_labels_sha256": "541391d2e61ee3df5705896c5ac0f5e6e12deef96810d2f27861454da194b0f5",
+      "actual_area_fraction": 0.009792751736111112,
+      "colour_shift_rgb_unit": null
+    }
+  ],
+  "manifest_sha256": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+  "intervention_code_sha256": "c4cd551e4c68faf4da25db1c171ecef1df122fceaef3882b96172866d62acca6",
+  "plot_code_sha256": "4fca1766d3f12896cf3b7519859943bf2220cf196c269e3683130de0b6c8ca03",
+  "figures": {
+    "docs/figures/stage05/diagnostic_protocol.png": "d03fa8370e91c585ef7360d6d888474e94a1eff499ca2588c6e3c7fdb719a081",
+    "docs/figures/stage05/diagnostic_protocol.svg": "ce84821516cd5ae8ee952f1f54e8db8d4b8d6b85f051da2e00d2b221b60860a2"
+  },
+  "scope": "Actual held-out inventory and declared injection labels only; no encoder/evidence predictions, confusion, F1, accuracy or runtime completion claim"
+}

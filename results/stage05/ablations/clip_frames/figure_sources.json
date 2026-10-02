@@ -1,0 +1,20 @@
+{
+  "status": "rendered_from_verified_summaries",
+  "matrix_complete": false,
+  "completed_groups": 1,
+  "validation_sha256": "01100d3d812792b3902359465d6dd2e9779e902b272611792d4edb4817c6add3",
+  "device_summary_sha256": "2a984b7829f28788b8e0894ac57965f1bec1e946335d4a856a33e8bcc89d0b38",
+  "macro_summary_sha256": "8bebb6c4e492d71c64ca72ea0ecd0e273fffbee05f238ea45a6a4af005dcdb5a",
+  "plot_code_sha256": "580a2850fd4107d062c8bfdef2cc3f2fa748802016049a26a573199a06217462",
+  "shared_plot_code_sha256": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
+  "reporting_runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "figures": {
+    "clip_dinov3-l_offline_R01.png": "ee649e4c30c61bfdb6e108f4be7be243c388b37bf0752bb18d34ff2cc50fc0fa",
+    "clip_dinov3-l_offline_R01.svg": "0e7cc3a91d65138d16137e8876913460e13ac479ae056aa04593d531d5e19dcf"
+  },
+  "scope": "Completed three-seed groups only; final visual inspection recorded separately"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "passed_full192_ready_to_publish",
+  "full_seed_conditions": 192,
+  "canonical_condition_files": 3936,
+  "canonical_inventory_sha256": "f7889708bf117b4f39a94f8468235706f268ca5e8c996dfeb6cb6c2d14832163",
+  "validation_sha256": "5249f0783e60afa1a96a7a8719d404e90c16237609ccaaeea191f06e70ef0dcc",
+  "device_summary_sha256": "9e658de033883ab9df84a7ecf3368ce9d77ef25b61c2a80197f9af4ff27c410a",
+  "macro_summary_sha256": "1576cb2ab6b656d3941f816677669ec1bf78ae5d5e2f2b4d951da9fc894ea6cc",
+  "figure_sources_sha256": "d2e5caeb3fe0fb71689ea1aefdbf50f44454629fee61a46fee8b8dae80aea8fa",
+  "preserved_first_group_files_identical": 228,
+  "original_default_macro4_points_reproduced": 4,
+  "full_visual_review": {
+    "png_count": 6,
+    "status": "all_six_inspected",
+    "checks": [
+      "Budget/bin plots display the actual macro means and whole-video confidence bounds",
+      "Paired difference directions and zero-lines agree with full audited summary",
+      "All model/mode labels, legends, axes and source/scope captions readable without overlap",
+      "SVG files saved from same inspected figures; hashes verified"
+    ]
+  },
+  "scope": "Full192 actual bank/provenance/normal-q99/GT/score/alarm/metric audit and six figure reviews. Frozen cached-feature/head ablation, no encoder re-extraction or runtime claim."
+}
