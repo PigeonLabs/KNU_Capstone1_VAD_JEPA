@@ -1,0 +1,167 @@
+{
+  "status": "exported_actual_audited_runtime_pairs",
+  "condition": {
+    "backbone": "dinov3-l",
+    "mode": "online",
+    "device": "R01",
+    "seed": 0,
+    "adaptation": "frozen",
+    "precision": "bf16",
+    "implementation": "full"
+  },
+  "test_videos_per_run": 15,
+  "plotted_measurements": [
+    {
+      "precision": "bf16",
+      "implementation": "full",
+      "sustained_input_fps": 16.46304964996589,
+      "target_latency_p95_ms": 7172.031953150138,
+      "peak_allocated_vram_mib": 1577.67431640625,
+      "frame_metrics_shared_mask": {
+        "frame_auroc": 0.5386646205066847,
+        "frame_ap": 0.3602735432718036,
+        "frames": 3295,
+        "anomaly_frames": 1227
+      },
+      "paired_gate_status": "passed"
+    },
+    {
+      "precision": "bf16",
+      "implementation": "buffer",
+      "sustained_input_fps": 17.050905771611127,
+      "target_latency_p95_ms": 6313.829704983498,
+      "peak_allocated_vram_mib": 1605.98681640625,
+      "frame_metrics_shared_mask": {
+        "frame_auroc": 0.5386646205066847,
+        "frame_ap": 0.3602735432718036,
+        "frames": 3295,
+        "anomaly_frames": 1227
+      },
+      "paired_gate_status": "passed"
+    },
+    {
+      "precision": "fp32",
+      "implementation": "full",
+      "sustained_input_fps": 5.091088846769411,
+      "target_latency_p95_ms": 44064.40079965006,
+      "peak_allocated_vram_mib": 1634.58056640625,
+      "frame_metrics_shared_mask": {
+        "frame_auroc": 0.5362046569844521,
+        "frame_ap": 0.3575710759754558,
+        "frames": 3295,
+        "anomaly_frames": 1227
+      },
+      "paired_gate_status": "failed"
+    },
+    {
+      "precision": "fp32",
+      "implementation": "reuse",
+      "sustained_input_fps": 29.913491762266325,
+      "target_latency_p95_ms": 37.642644500292434,
+      "peak_allocated_vram_mib": 1317.0498046875,
+      "frame_metrics_shared_mask": {
+        "frame_auroc": 0.5362007159983542,
+        "frame_ap": 0.35756851750923335,
+        "frames": 3295,
+        "anomaly_frames": 1227
+      },
+      "paired_gate_status": "failed"
+    }
+  ],
+  "parity": {
+    "bf16": {
+      "status": "passed",
+      "failed_videos": [],
+      "alarm_mismatches": 0
+    },
+    "fp32": {
+      "status": "failed",
+      "failed_videos": [
+        "03",
+        "11",
+        "13"
+      ],
+      "alarm_mismatches": 0
+    }
+  },
+  "source_sha256": {
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/trace_audit.json": "94263a19f9366d012b0686c963d0c4e6c85e473aa4cd03ae456315940592993a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/01.csv": "4feba153122ca36ba6e8c435b15a75a34c369a9d8446d1a39e79cf1d95b8a9d8",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/02.csv": "545b699d14847bb17a6e9c403a6529457348f8b4380d1d8aee4dc4c06f13886a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/03.csv": "d393b8e23fc5c9c20d0c98cca98ebf3a36f079d7d90477d36742d1220ee3e445",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/04.csv": "46b1ac74c388f0b36787bc5b0a1980d74ac7043da1db9d4d0a63f81062f76b72",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/05.csv": "d32f0dc640eaade9e0fc9793c0cf321b20ae258801711bbff858b1015c89e0a9",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/06.csv": "81cb886954e8973f6b10a6043ae2e1a6c59db095052e9e250b03c040a4691763",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/07.csv": "1fcfa349720767ced8921019b238f97e40c69dc7af82e4cedc4c189823fccf6a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/08.csv": "0bac83e06c92755dceb48366c5c94123aa8b2355a1a25e96a2e8d71f4cb5a66a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/09.csv": "48fffb93802e60b85c563d05f751dbb6f9b954b229719c6b4b5d899cef31e04d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/10.csv": "adbfd5266aa53f3e3a267fe6695b5885030b1b556ca38471f543182dd3a31468",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/11.csv": "9c873cc6001b1358f95dbcec4c68e4273f4677f2925793a2de0f9504244d428c",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/12.csv": "89618a04226842e21770ec50a19cda3d293212e8912b2da3328ca6b550c7cd77",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/13.csv": "45a70d3d4d977bebc8f8ac4250bb5fa4bbf52d7980c18edd5abbf7cabc3334c1",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/14.csv": "38d52620dfe17a93910c51fb3b3db6587d82b25634f7f5e0a3a21c3e66699fea",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/15.csv": "809150bb599ee2704e489d33ba4d1b46375d7538e0c0c4f7bd403d91782ea02d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/runtime.json": "a7392801544d63a58622cabb31f2fafb1662bd2f4b0255cee415dd5011d5aaef",
+    "results/stage02/dinov3-l/online/R01/seed0/normal_fit.json": "7590827555d4013902314451b0799522898fdf6df24864a535b4450d3229fac9",
+    "results/stage02/dinov3-l/online/R01/seed0/normal_calibration.csv": "54c636f8e4e772daf38e336f2fbdbb398cb2913911a00030f99271101c99b8e5",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/trace_audit.json": "f66dabc10007507432d06beb582d028a38dd5bd6546ea89340a57cc1152a42e6",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/01.csv": "ba739fb31c48b7898aa2b8a7d006c9f9123ef7301a4e3ab1885700dd2a241236",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/02.csv": "577d10ae7909d56df29043d49ad00cea61c2d88052bf41bf47882e765b95281a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/03.csv": "7f6d94743366cee099799993b2192790b6d718d6baf9a5e66efe091d19e7b143",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/04.csv": "669cfd727b86485653daf6a8f7c802f07a935e08514d0646d81414d9f093e956",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/05.csv": "99b177a8322a7f24ffadc6e9601a50f082e93382de76ee6264a7c8aa4f185eea",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/06.csv": "819358f093ea99b5850fb44aed49d869b0dfc7ab7252f8a24794a5adc0bd07de",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/07.csv": "71f4362aace1254f9e5af878b1ac96dc7f8f17148ee137a268769c2a1b82b23c",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/08.csv": "7c56066be03453ee8d49522f36f369a2b78924c66471382af06c739a72263353",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/09.csv": "ed00b6b24f9edf22a3d26388edfe20cb5f5aadc6f5e852fdc199f54c0bd2eb6d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/10.csv": "494396614cbe1b4713da39bcfb02a3b5e902e2cc85c3ca45c6570c4fb476ec43",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/11.csv": "22cf95bcb1191e1514ba14b8b41ef5973d161c79c3b5efa6f03070d4ae55f8df",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/12.csv": "b8cbe8228557e3acb6ae3e48abaa8083fa895683b0fcd7251fe9a9c6655fc38f",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/13.csv": "613d581d7588953216c45d8733d44d79df9ba0dffe7439cc908fc039e15708b4",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/14.csv": "d9a06864da915176ad0f81b246123b5e9348c6ef10f0d25f2c4d550cbc2c31ab",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/15.csv": "03bc57c81bcff74c930b908ef48d28687c7b5803c5aedb724c3a02fd97af5e12",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/buffer/runtime.json": "c4dd23f09959e0aeba06a0efa853a9b8c22a04449a9faa6fc9388db205c08539",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/parity.json": "900aa878539505892aeb8330c7a46f281878063e1287f4a92f17329814ef48a5",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/trace_audit.json": "72759236a7949a0e094a2ee8868afd2b0165eff6f5fca3dd287abc02535b9310",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/01.csv": "ce366ca5a21e34e0aad960924c361103a1dfe64750ef0dc27caa48a1e7bac32d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/02.csv": "d71ea32257bf674505d8c67268438a8779d7b2fa9866980c4e089a3ef50fcaac",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/03.csv": "35fd409021d491d2085d009d2fc4305a496ae52dbecdbfc55753310810bca2f4",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/04.csv": "5cf6eabf3f590cb71cdebafdb1acbf312ae7f2ce1a2719b58cab13ec37efcecd",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/05.csv": "7ab1be5922bc24049a1223cd42b1a8955d6be79de3494d67ff75f5b4cbf1aa97",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/06.csv": "1bb136b9d454e5545c4e0defccefc3ff054ac7680d6b3d284a6dbe6e61b94ddf",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/07.csv": "c2d15c81629876a52d8858605a863f4b7b9e4e2f1eeaadeabe06f7ffc43879bf",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/08.csv": "aaf2ca9720acaf25728adb702feeedfc5991bb8b17967e7353352aec1ce6dc0a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/09.csv": "bf5f8c500d2460d0d6dd0e7c6f3e8cccd88940b38f39e08f09d2fb1b9207b32c",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/10.csv": "e2605c0f7d1483bab9d9b3ea0c67996c82f10ba7504089edf6213e47ab12afae",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/11.csv": "67dc5a89ef5be9d0309c43d5635b6f3f1527d52a13dc30c52e3322363ac0472d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/12.csv": "969e10ad578d69597cf36a310d07a2b8afed2781865ffd0d30ab84c6772cdebb",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/13.csv": "361e4fc465969deaf64e4551f68f3bb84dd485105937a8bffcd8079adfeb5e6a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/14.csv": "18621f89afe6c3629930d4fa86f046fbbc68075ef556fb63a3f430b7c531bf02",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/15.csv": "fc9f1fd6953fec8539c62efa6a5e052cb91a28d1f364bb3abfa9b1a62f099778",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/runtime.json": "c43d6e27aaf5c4e96d0c73263f81db96429318b71871b36c5be66879eb635c76",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/trace_audit.json": "5d3999c94df6eb2c934bf4a0f3d3c5fdf447184047271f536a259d2fdfa28f39",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/01.csv": "04bdc4a74247ae0f028570467fa12a17904d8eb90bac255ab804cd14840cd3ce",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/02.csv": "b1aa255b45cd05850b11d8a304afc1c746fb1a036910caffc5fa1de70ea06167",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/03.csv": "85d6f44c8f263f0d7e98aa983075b90ee3a13f3f07dc00dbcf19538b1cbbb495",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/04.csv": "f46b567c8d39c8983547063dfb7d87f0c0118cde71acc27d457d58599085f0dc",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/05.csv": "8108bf8b8848d1a4a55207f3a27409d9f4bd8bee56683315299ab505cfd2ad3b",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/06.csv": "9d5f3282f3427959bfb8bb93e8c62e4d16ed4fac434ce1757766a357eb54784a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/07.csv": "abbd5cb8fc68cab0d395a487bf33673124e343694cf17f20580d7e50bafa618e",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/08.csv": "4cef557cef5d2b8cb867c88455608ba24adf712e3c9082fd009e8426abb4126d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/09.csv": "a74a6c02847de79ca0d0668e00df8302ec998633073b3ea284116e9172b01374",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/10.csv": "ec17756e0fa96d4d258c38977d2a373ede1114b5a7768a477a19ec07669744f4",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/11.csv": "8c1e7cb61c9fdf7bf9521e5329574d9635fd41ffee9085b875e3e30199a112f6",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/12.csv": "2594f81accbc6fa06e394bddb94073f842fe439fb9f6c4547ff6af1e4afbabd8",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/13.csv": "147724558eba81b5251d050cca9a8b75c609e34737e213789de7ad6ca9a09577",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/14.csv": "642c80682c42219b21646691b1c08e47fd299db72ec6287ac9bdcc076b34382c",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/15.csv": "4e9cbc36e82fe16fd0031c3b351837fffdd3f4303e87a0c5ea6a2b807f5cbeda",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/runtime.json": "83df422f7777827a276b615ce9755e542f1b4d752ebf0052f70f0b27a48750f7",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/parity.json": "250f407c966721310c8e407b3163e4af8dfa897f8a518c750c9744bbf63f5a79",
+    "scripts/plot_runtime_pairs.py": "91d95bdd8023a9141aa08f522ecbc6e5bfc1340eb790e13d63ba9febce43badc"
+  },
+  "files_sha256": {
+    "docs/figures/stage05/runtime/dinov3-l_online_R01_seed0_frozen_pairs.png": "9ea8fb400623f9f2b9bf942093eef629bc109e00e64113672d935f226b82c486",
+    "docs/figures/stage05/runtime/dinov3-l_online_R01_seed0_frozen_pairs.svg": "c06a8d5ef9679c6a228f4022bc508e79f8b8eaafcf64178421c50ac598df6dca"
+  },
+  "scope": "Two separate precision pairs for one measured condition; failed fixed gates remain failed; measured target p95, no repeat-run CI, encoder/search replay, maximum throughput or camera claim."
+}

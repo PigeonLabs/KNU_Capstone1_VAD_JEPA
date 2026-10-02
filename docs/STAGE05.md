@@ -59,7 +59,7 @@ python scripts/benchmark_runtime.py --model dinov3-l --mode online \
 
 LoRA의 `full`/`buffer`, DINO 온라인 FP32 `full`/`reuse`도 각각 같은 선택 adapter·head·재구성 메모리로 비교해야 한다. 고정 백본의 특징 재사용 검증을 LoRA에 적용하지 않으며, 실제 LoRA 점수·알람 일치 게이트는 아직 실행하지 않았다. 체크포인트 선택과 혼합 조건 거부는 CPU 테스트 대상이며 실제 GPU 처리량을 뜻하지 않는다.
 
-[verify_runtime_parity.py](../scripts/verify_runtime_parity.py)는 완료된 `full` 실행과 같은 precision의 `buffer` 또는 허용된 FP32 `reuse` 실행을 비교한다. 모델·위상 head·메모리·선택 adapter·teacher 손실 비중·입력 manifest·영상/라벨 해시가 같은지 확인하고, 알람이 유효한 모든 target의 위상·특징/시간 점수·최종 점수·알람을 비교한다. 온라인 마지막 7프레임과 미확정 GT도 제외하지 않는다. 사전에 고정한 게이트는 위상 circular 최대 차이 1e−5, raw 점수 `rtol=1e−5/atol=1e−7`, 최종 점수 `rtol=1e−5/atol=1e−4`, 알람 불일치 0개다. 게이트 통과는 해당 실제 측정 쌍에만 적용하며, 기존 batch 4 정확도 캐시와의 일치까지 의미하지 않는다. 아직 실제 GPU 비교 결과는 없다.
+[verify_runtime_parity.py](../scripts/verify_runtime_parity.py)는 완료된 `full` 실행과 같은 precision의 `buffer` 또는 허용된 FP32 `reuse` 실행을 비교한다. 모델·위상 head·메모리·선택 adapter·teacher 손실 비중·입력 manifest·영상/라벨 해시가 같은지 확인하고, 알람이 유효한 모든 target의 위상·특징/시간 점수·최종 점수·알람을 비교한다. 온라인 마지막 7프레임과 미확정 GT도 제외하지 않는다. 사전에 고정한 게이트는 위상 circular 최대 차이 1e−5, raw 점수 `rtol=1e−5/atol=1e−7`, 최종 점수 `rtol=1e−5/atol=1e−4`, 알람 불일치 0개다. 게이트 통과는 해당 실제 측정 쌍에만 적용하며, 기존 batch 4 정확도 캐시와의 일치까지 의미하지 않는다. R01 고정 DINOv3 온라인 seed 0의 실제 BF16 full/buffer 게이트는 통과했고, FP32 full/reuse는 일부 점수 게이트에 실패했다. 아래 실제 비교 결과에 전체 영상의 근거를 기록한다.
 
 ```bash
 python scripts/verify_runtime_parity.py \
@@ -103,7 +103,7 @@ DINOv3-L 온라인 R01 seed 0, 고정 백본·P3·BF16·full 재계산의 **15�
 
 [원본 15개 CSV·runtime JSON·trace 검증](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full), [PNG/SVG와 그림 소스 해시](figures/stage05/runtime/dinov3-l_online_R01_seed0_frozen_bf16_full.json)를 제공한다. 실제 CSV의 도착 순서·GT·정상 보정·위상 이력·점수·알람·지표·이벤트와 전체 FPS/p50/p95/queue/cost를 재계산했고 PNG를 열어 범례·축·단위·출력 범위를 확인했다.
 
-기존 batch 4 encoder 특징 캐시의 같은 seed P3 AUROC/AP는 53.94/36.11%로, runtime batch 1의 53.87/36.03%와 다르다. head는 기존 캐시 평가에서 여러 target을 batch로 처리한다. 동일 정상 보정과 공통 GT를 사용했지만 수치·알람 동등성을 선언하지 않는다. 현재 결과는 한 seed·한 구현의 실제 파일 재생이며 full/buffer·FP32 full/reuse 비교, 반복 측정 CI, 전체 장비·LoRA 실시간 비교, 실제 카메라 입력은 아직 완료되지 않았다. GPU 격리는 setup과 각 영상 전후 다른 compute PID가 없는지 확인한 범위이며 검사 사이의 순간적인 외부 작업은 독립 감시하지 않았다.
+기존 batch 4 encoder 특징 캐시의 같은 seed P3 AUROC/AP는 53.94/36.11%로, runtime batch 1의 53.87/36.03%와 다르다. head는 기존 캐시 평가에서 여러 target을 batch로 처리한다. 동일 정상 보정과 공통 GT를 사용했지만 수치·알람 동등성을 선언하지 않는다. 첫 결과와 같은 조건의 full/buffer·FP32 full/reuse 비교를 아래에 추가했다. 여전히 한 seed·한 장비의 실제 파일 재생이며 반복 측정 CI, 전체 장비·LoRA 실시간 비교, 실제 카메라 입력은 아직 완료되지 않았다. GPU 격리는 setup과 각 영상 전후 다른 compute PID가 없는지 확인한 범위이며 검사 사이의 순간적인 외부 작업은 독립 감시하지 않았다.
 
 ```bash
 PYTHONPATH=src:scripts python scripts/audit_runtime.py \
@@ -134,3 +134,40 @@ PYTHONPATH=src:scripts python scripts/run_runtime_matrix.py \
 [audit_runtime.py](../scripts/audit_runtime.py)는 완료된 측정 CSV에서 입력 순서·전체 프레임 수·도착/서비스/출력 시점·queue/lookahead/target latency를 재계산한다. 고정 정상 P3 median/MAD·q99, 실제 annotation·공통 mask, 위상 이력·최종 점수·3프레임 연속 알람, AUROC/AP와 이벤트 집계를 검증한다. 온라인 EOF와 미확정 GT도 실제 알람 검증에서 제외하지 않는다. 이벤트 정의는 기존 공용 함수를 재생하며, encoder/PCA/search 재실행·독립 VRAM 측정·반복 측정 CI를 주장하지 않는다.
 
 [plot_runtime.py](../scripts/plot_runtime.py)는 이 검증을 다시 실행하고 같은 실제 CSV에서 영상별 FPS·latency p50/p95·처리 비용·사전 고정 영상 03의 FIFO 궤적을 PNG/SVG로 생성한다. p50/p95는 측정 target의 백분위이며 신뢰구간이 아니다. 한 seed의 파일 재생 수치를 최대 처리량·실제 카메라 결과·세-seed 평균으로 해석하지 않는다.
+
+
+### 같은 조건의 버퍼·특징 재사용 실측
+
+위와 같은 고정 DINOv3-L 온라인 R01 seed 0의 선택 head·정상 메모리·보정과 실제 테스트 15개 영상을 유지했다. 네 실행 모두 실제 종료 코드 0과 입력 3,685개·알람 유효 target 3,400개·공통 GT target 3,295개를 확인했다. 각 저장 trace를 독립 재생해 점수·알람·queue·시간·지표를 검증했다. BF16/FP32는 별도 수치 조건이며 구현 비교는 같은 precision의 full을 기준으로 한다.
+
+| precision / 구현 | 지속 입력 FPS | target 지연 p95 (ms) | peak allocated (MiB) | 공통 AUROC / AP (%) |
+|---|---:|---:|---:|---:|
+| BF16 / full | 16.4630 | 7,172.03 | 1,577.67 | 53.8665 / 36.0274 |
+| BF16 / buffer | 17.0509 | 6,313.83 | 1,605.99 | 53.8665 / 36.0274 |
+| FP32 / full | 5.0911 | 44,064.40 | 1,634.58 | 53.6205 / 35.7571 |
+| FP32 / reuse | 29.9135 | 37.64 | 1,317.05 | 53.6201 / 35.7569 |
+
+BF16 full/buffer는 15개 영상의 위상·특징/시간 점수·최종 점수·알람 차이가 모두 0이었다. GPU 픽셀 버퍼는 전송/clip 조합을 줄이지만 encoder를 매번 재계산하므로 이 조건에서 30 FPS 입력의 queue 증가를 해소하지 못했다.
+
+**FP32 full/reuse의 사전 점수 게이트는 실패했다.** 위상과 시간 점수 게이트는 통과했고 실제 알람 불일치는 0개였으나, 영상 03·11·13에서 특징 잔차와 최종 점수가 허용 오차를 초과했다. 아래 수치는 영상의 모든 알람 유효 target 중 최대 절대 차이이며, 고정 게이트는 위 절의 `allclose(rtol, atol)` 그대로 유지한다.
+
+| 영상 | 특징 잔차 최대 절대 차이 | 최종 점수 최대 절대 차이 | 알람 불일치 |
+|---|---:|---:|---:|
+| 03 | 0.0002212226 | 0.0010887255 | 0 |
+| 11 | 0.0004786253 | 0.0023368037 | 0 |
+| 13 | 0.0004116595 | 0.0020055073 | 0 |
+
+초기 네 clip의 FP32 특징 오차 통과는 전체 영상의 downstream 점수 동등성을 입증하지 못했다. 처리 속도와 알람 일치만으로 점수 동등성을 선언하거나 허용 오차를 늘리지 않는다. 수치 차이의 원인과 다른 조건의 재현 여부는 추가 확인 대상이다. BF16 주 조건에 FP32 reuse 속도를 대입하지 않으며, 29.91 FPS는 30 FPS 도착으로 제한한 파일 재생 결과여서 최대 처리량을 뜻하지 않는다.
+
+![precision별 실시간 처리량·지연과 실패한 점수 게이트](figures/stage05/runtime/dinov3-l_online_R01_seed0_frozen_pairs.png)
+
+지연 패널은 로그 축이며 숫자를 ms로 함께 표시했다. p95는 실제 target 분포의 백분위이고 CI가 아니다. [그림 PNG/SVG·수치·소스 해시](figures/stage05/runtime/dinov3-l_online_R01_seed0_frozen_pairs.json), [BF16 원본·게이트](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16), [FP32 원본·게이트](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32)를 제공한다. trace 재생 통과와 full/candidate 점수 동등성 게이트를 구분한다. 전체 240회 중 이 한 주 조건의 네 실행이 완료됐으며 세-seed 실시간 평균·LoRA/V-JEPA의 실시간 우열·반복 측정 불확실성은 아직 없다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/plot_runtime_pairs.py \
+  --root results/stage05/runtime/frozen/dinov3-l/online/R01/seed0 \
+  --data-root "$IPAD_DATA_ROOT" \
+  --out docs/figures/stage05/runtime/dinov3-l_online_R01_seed0_frozen_pairs
+```
+
+[plot_runtime_pairs.py](../scripts/plot_runtime_pairs.py)는 네 trace 감사와 두 저장 gate를 실제 소스로 다시 계산한다. 실패 기록을 통과로 바꾼 파일이나 precision 간 선택 head/메모리/데이터가 다른 조건을 거부한다. 비교 그림은 실제 측정치와 실패 상태를 함께 보존하며 세-seed 평균·CI를 만들지 않는다.
