@@ -216,3 +216,20 @@ PYTHONPATH=src python scripts/diagnose_runtime_pair.py \
   --measurement-sources results/setup/runtime_controller_source_check.json \
   --figure docs/figures/stage05/runtime/dinov3_l_online_R01_seed0_fp32_raw_failures
 ```
+
+### GPU 검색 중간값 캡처 준비
+
+[probe_runtime_search.py](../scripts/probe_runtime_search.py)는 위 세 실패 target을 입력으로 사용한다. full/reuse를 **별도 프로세스**로 실행하며, 원래 정상 clip의 20회 warmup과 영상 시작부터 실패 target까지의 프레임 순서·FP32 encoder/head/search를 유지한다. 모델·선택 head·PCA/메모리·보정·원본·실측 소스 해시를 확인한다. 실행 중인 정확도 파이프라인과 같은 잠금을 사용하고 runtime controller가 hold 상태이며 GPU가 비어 있어야 시작한다.
+
+캡처한 PCA query·이웃 ID/거리·상위 5% patch 잔차는 기존 `TorchMemory`의 실제 API와 **정확히 같은 값**인지 확인한다. 보조 FP64 검색은 원래 **FP32 query/프로토타입을 승격한 뒤 명시적 차의 제곱합**으로 거리를 재계산한다. encoder/PCA를 FP64로 실행하는 실험이 아니다. k=5/6 경계 거리, full/reuse의 특징·query 및 원래 실측 점수 재현 여부를 후속 비교에 사용한다. 대형 배열은 ignored `artifacts/`에 저장한다.
+
+현재 상태는 **코드 준비·CPU 수치 검증 완료, 실제 GPU 캡처 미실행**이다. CPU 검증은 검색 ID·잔차 재현, NumPy 명시적 FP64 계산과의 비교, 작은 거리의 FP32 소거 및 잘못된 입력/변경된 scorer 거부를 확인했다. 아래 명령은 현재 정확도 학습·전체 평가가 끝난 뒤 각각 실행한다. 세 context 캡처만으로 전체 영상의 동등성을 선언하지 않으며 원래 parity 실패와 게이트·런타임 수치를 유지한다.
+
+```bash
+PYTHONPATH=src:scripts .venv/bin/python scripts/probe_runtime_search.py \
+  --implementation full --data-root ../IPAD_dataset/IPAD_dataset \
+  --capture-root artifacts/probes/dinov3_R01_seed0_fp32_full
+PYTHONPATH=src:scripts .venv/bin/python scripts/probe_runtime_search.py \
+  --implementation reuse --data-root ../IPAD_dataset/IPAD_dataset \
+  --capture-root artifacts/probes/dinov3_R01_seed0_fp32_reuse
+```
