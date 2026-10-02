@@ -62,10 +62,11 @@ def main():
     axis.spines[["top", "right", "left"]].set_visible(False)
     axis.tick_params(axis="y", length=0)
     fig.suptitle("Clip-context ablation / implemented input windows", fontsize=14)
-    legend = [Rectangle((0, 0), 1, 1, color="#8BBBD8", label="Context / global pooling"),
+    legend = [Rectangle((0, 0), 1, 1, color="#8BBBD8", label="Other context frames"),
               Rectangle((0, 0), 1, 1, color="#C17A1A", label="Local patch anchor (2 frames / 1 tubelet)")]
     axis.legend(handles=legend, loc="upper center", bbox_to_anchor=(.5, -.2), frameon=False, ncol=2)
     fig.text(.02, -.14, "Method diagram, not accuracy or latency results. Actual 8-frame GPU input/output checks passed for both L encoders.\n"
+             "Global phase features pool every block, including the local anchor.\n"
              "Head, PCA, prototypes and normal calibration are refitted; accuracy compares common t=19..N-8 targets.", fontsize=9)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     outputs = {}

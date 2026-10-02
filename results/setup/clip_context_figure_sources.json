@@ -1,0 +1,113 @@
+{
+  "status": "rendered_from_verified_clip8_checks_and_implemented_windows",
+  "scope": "Method illustration; lookahead counts are input geometry, not measured end-to-end latency",
+  "source_sha256": {
+    "src/ipad_jepa/clip8_features.py": "e38eeea3d4e6b8eb2c55f6848f4e836b2dbaacfe5a57d3362ecd53e64dc576b1",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "results/setup/dinov3-l_clip8_smoke.json": "97d79acec6806931a65f40e193822cd23ae672f9f6182184febcb1d09bb3fdc8",
+    "results/setup/vjepa21-l_clip8_smoke.json": "ab1e4eb5432f1cfee14c0c37b2e0d46d0a98ae5c071b861daa9ef9a578aaf4da",
+    "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/scripts/plot_clip_context.py": "4fc19a53c4e97176c591c173e5335c312abdb35f9c9c2b2182e0e70764d2bf9d"
+  },
+  "windows": [
+    {
+      "clip_frames": 16,
+      "mode": "offline",
+      "relative_input_ids": [
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "local_anchor_ids": [
+        0,
+        1
+      ],
+      "lookahead_frames": 7
+    },
+    {
+      "clip_frames": 16,
+      "mode": "online",
+      "relative_input_ids": [
+        -15,
+        -14,
+        -13,
+        -12,
+        -11,
+        -10,
+        -9,
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0
+      ],
+      "local_anchor_ids": [
+        -1,
+        0
+      ],
+      "lookahead_frames": 0
+    },
+    {
+      "clip_frames": 8,
+      "mode": "offline",
+      "relative_input_ids": [
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3
+      ],
+      "local_anchor_ids": [
+        0,
+        1
+      ],
+      "lookahead_frames": 3
+    },
+    {
+      "clip_frames": 8,
+      "mode": "online",
+      "relative_input_ids": [
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0
+      ],
+      "local_anchor_ids": [
+        -1,
+        0
+      ],
+      "lookahead_frames": 0
+    }
+  ],
+  "figure_sha256": {
+    "docs/figures/stage05/clip_context.png": "ee535dc5e58e4ef7b63a77fc37bde86e24e8e4b63f4b20cc5b38f4857d9ebca3",
+    "docs/figures/stage05/clip_context.svg": "a6ae6791b0818f9a28594aa186075225c2e425ffdb8029be3ae4c42af3f4b6ac"
+  },
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.3"
+}

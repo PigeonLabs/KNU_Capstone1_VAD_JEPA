@@ -1,0 +1,91 @@
+{
+  "status": "strict_load_and_real_clip8_both_modes_passed",
+  "backbone": "dinov3-l",
+  "spec": {
+    "schema_version": 1,
+    "backbone": "dinov3-l",
+    "mode": "offline",
+    "adapter_sha256": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "reader_sha256": "e38eeea3d4e6b8eb2c55f6848f4e836b2dbaacfe5a57d3362ecd53e64dc576b1",
+    "base_reader_sha256": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "temporal_code_sha256": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "upstream_commit": "6876159a11b4df116f30f667f8c9888617df0751",
+    "weights_sha256": "8aa4cbddda325040fc78db2c272754af6ebe8ff2c55f6ec4f1964d8890f66035",
+    "image_size": 384,
+    "clip_frames": 8,
+    "preprocessing": "RGB full-frame PIL bilinear resize; ImageNet mean/std",
+    "feature_dtype": "float16 from BF16 inference",
+    "torch": "2.8.0+cu128"
+  },
+  "device": "R01",
+  "sequence": "01",
+  "frame_content_sha256": "e12ed9f96c87d36c4dcb4e2600ccdcd925b004e2e08ba88920947b8fa7917e95",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "checks": [
+    {
+      "mode": "offline",
+      "target": 4,
+      "input_frame_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "input_shape": [
+        1,
+        3,
+        8,
+        384,
+        384
+      ],
+      "local_shape": [
+        1,
+        576,
+        1024
+      ],
+      "global_shape": [
+        1,
+        1024
+      ],
+      "finite": true,
+      "uses_future": true
+    },
+    {
+      "mode": "online",
+      "target": 7,
+      "input_frame_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "input_shape": [
+        1,
+        3,
+        8,
+        384,
+        384
+      ],
+      "local_shape": [
+        1,
+        576,
+        1024
+      ],
+      "global_shape": [
+        1,
+        1024
+      ],
+      "finite": true,
+      "uses_future": false
+    }
+  ],
+  "scope": "Shape, finite output and clip causality only; no AUROC/AP/FPS result"
+}
