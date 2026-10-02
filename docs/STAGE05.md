@@ -1,6 +1,6 @@
 # Stage 05 — 실시간 탐지와 진단
 
-고정 백본의 이력 5·15·31 OFAT 144개 seed 조건을 완료했다. [공통 구간의 수치·paired CI·그래프와 재현 근거](ABLATION_HISTORY.md)를 제공한다. 실제 FPS·지연·알람 지연은 아직 측정하지 않았다. 특징 캐시 생성 시간, 모델 smoke 시간, LoRA 예비 학습 시간은 처리량 결과로 사용하지 않는다.
+고정 백본의 이력 5·15·31 OFAT 144개 seed 조건을 완료했다. [공통 구간의 수치·paired CI·그래프와 재현 근거](ABLATION_HISTORY.md)를 제공한다. DINOv3 온라인 R01 seed 0의 첫 실제 FIFO 측정은 아래에 별도 기록하며 전체 모델·모드·장비·seed의 실시간 비교는 아직 완료되지 않았다. 특징 캐시 생성 시간, 모델 smoke 시간, LoRA 예비 학습 시간은 처리량 결과로 사용하지 않는다.
 
 이웃 수 k=1·5·10의 두 백본 × 두 모드 × 네 장비 × 세 seeds, **144개 조건**도 완료했다. 기존 k=5의 48개 원본 조건을 점수·알람 차이 0으로 재현하고 정상 임계값 144개를 재계산했다. [Macro4·장비별 수치·paired CI·그래프·검색 출처](ABLATION_NEIGHBOURS.md)를 제공한다. 백본·모드 전체에 일관된 우위는 없어 기본 k=5를 유지한다.
 
@@ -24,7 +24,7 @@ GT 이상 구간 안의 target에서 발생했더라도 실제 알람 출력은 
 
 30 FPS 도착, FIFO, 프레임 drop 없음, 메모리 갱신 없음으로 두 백본·두 모드를 비교한다. GPU에서 다른 학습·추론이 겹치지 않는 측정 조건을 기록한다. decode/resize, encoder, phase head, PCA/메모리 검색, score/alarm, queue/lookahead 대기를 분리하고 지속 FPS·p50/p95 지연·VRAM·queue 증가·miss·false alarm을 공개한다.
 
-[benchmark_runtime.py](../scripts/benchmark_runtime.py)는 이 측정을 위한 실행 코드를 제공한다. 아직 실제 GPU 측정으로 검증하지 않았다. 기본은 장비의 모든 실제 테스트 영상을 30 FPS 도착 시점에 맞춰 파일로 재생한다. `full`은 매 clip을 CPU 프레임 버퍼에서 조합·GPU로 전송하고 인코더를 재계산하며, `buffer`는 과거 픽셀 프레임을 GPU에 보관해 전송을 줄이고 같은 clip의 인코더를 재계산한다. DINO 온라인 FP32의 `reuse`는 과거 인코더 특징을 재사용하는 별도 조건이다. 정상 데이터로 20회 warmup 후 영상별 점수 상태를 초기화한다.
+[benchmark_runtime.py](../scripts/benchmark_runtime.py)는 이 측정을 위한 실행 코드를 제공한다. 첫 완료 조건의 전체 영상 trace를 검증했으며 전체 측정과 최적화 동등성 검증은 남아 있다. 기본은 장비의 모든 실제 테스트 영상을 30 FPS 도착 시점에 맞춰 파일로 재생한다. `full`은 매 clip을 CPU 프레임 버퍼에서 조합·GPU로 전송하고 인코더를 재계산하며, `buffer`는 과거 픽셀 프레임을 GPU에 보관해 전송을 줄이고 같은 clip의 인코더를 재계산한다. DINO 온라인 FP32의 `reuse`는 과거 인코더 특징을 재사용하는 별도 조건이다. 정상 데이터로 20회 warmup 후 영상별 점수 상태를 초기화한다.
 
 메모리 복원 시 저장된 PCA의 Fortran layout을 유지한다. 이웃 수 재현에서 기본 C layout 복사로 FP32 검색 점수가 달라졌음을 확인했으며, layout 보존 후 k=5가 기존 점수와 정확히 일치했다. 런타임의 실제 로더도 동일하게 수정하고 CPU stride 회귀 테스트를 추가했다. 실제 GPU 런타임의 점수·알람 동등성 게이트는 여전히 별도로 수행해야 한다.
 
@@ -75,3 +75,62 @@ DINO full-clip BF16과 과거 특징 재사용 BF16의 수치 일치 게이트�
 ## 작은 온라인 백본
 
 DINOv3-B와 V-JEPA 2.1-B의 별도 768차원 정상 학습·평가 **24개 조건을 실행 중**이다. DINOv3 R01 온라인의 세 seeds는 L paired 기준과 독립 검증했다. P3 AUROC/AP는 B **43.86/31.35%**, L **53.69/36.92%**이며 B−L 두 CI 모두 0보다 낮다. [부분 정확도·CI·그래프·검증 한계·모델 출처·재현 경로](SMALL_BACKBONES.md)를 제공한다. 이 결론은 R01 온라인에 한정하며 전체 Macro4와 독립 실시간 성능은 아직 없다.
+
+## 전체 실시간 측정 행렬과 재개
+
+### 첫 실제 FIFO 측정
+
+DINOv3-L 온라인 R01 seed 0, 고정 백본·P3·BF16·full 재계산의 **15개 전체 실제 테스트 영상**을 RTX PRO 6000에서 재생했다. 실제 자식 프로세스 종료 코드 0, 입력 3,685프레임·알람 유효 target 3,400개·공통 GT 지표 target 3,295개를 확인했다. 영상마다 정상 warmup 후 점수/큐 상태를 초기화하고, 30 FPS 도착·FIFO·drop 없음·고정 정상 메모리를 적용했다.
+
+| 지표 | 실제 측정 |
+|---|---:|
+| 지속 입력 처리 FPS | 16.4630 |
+| target 전체 지연 p50 / p95 | 3,471.09 / 7,172.03 ms |
+| queue wait p95 | 6,895.15 ms |
+| 영상별 최종 queue 증가 최대 | 10,948.55 ms |
+| GPU peak allocated / reserved | 1,577.67 / 1,804.00 MiB |
+| 평균 decode / encoder 포함 전송 | 2.36 / 58.17 ms |
+| 평균 phase head / PCA·검색 / score·alarm | 0.50 / 0.99 / 0.06 ms |
+| 평균 전체 service / feature cast | 62.28 / 0.18 ms |
+| 공통 target AUROC / AP | 53.87 / 36.03% |
+| operational GT 이벤트 탐지 / 미탐 | 1 / 7 (총 8개) |
+| 이벤트 종료 전 알람 / 늦은 최초 알람 | 1 / 0 |
+| 정상 알람 episode 시작 / 정상 알람 프레임 | 4 / 13 (평가 정상 2,169프레임) |
+
+30 FPS 입력에 처리 속도가 미달해 대기열이 증가했다. p95는 전체 알람 유효 target의 벽시계 지연이며 영상별 p95의 평균이 아니다. 지속 FPS는 완료된 입력 간격 수를 첫 도착부터 마지막 처리 종료까지의 시간으로 나눈 값으로, 30 FPS 제한이 없는 최대 처리량 측정이 아니다. 관측된 단일 탐지 이벤트의 onset 지연은 1.3992초이며 한 이벤트로 지연 분포를 일반화하지 않는다.
+
+![첫 실제 FIFO 비용·지연·대기열 측정](figures/stage05/runtime/dinov3-l_online_R01_seed0_frozen_bf16_full.png)
+
+[원본 15개 CSV·runtime JSON·trace 검증](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full), [PNG/SVG와 그림 소스 해시](figures/stage05/runtime/dinov3-l_online_R01_seed0_frozen_bf16_full.json)를 제공한다. 실제 CSV의 도착 순서·GT·정상 보정·위상 이력·점수·알람·지표·이벤트와 전체 FPS/p50/p95/queue/cost를 재계산했고 PNG를 열어 범례·축·단위·출력 범위를 확인했다.
+
+기존 batch 4 encoder 특징 캐시의 같은 seed P3 AUROC/AP는 53.94/36.11%로, runtime batch 1의 53.87/36.03%와 다르다. head는 기존 캐시 평가에서 여러 target을 batch로 처리한다. 동일 정상 보정과 공통 GT를 사용했지만 수치·알람 동등성을 선언하지 않는다. 현재 결과는 한 seed·한 구현의 실제 파일 재생이며 full/buffer·FP32 full/reuse 비교, 반복 측정 CI, 전체 장비·LoRA 실시간 비교, 실제 카메라 입력은 아직 완료되지 않았다. GPU 격리는 setup과 각 영상 전후 다른 compute PID가 없는지 확인한 범위이며 검사 사이의 순간적인 외부 작업은 독립 감시하지 않았다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/audit_runtime.py \
+  --runtime results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full \
+  --out results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/trace_audit.json
+PYTHONPATH=src:scripts python scripts/plot_runtime.py \
+  --runtime results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full \
+  --audit results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/trace_audit.json \
+  --out docs/figures/stage05/runtime/dinov3-l_online_R01_seed0_frozen_bf16_full
+```
+
+[run_runtime_matrix.py](../scripts/run_runtime_matrix.py)는 고정 백본·teacher=1 LoRA 각각의 두 모델 × 두 모드 × 네 장비 × 세 seeds, **96개 주 조건**을 유지한다. 각 조건의 BF16 full/buffer 192회와 DINOv3 온라인의 별도 FP32 full/reuse 48회, 합계 **240회**를 계획한다. 모든 실행은 해당 장비의 전체 실제 테스트 영상을 사용한다. 이 횟수는 완료 수가 아니다.
+
+완료된 정확도·선택 head·정상 메모리가 있는 조건만 실행한다. 최초 준비 상태는 고정 백본 48조건과 R01 오프라인 LoRA 4조건, **52조건·128회**이며 나머지 LoRA 44조건은 대기로 남긴다. 각 실행 전후 소스·선택 head·메모리·정상 보정 해시를 확인하고, 자식 프로세스의 실제 종료 코드 0과 전체 영상 결과를 확인한 뒤 완료로 기록한다. 같은 조건의 full/buffer와 FP32 full/reuse 점수·알람 게이트가 수치적으로 실패하면 그 실패를 그대로 기록한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/run_runtime_matrix.py \
+  --data-root "$IPAD_DATA_ROOT"
+# 이전 controller와 측정 프로세스가 실제 종료된 후, 같은 소스로 재개:
+PYTHONPATH=src:scripts python scripts/run_runtime_matrix.py \
+  --data-root "$IPAD_DATA_ROOT" --resume
+```
+
+대형 GPU 런타임은 `.venv/bin/python`, 점수·알람 게이트는 별도 CPU 런타임을 사용한다. ledger는 `artifacts/tmp/runtime_matrix.json`에 저장한다. 커널 파일 잠금으로 controller 중복을 막고, 재개 시 boot ID·PID 시작 시점으로 이전 작업이 실제 종료됐는지 확인한다. 완료 기록의 CSV/JSON 해시를 확인하며 중단된 출력은 로컬 `artifacts/runtime_interrupted`에 보존한 뒤 해당 측정만 다시 실행한다. `artifacts/tmp/runtime_matrix.hold`가 있으면 현재 측정을 마친 뒤 다음 측정 시작 전에 대기하므로 독립 검증·업로드 작업을 GPU 측정과 겹치지 않게 수행할 수 있다.
+
+추론용 선택 LoRA를 로딩한 뒤 전체 encoder 파라미터를 고정한다. eval만으로는 새 LoRA 파라미터의 gradient 플래그가 해제되지 않아 과거 특징 재사용 검사가 거부되는 문제를 수정했다. 선택된 nonzero adapter 텐서와 출력 보존·dropout 비활성화·인과적 ring 진입을 CPU 회귀 테스트로 확인한다. 실제 이벤트의 NumPy 불리언도 값과 null 경계를 유지하며 JSON으로 저장한다. 전체 영상 CSV를 저장하고 JSON 직렬화에서 실패한 최초 실행은 로컬에 보존하며 완료된 실시간 성능으로 집계하지 않는다.
+
+[audit_runtime.py](../scripts/audit_runtime.py)는 완료된 측정 CSV에서 입력 순서·전체 프레임 수·도착/서비스/출력 시점·queue/lookahead/target latency를 재계산한다. 고정 정상 P3 median/MAD·q99, 실제 annotation·공통 mask, 위상 이력·최종 점수·3프레임 연속 알람, AUROC/AP와 이벤트 집계를 검증한다. 온라인 EOF와 미확정 GT도 실제 알람 검증에서 제외하지 않는다. 이벤트 정의는 기존 공용 함수를 재생하며, encoder/PCA/search 재실행·독립 VRAM 측정·반복 측정 CI를 주장하지 않는다.
+
+[plot_runtime.py](../scripts/plot_runtime.py)는 이 검증을 다시 실행하고 같은 실제 CSV에서 영상별 FPS·latency p50/p95·처리 비용·사전 고정 영상 03의 FIFO 궤적을 PNG/SVG로 생성한다. p50/p95는 측정 target의 백분위이며 신뢰구간이 아니다. 한 seed의 파일 재생 수치를 최대 처리량·실제 카메라 결과·세-seed 평균으로 해석하지 않는다.

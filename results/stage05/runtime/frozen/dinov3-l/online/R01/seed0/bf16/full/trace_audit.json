@@ -1,0 +1,41 @@
+{
+  "status": "passed_actual_runtime_trace_replay",
+  "runtime": "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full",
+  "condition": {
+    "backbone": "dinov3-l",
+    "mode": "online",
+    "device": "R01",
+    "seed": 0,
+    "adaptation": "frozen",
+    "precision": "bf16",
+    "implementation": "full"
+  },
+  "test_videos": 15,
+  "input_frames": 3685,
+  "eligible_targets": 3400,
+  "shared_metric_targets": 3295,
+  "normal_thresholds_recomputed": 1,
+  "sources_sha256": {
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/01.csv": "4feba153122ca36ba6e8c435b15a75a34c369a9d8446d1a39e79cf1d95b8a9d8",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/02.csv": "545b699d14847bb17a6e9c403a6529457348f8b4380d1d8aee4dc4c06f13886a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/03.csv": "d393b8e23fc5c9c20d0c98cca98ebf3a36f079d7d90477d36742d1220ee3e445",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/04.csv": "46b1ac74c388f0b36787bc5b0a1980d74ac7043da1db9d4d0a63f81062f76b72",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/05.csv": "d32f0dc640eaade9e0fc9793c0cf321b20ae258801711bbff858b1015c89e0a9",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/06.csv": "81cb886954e8973f6b10a6043ae2e1a6c59db095052e9e250b03c040a4691763",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/07.csv": "1fcfa349720767ced8921019b238f97e40c69dc7af82e4cedc4c189823fccf6a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/08.csv": "0bac83e06c92755dceb48366c5c94123aa8b2355a1a25e96a2e8d71f4cb5a66a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/09.csv": "48fffb93802e60b85c563d05f751dbb6f9b954b229719c6b4b5d899cef31e04d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/10.csv": "adbfd5266aa53f3e3a267fe6695b5885030b1b556ca38471f543182dd3a31468",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/11.csv": "9c873cc6001b1358f95dbcec4c68e4273f4677f2925793a2de0f9504244d428c",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/12.csv": "89618a04226842e21770ec50a19cda3d293212e8912b2da3328ca6b550c7cd77",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/13.csv": "45a70d3d4d977bebc8f8ac4250bb5fa4bbf52d7980c18edd5abbf7cabc3334c1",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/14.csv": "38d52620dfe17a93910c51fb3b3db6587d82b25634f7f5e0a3a21c3e66699fea",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/15.csv": "809150bb599ee2704e489d33ba4d1b46375d7538e0c0c4f7bd403d91782ea02d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/bf16/full/runtime.json": "a7392801544d63a58622cabb31f2fafb1662bd2f4b0255cee415dd5011d5aaef",
+    "results/stage02/dinov3-l/online/R01/seed0/normal_fit.json": "7590827555d4013902314451b0799522898fdf6df24864a535b4450d3229fac9",
+    "results/stage02/dinov3-l/online/R01/seed0/normal_calibration.csv": "54c636f8e4e772daf38e336f2fbdbb398cb2913911a00030f99271101c99b8e5"
+  },
+  "auditor_sha256": "7f1dbb8eade35c4f7dd7721dab7c6de3c06a9a9de2d72215132dab5fe8249e5e",
+  "manifest_sha256": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+  "limits": "Actual CSV timestamp/calibration/GT/time-score/alarm/metric replay; event accounting uses the shared frozen event definition. Raw JPEG hashes were checked by the measuring child and bound to the manifest, not re-encoded here. No independent encoder/PCA/search/VRAM replay, repeat-run CI, maximum-FPS or real-camera claim."
+}

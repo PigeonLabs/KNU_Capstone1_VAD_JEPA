@@ -34,6 +34,25 @@ def precision_context(precision):
     return torch.autocast('cuda',dtype=torch.bfloat16) if precision=='bf16' else nullcontext()
 
 
+def json_scalar(value):
+    # Actual event boundary comparisons can return NumPy bool/int scalars.
+    if isinstance(value,np.generic):
+        return value.item()
+    raise TypeError(f'Unsupported runtime JSON value: {type(value).__name__}')
+
+
+def configure_inference_encoder(model, adapter):
+    """Load selected q/v tensors before locking every inference parameter."""
+    if adapter is not None:
+        install_adapters(model)
+        load_adapter_state(model,adapter)
+        adapter_training_mode(model,False)
+    # eval() disables dropout but does not freeze newly installed LoRA parameters.
+    # Frame reuse requires the selected encoder, including its adapters, to be fixed.
+    model.eval().requires_grad_(False)
+    return model
+
+
 def fixed_components(args):
     meta=json.loads((args.results/'normal_fit.json').read_text())
     phase_meta=json.loads((args.run/'phase_training.json').read_text())
@@ -68,10 +87,7 @@ def fixed_components(args):
     head=PhaseHead().cuda().eval()
     head.load_state_dict(phase_state,strict=True)
     model=Backbone(args.model,args.upstream,args.weights,args.mode).cuda().eval()
-    if adapter is not None:
-        install_adapters(model)
-        load_adapter_state(model,adapter)
-        adapter_training_mode(model,False)
+    configure_inference_encoder(model,adapter)
     return model,head,scorer,meta,cycle,adaptation
 
 
@@ -275,7 +291,7 @@ def main():
         'gpu_isolation':'No other compute PID at setup and before/after each video; transient jobs between checks are not independently monitored',
         'sequences':reports,
         'note':'Actual batch1 scores may differ from primary batch4 BF16 cache. FP32 reuse is not declared equivalent until paired score/alarm results are checked.'}
-    temp=args.out/'runtime.json.tmp'; temp.write_text(json.dumps(report,indent=2)+'\n'); temp.replace(args.out/'runtime.json')
+    temp=args.out/'runtime.json.tmp'; temp.write_text(json.dumps(report,indent=2,default=json_scalar)+'\n'); temp.replace(args.out/'runtime.json')
     print(json.dumps({key:report[key] for key in ['status','sustained_input_fps','target_latency_p95_ms','peak_allocated_vram_mib']}),flush=True)
 
 

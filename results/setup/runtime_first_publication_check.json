@@ -1,0 +1,27 @@
+{
+  "status": "passed_first_actual_runtime_publication_checks",
+  "base_revision": "305d6012f3eccde84f934403dcfec2e9a72ed38f",
+  "actual_runtime_child_exit_code": 0,
+  "actual_test_videos": 15,
+  "actual_input_frames": 3685,
+  "actual_eligible_targets": 3400,
+  "actual_shared_metric_targets": 3295,
+  "actual_local_working_tree_tests_passed": 252,
+  "local_test_scope": "Includes 23 unpublished cache-retention tests; this commit publishes 18 new runtime tests on the prior 211-test base. Exact CI expected229, not252.",
+  "expected_published_CI_test_count": 229,
+  "source_sha256": {
+    "scripts/benchmark_runtime.py": "06c1664958a78b3dbef9cb8d83b5e81cbe4b474ad818176a22c70e5ad436126e",
+    "scripts/run_runtime_matrix.py": "27c903e3894742a42548fdb20bae3de824f375e2d48d2834e96499fb9d4534a2",
+    "scripts/audit_runtime.py": "7f1dbb8eade35c4f7dd7721dab7c6de3c06a9a9de2d72215132dab5fe8249e5e",
+    "scripts/plot_runtime.py": "170b677f2b1b875cf9a99df58befac364d3e559bb5a7924130ceb2e0ea6a5cba",
+    "tests/test_runtime_encoder.py": "a266c0bff2ef0309c30672157b6f159925f7b6af137f20d0965ce31bbcc7562c",
+    "tests/test_runtime_matrix.py": "f72c4231af2de9837d9425324aa9016072a7f23a20d436c2e83896067c0def08",
+    "tests/test_runtime_trace_audit.py": "0ef48a72861e82d8f15531ecbd55ea79dba84f44e0581610f4b24bc26091db2e"
+  },
+  "runtime_sha256": "a7392801544d63a58622cabb31f2fafb1662bd2f4b0255cee415dd5011d5aaef",
+  "trace_audit_sha256": "94263a19f9366d012b0686c963d0c4e6c85e473aa4cd03ae456315940592993a",
+  "figure_receipt_sha256": "34a9d3db8c5947aecd0c9ec3229d02ceac7f29c4db06cde6ea516219ff20440e",
+  "rendered_PNG_inspected": true,
+  "renderer_check": "Opened actual PNG; checked axis labels, units, legends,15-video coverage and captions; no repeat-run CI or speedup claim",
+  "scope": "One DINO-L online R01 seed0 BF16 full measured condition; full plan96conditions/240runs remains pending; no paired implementation equivalence or stage completion claim"
+}
