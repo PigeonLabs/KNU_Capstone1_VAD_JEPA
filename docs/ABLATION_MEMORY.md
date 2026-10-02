@@ -1,6 +1,6 @@
 # 프로토타입 수·위상 bin 수 비교
 
-고정 백본 P3의 메모리 구조를 한 요소씩 바꾼다. 현재 공개 결과는 **DINOv3-L / 오프라인 / R01 / seed 0·1·2**, 네 메모리 설정의 **12개 seed 조건**이다. 전체 두 백본 × 두 모드 × 네 장비 × 세 seeds × 네 설정, **192개 조건**은 실행 중이다. 현재 결과는 R01 한 장비의 결과이며 네 장비 Macro4가 아니다.
+고정 백본 P3의 메모리 구조를 한 요소씩 바꾼다. 현재 공개 결과는 **DINOv3-L / 오프라인 / R01 / seed 0·1·2**, 네 메모리 설정의 **12개 seed 조건**이다. 전체 두 백본 × 두 모드 × 네 장비 × 세 seeds × 네 설정, **192개 조건**의 GPU 평가는 완료됐고 독립 검증·집계·전체 그래프 생성이 진행 중이다. 아래 공개 수치는 검증을 마친 첫 12개 조건의 스냅샷이다. 현재 결과는 R01 한 장비의 결과이며 네 장비 Macro4가 아니다.
 
 ## 비교 조건과 정상 보정
 
@@ -79,4 +79,4 @@ python scripts/plot_memory_ablation.py \
 - [메모리 재구성·검색](../src/ipad_jepa/memory_ablation.py), [독립 검증·집계](../scripts/summarize_memory_ablation.py), [그래프 코드](../scripts/plot_memory_ablation.py)
 - [프레임 점수·정상 보정·완료 기록](../results/stage05/ablations/memory/snapshots/first_group)
 
-전체 192개 메모리 조건·나머지 OFAT·LoRA·진단·실시간 측정이 남아 있으므로 Stage 05 완료를 선언하지 않는다.
+전체 192개 메모리 조건의 독립 검증·결과 공개와 나머지 OFAT·LoRA·진단·실시간 측정이 남아 있으므로 Stage 05 완료를 선언하지 않는다.

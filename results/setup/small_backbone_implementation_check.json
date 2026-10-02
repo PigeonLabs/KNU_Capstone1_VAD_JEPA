@@ -1,0 +1,77 @@
+{
+  "status": "gpu_smokes_passed_full24_matrix_started",
+  "actual_owner_observation": {
+    "pid": 3013553,
+    "uid": 1000,
+    "start_ticks": 34022584,
+    "state": "S",
+    "argv": [
+      ".venv/bin/python",
+      "scripts/run_small_matrix.py",
+      "--data-root",
+      "../IPAD_dataset/IPAD_dataset"
+    ]
+  },
+  "planned_seed_conditions": 24,
+  "completed_seed_conditions_at_observation": 0,
+  "current_at_observation": {
+    "backbone": "dinov3-b",
+    "mode": "online",
+    "device": "R01",
+    "step": "extract_real_B_online_features"
+  },
+  "pipeline_source_sha256": {
+    "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/scripts/run_small_matrix.py": "534b0f768c564458f5bcdc6d093a4ede06d726ad07b665a33a19055345dce97f",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "results/setup/dinov3-b_smoke.json": "3f21a700bccfec9f9abd72e750ffcaa5d3083e765beb4a3c80990027717c8d8c",
+    "results/setup/vjepa21-b_smoke.json": "f6f1e6a938ce8915c03e2b211ee152cc367220cf3b0db595c069abde949c0905",
+    "src/ipad_jepa/small_features.py": "6fc83d192b0ab1f8e9c55d2be78da40f71ffcd8035318922cc16d9282d6cf8a6",
+    "src/ipad_jepa/small_backbones.py": "b9f61b051077da46a7f94600f751430fd6733af2aeab119ebe97ce223f3dd4d9",
+    "src/ipad_jepa/small_data.py": "a2b844c763351f6c9a4bac696dc49e66da2357f6d0556b503422750662e9f9a2",
+    "src/ipad_jepa/small_train_phase.py": "8ce4da532367c76ff9f383f4e2059268799f11791fcf12e3114d355618d5fa30",
+    "src/ipad_jepa/small_experiment.py": "8ce7f4e1dd413747ef0693d17e0670758541c775fd6cf11d659e2c9a723054c3",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+    "src/ipad_jepa/cache_data.py": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+    "src/ipad_jepa/train_phase.py": "71c226ed4606951b8030588e84675303da4bf2bb67305a81c5d2c26a2eb17f08",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+    "src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+    "src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32"
+  },
+  "tests": {
+    "test_representation_audit.py": {
+      "passed": 6,
+      "seconds": 599.6
+    },
+    "test_small_backbones.py": {
+      "passed": 3,
+      "seconds": 92.05
+    },
+    "test_small_pipeline.py": {
+      "passed": 6,
+      "seconds": 306.78
+    }
+  },
+  "test_sha256": {
+    "tests/test_representation_audit.py": "fea9ed87ab7d1bb934e7fdc390eb9d2a243422c2d443b4455cc6e7914c42a60b",
+    "tests/test_small_backbones.py": "180983ef9a9bd3026e61a058c4687c0f48fa1b5e51c1259b51b1cdaedfeb7451",
+    "tests/test_small_pipeline.py": "86df1d5b6615df10a0d9351b524e66db6aab83293f97b251a10fac5390d0321e"
+  },
+  "figure_sources_sha256": "58d5b64a63e9cbb20c08f3abe832e671d5f6e730f0e24bcb3706854ccf731ede",
+  "visual_review": {
+    "png": "docs/figures/setup/backbone_parameter_counts.png",
+    "status": "inspected",
+    "checks": [
+      "All four displayed values match actual loaded encoder counts",
+      "Zero-based axis and model colors agree with legend",
+      "Labels, legend, title and measurement-scope caption are readable without overlap"
+    ],
+    "svg": "Same inspected Matplotlib figure; saved file hash verified"
+  },
+  "scope": "Actual two B strict GPU/normal-clip validations, focused CPU tests and full24 dispatch only. Representation audit implemented but not applied to completed accuracy groups. No full B/representation accuracy, CI or runtime completion claim."
+}

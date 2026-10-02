@@ -39,11 +39,13 @@ IPAD 공개 모델의 **R01 세 seeds**는 각각 50 epoch 학습·평가를 완
 
 이웃 수 k=1·5·10의 **144개 고정 백본 조건**을 완료했다. k=5의 기존 48개 실험 점수·알람과 정상 임계값을 검증했다. DINOv3 오프라인 k=10의 Macro4 개선량은 AUROC/AP **+0.72/+0.43pp**였으나 모든 백본·모드에서 일관된 우위는 없었다. [전체 수치·paired CI·그래프·검증 근거](docs/ABLATION_NEIGHBOURS.md)를 제공하며 기본 k=5를 유지한다.
 
-메모리 크기 1,024/2,048/4,096개와 위상 8/16 bins의 첫 **R01 DINOv3 오프라인 3-seed 비교**도 완료했다. 기본 16 bins·2,048개를 정확히 재구성해 기존 점수·알람을 재현했고 정상 임계값 12개를 검증했다. [수치·paired CI·그래프](docs/ABLATION_MEMORY.md)를 제공하며 전체 192개 조건은 실행 중이다.
+메모리 크기 1,024/2,048/4,096개와 위상 8/16 bins의 첫 **R01 DINOv3 오프라인 3-seed 비교**도 완료했다. 기본 16 bins·2,048개를 정확히 재구성해 기존 점수·알람을 재현했고 정상 임계값 12개를 검증했다. [수치·paired CI·그래프](docs/ABLATION_MEMORY.md)를 제공하며 전체 192개 조건의 GPU 평가는 끝났으며, 독립 재검증과 전체 그래프 생성은 진행 중이다. 전체 수치는 검증 후 공개한다.
 
 두 백본 모두 실제 8프레임 온라인·오프라인 GPU 입력 검증을 통과했고, 영상 재인코딩·정상 헤드/메모리 재학습의 **48개 신규 조건**을 실행 중이다. [8·16프레임 입력 문맥 도식·검증 기록·공통 평가 구간·재현 명령](docs/ABLATION_CLIP_FRAMES.md)을 제공한다. 이 비교의 정확도·CI·실시간 결과는 아직 없다.
 
 패치·공간 평균 특징의 **96개 비교 조건**도 실행 중이다. 일부 장비의 평균 특징 후보 부족을 해결하도록 두 표현 모두 정상 fit을 stride 1로 추출하고, 동일한 위상 head를 공유한다. [정상 후보 수 그래프·통제 조건·출처·재현 명령](docs/ABLATION_REPRESENTATION.md)을 제공하며 정확도·paired CI는 아직 검증되지 않았다.
+
+작은 **DINOv3-B / V-JEPA 2.1-B**도 공식 생성자에 실제 가중치를 엄격히 로딩하고 16프레임 온라인 GPU 입력 검증을 통과했다. [B/L 파라미터 수 그래프·모델 출처·24조건 재현 경로](docs/SMALL_BACKBONES.md)를 제공한다. B 온라인 24개 조건은 실행 중이며 전체 정확도·실시간 결과는 아직 없다.
 
 두 백본의 R01 오프라인 LoRA **seed 0**은 20 epoch 학습·특징/메모리 재구성·실제 평가를 완료했다. P3 AUROC/AP는 DINOv3 **79.81/70.83%**, V-JEPA **33.06/27.52%**다. 같은 seed의 고정 백본 대비 DINOv3 P3는 개선됐지만 전역 P0는 악화됐고, V-JEPA P3 차이의 CI는 0을 포함했다. [상세 비교·CI·그래프](docs/LORA_R01_SEED0.md)를 제공하며 나머지 seeds·장비·온라인 LoRA는 진행 중이다. 정상 학습 곡선과 선택 근거는 [Stage 04](docs/STAGE04.md)에 있다. 순차 이벤트 평가와 30 FPS FIFO 측정 코드는 [Stage 05](docs/STAGE05.md)에 있으며, 실제 GPU 측정과 점수·알람 동등성 검증은 남아 있다. `—`는 미측정이다.
 
@@ -91,7 +93,7 @@ V-JEPA 2.1의 엄격한 가중치 로딩과 실제 정상 16프레임 GPU 연산
 모델 smoke 결과는 형태·엄격한 가중치 로딩·실제 영상 연산 검증이다. cold forward 시간을 FPS 또는 이상탐지 성능으로 해석하지 않는다.
 두 백본 모두 동일한 출력 형태와 백본 고정을 확인했다. 근거는 [환경 메타데이터](results/setup/environment.json), [V-JEPA GPU smoke](results/setup/vjepa21-l_smoke.json), [DINOv3 GPU smoke](results/setup/dinov3-l_smoke.json)에 있다.
 
-CI는 핵심 검증과 업로드 검사를 실행한다. 정상 분할·위상·메모리·LoRA·기준선·resume·업로드 제외, Macro4 비중·paired bootstrap, 온라인 EOF 알람·FIFO 입력·이벤트 지연과 GPU 동시 작업 거부를 확인한다. LoRA 런타임의 선택 adapter·joint head·재구성 메모리와 paired 입력 출처, 이웃 수별 고정 메모리 검색·인과적 알람·PCA layout 보존, 8프레임 입력 경계·padding·공통 평가 구간도 검증한다. 재생 제어는 CPU 모형으로 검증했으며 실제 GPU 처리량을 입증하지 않는다. 실제 학습·추론 근거는 각 Stage에 별도로 기록한다.
+CI는 핵심 검증과 업로드 검사를 실행한다. 정상 분할·위상·메모리·LoRA·기준선·resume·업로드 제외, Macro4 비중·paired bootstrap, 온라인 EOF 알람·FIFO 입력·이벤트 지연과 GPU 동시 작업 거부를 확인한다. LoRA 런타임의 선택 adapter·joint head·재구성 메모리와 paired 입력 출처, 이웃 수별 고정 메모리 검색·인과적 알람·PCA layout 보존, 8프레임 입력 경계·padding·공통 평가 구간, 패치/평균 표현의 같은 위상 head·GT/추론 구간과 실제 공간 평균, B 모델의 768차원 캐시·입력 출처·정상 분할도 검증한다. 재생 제어는 CPU 모형으로 검증했으며 실제 GPU 처리량을 입증하지 않는다. 실제 학습·추론 근거는 각 Stage에 별도로 기록한다.
 
 전체 실험 행렬은 [experiment_matrix.yaml](configs/experiment_matrix.yaml)에 고정했다. 이 목록은 전체 요구 범위이며 완료 여부는 실제 결과로 확인한다.
 

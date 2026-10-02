@@ -1,0 +1,52 @@
+{
+  "model": "vjepa21-b",
+  "mode": "online",
+  "status": "strict_load_and_real_clip_passed",
+  "weight_sha256": "848a77c33cc9e6649ed2119c9bea1e2c569bcdab9539ff3e7c02ccc2959ddf4d",
+  "adapter_sha256": "b9f61b051077da46a7f94600f751430fd6733af2aeab119ebe97ce223f3dd4d9",
+  "reader_sha256": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+  "smoke_code_sha256": "be105dfa5b388c98820e192f15d044c019dfdb94036628dac563aad6b6824dfd",
+  "upstream_commit": "204698b45b3712590f06245fbfba32d3be539812",
+  "normal_source": {
+    "device": "R01",
+    "sequence": "01",
+    "split": "fit",
+    "frames_content_sha256": "e12ed9f96c87d36c4dcb4e2600ccdcd925b004e2e08ba88920947b8fa7917e95"
+  },
+  "clip_frames": 16,
+  "target_frame": 15,
+  "input_frame_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "future_frames_used": false,
+  "local_shape": [
+    1,
+    576,
+    768
+  ],
+  "global_shape": [
+    1,
+    768
+  ],
+  "parameter_count": 86833152,
+  "trainable_parameters": 0,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "torch": "2.8.0+cu128",
+  "precision": "BF16 inference, FP32 model parameters",
+  "scope": "Actual frozen model/clip causality, strict weights, shapes and finite values only; no AUROC/AP/throughput/latency claim"
+}

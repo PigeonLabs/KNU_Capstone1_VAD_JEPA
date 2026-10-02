@@ -1,0 +1,15 @@
+{
+  "model": "dinov3-b",
+  "filename": "dinov3_vitb16_pretrain_lvd1689m-73cec8be.pth",
+  "bytes": 342860279,
+  "sha256": "73cec8be7427c8655ceced13ce62f6e20a1fa90d1b4d4a550df17a1144081a7c",
+  "source": "https://huggingface.co/jaychempan/dinov3/resolve/4412679/dinov3_vitb16_pretrain_lvd1689m-73cec8be.pth",
+  "source_type": "public_third_party_mirror",
+  "official_hash_prefix_match": true,
+  "status": "downloaded_not_yet_strict_loaded",
+  "official_reference": "Fixed upstream dinov3.hub.backbones.dinov3_vitb16; default hash 73cec8be",
+  "scope": "Full local hash; official filename prefix; independent full Meta hash verification is not claimed",
+  "mirror_file_page": "https://huggingface.co/jaychempan/dinov3/blob/4412679/dinov3_vitb16_pretrain_lvd1689m-73cec8be.pth",
+  "mirror_published_sha256": "73cec8be7427c8655ceced13ce62f6e20a1fa90d1b4d4a550df17a1144081a7c",
+  "mirror_full_hash_matches": true
+}

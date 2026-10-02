@@ -75,4 +75,16 @@ python scripts/run_representation_matrix.py \
 
 기본 명령은 전체 96개 조건을 수행한다. 새 로컬 특징·head·bank는 `artifacts/representation_dense`와 `artifacts/runs_representation`에, 공개 가능한 결과는 `results/stage05/ablations/representation/{patch,global_mean}`에 저장한다. 모델·캐시·메모리 텐서·원본 영상은 Git에서 제외한다.
 
-완료 후에는 실제 GT·CSV 지표 재계산, 정상 온도·MAD·q99, 동일 head·phase·시간 점수, 같은 유효 대상 프레임과 세 seeds를 독립적으로 검증한 뒤 영상 단위 paired bootstrap 1,000회 및 네 장비 동일 가중치 Macro4를 보고한다. 현재 코드는 공통 평가 구간의 batch 알람을 저장한다. 실시간 EOF 알람·FIFO·지연과 처리량은 별도의 실제 GPU 측정으로 검증한다.
+독립 검증·집계 코드는 [summarize_representation_ablation.py](../scripts/summarize_representation_ablation.py)에 구현했다. 완료된 세-seed paired 그룹만 검증하며, `--require-full`은 전체 96개 조건이 없으면 결과 집계를 거부한다.
+
+```bash
+python scripts/summarize_representation_ablation.py --require-full
+```
+
+검증은 실제 dense-fit 좌표·배열 해시·표본 수, 동일 head·phase·시간 점수, 정상 MAD·component/P3 q99, 실제 GT·공통 평가 구간·알람·CSV 지표를 확인한다. **정상 calibration과 테스트의 모든 평균 query**를 실제 부모 FP16 패치에서 독립적으로 FP32 공간 평균을 다시 계산해 정확히 비교한다. 평균 view의 해시만 검사하는 데 그치지 않는다.
+
+새 검증 테스트 6개는 평균 값 변조, 문맥 특징으로 바꾼 잘못된 query 형태/dtype, 서로 다른 head, 변경된 phase와 GT에 종속된 inference mask를 거부한다. 특징 점수 자체는 표현에 따라 달라도 허용하며 head·위상·시간 점수의 공유를 검증한다.
+
+독립 검증은 인코더·phase 학습·PCA/k-center 학습·GPU 거리/temperature 표본 계산을 다시 실행하지 않는다. 저장 용량을 줄인 dense-fit의 평균 특징은 추출 코드·실제 관측 후보·배열 해시로 검증한다. 실제 calibration/test 평균의 재계산과 구분한다. 이 검증 코드는 구현·단위 검증을 완료했으며, **실제 전체 96개 조건의 감사·정확도/CI는 아직 완료하지 않았다.**
+
+검증된 조건에서 영상 단위 paired bootstrap 1,000회 및 네 장비 동일 가중치 Macro4를 보고한다. 현재 코드는 공통 평가 구간의 batch 알람을 저장한다. 실시간 EOF 알람·FIFO·지연과 처리량은 별도의 실제 GPU 측정으로 검증한다.

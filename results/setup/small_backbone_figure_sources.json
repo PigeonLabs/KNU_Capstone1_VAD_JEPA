@@ -1,0 +1,33 @@
+{
+  "status": "rendered_from_actual_strict_load_reports",
+  "counts": [
+    {
+      "model": "dinov3-b",
+      "parameter_count": 85669632
+    },
+    {
+      "model": "dinov3-l",
+      "parameter_count": 303154176
+    },
+    {
+      "model": "vjepa21-b",
+      "parameter_count": 86833152
+    },
+    {
+      "model": "vjepa21-l",
+      "parameter_count": 304680960
+    }
+  ],
+  "source_sha256": {
+    "results/setup/dinov3-b_smoke.json": "3f21a700bccfec9f9abd72e750ffcaa5d3083e765beb4a3c80990027717c8d8c",
+    "results/setup/dinov3-l_smoke.json": "4a09a2af5892da03dbf217f9b8566b36e8c2ca11adc95e8e3cabeff4bb3d1805",
+    "results/setup/vjepa21-b_smoke.json": "f6f1e6a938ce8915c03e2b211ee152cc367220cf3b0db595c069abde949c0905",
+    "results/setup/vjepa21-l_smoke.json": "d9b28c50c91a163f6a4680a548dd1540a8bc948fb4473fe21c698d96276d5e9d"
+  },
+  "plot_code_sha256": "c1f546171def17e7e6d4fb19048055e397983976e061996f87211b0bccb84159",
+  "figures": {
+    "docs/figures/setup/backbone_parameter_counts.png": "e2e51988a2bdc1bc2fc46665664a3a86cf345b954a966a00a839480f97adfee7",
+    "docs/figures/setup/backbone_parameter_counts.svg": "ec261ad1fc3398359d3ea8d59994278fe25fdc69ac7333d14effd972928b80a8"
+  },
+  "scope": "Actual frozen encoder parameters only; excludes phase heads; no AUROC/AP/FPS/latency or memory-footprint claim"
+}
