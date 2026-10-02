@@ -189,3 +189,30 @@ PYTHONPATH=src:scripts python scripts/plot_runtime_pairs.py \
 ![seed 1 BF16 buffer의 실제 비용·지연·queue](figures/stage05/runtime/dinov3-l_online_R01_seed1_frozen_bf16_buffer.png)
 
 [전체 두 실행 CSV·JSON·trace 감사·일치 gate](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed1/bf16), [full 그림 소스](figures/stage05/runtime/dinov3-l_online_R01_seed1_frozen_bf16_full.json), [buffer 그림 소스](figures/stage05/runtime/dinov3-l_online_R01_seed1_frozen_bf16_buffer.json)를 제공한다. 전체 240회 중 6회가 완료됐지만 이 seed의 FP32 쌍과 seed 2, 다른 장비·백본·LoRA 실시간 비교는 남아 있다. 서로 다른 seed의 이 측정치를 반복 실행 CI나 완결된 세-seed 실시간 평균으로 사용하지 않는다.
+
+## FP32 재사용 점수 불일치의 trace 진단
+
+[diagnose_runtime_pair.py](../scripts/diagnose_runtime_pair.py)는 공개된 R01 온라인 seed 0의 FP32 full/reuse pair를 **동일한 사전 gate**로 다시 비교했다. 실제 측정 실행기의 [소스/완료 출력 snapshot](../results/setup/runtime_controller_source_check.json), 고정 정상 보정과 은행 해시, 기존 두 실제 trace 감사의 입력 해시를 확인하고 15개 영상·유효 target 3,400개를 모두 분석했다. 입력·GT·알람을 제외해 통과시키거나 허용 오차를 바꾸지 않았다.
+
+| 영상 / target | raw 특징 점수 차이 (reuse−full) | raw gate 허용량 대비 배수 | 최종 P3 점수 차이 | full/reuse 위상 bin |
+|---|---:|---:|---:|---:|
+| 03 / 269 | +0.000221223 | 48.3× | +0.001088725 | 12 / 12 |
+| 11 / 19 | +0.000478625 | 89.5× | +0.002336804 | 13 / 13 |
+| 13 / 104 | +0.000411659 | 82.3× | +0.002005507 | 12 / 12 |
+
+![FP32 raw 점수 gate를 넘은 세 target](figures/stage05/runtime/dinov3_l_online_R01_seed0_fp32_raw_failures.png)
+
+이 세 target에서 raw 특징 점수가 gate를 넘었다. **전체 3,400 target의 실제 FP32 위상 bin 전환은 0개, 알람 불일치도 0개**였다. 현재 `TorchMemory`는 위상의 FP32 bin으로 인접 세 bin을 선택하므로, 이 pair에서 raw 차이를 위상 bin 경계 이동으로 설명할 수 없다. 진단은 로그의 double 값을 그대로 floor하지 않고 런타임과 같은 FP32 cast 후 bin을 계산했다.
+
+고정 P3 MAD scale은 특징 `0.1016114271`, 시간 `0.0012385573`이다. 같은 정상 보정에서 `ΔP3 = 0.5 × Δfeature / feature_scale + 0.5 × Δtime / time_scale`를 전체 target에 적용한 최대 재계산 오차는 **3.20×10⁻¹⁶**이었다. 세 실패 지점의 최종 차이는 대부분 raw 특징 차이에서 이어졌고, 시간 기여는 각각 `+1.54×10⁻⁷`, `−1.84×10⁻⁵`, `−2.01×10⁻⁵`였다.
+
+[모든 영상/target 검사·수치·출처·PNG/SVG 해시](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/failure_diagnostics.json)를 제공한다. 이 결과는 **trace 진단**이며 encoder 특징·PCA 변환 query·선택 이웃/거리·tie를 캡처하지 않았다. GPU로 같은 세 clip의 특징과 검색 중간값을 비교해야 원인을 구분할 수 있다. 현재 parity 상태는 계속 **실패**이고 FP32 reuse를 동등한 최적화로 채택하지 않는다. FPS·지연을 새로 측정하거나 정확도를 개선한 결과도 아니다.
+
+```bash
+PYTHONPATH=src python scripts/diagnose_runtime_pair.py \
+  --root results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32 \
+  --normal-fit results/stage02/dinov3-l/online/R01/seed0/normal_fit.json \
+  --bank artifacts/runs/dinov3-l/online/R01/seed0/memory.npz \
+  --measurement-sources results/setup/runtime_controller_source_check.json \
+  --figure docs/figures/stage05/runtime/dinov3_l_online_R01_seed0_fp32_raw_failures
+```
