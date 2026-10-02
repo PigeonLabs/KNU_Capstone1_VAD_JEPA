@@ -15,9 +15,9 @@
       "treatments": [
         {
           "teacher_weight": 1.0,
-          "evidence": "current_actual_adapted_arrays",
-          "condition_audit": "T1/dinov3-l/offline/R01/seed0/condition_audit.json",
-          "condition_audit_sha256": "49c4995379adace8399e207fd0632aeaa41af7420b0c2599cdc7da7a23c68d98"
+          "evidence": "archived_payloads_current_retained_replay",
+          "condition_audit": "T1/dinov3-l/offline/R01/seed0/retained_condition_audit.json",
+          "condition_audit_sha256": "e8de0c424806b4b5952df3c1d2741e56c48e0517b97496ee89c2d3762955fcdf"
         }
       ],
       "matched_controls": null
@@ -75,7 +75,7 @@
     }
   ],
   "normal_thresholds_replayed": 32,
-  "retained_treatments_replayed": 0,
+  "retained_treatments_replayed": 1,
   "pending_conditions_or_pairs": [
     [
       "dinov3-l",

@@ -109,7 +109,7 @@ DINOv3 seed 1의 20 epoch·3,120회 업데이트와 선택 epoch **19**를 실�
 
 [고정 영상 03의 점수·알람 그래프](figures/stage04/dinov3-l_R01_offline_seed1_lora_sequence03.png), [학습 export와 선택 해시](../results/stage04/training/dinov3-l/offline/R01/seed1), [실제 P0–P3 CSV·보정·single-seed CI·provenance](../results/stage04/dinov3-l/offline/R01/seed1)를 제공한다. 점수 그래프의 x축은 target index이며 실측 알람 지연이 아니다.
 
-새 [current/retained 집계 검증](../results/stage04/retained_matrix_audit/validation.json)은 두 백본 R01 오프라인 seeds 0/1, **네 현재 배열 조건·정상 임계값 32개**를 독립 검증했다. 현재 세-seed 그룹은 0개이고 device/Macro4 결과 행은 없다. 기존 세 조건의 `matrix_audit` 증거는 보존하며 새 경로의 검증 범위를 구분한다.
+새 [current/retained 집계 검증](../results/stage04/retained_matrix_audit/validation.json)은 두 백본 R01 오프라인 seeds 0/1, **네 조건·정상 임계값 32개**를 독립 검증했다. 최초에는 네 현재 배열 조건을 검증했고, 아래 실제 캐시 정리 후에는 **현재 배열 세 조건·보존 증거 재검증 한 조건**을 확인했다. 현재 세-seed 그룹은 0개이고 device/Macro4 결과 행은 없다. 기존 세 조건의 `matrix_audit` 증거는 보존하며 새 경로의 검증 범위를 구분한다.
 
 ```bash
 PYTHONPATH=src:scripts python scripts/export_lora_training.py \
@@ -176,3 +176,35 @@ PYTHONPATH=src:scripts python scripts/retire_lora_cache.py \
   --data-root "$IPAD_DATA_ROOT" --execute
 # 실제 중단 journal이 있을 때만 같은 인자에 --resume 추가.
 ```
+
+## 첫 실제 캐시 정리와 사후 재검증
+
+사용자가 승인한 조건은 **후속 실험에서 사용하지 않는 재생성 가능한 특징 배열만 삭제**하는 것이다. [의존성·재생성 입력 검증](../results/cache_retention/T1/dinov3-l/offline/R01/seed0/dependency_regeneration_check.json)은 해당 조건의 원본 43개 영상 전체 해시, 기본 가중치·upstream revision·선택 adapter·고정 소스를 실제 확인하고 CPU 런타임 adapter 바인딩을 통과했다. 실시간 측정은 원본과 선택 모델/head/bank를 읽고, teacher=0 학습은 별도 고정 teacher 캐시를 읽는다. 진단은 고정 백본과 held-out 정상 원본을 사용하며, LoRA·teacher 집계는 current/retained 명령으로 검증한다. GPU로 전체 특징을 재생성하거나 bitwise 일치를 검증한 것은 아니다. 필요하면 같은 원본·선택 모델·고정 소스로 별도의 새 캐시 경로에 재추출할 수 있다.
+
+실행은 inventory revision `8e8abbb323ad5e24eb8fec1ec9c5c71a6533f69a`의 성공 CI와 구현/계획 revision `533a08da7819d75025852d00d0dc0f7296f2a25f`의 [성공 CI](https://github.com/PigeonLabs/KNU_Capstone1_VAD_JEPA/actions/runs/36989545978)를 실제 확인했다. 최신 구현 CI는 외부 `PYTHONPATH` 없이 **291개 테스트와 전체 업로드 검사**를 통과했다.
+
+| DINOv3-L LoRA / offline / R01 / seed 0 | 정리 전 archive | 정리 후 실제 확인 |
+|---|---:|---:|
+| patch/global 특징 배열 | 86개 / 6,847,939,328 bytes (6.38 GiB) | 0개 / 0 bytes |
+| metadata JSON | 43개 | 43개, 원 해시 일치 |
+| target NPY | 43개 | 43개, 원 해시 일치 |
+
+[실제 제거 journal](../results/cache_retention/T1/dinov3-l/offline/R01/seed0/retirement.json), [사후 독립 감사](../results/cache_retention/T1/dinov3-l/offline/R01/seed0/post_retirement_audit.json), [실행 결과](../results/cache_retention/T1/dinov3-l/offline/R01/seed0/retirement_execution_check.json)를 제공한다. 원본·teacher·선택 adapter·joint head·PCA/메모리·평가 CSV를 보존했고, 현재 텐서·metadata/target·정상 임계값·GT·위상/시간/점수/알람/지표를 재검증했다. 전체 네 LoRA 조건의 정상 임계값 32개를 다시 검증했으며, 정리한 한 조건은 archived/current replay를 사용했다. 특징 배열의 원 해시·유한값 검사는 정리 전의 **과거 증거**이고 encoder 재추출·PCA 재학습·GPU 검색 재실행은 이 사후 검증 범위에 포함하지 않는다.
+
+![실제 특징 배열 정리와 metadata/target 보존](figures/stage04/retained/dinov3_l_offline_R01_seed0_cache_retirement.png)
+
+[그래프 코드](../scripts/plot_cache_retirement.py)는 현재 파일 부재·원 metadata/target 해시·완료 journal·사후 감사 일치를 재확인하고 PNG/SVG와 [수치/출처 receipt](figures/stage04/retained/dinov3_l_offline_R01_seed0_cache_retirement.json)를 생성한다. 단일 완료 조건의 논리적 파일 용량이며 전체 디스크 절약량이나 탐지 성능 개선을 뜻하지 않는다.
+
+## 중단된 주 LoRA 조건 이어가기
+
+[continue_lora_condition.py](../scripts/continue_lora_condition.py)는 기본 teacher=1의 한 조건을 기존 **20 epoch 정상-only 프로토콜**로 이어간다. 기존 원 trainer가 checkpoint의 protocol·source·optimizer/RNG를 확인하고, 전체 학습 완료 후 정상 검증 CE로 선택된 모델의 fit/calibration/test 특징, 새 PCA/메모리·정상 보정, 전체 실제 테스트 평가, 독립 조건 감사를 순차 수행한다. 한 조건의 완료가 전체 48조건의 완료를 뜻하지 않는다.
+
+```bash
+PYTHONPATH=src python scripts/continue_lora_condition.py \
+  --data-root "$IPAD_DATA_ROOT" --model vjepa21-l \
+  --mode offline --device R01 --seed 2 --resume
+```
+
+실제 사용 시 CUDA 학습 환경의 Python으로 실행한다. 단일 accuracy lock과 live runtime controller의 측정 사이 hold, GPU 비사용을 확인한 뒤 child를 시작하고 실제 PID/boot/start identity·종료 코드·고정 source 해시를 기록한다. shortened epoch·pilot·다른 teacher/seed·checkpoint 없는 재개·활성 owner의 중복 실행은 거부한다. 8개 신규 continuation 검증을 포함한 전체 **299개 로컬 테스트**를 외부 `PYTHONPATH` 없이 통과했다. 실제 GPU 재개와 최종 정확도는 별도 완료 증거로 구분한다.
+
+V-JEPA 2.1-L R01 오프라인 seed 2는 기존 1 epoch·156 updates의 체크포인트에서 실제 재개했다. [시작 시점의 host owner/child·protocol/source 확인](../results/setup/lora_seed2_continuation_start_check.json)은 GPU 학습 child와 실시간 실행기의 hold를 확인한 snapshot이다. 이 조건의 새 정확도는 아직 없고 전체 LoRA 완료 수는 4/48이다.

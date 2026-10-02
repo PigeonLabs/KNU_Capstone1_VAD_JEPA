@@ -1,0 +1,33 @@
+{
+  "status": "plotted_actual_complete_retirement_and_current_retained_replay",
+  "condition": [
+    "dinov3-l",
+    "offline",
+    "R01",
+    0
+  ],
+  "historical_payload_files": 86,
+  "historical_payload_bytes": 6847939328,
+  "current_payload_files": 0,
+  "current_payload_bytes": 0,
+  "current_hash_verified_retained_file_counts": {
+    "Metadata JSON": 43,
+    "Target NPY": 43
+  },
+  "source_sha256": {
+    "results/cache_retention/T1/dinov3-l/offline/R01/seed0/payload_inventory.json": "fce824d3f2f830f0fdef605cc6143646c9f8c997ee40302e5c09427062f25e8d",
+    "results/cache_retention/T1/dinov3-l/offline/R01/seed0/retirement.json": "936c3a1fb14bd18b330ada93856b7ce51331d683409b1190077266dbc3392d44",
+    "results/cache_retention/T1/dinov3-l/offline/R01/seed0/retirement_execution_check.json": "de2c134f4dadd7287098a85613cfc29d7c5672c7169da7e9c3ab2a92cc54cb82",
+    "results/cache_retention/T1/dinov3-l/offline/R01/seed0/post_retirement_audit.json": "e8de0c424806b4b5952df3c1d2741e56c48e0517b97496ee89c2d3762955fcdf",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "results/cache_retention/T1/dinov3-l/offline/R01/seed0/retirement_plan.json": "4fdd7a5575d79563997d24213b8bff01bee2f8cab6cbab298ded8a49e8b53c5d",
+    "results/cache_retention/T1/dinov3-l/offline/R01/seed0/dependency_regeneration_check.json": "1ba5a841090463039636adfc789983052cf29fa9505daba8ccabd2222231f359",
+    "scripts/plot_cache_retirement.py": "135cb6b24c869b34f7197cf7d0591778d4a88f5baed1189f399fa39fa6dbda08",
+    "scripts/audit_retained_lora.py": "6e247309240a9d4bd3faee2aca44b4ccda5895048964a2c88719c02b02e253b5"
+  },
+  "figure_sha256": {
+    "docs/figures/stage04/retained/dinov3_l_offline_R01_seed0_cache_retirement.png": "4971809e38488c13b906b5ce5faa9ede4f3381e634fcfefe73655cdbac7831f8",
+    "docs/figures/stage04/retained/dinov3_l_offline_R01_seed0_cache_retirement.svg": "695befbd20bbb99e3e9f3a7bbe1827212dcea259d34f6e8ffcb36d151e255b94"
+  },
+  "scope": "Payload finite checks/hashes and actual original cache verification are historical, archived before intentional removal. Current metadata/targets/selected tensors/bank/calibration/GT/time/score/alarm/metrics independently replayed. No current payload presence, encoder replay, PCA refit, GPU distance/temperature-sample replay or runtime claim."
+}
