@@ -206,7 +206,7 @@ PYTHONPATH=src:scripts python scripts/plot_runtime_pairs.py \
 
 고정 P3 MAD scale은 특징 `0.1016114271`, 시간 `0.0012385573`이다. 같은 정상 보정에서 `ΔP3 = 0.5 × Δfeature / feature_scale + 0.5 × Δtime / time_scale`를 전체 target에 적용한 최대 재계산 오차는 **3.20×10⁻¹⁶**이었다. 세 실패 지점의 최종 차이는 대부분 raw 특징 차이에서 이어졌고, 시간 기여는 각각 `+1.54×10⁻⁷`, `−1.84×10⁻⁵`, `−2.01×10⁻⁵`였다.
 
-[모든 영상/target 검사·수치·출처·PNG/SVG 해시](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/failure_diagnostics.json)를 제공한다. 이 결과는 **trace 진단**이며 encoder 특징·PCA 변환 query·선택 이웃/거리·tie를 캡처하지 않았다. GPU로 같은 세 clip의 특징과 검색 중간값을 비교해야 원인을 구분할 수 있다. 현재 parity 상태는 계속 **실패**이고 FP32 reuse를 동등한 최적화로 채택하지 않는다. FPS·지연을 새로 측정하거나 정확도를 개선한 결과도 아니다.
+[모든 영상/target 검사·수치·출처·PNG/SVG 해시](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/failure_diagnostics.json)를 제공한다. 이 결과는 **trace 진단**이며 encoder 특징·PCA 변환 query·선택 이웃/거리·tie를 캡처하지 않았다. 당시 남았던 GPU 비교는 아래 절에서 별도 수행했다. 현재 parity 상태는 계속 **실패**이고 FP32 reuse를 동등한 최적화로 채택하지 않는다. FPS·지연을 새로 측정하거나 정확도를 개선한 결과도 아니다.
 
 ```bash
 PYTHONPATH=src python scripts/diagnose_runtime_pair.py \
@@ -217,13 +217,13 @@ PYTHONPATH=src python scripts/diagnose_runtime_pair.py \
   --figure docs/figures/stage05/runtime/dinov3_l_online_R01_seed0_fp32_raw_failures
 ```
 
-### GPU 검색 중간값 캡처 준비
+### GPU 검색 중간값 캡처와 독립 비교
 
 [probe_runtime_search.py](../scripts/probe_runtime_search.py)는 위 세 실패 target을 입력으로 사용한다. full/reuse를 **별도 프로세스**로 실행하며, 원래 정상 clip의 20회 warmup과 영상 시작부터 실패 target까지의 프레임 순서·FP32 encoder/head/search를 유지한다. 모델·선택 head·PCA/메모리·보정·원본·실측 소스 해시를 확인한다. 실행 중인 정확도 파이프라인과 같은 잠금을 사용하고 runtime controller가 hold 상태이며 GPU가 비어 있어야 시작한다.
 
 캡처한 PCA query·이웃 ID/거리·상위 5% patch 잔차는 기존 `TorchMemory`의 실제 API와 **정확히 같은 값**인지 확인한다. 보조 FP64 검색은 원래 **FP32 query/프로토타입을 승격한 뒤 명시적 차의 제곱합**으로 거리를 재계산한다. encoder/PCA를 FP64로 실행하는 실험이 아니다. k=5/6 경계 거리, full/reuse의 특징·query 및 원래 실측 점수 재현 여부를 후속 비교에 사용한다. 대형 배열은 ignored `artifacts/`에 저장한다.
 
-현재 상태는 **코드 준비·CPU 수치 검증 완료, 실제 GPU 캡처 미실행**이다. CPU 검증은 검색 ID·잔차 재현, NumPy 명시적 FP64 계산과의 비교, 작은 거리의 FP32 소거 및 잘못된 입력/변경된 scorer 거부를 확인했다. 아래 명령은 현재 정확도 학습·전체 평가가 끝난 뒤 각각 실행한다. 세 context 캡처만으로 전체 영상의 동등성을 선언하지 않으며 원래 parity 실패와 게이트·런타임 수치를 유지한다.
+full/reuse를 각각 실제 GPU에서 실행해 **3개 context × 2개 구현의 캡처를 완료**했다. 원래 측정과 같은 RTX PRO 6000·Torch 2.8.0+cu128을 사용했고 TF32를 비활성화했다. 각 캡처의 raw 점수는 원래 측정값과 정확히 같았다. 학습·시간 측정과 겹치지 않는 별도 실행이며 새로운 처리량을 측정하지 않았다. 아래 캡처 명령을 재실행할 때는 새로운 ignored 경로를 사용하고 GPU 작업이 끝나야 한다. 준비 당시의 [CPU 검증 기록](../results/setup/runtime_search_probe_preparation_check.json)은 역사적 snapshot으로 보존한다.
 
 ```bash
 PYTHONPATH=src:scripts .venv/bin/python scripts/probe_runtime_search.py \
@@ -232,4 +232,30 @@ PYTHONPATH=src:scripts .venv/bin/python scripts/probe_runtime_search.py \
 PYTHONPATH=src:scripts .venv/bin/python scripts/probe_runtime_search.py \
   --implementation reuse --data-root ../IPAD_dataset/IPAD_dataset \
   --capture-root artifacts/probes/dinov3_R01_seed0_fp32_reuse
+```
+
+
+[summarize_runtime_search_probe.py](../scripts/summarize_runtime_search_probe.py)는 원래 실패 pair와 실제 측정 소스·모델·메모리·capture JSON/배열 해시를 다시 확인한다. 캡처된 FP32 query와 프로토타입을 FP64로 승격하고, NumPy 명시적 거리로 **모든 384 후보의 k=5 선택·거리·가중 투영·patch 잔차·상위 29개 평균·k=5/6 margin**을 독립 재계산했다. GPU 보조 FP64 캡처와의 최대 오차는 **4.44×10⁻¹⁶**이었다. 주 FP32 CUDA 거리 커널이나 encoder/PCA를 CPU로 독립 재현한 검사는 아니다.
+
+| 영상 / target | query 최대 절대 차이 | 실제 FP32 raw 차이 | 보조 FP64 raw 차이 | FP32 / FP64 이웃 집합 변경 patch 수 |
+|---|---:|---:|---:|---:|
+| 03 / 269 | 2.1681×10⁻⁶ | +0.000221223 | +0.0000000776 | 1 / 0 |
+| 11 / 19 | 1.7285×10⁻⁶ | +0.000478625 | +0.000478653 | 1 / 1 |
+| 13 / 104 | 1.4752×10⁻⁶ | +0.000411659 | +0.000411653 | 1 / 1 |
+
+각 context는 576개 patch를 사용한다. FP32 이웃 집합이 달라진 patch의 **0-based 인덱스는 각각 212·291·205**이며 변경 개수는 각각 **1개**다. 이웃의 순서와 집합을 별도로 검사했다. 같은 phase bins를 검색했고, local encoder 특징의 최대 절대 차이는 각각 8.5235×10⁻⁶·5.8413×10⁻⁶·4.6492×10⁻⁶이었다.
+
+영상 03에서는 보조 FP64 거리의 이웃 집합이 일치하고 raw 차이가 원래 허용량 안으로 줄었다. 그러나 영상 11·13에서는 FP64에서도 k=5 경계 이웃이 달라져 raw 차이가 원래 허용량을 넘었다. **거리 정밀도만 높여 세 지점을 모두 해결한 결과가 아니다.** 세 context의 FP64 k=5/6 최소 margin은 모두 양수였으므로 모든 차이를 정확한 tie 하나로 설명하지 않는다.
+
+방향을 고정한 보조 계산으로 reuse query에 **full의 FP64 이웃 ID**를 적용했다. 거리·softmax·투영·patch 잔차·상위 29개 평균을 매번 다시 계산한다. 이 고정 ID 계산에서 full 대비 query 효과는 각각 +7.759×10⁻⁸·−1.347×10⁻⁷·−1.143×10⁻⁷이고, reuse의 이웃 선택을 허용하면서 추가된 차이는 0·+0.000478788·+0.000411768이었다. 두 항의 합이 보조 FP64 raw 차이다. 전체 encoder의 단독 원인 입증이나 모든 영상에 대한 인과적 결론을 뜻하지 않는다. 상위 29개 patch 집합도 같다고 가정하지 않았다.
+
+![캡처된 raw 차이·고정 이웃 계산·이웃 집합 변경](figures/stage05/runtime/dinov3_l_online_R01_seed0_fp32_search_capture.png)
+
+[모든 수치·출처 해시·독립 재계산 오차·PNG/SVG 해시](../results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/search_probe_comparison.json)를 제공한다. 큰 특징 배열·모델·메모리는 업로드하지 않는다. **원래 15개 영상 parity는 계속 실패**이며 점수 게이트·보정·주 scorer를 바꾸지 않았다. 세 실패 context 진단은 전체 FP64 영상 평가·새로운 정확도/FPS·동등한 스트리밍 최적화 채택을 의미하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/summarize_runtime_search_probe.py \
+  --full artifacts/probes/dinov3_R01_seed0_fp32_full \
+  --reuse artifacts/probes/dinov3_R01_seed0_fp32_reuse \
+  --figure docs/figures/stage05/runtime/dinov3_l_online_R01_seed0_fp32_search_capture
 ```

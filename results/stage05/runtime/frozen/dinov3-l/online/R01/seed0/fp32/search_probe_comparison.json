@@ -1,0 +1,352 @@
+{
+  "status": "passed_source_bound_capture_comparison_and_independent_FP64_replay",
+  "condition": {
+    "backbone": "dinov3-l",
+    "mode": "online",
+    "device": "R01",
+    "seed": 0,
+    "precision": "fp32",
+    "adaptation": "frozen",
+    "all_test_videos": true
+  },
+  "original_all_video_parity_status": "failed",
+  "gates": {
+    "phase_circular_max_abs": 1e-05,
+    "raw_rtol": 1e-05,
+    "raw_atol": 1e-07,
+    "score_rtol": 1e-05,
+    "score_atol": 0.0001,
+    "alarm_mismatches": 0
+  },
+  "untimed_captured_contexts": 3,
+  "captured_implementations": [
+    "full",
+    "reuse"
+  ],
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "capture_torch": "2.8.0+cu128",
+  "cuda_matmul_tf32": false,
+  "cudnn_tf32": false,
+  "source_sha256": {
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/failure_diagnostics.json": "4532cbfe8f9a511229c451cee06d3c8901ec72c33a10f3f661814653e15871cf",
+    "results/setup/runtime_controller_source_check.json": "05b4f1b6ba821d08534337713376691c7b1ffb85cb22dfd91e592cf798708210",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/parity.json": "250f407c966721310c8e407b3163e4af8dfa897f8a518c750c9744bbf63f5a79",
+    "results/stage02/dinov3-l/online/R01/seed0/normal_fit.json": "7590827555d4013902314451b0799522898fdf6df24864a535b4450d3229fac9",
+    "scripts/diagnose_runtime_pair.py": "94695f55feb5800eb62fb7026caabc09ea7e979e74f224a83549b6858a0a53dd",
+    "scripts/verify_runtime_parity.py": "09ed080e509ade2e092cb26dad0030613c5a1f9f1f45d3a074aa1fcf273775e3",
+    "scripts/benchmark_runtime.py": "06c1664958a78b3dbef9cb8d83b5e81cbe4b474ad818176a22c70e5ad436126e",
+    "src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+    "src/ipad_jepa/runtime_state.py": "4983731e279b828848ae274e150a336dd45670afa40418f99c5e433d350a6e14",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/01.csv": "ce366ca5a21e34e0aad960924c361103a1dfe64750ef0dc27caa48a1e7bac32d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/01.csv": "04bdc4a74247ae0f028570467fa12a17904d8eb90bac255ab804cd14840cd3ce",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/02.csv": "d71ea32257bf674505d8c67268438a8779d7b2fa9866980c4e089a3ef50fcaac",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/02.csv": "b1aa255b45cd05850b11d8a304afc1c746fb1a036910caffc5fa1de70ea06167",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/03.csv": "35fd409021d491d2085d009d2fc4305a496ae52dbecdbfc55753310810bca2f4",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/03.csv": "85d6f44c8f263f0d7e98aa983075b90ee3a13f3f07dc00dbcf19538b1cbbb495",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/04.csv": "5cf6eabf3f590cb71cdebafdb1acbf312ae7f2ce1a2719b58cab13ec37efcecd",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/04.csv": "f46b567c8d39c8983547063dfb7d87f0c0118cde71acc27d457d58599085f0dc",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/05.csv": "7ab1be5922bc24049a1223cd42b1a8955d6be79de3494d67ff75f5b4cbf1aa97",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/05.csv": "8108bf8b8848d1a4a55207f3a27409d9f4bd8bee56683315299ab505cfd2ad3b",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/06.csv": "1bb136b9d454e5545c4e0defccefc3ff054ac7680d6b3d284a6dbe6e61b94ddf",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/06.csv": "9d5f3282f3427959bfb8bb93e8c62e4d16ed4fac434ce1757766a357eb54784a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/07.csv": "c2d15c81629876a52d8858605a863f4b7b9e4e2f1eeaadeabe06f7ffc43879bf",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/07.csv": "abbd5cb8fc68cab0d395a487bf33673124e343694cf17f20580d7e50bafa618e",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/08.csv": "aaf2ca9720acaf25728adb702feeedfc5991bb8b17967e7353352aec1ce6dc0a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/08.csv": "4cef557cef5d2b8cb867c88455608ba24adf712e3c9082fd009e8426abb4126d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/09.csv": "bf5f8c500d2460d0d6dd0e7c6f3e8cccd88940b38f39e08f09d2fb1b9207b32c",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/09.csv": "a74a6c02847de79ca0d0668e00df8302ec998633073b3ea284116e9172b01374",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/10.csv": "e2605c0f7d1483bab9d9b3ea0c67996c82f10ba7504089edf6213e47ab12afae",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/10.csv": "ec17756e0fa96d4d258c38977d2a373ede1114b5a7768a477a19ec07669744f4",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/11.csv": "67dc5a89ef5be9d0309c43d5635b6f3f1527d52a13dc30c52e3322363ac0472d",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/11.csv": "8c1e7cb61c9fdf7bf9521e5329574d9635fd41ffee9085b875e3e30199a112f6",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/12.csv": "969e10ad578d69597cf36a310d07a2b8afed2781865ffd0d30ab84c6772cdebb",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/12.csv": "2594f81accbc6fa06e394bddb94073f842fe439fb9f6c4547ff6af1e4afbabd8",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/13.csv": "361e4fc465969deaf64e4551f68f3bb84dd485105937a8bffcd8079adfeb5e6a",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/13.csv": "147724558eba81b5251d050cca9a8b75c609e34737e213789de7ad6ca9a09577",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/14.csv": "18621f89afe6c3629930d4fa86f046fbbc68075ef556fb63a3f430b7c531bf02",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/14.csv": "642c80682c42219b21646691b1c08e47fd299db72ec6287ac9bdcc076b34382c",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/15.csv": "fc9f1fd6953fec8539c62efa6a5e052cb91a28d1f364bb3abfa9b1a62f099778",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/15.csv": "4e9cbc36e82fe16fd0031c3b351837fffdd3f4303e87a0c5ea6a2b807f5cbeda",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/runtime.json": "c43d6e27aaf5c4e96d0c73263f81db96429318b71871b36c5be66879eb635c76",
+    "results/stage02/dinov3-l/online/R01/seed0/normal_calibration.csv": "54c636f8e4e772daf38e336f2fbdbb398cb2913911a00030f99271101c99b8e5",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/full/trace_audit.json": "72759236a7949a0e094a2ee8868afd2b0165eff6f5fca3dd287abc02535b9310",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/runtime.json": "83df422f7777827a276b615ce9755e542f1b4d752ebf0052f70f0b27a48750f7",
+    "results/stage05/runtime/frozen/dinov3-l/online/R01/seed0/fp32/reuse/trace_audit.json": "5d3999c94df6eb2c934bf4a0f3d3c5fdf447184047271f536a259d2fdfa28f39",
+    "scripts/run_runtime_matrix.py": "27c903e3894742a42548fdb20bae3de824f375e2d48d2834e96499fb9d4534a2",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32",
+    "src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/adaptation.py": "0265cf076ab9df02d095824603bccf55abb0ee4ca5628a0432b8b757bdef1354",
+    "src/ipad_jepa/adapted_features.py": "a7980adc2ab1751e19095cc64b52b13a638ad14352fe6cf64b15aeb88ddaece1",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "src/ipad_jepa/runtime_adaptation.py": "9fd423be68fab6acabb64b0f4735742c3dd1990604e79ef8aae6d2cbe1d49863",
+    "src/ipad_jepa/streaming.py": "3dc4935ff695b387e192f5b605b6715d7232642dc610e8b23572e6df177f32b9",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+    "src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+    "src/ipad_jepa/cache_data.py": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+    "artifacts/weights/dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pth": "8aa4cbddda325040fc78db2c272754af6ebe8ff2c55f6ec4f1964d8890f66035",
+    "artifacts/runs/dinov3-l/online/R01/seed0/phase_head.pt": "a924458ca6221dfbf4123245d841e901ef68121a0e1d13802fc4a6fccf53a094",
+    "artifacts/runs/dinov3-l/online/R01/seed0/memory.npz": "814586bd47c1836d95f857e6ee80f4b584e1bbfb0eb44634300d1b4a56892f50",
+    "scripts/probe_runtime_search.py": "a207bbec7a1b95b73a12de17c93617669ddcfbd4257ab32f3704f8df67111be1",
+    "scripts/summarize_runtime_search_probe.py": "9b400efc0446756a3a3008da38b87a812d853f7d0e53067196892177f370feaf",
+    "artifacts/probes/dinov3_R01_seed0_fp32_full/capture.json": "e8a39218e1fc2c5464eb1dcf61b6bd35915bea6138b8f4f577c4ceaf0c738cab",
+    "artifacts/probes/dinov3_R01_seed0_fp32_reuse/capture.json": "11d504c8bd0d43ccc1672d40c5368b90f197a96e942bc89cd84d5c56214f9392",
+    "artifacts/probes/dinov3_R01_seed0_fp32_full/03_269.npz": "53a951c3459fc7ab6b19f5455115ffce6c9b0305e6a6bff819d5006369e82cca",
+    "artifacts/probes/dinov3_R01_seed0_fp32_reuse/03_269.npz": "b53b9af0f25a5b203d0b8e9f40722ffce87096d52317e98118359c9e61b625e6",
+    "artifacts/probes/dinov3_R01_seed0_fp32_full/11_19.npz": "8aa761830b42ec191260bde19cf3a710637f68f360427adada8c77a7a20d4e67",
+    "artifacts/probes/dinov3_R01_seed0_fp32_reuse/11_19.npz": "8d673c3789daece06fdb1c88ff8ab2c362626a285da8ec8163a85ec1adf18047",
+    "artifacts/probes/dinov3_R01_seed0_fp32_full/13_104.npz": "322b4c0df9eb532abfa91c95f590df1515c583d9d66d19a4b939592f1dfff275",
+    "artifacts/probes/dinov3_R01_seed0_fp32_reuse/13_104.npz": "45e86b5fac0b89e268c4cc469f7a9090dfb576a928928c7ee764976c1730923c"
+  },
+  "figures": {
+    "docs/figures/stage05/runtime/dinov3_l_online_R01_seed0_fp32_search_capture.png": "649ebe6945236e4193e34d285fde9f21b36d34f973fd9753703584bb8106484f",
+    "docs/figures/stage05/runtime/dinov3_l_online_R01_seed0_fp32_search_capture.svg": "ab94687c4fcc3fdb17e5ab21e6ce1370e5814e10b11ca04e5091a2682396baef"
+  },
+  "comparisons": [
+    {
+      "fast_raw_delta": 0.0002212226390838623,
+      "stable_raw_delta": 7.758640435673314e-08,
+      "stable_fixed_reference_ids_score": 0.44777283853450717,
+      "fixed_ids_query_effect": 7.758640435673314e-08,
+      "neighbor_selection_effect": 0.0,
+      "stable_raw_within_original_tolerance": true,
+      "fast_raw_within_original_tolerance": false,
+      "local_features_max_abs_difference": 8.52346420288086e-06,
+      "local_features_relative_l2_difference": 2.545024510117145e-06,
+      "global_features_max_abs_difference": 7.674098014831543e-07,
+      "global_features_relative_l2_difference": 7.776769247422455e-07,
+      "query_max_abs_difference": 2.168118953704834e-06,
+      "query_relative_l2_difference": 2.4920463104850586e-06,
+      "fast_neighbors": {
+        "ordered_changed_patches": 1,
+        "membership_changed_patches": 1
+      },
+      "fast_membership_changed_patch_indices": [
+        212
+      ],
+      "fast_top29_membership_equal": false,
+      "fast_min_k5_k6_margin_full_reuse": [
+        1.1920928955078125e-06,
+        1.1920928955078125e-07
+      ],
+      "fast_zero_margin_patches_full_reuse": [
+        0,
+        0
+      ],
+      "fast_raw_scores_full_reuse": [
+        0.4477727711200714,
+        0.4479939937591553
+      ],
+      "stable_neighbors": {
+        "ordered_changed_patches": 0,
+        "membership_changed_patches": 0
+      },
+      "stable_membership_changed_patch_indices": [],
+      "stable_top29_membership_equal": true,
+      "stable_min_k5_k6_margin_full_reuse": [
+        9.678815475755442e-07,
+        1.6344649589328242e-07
+      ],
+      "stable_zero_margin_patches_full_reuse": [
+        0,
+        0
+      ],
+      "stable_raw_scores_full_reuse": [
+        0.4477727609481028,
+        0.44777283853450717
+      ],
+      "distance_rounding_max_abs_full_reuse": [
+        1.099273963967029e-06,
+        1.1141124255376056e-06
+      ],
+      "sequence": "03",
+      "target_frame": 269,
+      "max_independent_FP64_replay_error": 4.440892098500626e-16,
+      "raw_difference_from_original_full_reuse": [
+        0.0,
+        0.0
+      ],
+      "phase_bins_full_reuse": [
+        [
+          11,
+          12,
+          13
+        ],
+        [
+          11,
+          12,
+          13
+        ]
+      ]
+    },
+    {
+      "fast_raw_delta": 0.0004786252975463867,
+      "stable_raw_delta": 0.000478652930068324,
+      "stable_fixed_reference_ids_score": 0.5242623757365393,
+      "fixed_ids_query_effect": -1.3466806780826346e-07,
+      "neighbor_selection_effect": 0.00047878759813613225,
+      "stable_raw_within_original_tolerance": false,
+      "fast_raw_within_original_tolerance": false,
+      "local_features_max_abs_difference": 5.841255187988281e-06,
+      "local_features_relative_l2_difference": 1.8212976979945245e-06,
+      "global_features_max_abs_difference": 1.7881393432617188e-07,
+      "global_features_relative_l2_difference": 3.095731094721999e-07,
+      "query_max_abs_difference": 1.7285346984863281e-06,
+      "query_relative_l2_difference": 1.717204144774214e-06,
+      "fast_neighbors": {
+        "ordered_changed_patches": 1,
+        "membership_changed_patches": 1
+      },
+      "fast_membership_changed_patch_indices": [
+        291
+      ],
+      "fast_top29_membership_equal": true,
+      "fast_min_k5_k6_margin_full_reuse": [
+        1.430511474609375e-06,
+        1.7881393432617188e-06
+      ],
+      "fast_zero_margin_patches_full_reuse": [
+        0,
+        0
+      ],
+      "fast_raw_scores_full_reuse": [
+        0.5242624878883362,
+        0.5247411131858826
+      ],
+      "stable_neighbors": {
+        "ordered_changed_patches": 1,
+        "membership_changed_patches": 1
+      },
+      "stable_membership_changed_patch_indices": [
+        291
+      ],
+      "stable_top29_membership_equal": true,
+      "stable_min_k5_k6_margin_full_reuse": [
+        1.5027643212039976e-06,
+        1.8169022596437046e-06
+      ],
+      "stable_zero_margin_patches_full_reuse": [
+        0,
+        0
+      ],
+      "stable_raw_scores_full_reuse": [
+        0.5242625104046071,
+        0.5247411633346755
+      ],
+      "distance_rounding_max_abs_full_reuse": [
+        1.1288190062685999e-06,
+        1.0179089785511408e-06
+      ],
+      "sequence": "11",
+      "target_frame": 19,
+      "max_independent_FP64_replay_error": 4.440892098500626e-16,
+      "raw_difference_from_original_full_reuse": [
+        0.0,
+        0.0
+      ],
+      "phase_bins_full_reuse": [
+        [
+          12,
+          13,
+          14
+        ],
+        [
+          12,
+          13,
+          14
+        ]
+      ]
+    },
+    {
+      "fast_raw_delta": 0.00041165947914123535,
+      "stable_raw_delta": 0.00041165328579134686,
+      "stable_fixed_reference_ids_score": 0.48987719640095373,
+      "fixed_ids_query_effect": -1.1428927582102233e-07,
+      "neighbor_selection_effect": 0.0004117675750671679,
+      "stable_raw_within_original_tolerance": false,
+      "fast_raw_within_original_tolerance": false,
+      "local_features_max_abs_difference": 4.649162292480469e-06,
+      "local_features_relative_l2_difference": 1.7511001946425184e-06,
+      "global_features_max_abs_difference": 4.5821070671081543e-07,
+      "global_features_relative_l2_difference": 4.748819442979342e-07,
+      "query_max_abs_difference": 1.475214958190918e-06,
+      "query_relative_l2_difference": 1.6090063881086716e-06,
+      "fast_neighbors": {
+        "ordered_changed_patches": 1,
+        "membership_changed_patches": 1
+      },
+      "fast_membership_changed_patch_indices": [
+        205
+      ],
+      "fast_top29_membership_equal": false,
+      "fast_min_k5_k6_margin_full_reuse": [
+        0.0,
+        1.9073486328125e-06
+      ],
+      "fast_zero_margin_patches_full_reuse": [
+        1,
+        0
+      ],
+      "fast_raw_scores_full_reuse": [
+        0.489877313375473,
+        0.49028897285461426
+      ],
+      "stable_neighbors": {
+        "ordered_changed_patches": 1,
+        "membership_changed_patches": 1
+      },
+      "stable_membership_changed_patch_indices": [
+        205
+      ],
+      "stable_top29_membership_equal": false,
+      "stable_min_k5_k6_margin_full_reuse": [
+        3.3964392587293446e-07,
+        9.952104667032557e-07
+      ],
+      "stable_zero_margin_patches_full_reuse": [
+        0,
+        0
+      ],
+      "stable_raw_scores_full_reuse": [
+        0.48987731069022955,
+        0.4902889639760209
+      ],
+      "distance_rounding_max_abs_full_reuse": [
+        1.088687356043394e-06,
+        1.0954630476067706e-06
+      ],
+      "sequence": "13",
+      "target_frame": 104,
+      "max_independent_FP64_replay_error": 4.440892098500626e-16,
+      "raw_difference_from_original_full_reuse": [
+        0.0,
+        0.0
+      ],
+      "phase_bins_full_reuse": [
+        [
+          11,
+          12,
+          13
+        ],
+        [
+          11,
+          12,
+          13
+        ]
+      ]
+    }
+  ],
+  "reporting_runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  },
+  "stable_raw_tolerance_failed_contexts": 2,
+  "finding": "Compare actual FP32 and supplemental FP64 raw deltas against the unchanged raw tolerance. Ordered neighbor-rank differences are distinct from membership changes. The directional held-ID counterfactual separates query effects from neighbor selection effects under FP64 search arithmetic.",
+  "counterfactual": "Candidate captured FP32 query promoted to FP64 with reference stable k=5 IDs; recompute distances, softmax, projection, patch residuals and top29 mean. Query effect = fixed-ID score minus full stable score; selection effect = reuse stable score minus fixed-ID score. Directional, no assumption of equal top29 sets.",
+  "limits": "Three selected failed contexts only. Not FP64 encoder/PCA inference, an independent replay of primary FP32 CUDA kernels, a parity repair, sole-cause proof, new accuracy/FPS, full-video FP64 evaluation, or general streaming equivalence. Original measured traces/scorer/calibration/gates/parity are unchanged. Capture arrays and model/bank remain private."
+}
