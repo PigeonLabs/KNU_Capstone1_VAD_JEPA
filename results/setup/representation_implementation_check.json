@@ -1,0 +1,104 @@
+{
+  "status": "tested_implementation_and_live_full96_pipeline",
+  "scope": "Ten focused CPU tests and actual live extraction command; no completed representation accuracy, CI or runtime claim",
+  "focused_tests": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_representation.py",
+      "passed": 7,
+      "exit_code": 0,
+      "seconds": 195.7
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_representation_views.py",
+      "passed": 3,
+      "exit_code": 0,
+      "seconds": 189.34
+    }
+  ],
+  "pipeline": {
+    "planned_seed_conditions": 96,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "representations": [
+      "patch",
+      "global_mean"
+    ],
+    "fit_stride_both_representations": 1,
+    "observed_current": {
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R01",
+      "step": "encode_all_dense_normal_fit_clips"
+    },
+    "observed_processes": [
+      {
+        "role": "full_matrix_parent",
+        "pid": 3002995,
+        "start_ticks": 33556929,
+        "process_state": "S",
+        "argv": [
+          ".venv/bin/python",
+          "scripts/run_representation_matrix.py",
+          "--data-root",
+          "../IPAD_dataset/IPAD_dataset"
+        ]
+      },
+      {
+        "role": "real_dense_fit_extractor",
+        "pid": 3003049,
+        "start_ticks": 33557610,
+        "process_state": "D",
+        "argv": [
+          "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/.venv/bin/python",
+          "-m",
+          "ipad_jepa.representation_features",
+          "--data-root",
+          "../IPAD_dataset/IPAD_dataset",
+          "--manifest",
+          "results/stage00/manifest.json",
+          "--model",
+          "dinov3-l",
+          "--mode",
+          "offline",
+          "--device",
+          "R01",
+          "--weights",
+          "artifacts/weights/dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pth",
+          "--upstream",
+          "third_party/dinov3",
+          "--original-cache",
+          "artifacts/features/dinov3-l/offline",
+          "--out",
+          "artifacts/representation_dense/dinov3-l/offline/R01"
+        ]
+      }
+    ]
+  },
+  "source_sha256": {
+    "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/scripts/run_representation_matrix.py": "ef1be8be60cbed762cd51253539b345377343286825668d281d546a8b1c91a0f",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "src/ipad_jepa/representation.py": "3274ff8bbb492c4d19865fa92d64de531cb1d6d541ba26f344c89a8ca80169c5",
+    "src/ipad_jepa/representation_features.py": "2b06df89e98b26ce14810d9fa040767bc93be2426ab6d9c48953f73b814a3350",
+    "src/ipad_jepa/representation_data.py": "5708f249f7d2f07830b2477a7a978dd8684b423e4a6582166f62eef3ec61c10b",
+    "src/ipad_jepa/representation_ablation.py": "d34bcd332502c964b47c52aea18643bc052df75556725ea4bebfb7dc1a3b3e47",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+    "src/ipad_jepa/cache_data.py": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+    "src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+    "src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32"
+  },
+  "figure_sha256": {
+    "docs/figures/stage05/representation_capacity.png": "0b675daa9ef086ed7cb35ea630d821447ade44f28335f5d221c78b1e6d6cc1fd",
+    "docs/figures/stage05/representation_capacity.svg": "04231bb58b3260f13c2365c80102659d7f8a59d0fd9acd2a7bec7e482c37a55f"
+  },
+  "visual_inspection": "Final PNG inspected after numeric labels were separated from the 128-candidate reference line; SVG exported from the same figure"
+}
