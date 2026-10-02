@@ -47,4 +47,18 @@ python scripts/run_teacher_weight_matrix.py --data-root "$IPAD_DATA_ROOT"
 
 [실제 신규 48조건의 시작·소스 고정·8개 테스트 근거](../results/setup/teacher_weight_implementation_check.json)를 제공한다. 첫 조건은 DINOv3-L 오프라인 R01 seed 0이며 실제 학습 subprocess의 `--teacher-weight 0.0` 인자를 확인했다. 이 시작 기록은 optimizer update·epoch·전체 GPU 학습의 완료를 증명하지 않는다.
 
-**현재 정확도·CI·전체 Macro4·실시간 결과는 없다.** 시작/완료 표시는 실제 ledger·조건 증명으로 구분한다. teacher 0/1 paired 집계·독립 점수/GT 검증과 그래프 공개는 해당 완료 조건이 확보된 뒤 수행한다. Stage 05 전체 완료 태그는 남은 OFAT·진단·실시간 비교까지 검증한 뒤에만 생성한다.
+## 실제 teacher 0/1 쌍의 검증·시각화
+
+[독립 집계기](../scripts/summarize_teacher_weight.py)는 완료된 실제 teacher 0/1 처리만 짝지으며 고정 백본을 teacher 1로 대체하지 않는다. 같은 백본·모드·장비·seed, 고정 teacher의 가중치/입력/캐시 출처, 학습 코드와 optimizer, 전체 epoch별 update 수를 대조한다. 각 처리의 선택 adapter/joint head tensor, 실제 재추출 target 수와 학습 clip 수, 새 메모리·정상 보정·test GT/점수/알람도 독립 검증한다. 최소 정상 CE로 선택한 epoch와 학습된 특징·PCA·온도·임계값은 서로 달라도 허용한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/summarize_teacher_weight.py
+# 실제 48쌍이 모두 완료됐을 때 요구하는 최종 검증:
+PYTHONPATH=src:scripts python scripts/summarize_teacher_weight.py --require-full
+# 같은 장비의 seeds0/1/2가 모두 검증된 후에만 생성:
+PYTHONPATH=src:scripts python scripts/plot_lora_matrix.py --kind teacher
+```
+
+`results/stage05/ablations/teacher_weight/paired_audit`에 두 처리의 seed별 근거와 P0–P3 지표·**teacher 0 − teacher 1** paired 차이/95% CI를 저장한다. 장비별 3-seed 평균과 전체 네 장비의 동일 비중 Macro4를 구분한다. 그래프는 P3 정확도와 paired 차이를 PNG/SVG로 제공하며, 완료된 3-seed 그룹이 없으면 만들지 않는다. 이 검증은 원본 영상 encoder 재추출이나 GPU 거리·온도 표본 계산을 재실행하지 않으며, P0/P1 정상 raw median/MAD 재계산에는 저장 자료의 한계가 있다. [주 LoRA 검증 범위](STAGE04.md)를 함께 적용한다.
+
+**현재 teacher 0/1 정확도·CI·전체 Macro4·실시간 결과는 없다.** 시작/완료 표시는 실제 ledger·조건 증명으로 구분한다. 집계 코드의 테스트 통과는 실제 두 처리의 학습·평가 완료를 증명하지 않는다. Stage 05 전체 완료 태그는 남은 OFAT·진단·실시간 비교까지 검증한 뒤에만 생성한다.

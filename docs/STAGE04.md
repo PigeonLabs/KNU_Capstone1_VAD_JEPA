@@ -76,4 +76,24 @@ V-JEPA의 마지막 epoch 원형 MAE는 3.89%로 낮아졌지만 CE는 6.2001로
 
 R01 seed 1/2와 전체 장비·모드의 후속 학습·평가는 계속 진행 중이다.
 
+## 전체 LoRA 행렬의 독립 검증과 집계
+
+`scripts/summarize_lora_matrix.py`는 두 백본 × 두 모드 × 네 장비 × 세 seeds의 48조건을 검사한다. 실제 평가가 완료된 seed마다 20 epoch 정상 학습·최소 정상 CE 선택, 선택 adapter와 joint head의 tensor 일치, 실제 재추출 캐시의 메타데이터·target·차원, 재구성 PCA/메모리, 정상 보정과 실제 테스트 GT·점수·알람을 검증한다. 공개된 seed 0의 adapter·head·메모리 해시도 기존 검증 기록과 대조한다.
+
+장비별 평균은 **같은 조건의 seeds 0/1/2가 모두 검증된 경우에만** 제공한다. seed별 AUROC/AP를 계산한 뒤 평균하며 seed 점수나 전체 장비 프레임을 합쳐 계산하지 않는다. 1,000회 원본 영상 bootstrap은 같은 장비·seed·영상의 고정 백본/LoRA, P0–P3 및 백본/모드 비교에 같은 추출을 사용한다. Macro4는 R01–R04를 같은 비중으로 평균하며 네 장비가 모두 있어야 생성한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/summarize_lora_matrix.py
+# 전체 48조건 완료를 요구할 때만 추가:
+PYTHONPATH=src:scripts python scripts/summarize_lora_matrix.py --require-full
+# 독립 검증된 3-seed 그룹이 있어야 그래프를 생성한다.
+PYTHONPATH=src:scripts python scripts/plot_lora_matrix.py --kind lora
+```
+
+검증 결과는 `results/stage04/matrix_audit`에 저장한다. seed 검증 기록과 집계 완료를 구분하며 아직 3-seed 그룹이 없으면 정확도 표·그래프를 만들지 않는다. P2/P3 정상 raw MAD·component q99와 모든 P0–P3의 정상 normalized q99, test GT·점수·연속 초과 알람을 재계산한다. P0/P1 정상 CSV에는 normalized 값만 있으므로 해당 raw median/MAD는 독립 재계산하지 않는다. 원본 영상의 encoder 재실행, PCA/k-center 재학습, GPU 특징 거리·온도 표본의 재계산 및 실시간 성능 측정은 이 CPU 검증의 범위에 포함하지 않는다.
+
+현재 [독립 검증 기록](../results/stage04/matrix_audit/validation.json)은 DINOv3 R01 오프라인 seed 0, V-JEPA R01 오프라인 seeds 0/1의 **세 개 개별 조건**을 통과했다. LoRA와 고정 백본의 정상 임계값 총 24개를 확인했으며, 완성된 3-seed 그룹은 0개다. 신규 [V-JEPA seed 1의 실제 P0–P3 결과·학습 곡선](../results/stage04/vjepa21-l/offline/R01/seed1)은 P3 AUROC/AP **39.74/29.92%**다. 이 값은 단일 seed 결과이며 3-seed 평균·전체 Macro4·백본 우열을 의미하지 않는다. 세 개 seed 검증과 집계기는 구현 테스트를 포함한 전체 211개 테스트를 통과했으며, 실제 전체 행렬 완료와 구분한다.
+
+teacher 가중치 0/1은 [별도 통제 실험](ABLATION_TEACHER_WEIGHT.md)에서 실제 두 joint LoRA 처리를 비교한다. 주 LoRA의 고정 백본 대비 차이를 teacher 0/1 결과로 해석하지 않는다.
+
 전체 장비·3 seeds·2 modes의 LoRA 평가와 teacher weight 0/1을 포함한 추가 실험은 아직 완료되지 않았다. 실험 행렬은 [experiment_matrix.yaml](../configs/experiment_matrix.yaml), 예비 결과는 [results/stage04](../results/stage04)에 공개한다.

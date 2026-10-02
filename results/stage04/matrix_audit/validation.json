@@ -1,0 +1,330 @@
+{
+  "status": "passed",
+  "matrix_complete": false,
+  "completed_seed_conditions": 3,
+  "complete_three_seed_groups": 0,
+  "teacher_weight": 1.0,
+  "normal_thresholds_checked": 24,
+  "condition_checks": [
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R01",
+        0
+      ],
+      "teacher_weight": 1.0,
+      "condition_audit": "dinov3-l/offline/R01/seed0/condition_audit.json",
+      "condition_audit_sha256": "49c4995379adace8399e207fd0632aeaa41af7420b0c2599cdc7da7a23c68d98",
+      "normal_thresholds_checked": 8,
+      "selected_adapter_sha256": "16337a114197e104402304f60da73552fb01539cce24b6fd5d77bacb8d20453a"
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R01",
+        0
+      ],
+      "teacher_weight": 1.0,
+      "condition_audit": "vjepa21-l/offline/R01/seed0/condition_audit.json",
+      "condition_audit_sha256": "269226571ae35e4cb1b548f59f86e96d8fdd34074f43606100657d85c511c40b",
+      "normal_thresholds_checked": 8,
+      "selected_adapter_sha256": "c78f8010ce21eac6aaa63bd2780dd2c546ce00e967272295da6627b5c464d8f3"
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R01",
+        1
+      ],
+      "teacher_weight": 1.0,
+      "condition_audit": "vjepa21-l/offline/R01/seed1/condition_audit.json",
+      "condition_audit_sha256": "87c99c1906826cd433d5820ddcb6745c4b9714840267e20ebb30a23e95a67967",
+      "normal_thresholds_checked": 8,
+      "selected_adapter_sha256": "cfcd59295908746c209c41bad94ac9505ca46a2173b5f50468321912f82291e5"
+    }
+  ],
+  "pending_conditions": [
+    [
+      "dinov3-l",
+      "offline",
+      "R01",
+      1
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R01",
+      2
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R02",
+      0
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R02",
+      1
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R02",
+      2
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R03",
+      0
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R03",
+      1
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R03",
+      2
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R04",
+      0
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R04",
+      1
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R04",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R01",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R01",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R01",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R01",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R02",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R02",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R02",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R03",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R03",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R03",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R04",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R04",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R04",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04",
+      2
+    ]
+  ],
+  "device_summary_sha256": "d272abeaea7cd36cd307787392d06e5b354bb0c4017a6a126147d55b299d8b24",
+  "macro_summary_sha256": "810073ab949d6ad4e7ab1a050a5c743d110ac82a7eb36121fa2ab6a78185386d",
+  "verifier_sha256": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+  "protocol_audit_sha256": "3418f771aed02e8537645a8f1f372a4dac537c5c99564db9357fe937c1a3ad41",
+  "selected_tensor_verifier_sha256": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+  "shared_trace_audit_sha256": "af25ff897d7cbe8286748bd2725d9daac9717d238c59c572ad165745445dbfd6",
+  "shared_bootstrap_sha256": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+  "manifest_sha256": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+  "scope": "Completed LoRA seeds independently audited; accuracy rows require exactly seeds0/1/2; matched frozen targets/GT; per-seed metrics averaged; original-video paired bootstrap1000; Macro4 only with all four equally weighted devices; no runtime claim"
+}

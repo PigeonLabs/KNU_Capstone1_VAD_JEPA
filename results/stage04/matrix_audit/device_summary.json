@@ -1,0 +1,5 @@
+{
+  "scope": "Completed LoRA seeds independently audited; accuracy rows require exactly seeds0/1/2; matched frozen targets/GT; per-seed metrics averaged; original-video paired bootstrap1000; Macro4 only with all four equally weighted devices; no runtime claim",
+  "results": [],
+  "paired_deltas": []
+}

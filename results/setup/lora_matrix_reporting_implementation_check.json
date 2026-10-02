@@ -1,0 +1,28 @@
+{
+  "status": "implementation_tests_passed_and_three_actual_seed_witnesses_verified",
+  "full_matrix_complete": false,
+  "completed_teacher_zero_one_pairs": 0,
+  "complete_primary_three_seed_groups": 0,
+  "actual_lora_seed_conditions_checked": 3,
+  "normal_thresholds_checked": 24,
+  "source_sha256": {
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "src/ipad_jepa/lora_audit.py": "3418f771aed02e8537645a8f1f372a4dac537c5c99564db9357fe937c1a3ad41",
+    "tests/test_lora_matrix_audit.py": "5b72f8fa29fd8019939ad7b67bfc53d5ede32783ca99f5d4248c499f9148dd1d",
+    "scripts/summarize_teacher_weight.py": "af81a0e6ac8539074465940506ec4dfbca00527593a72844e3a75f869507e352",
+    "src/ipad_jepa/teacher_weight_audit.py": "2669723a979f975b6e48b435949126d8ffb70661bc6cf37cd9a4119b023e7eff",
+    "tests/test_teacher_weight_pair_audit.py": "f0617335055cb22b67a9953ce0cd5eee4b91db1ade071a5fa320da03eaa86f91",
+    "scripts/plot_lora_matrix.py": "23e73ecb4d850a1393ef17e3327b1fe82e1b255feaa710c60353acf53ff82213",
+    "tests/test_lora_matrix_plot.py": "ee0d8e4dd6e97b7bead55a681a0c04d2be59c0e1cce38e3d3918c99c01d1470e"
+  },
+  "primary_validation_sha256": "9c60110650d59a2034638ff0e38b6cad19c30c6688d505343201743254035a2e",
+  "test_command": "PYTHONPATH=src:scripts OPENBLAS_NUM_THREADS=4 OMP_NUM_THREADS=4 MPLCONFIGDIR=/tmp/ipad-jepa-mpl-cache /tmp/ipad-jepa-cpu-runtime/bin/python -m pytest -q",
+  "test_session": 37563,
+  "actual_tests_passed": 211,
+  "actual_test_seconds": 76.04,
+  "test_runtime": {
+    "python": "3.12.3",
+    "torch": "2.8.0+cpu"
+  },
+  "scope": "CPU implementation tests plus actual completed per-seed adapter/head/cache/bank/calibration/GT/trace verification; no completed three-seed primary group, actual teacher0/1 accuracy pair, Macro4, encoder replay or runtime measurement claimed. Large weights/features/checkpoints remain local."
+}
