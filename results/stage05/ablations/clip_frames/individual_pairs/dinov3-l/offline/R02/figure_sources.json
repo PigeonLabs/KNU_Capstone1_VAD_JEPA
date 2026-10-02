@@ -1,0 +1,11 @@
+{
+  "status": "rendered_audited_individual_seed_pairs",
+  "validation_sha256": "f185490dca86c0221e3780432b59f7d86c9584d6ce4d079f4017f7347e7b0ab4",
+  "points_sha256": "ec55b651f0da411429a0ffc3310232774fa03f05b3d71a1afd90e83914f44f62",
+  "plot_code_sha256": "f2c679705efdcb04db941c17b45cdd795ba5024815d38d8d135e56127f79ec76",
+  "figures": {
+    "docs/figures/stage05/clip_dinov3-l_offline_R02_individual_seeds.png": "3c4f9047db530fb8fe8a2c6ac03e00ec6f1ed229a1b6125860a3a706f7139ba4",
+    "docs/figures/stage05/clip_dinov3-l_offline_R02_individual_seeds.svg": "6ac07974a8d6773abe8e6e3adc11428a439d7f5ab566bd8d6fd57dfdf196a88c"
+  },
+  "scope": "P3 individual fixed-seed metrics on shared t=19..N-8/annotation mask; per-context normal head/PCA/memory/calibration refitted. No seed mean, bootstrap CI, Macro4 or runtime claim."
+}

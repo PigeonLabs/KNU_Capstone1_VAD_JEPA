@@ -1,0 +1,56 @@
+{
+  "scope": "P3 individual fixed-seed metrics on shared t=19..N-8/annotation mask; per-context normal head/PCA/memory/calibration refitted. No seed mean, bootstrap CI, Macro4 or runtime claim.",
+  "backbone": "dinov3-l",
+  "mode": "offline",
+  "device": "R02",
+  "seeds": [
+    0,
+    1
+  ],
+  "missing_seeds": [
+    2
+  ],
+  "matrix_complete": false,
+  "results": [
+    {
+      "seed": 0,
+      "clip_frames": 16,
+      "score_variant": "P3",
+      "test_videos": 15,
+      "frames": 9210,
+      "anomaly_frames": 2949,
+      "auroc": 0.7691484079914908,
+      "ap": 0.6327607141116265
+    },
+    {
+      "seed": 0,
+      "clip_frames": 8,
+      "score_variant": "P3",
+      "test_videos": 15,
+      "frames": 9210,
+      "anomaly_frames": 2949,
+      "auroc": 0.7727364775262406,
+      "ap": 0.6239686359898842
+    },
+    {
+      "seed": 1,
+      "clip_frames": 16,
+      "score_variant": "P3",
+      "test_videos": 15,
+      "frames": 9210,
+      "anomaly_frames": 2949,
+      "auroc": 0.797899975459942,
+      "ap": 0.645209518054972
+    },
+    {
+      "seed": 1,
+      "clip_frames": 8,
+      "score_variant": "P3",
+      "test_videos": 15,
+      "frames": 9210,
+      "anomaly_frames": 2949,
+      "auroc": 0.7886339506693382,
+      "ap": 0.6292977616994936
+    }
+  ]
+}
