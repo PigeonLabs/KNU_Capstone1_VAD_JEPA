@@ -1,0 +1,66 @@
+{
+  "status": "passed_retired_primary_runtime_inputs_CPU_only",
+  "condition": {
+    "adaptation": "lora",
+    "backbone": "dinov3-l",
+    "mode": "offline",
+    "device": "R01",
+    "seed": 0
+  },
+  "actual_absent_derived_payload_files": 86,
+  "retained_sequence_meta_and_targets": 43,
+  "original_runtime_readiness": {
+    "ready": true,
+    "inputs_sha256": {
+      "results/stage04/dinov3-l/offline/R01/seed0/metrics.json": "4b1628dfb99e959a30e6b807d1c06f615cf55c5fb0938ca6b9a9d2e5f4d24985",
+      "results/stage04/dinov3-l/offline/R01/seed0/normal_fit.json": "cc23a26ee3cd0884326331e4001b83ff5c8a26d9b7b0e991c0332f389c075d6f",
+      "artifacts/runs_lora/dinov3-l/offline/R01/seed0/phase_training.json": "cd6ec2ae32bba19adb1fc9e1b5c85e95972836e00fb966b975bfd79c0e9577d9",
+      "artifacts/runs_lora/dinov3-l/offline/R01/seed0/phase_head.pt": "a0d5cd2e415c2f490ae8f19166a49ac9837d32f9ccbae1ae871b7000eabcf65d",
+      "artifacts/runs_lora/dinov3-l/offline/R01/seed0/memory.npz": "a58454ec5b58897bc8a89b8531bde19d975e408bad4b425e365c0a369d810a60",
+      "artifacts/lora/dinov3-l/offline/R01/seed0/lora_training.json": "d85516dcdfad03e7d18d963679332db9ac0b04c050d57f918a73c91d5c94a968",
+      "artifacts/lora/dinov3-l/offline/R01/seed0/selected_adapter.pt": "16337a114197e104402304f60da73552fb01539cce24b6fd5d77bacb8d20453a"
+    }
+  },
+  "original_selected_runtime_binding": {
+    "adaptation": "lora",
+    "selected_adapter_sha256": "16337a114197e104402304f60da73552fb01539cce24b6fd5d77bacb8d20453a",
+    "lora_training_sha256": "d85516dcdfad03e7d18d963679332db9ac0b04c050d57f918a73c91d5c94a968",
+    "teacher_weight": 1.0
+  },
+  "selected_epoch": 18,
+  "CPU_adapter_tensor_count": 16,
+  "CPU_head_tensor_count": 4,
+  "fitted_memory_shapes": {
+    "mean": [
+      1024
+    ],
+    "components": [
+      256,
+      1024
+    ],
+    "prototypes": [
+      16,
+      128,
+      256
+    ]
+  },
+  "CUDA_context_initialized": false,
+  "source_sha256": {
+    "results/cache_retention/T1/dinov3-l/offline/R01/seed0/retirement.json": "936c3a1fb14bd18b330ada93856b7ce51331d683409b1190077266dbc3392d44",
+    "artifacts/lora/dinov3-l/offline/R01/seed0/lora_training.json": "d85516dcdfad03e7d18d963679332db9ac0b04c050d57f918a73c91d5c94a968",
+    "artifacts/lora/dinov3-l/offline/R01/seed0/lora_training.csv": "970805b7533416e00849ca96eda2cf48c4fd8e027e5a7949712406e5cd549183",
+    "artifacts/lora/dinov3-l/offline/R01/seed0/selected_adapter.pt": "16337a114197e104402304f60da73552fb01539cce24b6fd5d77bacb8d20453a",
+    "artifacts/runs_lora/dinov3-l/offline/R01/seed0/phase_head.pt": "a0d5cd2e415c2f490ae8f19166a49ac9837d32f9ccbae1ae871b7000eabcf65d",
+    "artifacts/runs_lora/dinov3-l/offline/R01/seed0/phase_training.json": "cd6ec2ae32bba19adb1fc9e1b5c85e95972836e00fb966b975bfd79c0e9577d9",
+    "artifacts/runs_lora/dinov3-l/offline/R01/seed0/memory.npz": "a58454ec5b58897bc8a89b8531bde19d975e408bad4b425e365c0a369d810a60",
+    "results/stage04/dinov3-l/offline/R01/seed0/normal_fit.json": "cc23a26ee3cd0884326331e4001b83ff5c8a26d9b7b0e991c0332f389c075d6f",
+    "src/ipad_jepa/runtime_adaptation.py": "9fd423be68fab6acabb64b0f4735742c3dd1990604e79ef8aae6d2cbe1d49863",
+    "src/ipad_jepa/adapted_features.py": "a7980adc2ab1751e19095cc64b52b13a638ad14352fe6cf64b15aeb88ddaece1",
+    "src/ipad_jepa/train_lora.py": "a2508f4fef9d3f4d938216fbb0695baf63918432e96154ac35b669e159d8ba28",
+    "src/ipad_jepa/adaptation.py": "0265cf076ab9df02d095824603bccf55abb0ee4ca5628a0432b8b757bdef1354",
+    "scripts/run_runtime_matrix.py": "27c903e3894742a42548fdb20bae3de824f375e2d48d2834e96499fb9d4534a2",
+    "scripts/benchmark_runtime.py": "06c1664958a78b3dbef9cb8d83b5e81cbe4b474ad818176a22c70e5ad436126e",
+    "scripts/check_retired_runtime_inputs.py": "249d4275490dbb9ec60f0f52449206bf31a6e4742f0366ae88e126e9ff016342"
+  },
+  "limits": "Actual CPU readiness and selected adapter/head binding, fitted bank shape/finite check. No GPU encoder/search/parity/FPS/latency, new full runtime result, base-weight/raw JPEG full-content rehash, encoder regeneration, broader cache retirement eligibility or permission."
+}

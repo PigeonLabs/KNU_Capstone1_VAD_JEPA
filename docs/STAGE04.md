@@ -195,6 +195,26 @@ PYTHONPATH=src:scripts python scripts/retire_lora_cache.py \
 
 [그래프 코드](../scripts/plot_cache_retirement.py)는 현재 파일 부재·원 metadata/target 해시·완료 journal·사후 감사 일치를 재확인하고 PNG/SVG와 [수치/출처 receipt](figures/stage04/retained/dinov3_l_offline_R01_seed0_cache_retirement.json)를 생성한다. 단일 완료 조건의 논리적 파일 용량이며 전체 디스크 절약량이나 탐지 성능 개선을 뜻하지 않는다.
 
+### 캐시 정리 후 runtime 구성요소의 CPU 검증
+
+실제로 정리된 **DINOv3-L / R01 오프라인 / seed 0**에서 파생 특징 배열 **86개가 없는 상태**로 기존 runtime `readiness`와 `selected_runtime_adapter`를 실행했다. 보존된 **43개 영상 metadata/target**, 정상 CE로 선택된 **epoch 18**의 adapter **16개 CPU 텐서**, joint head **4개 CPU 텐서**를 확인했다. 원 선택 checkpoint와 head가 일치하고 유한하며 PCA 평균 `1024`, 투영 `256×1024`, 프로토타입 `16×128×256`과 온도·주기 값이 보존 보정과 일치했다. 실제 CPU 검사 종료 코드 0을 확인했고 CUDA context는 초기화하지 않았다.
+
+```mermaid
+flowchart LR
+    A[보존된 선택 adapter] --> V[원 runtime 함수의 CPU 연결 검사]
+    H[보존된 joint head] --> V
+    N[보존된 정상 보정 메타데이터] --> V
+    B[보존된 PCA·프로토타입 메모리] --> C[CPU 형상·유한성·보정 일치 검사]
+```
+
+[검사 코드](../scripts/check_retired_runtime_inputs.py), [실제 CPU 결과·입력 hash](../results/setup/retired_R01_runtime_inputs_CPU_check.json), [게시 검증](../results/setup/retired_runtime_CPU_publication_check.json)을 제공한다. 이 결과는 runtime 입력 보존의 확인이다. GPU encoder/search·재생 parity·FPS/지연이나 실시간 성능을 측정한 결과가 아니며, 추가 캐시 정리의 승인이나 삭제 적격성을 입증하지 않는다. 원본 JPEG와 base 가중치의 전체 content hash 또는 특징 재생성을 이 검사에서 다시 수행하지 않았다. 실제 runtime 전체 **6/240 실행**, 주 LoRA **17/48조건**의 완료 수를 유지한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/check_retired_runtime_inputs.py \
+  --model dinov3-l --mode offline --device R01 --seed 0 \
+  --out results/setup/retired_R01_runtime_inputs_CPU_check_rerun.json
+```
+
 ## 중단된 주 LoRA 조건 이어가기
 
 [continue_lora_condition.py](../scripts/continue_lora_condition.py)는 기본 teacher=1의 한 조건을 기존 **20 epoch 정상-only 프로토콜**로 이어간다. 기존 원 trainer가 checkpoint의 protocol·source·optimizer/RNG를 확인하고, 전체 학습 완료 후 정상 검증 CE로 선택된 모델의 fit/calibration/test 특징, 새 PCA/메모리·정상 보정, 전체 실제 테스트 평가, 독립 조건 감사를 순차 수행한다. 한 조건의 완료가 전체 48조건의 완료를 뜻하지 않는다.
