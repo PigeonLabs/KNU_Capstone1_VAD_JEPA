@@ -460,3 +460,35 @@ PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py \
   --out results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R02/seed0 \
   --figure docs/figures/stage05/cached_P3_vjepa21-l_R02_offline_seed0_pair
 ```
+
+## V-JEPA R02 seed 0의 라벨 정렬 민감도
+
+R02/12·13·14는 영상과 원본 라벨 길이가 1프레임 달라 정확한 정렬이 미확정이다. 완료된 V-JEPA 2.1-L 오프라인 seed 0의 **동일 점수 CSV**를 원본 라벨과 대조하고, 해당 세 영상에 한해 `label[t-1]`, `label[t]`, `label[t+1]` 가정으로 AUROC/AP를 다시 계산했다. 길이가 일치한 영상은 기존 index 정렬을 유지했다. 기존 독립 정상 보정·GT·점수·알람 감사의 source/annotation 해시를 확인하고, P0–P3 양쪽 방법의 **24개 민감도 수치**와 주 평가 8개를 모두 검산했다. 모델 추론·학습·PCA·메모리·임계값 선택을 다시 수행하지 않았다.
+
+| P3 방법 | 정렬 가정 | 평가 target / 이상 target | AUROC (%) | AP (%) |
+|---|---|---:|---:|---:|
+| 고정 백본 | -1 | 9,228 / 2,959 | 62.518 | 43.499 |
+| 고정 백본 | +0 | 9,228 / 2,958 | 62.554 | 43.522 |
+| 고정 백본 | +1 | 9,228 / 2,957 | 62.537 | 43.496 |
+| 고정 백본 | consensus 주 평가 | 9,210 / 2,949 | 62.543 | 43.485 |
+| LoRA | -1 | 9,228 / 2,959 | 67.812 | 56.806 |
+| LoRA | +0 | 9,228 / 2,958 | 67.827 | 56.811 |
+| LoRA | +1 | 9,228 / 2,957 | 67.817 | 56.786 |
+| LoRA | consensus 주 평가 | 9,210 / 2,949 | 67.821 | 56.799 |
+
+![V-JEPA R02 seed 0 라벨 정렬 민감도](figures/stage05/alignment_vjepa21-l_R02_offline_seed0.png)
+
+강제 offset 세 가정은 **9,228개** target를 사용하며 이상 target 수는 -1/0/+1에서 **2,959/2,958/2,957개**다. 주 평가 consensus는 세 가정의 라벨이 일치하는 **9,210개**(이상 2,949·정상 6,261)를 사용하고, 불일치한 **18개**를 제외한다. 따라서 consensus를 네 번째 offset으로 연결하거나, 서로 다른 분모를 동일한 평가 집합으로 해석하지 않는다.
+
+이 단일 seed의 P3에서 ±1 가정에 따른 범위(max−min)는 고정 백본 AUROC **0.0357pp**, AP **0.0263pp**, LoRA AUROC **0.0152pp**, AP **0.0246pp**다. 이는 명시된 ±1 가정 안의 점수 민감도만 보여 준다. 정확한 정렬이나 ±1 밖의 오차, 학습 seed 변동성, 통계적 동등성·CI, 온라인 실시간 성능을 입증하지 않는다. 민감도 결과로 라벨·epoch·threshold·seed를 선택하지 않았고, 기존 주 평가와 실험 완료 수 **10/48조건·3/16그룹**을 유지한다.
+
+[전체 P0–P3 수치 및 source/annotation 해시](../results/stage05/alignment_sensitivity/vjepa21-l/offline/R02/seed0/alignment_sensitivity.json), [CPU 재계산·시각 확인·게시 검증](../results/setup/vjepa_R02_seed0_alignment_publication_check.json), [재현 코드](../scripts/report_alignment_sensitivity.py)를 제공한다. 기존 결과와 그래프는 보존하며 모델·원본 라벨 배열·특징 배열은 업로드하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_alignment_sensitivity.py \
+  --model vjepa21-l --mode offline --seed 0 \
+  --data-root ../IPAD_dataset/IPAD_dataset \
+  --audit-report results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R02/seed0/cached_alarm_pair.json \
+  --out results/stage05/alignment_sensitivity/vjepa21-l/offline/R02/seed0 \
+  --figure docs/figures/stage05/alignment_vjepa21-l_R02_offline_seed0
+```
