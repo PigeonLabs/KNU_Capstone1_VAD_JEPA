@@ -78,6 +78,8 @@ V-JEPA 2.1-L 오프라인 R02 seed 0는 **20 epoch·7,620 updates**의 정상 �
 
 V-JEPA 2.1-L 오프라인 R02 seed 1은 **20 epoch·7,620 updates**의 정상 학습을 완료했고 CE 기준 epoch **11**을 선택했다. [학습 곡선·선택 근거](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-1의-완료된-정상-학습)를 제공한다. 전체 테스트·독립 검증을 완료한 seed 1의 P3 AUROC/AP는 **68.59/49.96%**다. 고정 백본 대비 **+5.78/+8.17pp**이며 AP paired 95% CI는 양수, AUROC CI는 0을 포함한다. 고정 q99의 관측 구간 탐지는 **7→3개**, 정상 경보 프레임은 **3→20개**였다. [탐지·정상 경보 그래프](docs/STAGE05.md#v-jepa-r02-seed-1의-고정-임계값-알람-비교)와 [점수 분포·q99 통과 분석](docs/STAGE05.md#v-jepa-r02-seed-1의-점수-분포와-q99-통과)을 함께 제공한다. [전체 P0–P3·paired CI·ROC/PR·점수 궤적](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-1의-완료된-전체-평가)을 제공한다.
 
+V-JEPA 2.1-L 오프라인 R02 seed 2는 **20 epoch·7,620 updates**의 정상 학습을 완료했고 정상 calibration CE 기준 선택 epoch는 **20**다. [학습 곡선·선택 근거](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-2의-완료된-정상-학습)를 제공한다. 특징 재추출·전체 테스트와 독립 감사를 완료한 후 정확도에 반영한다.
+
 LoRA teacher 손실 가중치 **0 대 1** 비교의 신규 48조건도 별도 경로에서 시작했다. 기존 가중치 1과 같은 데이터·seed·학습 코드로 가중치 0을 학습하고 선택 특징·메모리·보정을 다시 구성한다. [통제 조건·손실 도식·실행/검증 근거](docs/ABLATION_TEACHER_WEIGHT.md)를 제공하며 완료된 정확도·CI는 아직 없다.
 
 전체 LoRA와 teacher 0/1 비교의 [독립 검증·집계·그래프 명령](docs/STAGE04.md)은 완료된 seed를 검사하고, 같은 조건의 seeds 0/1/2가 모두 검증된 그룹만 평균·CI·시각화에 포함한다. 전체 Macro4는 네 장비가 모두 완료되어야 제공한다.
