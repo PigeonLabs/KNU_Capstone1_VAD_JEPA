@@ -1,0 +1,131 @@
+{
+  "status": "verified_completed_training_stage_not_accuracy",
+  "condition": [
+    "dinov3-l",
+    "offline",
+    "R02",
+    1
+  ],
+  "epochs_completed": 20,
+  "updates": 7620,
+  "selected_epoch": 7,
+  "normal_calibration_ce": 3.3200969824452975,
+  "normal_calibration_circular_mae": 0.02223498456712749,
+  "selected_checkpoint_sha256": "1233cf119dd1b853ecf9a8ace9134e79eb100407e070707d33a2c5b8c2d4e3dc",
+  "training_child_exit_code": 0,
+  "training_action": "resume",
+  "training_exit_evidence": "Unchanged source-bound pipeline appends training completed_steps only after actual child.wait() returns 0.",
+  "preserved_training_files": {
+    "lora_training.json": {
+      "bytes": 3655,
+      "sha256": "dbfbcbcd4bf92bfbf580e5e171b45182583877c486a3b81fd31f2a41ed011e36"
+    },
+    "lora_training.csv": {
+      "bytes": 1899,
+      "sha256": "ef881bc6cb1bade1b0f895e90a5a7a6297a7dbcbb2de86ac534993567dbc6ca3"
+    },
+    "selected_adapter.pt": {
+      "bytes": 1790239,
+      "sha256": "1233cf119dd1b853ecf9a8ace9134e79eb100407e070707d33a2c5b8c2d4e3dc"
+    },
+    "phase_head.pt": {
+      "bytes": 1257753,
+      "sha256": "33617eb9a9e942a666c5e13977066a48a274bab600e09dffbefae1d8c226de3b"
+    },
+    "resume.pt": {
+      "bytes": 5387164,
+      "sha256": "ddca104a262e04fb2a3c225d5876f40dd632dce01cd5cb4015ae91374f848018"
+    }
+  },
+  "accuracy_completed_conditions_at_snapshot": 7,
+  "planned_primary_conditions": 48,
+  "three_seed_groups_at_snapshot": 2,
+  "cpu_tests_passed": 397,
+  "cpu_full_test_actual_exit_code": 0,
+  "cpu_full_test_log": "artifacts/tmp/dinov3_R02_seed1_training_full_tests.log",
+  "cpu_full_test_log_sha256": "9f8810bcd161bc057c2e0008d241208ef0cf66d59e04ee0f5cf1f513c852179b",
+  "feature_pipeline_snapshot": {
+    "status": "running",
+    "stage": "selected_feature_reencoding",
+    "owner": {
+      "pid": 1097105,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "5642528"
+    },
+    "child": {
+      "pid": 1173648,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "6315323"
+    },
+    "training_action": "resume",
+    "completed_steps": [
+      "full20_normal_only_training"
+    ]
+  },
+  "runtime_snapshot": {
+    "status": "held_between_measurements",
+    "owner": {
+      "pid": 1096328,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "5638691"
+    },
+    "child": null
+  },
+  "human_resume_instruction": "\uc774\uc5b4\uc11c \uc9c4\ud589\ud574\uc918",
+  "epoch2_recovery_receipt_sha256": "9fa5a6860af49103bc3768be38861736938666a0e089fd4790b979cd09d14522",
+  "snapshot_at": "2026-10-03T00:09:00.184401+00:00",
+  "changed_files": [
+    "README.md",
+    "docs/STAGE04.md",
+    "results/stage04/training/dinov3-l/offline/R02/seed1/lora_training.json",
+    "results/stage04/training/dinov3-l/offline/R02/seed1/lora_training.csv",
+    "results/stage04/training/dinov3-l/offline/R02/seed1/training_export.json",
+    "docs/figures/stage04/dinov3-l_R02_offline_seed1_joint_training.png",
+    "docs/figures/stage04/dinov3-l_R02_offline_seed1_joint_training.svg",
+    "results/setup/lora_dinov3_R02_seed1_training_publication_check.json"
+  ],
+  "figures": {
+    "docs/figures/stage04/dinov3-l_R02_offline_seed1_joint_training.png": "83ca9488f91f0b1ee42e1eaff7437b57f11e94419d7fc7ea9bb520bcf33bee61",
+    "docs/figures/stage04/dinov3-l_R02_offline_seed1_joint_training.svg": "bb7ee3b9d49265880ae08a2c64e9c66ff3e8483c2558ccfb269a333cfadda639"
+  },
+  "scope": "Verified completed normal-only full20 training and CE selection; not anomaly accuracy, seed groups, Macro4 or runtime.",
+  "source_sha256": {
+    "scripts/continue_lora_condition.py": "4cbc18f45bc940ca70c509e5f10a5b0fae31d5997e067afec1fa7206617154e5",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "scripts/retire_lora_cache.py": "086bf507192c34e3de8b754b0149f399d3a0f73f4253b62687925667d5256092",
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/audit_retained_lora.py": "6e247309240a9d4bd3faee2aca44b4ccda5895048964a2c88719c02b02e253b5",
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "scripts/plot_lora_evaluation.py": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+    "scripts/summarize_clip_ablation.py": "af25ff897d7cbe8286748bd2725d9daac9717d238c59c572ad165745445dbfd6",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "src/ipad_jepa/train_lora.py": "a2508f4fef9d3f4d938216fbb0695baf63918432e96154ac35b669e159d8ba28",
+    "src/ipad_jepa/adaptation.py": "0265cf076ab9df02d095824603bccf55abb0ee4ca5628a0432b8b757bdef1354",
+    "src/ipad_jepa/adapted_features.py": "a7980adc2ab1751e19095cc64b52b13a638ad14352fe6cf64b15aeb88ddaece1",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+    "src/ipad_jepa/cache_data.py": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+    "src/ipad_jepa/train_phase.py": "71c226ed4606951b8030588e84675303da4bf2bb67305a81c5d2c26a2eb17f08",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+    "src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+    "src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32",
+    "src/ipad_jepa/lora_audit.py": "3418f771aed02e8537645a8f1f372a4dac537c5c99564db9357fe937c1a3ad41",
+    "src/ipad_jepa/cache_retention.py": "76481aa4e20b0d0c20fc66b7a354c36e7dfcd44e407a9d21895d48511f5a0b1b",
+    "src/ipad_jepa/cache_retirement.py": "a2e7922a74e504f9f82330aef692fa482866dbe03eaad3808517af83894762f7",
+    "src/ipad_jepa/teacher_ablation.py": "02c17f4248dc5242eedd8e03bf555856156756106b6a8c9df29d920ce28e51a0",
+    "README.md": "f88f397c18cd21b9f0b9427739ef2c5a3f90162be44229234c528b7056f6e4b4",
+    "docs/STAGE04.md": "25b3e8a380c69ac381600711bae3ca4fdc12df419c84ea5db9043b05bcb3a9b9",
+    "results/stage04/training/dinov3-l/offline/R02/seed1/lora_training.json": "dbfbcbcd4bf92bfbf580e5e171b45182583877c486a3b81fd31f2a41ed011e36",
+    "results/stage04/training/dinov3-l/offline/R02/seed1/lora_training.csv": "ef881bc6cb1bade1b0f895e90a5a7a6297a7dbcbb2de86ac534993567dbc6ca3",
+    "results/stage04/training/dinov3-l/offline/R02/seed1/training_export.json": "2b12e132a5bbfb1c1a78bed3acfc554fff0fdc6d84beef50db712a3dc132c7cc",
+    "docs/figures/stage04/dinov3-l_R02_offline_seed1_joint_training.png": "83ca9488f91f0b1ee42e1eaff7437b57f11e94419d7fc7ea9bb520bcf33bee61",
+    "docs/figures/stage04/dinov3-l_R02_offline_seed1_joint_training.svg": "bb7ee3b9d49265880ae08a2c64e9c66ff3e8483c2558ccfb269a333cfadda639",
+    "scripts/export_lora_training.py": "a894deea7010e53390d718516f9ad3d396dda8aaf7c20ddbe0d4e4cc938b90b7",
+    "scripts/plot_lora_training.py": "4664be22468db87490bd42278bb29d2e7401ad3bb7e417fbde0bbde1b77315ab"
+  }
+}
