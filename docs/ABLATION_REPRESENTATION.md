@@ -105,3 +105,33 @@ python scripts/plot_representation_accuracy.py
 독립 검증은 인코더·phase 학습·PCA/k-center 학습·GPU 거리/temperature 표본 계산을 다시 실행하지 않는다. 저장 용량을 줄인 dense-fit의 평균 특징은 추출 코드·실제 관측 후보·배열 해시로 검증한다. 실제 calibration/test 평균의 재계산과 구분한다. R01 오프라인 6조건은 감사·정확도/CI를 완료했으며, **전체 96조건의 검증·Macro4는 아직 완료하지 않았다.**
 
 검증된 조건에서 영상 단위 paired bootstrap 1,000회 및 네 장비 동일 가중치 Macro4를 보고한다. 현재 코드는 공통 평가 구간의 batch 알람을 저장한다. 실시간 EOF 알람·FIFO·지연과 처리량은 별도의 실제 GPU 측정으로 검증한다.
+
+## R02 seed 0의 공유 위상 헤드 학습 산출물
+
+DINOv3-L 오프라인 R02 seed 0의 현존 공유 위상 헤드 산출물을 새 CPU 내보내기 코드로 감사했다. 정상 fit **21개 영상·12,128 dense clips**(stride 1), 정상 calibration **5개 영상·2,864 clips**를 사용한 **20 epoch** 곡선이다. 두 표현이 같은 정상-only head를 공유하는 조건이며, LoRA 학습이나 기존 stride 4 기본 조건과 구분한다.
+
+| 정상 CE로 선택한 epoch | 정상 calibration CE | 선택 epoch의 원형 MAE |
+|---:|---:|---:|
+| 17 | 3.272223 | 2.0906% |
+
+![R02 공유 위상 헤드의 정상 학습 곡선](figures/stage05/representation_dinov3-l_R02_offline_seed0_shared_phase.png)
+
+왼쪽 별표는 최소 정상 calibration CE의 epoch 17이다. 오른쪽 MAE의 최솟값은 epoch 19지만 MAE로 모델을 다시 선택하지 않았다. 원형 MAE는 영상 길이로 정의한 상대 위상 오차이며 실제 공정의 물리적 주기 길이를 측정한 값이 아니다.
+
+[내보내기 코드](../scripts/export_representation_phase.py)는 기존 독립 dense 감사로 정상 대상·배열 해시·세 seed의 후보 좌표/할당·유한값을 확인한다. 원래 calibration 캐시의 fingerprint·target·전체 문맥 특징과 fit/calibration 영상 분리를 확인하고, 선택 head를 CPU에서 엄격히 로드해 구조·유한값·해시를 검사한다. 원 producer 소스 17개의 해시도 고정한다. 최소 정상 CE의 첫 epoch 선택, 20개 전체 기록과 유한 loss/MAE를 요구하며 MAE에 따른 선택·일부 epoch·비정상 수치를 거부하는 신규 테스트 5개를 포함한 전체 **402개 CPU 테스트**를 통과했다.
+
+**원 학습 프로세스의 종료 코드는 보존되지 않았다.** 이번 증거는 현존 20-epoch 곡선·선택 모델·정상 입력의 실제 감사와 CPU 내보내기/그래프 명령의 종료 코드 0이다. GPU 학습·인코더·CE를 재실행하거나 원 trainer의 정상 종료를 독립적으로 확인한 결과는 아니다. 원 matrix ledger의 `running` 표시는 전체 matrix 완료 증거로 사용하지 않는다. 두 표현의 새 PCA·메모리·정상 보정·15개 전체 테스트 평가는 아직 실행하지 않았으므로 **표현 정확도 완료 수는 6/96조건**으로 유지한다. R02 paired 정확도·CI·전체 Macro4·실시간 성능은 제공하지 않는다.
+
+[20-epoch CSV·JSON·dense 입력 출처·선택 head 및 배열 해시](../results/stage05/ablations/representation/training/dinov3-l/offline/R02/seed0), [실제 CPU 명령·테스트·그래프·게시 검증](../results/setup/representation_R02_shared_phase_publication_check.json)과 PNG/SVG를 제공한다. 원본 영상·head·특징 배열은 로컬에 보존하며 업로드하지 않는다. 후속 평가에서는 현재의 같은 head를 보존해 두 표현에 공통 사용하고 완료된 학습을 다시 수행하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/export_representation_phase.py \
+  --run artifacts/runs_representation/dinov3-l/offline/R02/seed0/shared_phase \
+  --dense-fit artifacts/representation_dense/dinov3-l/offline/R02 \
+  --original-cache artifacts/features/dinov3-l/offline \
+  --producer-ledger artifacts/tmp/representation_pipeline.json \
+  --out results/stage05/ablations/representation/training/dinov3-l/offline/R02/seed0
+python scripts/plot_phase_training.py \
+  --results results/stage05/ablations/representation/training/dinov3-l/offline/R02/seed0 \
+  --out docs/figures/stage05/representation_dinov3-l_R02_offline_seed0_shared_phase
+```

@@ -45,7 +45,7 @@ IPAD 공개 모델의 **R01 세 seeds**는 각각 50 epoch 학습·평가를 완
 
 8·16프레임 비교는 신규 정상 헤드/메모리를 학습하는 **48개 조건 중 6개**를 검증했다. DINOv3 오프라인 R01·R02 각각 세 seeds를 완료했다. 8프레임 P3 AUROC/AP는 R01 **44.71/32.20%**, R02 **78.16/62.84%**다. 16프레임 대비 R01 차이 **−2.31/−1.01pp**의 두 CI는 0을 포함하지만 R02 차이 **−1.68/−2.26pp**의 두 CI는 음수였다. [장비별 수치·paired CI·그래프·입력 문맥·재현 명령](docs/ABLATION_CLIP_FRAMES.md)을 제공한다. 전체 Macro4와 실시간 결과는 아직 없다.
 
-패치·공간 평균 특징의 **96개 조건** 중 DINOv3 오프라인 R01의 세-seed 쌍을 검증했다. 두 표현 모두 정상 fit stride 1·공유 head를 사용한 P3 AUROC/AP는 패치 **75.75/59.49%**, 평균 **71.45/55.26%**이며 두 paired CI는 0을 포함한다. [부분 결과·CI·그래프·통제 조건·재현 명령](docs/ABLATION_REPRESENTATION.md)을 제공한다. 기존 stride 4 P3와 다른 학습 조건이며 전체 Macro4는 아직 없다.
+패치·공간 평균 특징의 **96개 조건** 중 DINOv3 오프라인 R01의 세-seed 쌍을 검증했다. 두 표현 모두 정상 fit stride 1·공유 head를 사용한 P3 AUROC/AP는 패치 **75.75/59.49%**, 평균 **71.45/55.26%**이며 두 paired CI는 0을 포함한다. [부분 결과·CI·그래프·통제 조건·재현 명령](docs/ABLATION_REPRESENTATION.md)을 제공한다. 기존 stride 4 P3와 다른 학습 조건이며 전체 Macro4는 아직 없다. R02 seed 0의 20-epoch 공유 위상 헤드 산출물도 감사했다. [정상 학습 곡선·검증 범위](docs/ABLATION_REPRESENTATION.md#r02-seed-0의-공유-위상-헤드-학습-산출물)를 제공하며 두 표현의 메모리·테스트 평가는 아직 남아 있다.
 
 작은 **DINOv3-B / V-JEPA 2.1-B**의 온라인 24조건 중 DINOv3 R01 세 seeds를 독립 검증했다. P3 AUROC/AP는 B **43.86/31.35%**, 대응하는 L **53.69/36.92%**이며 B−L paired CI는 두 지표 모두 0보다 낮다. [부분 결과·CI·정확도/파라미터 그래프·모델 출처·재현 경로](docs/SMALL_BACKBONES.md)를 제공한다. 이 결론은 R01 온라인에 한정하며 전체 Macro4·실시간 성능은 아직 없다.
 

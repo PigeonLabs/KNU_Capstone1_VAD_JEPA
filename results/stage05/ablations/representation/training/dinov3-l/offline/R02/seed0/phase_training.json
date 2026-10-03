@@ -1,0 +1,29 @@
+{
+  "status": "complete",
+  "seed": 0,
+  "epochs": 20,
+  "selected_epoch": 17,
+  "backbone": "dinov3-l",
+  "mode": "offline",
+  "device": "R02",
+  "fit_clips": 12128,
+  "calibration_clips": 2864,
+  "phase_batch_size": 256,
+  "fit_input_sha256": "4c7cdcaf28d8c63f211d527447abb290e14832211558259f8618ddfb6d830603",
+  "normal_calibration_cache_fingerprints": [
+    "36ec0ef9c7122ca4ac25a534ebd64252623773fc58051ecf9471e0f1ef033a72",
+    "9ce42e52595b3490b3273f9a1b039e0e72fab9a4f9bc7336badb9b2d9231e9e1",
+    "038e3d16c3f9d7746d0a3eb7f8644823ae0c7bb952a9fdbec6625400137c7114",
+    "3d16b975c1a9b6e693722777b351511574e7f02663a31387e44b5b8266715e0f",
+    "27cb73950ce31e8da0c7392f1ec823e03330f477062a663d404ba5a1da13512d"
+  ],
+  "best_normal_calibration_ce": 3.2722227799825827,
+  "trainable_parameters": 313800,
+  "selection": "Minimum normal calibration CE; first epoch wins ties; no anomaly labels",
+  "phase_input": "Same whole-context frozen pooled feature for patch and global_mean",
+  "fit_stride": 1,
+  "calibration_source": "Original frozen sixteen-frame caches; complete target stride 1",
+  "shared_between_representations": true,
+  "code_sha256": "d34bcd332502c964b47c52aea18643bc052df75556725ea4bebfb7dc1a3b3e47",
+  "seconds": 45.70841748302337
+}
