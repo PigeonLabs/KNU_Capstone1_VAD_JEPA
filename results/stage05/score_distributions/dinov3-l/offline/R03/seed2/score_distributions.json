@@ -1,0 +1,690 @@
+{
+  "status": "passed_original_q99_alarm_and_known_GT_distribution_replay",
+  "condition": [
+    "dinov3-l",
+    "offline",
+    "R03",
+    2
+  ],
+  "variant": "P3",
+  "seeds": 1,
+  "conditions": [
+    {
+      "treatment": "frozen",
+      "normal_only_q99_threshold": 30.340771745559067,
+      "calibration_total_trace_rows": 2771,
+      "normal_calibration": {
+        "targets": 2727,
+        "score_min": -1.7903394290790575,
+        "score_median": 0.17490793900524876,
+        "score_q90": 3.4384905664545378,
+        "score_q99_descriptive_only": 30.340771745559067,
+        "score_max": 56.4447711284034,
+        "strict_threshold_crossings": 28
+      },
+      "inference_targets": 11563,
+      "unknown_targets": 0,
+      "test_videos": 17,
+      "known_normal_test": {
+        "targets": 6641,
+        "strict_threshold_crossings": 60,
+        "streak_alarm_frames": 46,
+        "score_min": -1.9987783373624266,
+        "score_median": 0.10255550315531525,
+        "score_q90": 2.91408546214933,
+        "score_q99_descriptive_only": 27.72130790717754,
+        "score_max": 58.80155018860001,
+        "strict_crossing_rate": 0.009034783918084625,
+        "streak_alarm_frame_rate": 0.006926667670531546
+      },
+      "known_anomaly_test": {
+        "targets": 4922,
+        "strict_threshold_crossings": 48,
+        "streak_alarm_frames": 36,
+        "score_min": -1.454614596630319,
+        "score_median": 0.5754617751232751,
+        "score_q90": 7.097708700200761,
+        "score_q99_descriptive_only": 30.152049574248068,
+        "score_max": 62.99753173677781,
+        "strict_crossing_rate": 0.009752133279154815,
+        "streak_alarm_frame_rate": 0.007314099959366111
+      },
+      "per_video": {
+        "01": {
+          "known_normal_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 694,
+            "strict_threshold_crossings": 8,
+            "streak_alarm_frames": 6
+          }
+        },
+        "02": {
+          "known_normal_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 650,
+            "strict_threshold_crossings": 5,
+            "streak_alarm_frames": 3
+          }
+        },
+        "03": {
+          "known_normal_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 648,
+            "strict_threshold_crossings": 6,
+            "streak_alarm_frames": 4
+          }
+        },
+        "04": {
+          "known_normal_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 657,
+            "strict_threshold_crossings": 11,
+            "streak_alarm_frames": 9
+          }
+        },
+        "05": {
+          "known_normal_test": {
+            "targets": 489,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 59,
+            "strict_threshold_crossings": 12,
+            "streak_alarm_frames": 10
+          }
+        },
+        "06": {
+          "known_normal_test": {
+            "targets": 112,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 444,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "07": {
+          "known_normal_test": {
+            "targets": 250,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 410,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "08": {
+          "known_normal_test": {
+            "targets": 264,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 405,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "09": {
+          "known_normal_test": {
+            "targets": 601,
+            "strict_threshold_crossings": 11,
+            "streak_alarm_frames": 9
+          },
+          "known_anomaly_test": {
+            "targets": 85,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "10": {
+          "known_normal_test": {
+            "targets": 426,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 195,
+            "strict_threshold_crossings": 6,
+            "streak_alarm_frames": 4
+          }
+        },
+        "11": {
+          "known_normal_test": {
+            "targets": 471,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 209,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "12": {
+          "known_normal_test": {
+            "targets": 644,
+            "strict_threshold_crossings": 11,
+            "streak_alarm_frames": 9
+          },
+          "known_anomaly_test": {
+            "targets": 171,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "13": {
+          "known_normal_test": {
+            "targets": 638,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 102,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "14": {
+          "known_normal_test": {
+            "targets": 754,
+            "strict_threshold_crossings": 10,
+            "streak_alarm_frames": 6
+          },
+          "known_anomaly_test": {
+            "targets": 128,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "15": {
+          "known_normal_test": {
+            "targets": 601,
+            "strict_threshold_crossings": 12,
+            "streak_alarm_frames": 10
+          },
+          "known_anomaly_test": {
+            "targets": 65,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "16": {
+          "known_normal_test": {
+            "targets": 704,
+            "strict_threshold_crossings": 5,
+            "streak_alarm_frames": 3
+          },
+          "known_anomaly_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "17": {
+          "known_normal_test": {
+            "targets": 687,
+            "strict_threshold_crossings": 11,
+            "streak_alarm_frames": 9
+          },
+          "known_anomaly_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        }
+      }
+    },
+    {
+      "treatment": "lora",
+      "normal_only_q99_threshold": 3.7905744629802696,
+      "calibration_total_trace_rows": 2771,
+      "normal_calibration": {
+        "targets": 2727,
+        "score_min": -1.855366949486633,
+        "score_median": 0.08925495575727169,
+        "score_q90": 1.1502397818506833,
+        "score_q99_descriptive_only": 3.7905744629802696,
+        "score_max": 8.221300076350765,
+        "strict_threshold_crossings": 28
+      },
+      "inference_targets": 11563,
+      "unknown_targets": 0,
+      "test_videos": 17,
+      "known_normal_test": {
+        "targets": 6641,
+        "strict_threshold_crossings": 95,
+        "streak_alarm_frames": 53,
+        "score_min": -1.978534744454102,
+        "score_median": 0.13226106545220534,
+        "score_q90": 1.3763936330578561,
+        "score_q99_descriptive_only": 4.482550070183367,
+        "score_max": 18.7591805633757,
+        "strict_crossing_rate": 0.014305074536967324,
+        "streak_alarm_frame_rate": 0.007980725794308086
+      },
+      "known_anomaly_test": {
+        "targets": 4922,
+        "strict_threshold_crossings": 469,
+        "streak_alarm_frames": 398,
+        "score_min": -1.713205771108539,
+        "score_median": 0.4693532161014679,
+        "score_q90": 3.586416013463458,
+        "score_q99_descriptive_only": 18.970487870802994,
+        "score_max": 75.03522737248059,
+        "strict_crossing_rate": 0.09528646891507517,
+        "streak_alarm_frame_rate": 0.08086143843965868
+      },
+      "per_video": {
+        "01": {
+          "known_normal_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 694,
+            "strict_threshold_crossings": 12,
+            "streak_alarm_frames": 5
+          }
+        },
+        "02": {
+          "known_normal_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 650,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "03": {
+          "known_normal_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 648,
+            "strict_threshold_crossings": 19,
+            "streak_alarm_frames": 11
+          }
+        },
+        "04": {
+          "known_normal_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 657,
+            "strict_threshold_crossings": 4,
+            "streak_alarm_frames": 1
+          }
+        },
+        "05": {
+          "known_normal_test": {
+            "targets": 489,
+            "strict_threshold_crossings": 36,
+            "streak_alarm_frames": 28
+          },
+          "known_anomaly_test": {
+            "targets": 59,
+            "strict_threshold_crossings": 24,
+            "streak_alarm_frames": 20
+          }
+        },
+        "06": {
+          "known_normal_test": {
+            "targets": 112,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 444,
+            "strict_threshold_crossings": 85,
+            "streak_alarm_frames": 74
+          }
+        },
+        "07": {
+          "known_normal_test": {
+            "targets": 250,
+            "strict_threshold_crossings": 2,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 410,
+            "strict_threshold_crossings": 139,
+            "streak_alarm_frames": 118
+          }
+        },
+        "08": {
+          "known_normal_test": {
+            "targets": 264,
+            "strict_threshold_crossings": 2,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 405,
+            "strict_threshold_crossings": 10,
+            "streak_alarm_frames": 8
+          }
+        },
+        "09": {
+          "known_normal_test": {
+            "targets": 601,
+            "strict_threshold_crossings": 6,
+            "streak_alarm_frames": 4
+          },
+          "known_anomaly_test": {
+            "targets": 85,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "10": {
+          "known_normal_test": {
+            "targets": 426,
+            "strict_threshold_crossings": 12,
+            "streak_alarm_frames": 8
+          },
+          "known_anomaly_test": {
+            "targets": 195,
+            "strict_threshold_crossings": 152,
+            "streak_alarm_frames": 146
+          }
+        },
+        "11": {
+          "known_normal_test": {
+            "targets": 471,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 209,
+            "strict_threshold_crossings": 15,
+            "streak_alarm_frames": 11
+          }
+        },
+        "12": {
+          "known_normal_test": {
+            "targets": 644,
+            "strict_threshold_crossings": 4,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 171,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "13": {
+          "known_normal_test": {
+            "targets": 638,
+            "strict_threshold_crossings": 5,
+            "streak_alarm_frames": 3
+          },
+          "known_anomaly_test": {
+            "targets": 102,
+            "strict_threshold_crossings": 1,
+            "streak_alarm_frames": 0
+          }
+        },
+        "14": {
+          "known_normal_test": {
+            "targets": 754,
+            "strict_threshold_crossings": 11,
+            "streak_alarm_frames": 4
+          },
+          "known_anomaly_test": {
+            "targets": 128,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "15": {
+          "known_normal_test": {
+            "targets": 601,
+            "strict_threshold_crossings": 2,
+            "streak_alarm_frames": 0
+          },
+          "known_anomaly_test": {
+            "targets": 65,
+            "strict_threshold_crossings": 8,
+            "streak_alarm_frames": 4
+          }
+        },
+        "16": {
+          "known_normal_test": {
+            "targets": 704,
+            "strict_threshold_crossings": 8,
+            "streak_alarm_frames": 4
+          },
+          "known_anomaly_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        },
+        "17": {
+          "known_normal_test": {
+            "targets": 687,
+            "strict_threshold_crossings": 7,
+            "streak_alarm_frames": 2
+          },
+          "known_anomaly_test": {
+            "targets": 0,
+            "strict_threshold_crossings": 0,
+            "streak_alarm_frames": 0
+          }
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R03/seed2/audit/T1/dinov3-l/offline/R03/seed2/condition_audit.json": "c82da9c08379dffb77f53721977dd8266887978bacc49353a092adc2e76ebaf7",
+    "results/stage02/dinov3-l/offline/R03/seed2/metrics.json": "4e80c07be5a88bf6a25792126575a7b0c893b59601c484084a671f3df5022249",
+    "results/stage02/dinov3-l/offline/R03/seed2/normal_fit.json": "6abaa06742e9f0fb7027e15ef98025fd90d7000b559369680ea5b44cb71e90bc",
+    "results/stage02/dinov3-l/offline/R03/seed2/normal_calibration.csv": "9616c027e103eb3429c557866ec4ee32cbdcbdbb83078f9becff01ec21ccd645",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/01.csv": "c463ee84aee3d68e611dc1c655ecdab94ebedf9a39f7323d0feee82c638379ac",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/02.csv": "dde30a9f3edbf8ff3c4d923495a66e18c6cf2007b7da95bcec051a36a497973e",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/03.csv": "7de5ef562c57ea0dd81087b7d2ab1eb0849a6be5b1a87e9f7d01d99198868b96",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/04.csv": "0fc59ad4b88ae0fceb60d9c395c8778fb51ffde9bdf058852378b8c69c04dfcf",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/05.csv": "0d3e756e72bc0c597c97499ae80df6ec4db6941b76c4c4561c258f4c1ebc8ce2",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/06.csv": "b3ccb7cc58f1b59796ebb30dfa3adc951c67ed69b2dff8dc03e47e6d6a1d5da1",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/07.csv": "70c07b41de1dc6e5b2c8ff9ffd55d70f07ca5665d7aae6a2ac6370bfa9eb6288",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/08.csv": "a6bfa2689cb6ca479786ca8c7942686a179a099c5bbae84223ed2221fce4097d",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/09.csv": "064005281429bb6571d671afc64ad86a9fb017f15772a6c9f8f0d08a53775189",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/10.csv": "289b454d4788e4b53738a274e1161679b9543fd5b3f7237fa10c679e65ab6ded",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/11.csv": "3c2d4f99c9b0c1b6bded2e1d494e67b3841c4d049f0ed8ada3b1a3c1e0be1822",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/12.csv": "6c1bd64b1b3cd8a48a433de761dbf3a1e7d921012ad89c0f7a8546432bf5efc9",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/13.csv": "0ad8efc21ad68a203b9f86f8fa1f56f6827ef14fdc5f2d2998407e7600e743b2",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/14.csv": "0ff7269872928dae3a171ced69b72579e63e5da86052f9d51be585053aca837d",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/15.csv": "215e3d395b5a24d10314aea6c10354348f666b22b197b0c793ed0c31a95d0f32",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/16.csv": "99638ee8fe9a4a8c1a786818df765d1d37e6dc31f2c0e57844da00c349a5b630",
+    "results/stage02/dinov3-l/offline/R03/seed2/P0/17.csv": "270a7788017d0e871cf13e064f5ed60cf0dd5546fadcddc48b832f76bda424bb",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/01.csv": "8a544760a87773b183d04aae606c237a5c3e8517c6b65b39d60e0baf3cbab1bc",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/02.csv": "8c33d65642c235b480b529f234cdfb2238bd494f9c221e72e3f4dd53f598fcf4",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/03.csv": "1d66cc11aa897b392d08c01c01eb415f3ffbd81ebab2b48e3ae15d189757ef38",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/04.csv": "42f1852d092cd71913bbcdc63b7b6350ebf0590fcbd72e964e5efdf4683eaccc",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/05.csv": "bec7e099c0de08c20df6b93bfa52820897a612786ab761c1c70d4328a0b366ec",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/06.csv": "1a4c268946c2f1a621569d4c3a3e0f005181ff6d4d8bcdad7d41676a4dc41d5c",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/07.csv": "32ae2a719b135c83e4061579f751bed894f1a22b59f98e83040e450772369184",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/08.csv": "f4fa8896eb7fc0794733000c3eb439f738c2e88f1e39f246a257f41eb539e508",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/09.csv": "aec9c5da220e1ff3e44cb86ecf5b93c17b30dcd9422ec43730e1c759a6af286f",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/10.csv": "357423c9108826007a9f8174c2c34ba86c773a48034a08489c68637438f4eee5",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/11.csv": "7965230feb1feedcf963ca9c965405355e71a63a2d9886e65a985a9b0d4f572d",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/12.csv": "86938b711a2ec5500a044771755422cd3e576892a295b527f0c2393e2223cc9c",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/13.csv": "ce0f1bdf3e96013a5bbeff76ea7666afb9d8fd5d4bc21bd5e07d3aff54300cd1",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/14.csv": "2f83b40a72a80e592240a76824bdd93787ac3d6ddbd4f58b2277b381e3a0b7b8",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/15.csv": "33b10464fe91c2897ec931db57c3cc0781d83178bd27e47e571a32b68ffff870",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/16.csv": "f70010aca3999e2e8c9c854a0f012086c33ec5aca018e77733d161e4c45307f3",
+    "results/stage02/dinov3-l/offline/R03/seed2/P1/17.csv": "d8069bcc558738fc5e0f42a36111c25aeda634ef2632a19777e0f8a7484f93f4",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/01.csv": "fc43eb3813c45f05d73793fcb3f3a88f123fc1e18b4e39eb02d8b056817af74e",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/02.csv": "4748638663bf894a771641c0c5c9e5d6b6043c529513535214afbd851fd112b9",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/03.csv": "591df76bbf1fdad4675f55c18eb98234f3dc874eaab69a3bbc7fd9450aff769a",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/04.csv": "928eea69cefd7b86ed4c8dac8c7b9f82851718ed5521049a55568c8cfd4db4fd",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/05.csv": "b6954c6e312583856b6e60cd252fef1ed397fec24524dd1bbc09141e65dd437f",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/06.csv": "4f7d311e666f475691a0bfdfa60a2305e312ddec1f9fa96ef10e9b60b850ba45",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/07.csv": "e909edffb302b91aa8169180163eb79bb30c484fdcc463f9bf1923377f268f68",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/08.csv": "8fccc8247ae2a47ce77a42f851ae7e523e2ab786c8c3a6fc03cd2c6769574e24",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/09.csv": "26d0e6ee4f266ed3b38819b622c55fe3c93c5c85401e3b54c0b4e5ee72e65f6c",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/10.csv": "0ee64a8737a687125f5413129b6a202739513e5979b091b7894b481cca2eaebd",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/11.csv": "589d5bce51c58090dac3c3b445b95cb8649ebb9d94a3ab2a4b0ab52d25a50543",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/12.csv": "6b22838e7f54e50c751be8823b939c62f8f1019c0df8da1fd1f29df0c6061437",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/13.csv": "2aeaec33baa22b50e5c4916d164bfa5b6925d0587f78376e7733ff71b1588ecd",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/14.csv": "6be1bef9d5a41709b7fe972b17542e6983e3ae2f69f8b0f9708f881bf32a991e",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/15.csv": "d78254b28a1c69cb7ca77c1f75ef84aa3fdebaa88cf0ef59bff6b18f3b05fd1b",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/16.csv": "e4d3112ad98def29254c8094f3432a8658163e18436016a2b0077b1c85425444",
+    "results/stage02/dinov3-l/offline/R03/seed2/P2/17.csv": "54853e21da6c74c2dfca85576c0bf63c1d8208d1685dd81676caa185c317f93c",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/01.csv": "2e0a76ebf3d774c66952fff7bf6906692359b920042095b0d8af0b3ec2df5388",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/02.csv": "ea3f825b2a6b67700847b266ccbf716480daf12564968c3bddce744f093e7611",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/03.csv": "efb976fe4160ff7b6dc8d51dcc1e206f9035ff7963f7995c77cde8bda297e7ac",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/04.csv": "75f82e16b4b46c2b4e1785602898422568c435f62828d008c2cef2addeafc8a4",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/05.csv": "b0410d4029df1d7084ab1db498af0e02f89c2560ab53c988f091e203382f3c85",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/06.csv": "4c28d0a643440a527bfe9cd4bbbc8d75d75cdd53fb787920f42092ae24959cb2",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/07.csv": "378d7beec112c4ee32a65f8ea53a23a1c732e7f4ed896621929526308be4d4dc",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/08.csv": "662206340ed93cf8986df644305681ecde3d653c076085c260f339ccc04ba293",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/09.csv": "147a93afa6b57b256141ef506446483744dc3f5d4481da2eaaff02ffd32cceee",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/10.csv": "a1b8a610a6bc0acc5da3ff27ff30cc821e51102cbf07f52b72bb1ced16fc912d",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/11.csv": "367a48e2225e209aa16f066b53e53c151f370cf1b5e0931641df051aa5be9e8f",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/12.csv": "ff062f33262c5c71aa863c4e268337457fcc77bbfa76b1589c03bcde8e7bd81b",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/13.csv": "f0d437c283bc8d2afe25f8299254bb96a8d2a4b2e371584424a9343621711e5d",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/14.csv": "063718afc115e0f3a2d5a59a3aab98d0b1f55ea7abef21ab331a9719fbb98eb0",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/15.csv": "d999e6e4935ee255064771994e49db38dd6b2ad8add7bef4645fc76913357a4c",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/16.csv": "d3f2c5ab23c4a55ae93b0942da0f28e820e923fdf6634a5aec2f05fffc9cd5f8",
+    "results/stage02/dinov3-l/offline/R03/seed2/P3/17.csv": "76708b1c85d4d77b48144f063ce68e07bcc912bdf169933a2f3a48590058d3c2",
+    "results/stage04/dinov3-l/offline/R03/seed2/metrics.json": "1a997046bcb312a8e05c687d740f62bcd622c1eb4b57f3580411e192e1739885",
+    "results/stage04/dinov3-l/offline/R03/seed2/normal_fit.json": "6be1425a93a230ed7d24c23ebddaa03424189ede482bbec3af11cb66cc75e05c",
+    "results/stage04/dinov3-l/offline/R03/seed2/normal_calibration.csv": "62f464bc800a114498a93da250f6007a20c8e1957d8dff14b43ef1a408047e0e",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/01.csv": "542d9e13d044e4f27a8e6fbc3d82d2fe4cfe493eafc4d535ad26a267a4f735a5",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/02.csv": "2925255747dbb33e924339f083e07dd5d3e2282364bde9aa6af960dc6c90e0e2",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/03.csv": "4128357b48a8ab63a01c0492ec19087e399fc0ddcf2ed96fe972a7e51d513a6d",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/04.csv": "73e57c90f20b08df03ec4d77847079911fe156ae62fe8a48649fca4386ce4bf3",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/05.csv": "a2d22e210b31212cddb99f5ecbb7a9f4b58c5df4fe95b7c5bfad54a3949e9cf1",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/06.csv": "a4bf1a9a3f632f203a4ea6f2dfc59f95798549730d421f4c14d2b2446947f8c0",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/07.csv": "d754c38055b6e051fce2cd8e9944f5bdedf240f2260705a53f78313186437b1e",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/08.csv": "6018bf86fff8242a1ea696e5b67de70c4b522da83717b3764d62cf9f022a9296",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/09.csv": "f917785a333d4ca095b5253a65d321b4565936ef0b0b8cfb18dbb179d8e21c6e",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/10.csv": "32d8c704253a7462679a9db8f1e0918ea774dbbade530f5494a3e0d2ba6c680e",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/11.csv": "9e3407195158adbbc9754b1f8731e1604b3c308a23fb265889d6ffe94627350a",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/12.csv": "339d07c988e3f2ec7cb6ff12cb13fb6539c86a3124d4e2ac0e8b08dabeee7fdc",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/13.csv": "f494d626e2a8cafcba09c71ee6f876591318f28f1e7bd41c756950f55f6c0860",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/14.csv": "ecfeda02533ed4648780da94b9ebcaf70e9f3a9df15334c106ae8d9d135aca07",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/15.csv": "bacab719e8a7d319bd45a215d7e26b8fd81789cbc98e4fe712b34937f2888ec2",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/16.csv": "cd4644901cfe8f48a93c012ab3981083fcd5e9f29af5a677ea1f67b8222b0a8d",
+    "results/stage04/dinov3-l/offline/R03/seed2/P0/17.csv": "ff369e8baf579fe05bfeac513d287877adade1838c222d8771f12b95166f2caa",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/01.csv": "fae1430786ed8cc6dbe2d9ceb2196c7ec7fa94be96b262577f29070e803240cd",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/02.csv": "b5a55419a07c7cd521573641b0936461a75bd4a44c4cbf622c76923df72a0450",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/03.csv": "e0ab61b6b74ab4aaa14af5480660d4c0ff6740c2a12dbe2d31af527fdcc29a95",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/04.csv": "c35853e355ae078e237971560d57c8ad88168e34c1e763f8a3d87f2255e89020",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/05.csv": "09ac7ba04d6e03857955e809a442d1423019bbe9234ee47bd7a304b1985858e7",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/06.csv": "9f5250c70998630241ea8b8126399dc686fad2497e64119aef23f0bc97f54dd6",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/07.csv": "717418259a95169bdad6c9ee17f6712d02063d7770405b282a5c4ceed96fd7b3",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/08.csv": "646117dce62fbcf2efb97438c4dccc7821d3e1190e3f96db481bb330f3edd11c",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/09.csv": "6df65ecb4cc948cc8c8213581c0bf9c9bc948badd2dbac50d4e129308c8aca45",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/10.csv": "3410f1c80bfe554efd2716817a0233c9bcd461ee69ee0f994ad019d7f35b8d5f",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/11.csv": "cc922032dbc25ac0f5afd6fc9cefecb97ffea287fc1fec2d0368fcf50eda9f15",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/12.csv": "358222ee87fcd7a8d35476a654561979df294f254455e6e67da46b3a7fdee6a1",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/13.csv": "3dd98d3407c106e8152b611452e61bfd85a96432fcfe279f0517e826dc84714b",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/14.csv": "38c41109e0b810cf8641210d271c15eff1a6fdc6835e5d42065965ba2167b343",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/15.csv": "a2e643aa43798d61d00f5c3a5e1602f66e7e2dbda5cde11ef1d8a65c5e49e7e4",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/16.csv": "dabf6e6910e1253d4131f1a0a88863b5ce5f9855c7644fcd4380b174889e52bf",
+    "results/stage04/dinov3-l/offline/R03/seed2/P1/17.csv": "a44f602e837ce9843411f59a659c8ba4b22d3b79d40814669183dbcb3bc9e0a8",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/01.csv": "2eb2ada76579dd1e45d50b4c1f63aa77c088de44e206ae554142a71a49b7b16c",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/02.csv": "cea5d6d9491f15149016ba8262fa50503ec3b12689bb2e15ca0eb33dd0a0defa",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/03.csv": "2f6538cca4fc83770b925bd3e7188286459e6475417edf38ba385f6b1a771c6d",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/04.csv": "15ab82bbdef70d288ccc93e37cef32a95cf8a8ba17c93acdd718d4f8ac576382",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/05.csv": "a69b07cba96ab120cd93b67aed74ee336ebc0e4ea07fcc824956f6c5ac60cc7c",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/06.csv": "67f1f2e0a7944c9e9a3e241d4f9ba2891e6267de2b5b2f7fbde04c83b668bac8",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/07.csv": "80ba1161935f86ac7150e97c73289e4684cd1f7624a56b49af5e4b51c14fc093",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/08.csv": "ec0fd2a013ee5abff2e87ccf14252db09ae966cdd4bd912c2873f64e4f350d2c",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/09.csv": "ecb05894ea94b0782ddb3a39540dfc2198bce639503b15598abee8774d81b464",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/10.csv": "b45d41805a1bc7f9e3ac73b7b2fb04adaea55adf81b50b163c42ac85f067b055",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/11.csv": "40d4eb0bd8f7f9cdec632b781764015531660dd792cff66db7dd0585ad189f7b",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/12.csv": "656047e1bb33299fd0454a14cdca27f167e3007602adb84d90ed43caf0791e3b",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/13.csv": "75c9263365d1f320512959d39f71fdea92490ca8cc02cdfd8ad2e12739acca8e",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/14.csv": "aac480cb94eed4daf43fc15a5b5b0aacdfeadb7bcfd91594fba550c2e8ddc176",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/15.csv": "f1514e1e36a768a1cb11d9dd96f7a88437fa3aa119937524fc132ce4fe18c1b1",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/16.csv": "6f762c8027eeed13ad2f3a87ce710b30decafc0da8e6bd9c2da0b4fefdda9959",
+    "results/stage04/dinov3-l/offline/R03/seed2/P2/17.csv": "8b6a99a09f8384f783fc74e64eab44cbe515c8e001b8fb3a2de58572bcc95f4c",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/01.csv": "319c5152dbe8845c7541a5071e42ad6a9bd86ab44ebf6be2e6977aa02c7dbef6",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/02.csv": "eaee9b723333e2e1ee9940dd1fb4f6fe2da593704d78b0691a1c3b5ee70fafc6",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/03.csv": "f36a9e9d752b2ad748c4980f8c038391faacdc8cb4c58f7af27666319694959b",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/04.csv": "cda9c704be6d6c9f60d706f97450f65fb2c664f4514bcc60cb007b50a65324f4",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/05.csv": "960ed49e1cba9f0da46ac000beb6f9db71e38dd1f314feda4ef4de743acda609",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/06.csv": "466b8c42a1ca650da31fba438de1ba6b5ee92aa4462a6f6b72ec9b1df91c4e75",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/07.csv": "ed413b57ec7063ff26d829831603df89b9bf0bec0738bc651b22e23b5fe6f34a",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/08.csv": "7a77c88787d6da51eccd05b0b5b29519c0ea2878083f683d1825e33f21c7d646",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/09.csv": "2511700a657212ad9136909d156f26e3d490d92368ebc695103d34bf082b6b2d",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/10.csv": "6b80691607d7d245a0c79e1cd1b75cfbe3b4e38885af5777437d32abd5f370ec",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/11.csv": "3556310ca3931caa34ee9f5cdd9b7eb1a11ebcda28fafbf9ddb0318910247d9b",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/12.csv": "a5cec487aa995ba2c2655da559bbc01bc2c1f825a3b34d2c4edf1cb641dfe239",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/13.csv": "94e3db17711e88cb6af419f981daa65279a37edc252fd16ef8b9b3be9d2698c5",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/14.csv": "3c14c09589f027f1c01230745d9dc0cbe3e8d332b103b5f890154ff9acf9ac4d",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/15.csv": "faa0c9a5af2ed78ffe8a7d4977c29093348620f5c9f06765acb1477274df6cde",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/16.csv": "4d45eae0e991cf1819e440a65ffe9b529a004a376b2e68b4147326fdad7c95e9",
+    "results/stage04/dinov3-l/offline/R03/seed2/P3/17.csv": "e7e5b433558ebd8845e4c334b9a9e67aa6d5ac214a0fb747c70c5098a0815fbf",
+    "scripts/report_single_cached_alarm_pair.py": "5ce9dcfc46df56931013a00c6e2e38694f5ddf8627dbf5867b1874f0258a06c8",
+    "scripts/report_cached_alarm_coverage.py": "94ee3edb276e37ad67b3be2b14053327da5a72b01f3a1a0a22bd96c0e5030cd5",
+    "scripts/plot_lora_evaluation.py": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R03/seed2/cached_alarm_pair.json": "7326996c81ce229e5973d8248ff8014b4b657f04d92a5f7ccc6c18a5a01161a6",
+    "scripts/report_cached_score_distributions.py": "f2906114087537992c57bc84b2aa3d60a1b04166d8c28391cab87d4980198e69",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "scripts/plot_neighbour_ablation.py": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53"
+  },
+  "annotation_sha256": {
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/001.npy": "d2699b9be0397e72503d15087e822f10632ee95f4edd673a70eb31f335b1ed70",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/002.npy": "7aea3bcd9445326a3851f59d5299ef04858a55ccfa2ca70814e73742574e5857",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/003.npy": "3af62993a9bc191dabb653ff8aa57e99367d3dca6a538659da08ed52bd8bd50a",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/004.npy": "b27d2462015ba0e260c7abc8755c9f90c8cb376c8f5fdd49c42c0dfb8a14ccda",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/005.npy": "ffb3316894add64ea870830d269f54c2c9926b944fb069f0f8014fde41c24ffd",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/006.npy": "a08cb96817e142f03eddef09502024c11f7130e2fe276dd62342b715d67f8354",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/007.npy": "7e9170b0e697f3ea238afc6f96f5326319ac9612551cb1b4eff55b6d2a5e7854",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/008.npy": "ce1850fa1c2092a742f5b44a693a20e6f271c781da0759c5574b1506e1d89424",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/009.npy": "864746f2710f73510f87547fee5f08b14af39a6d8bac3576033457541e83c609",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/010.npy": "79d4797c709fa72aef2aa2086777fae8186a6b019f0c9f6a4953677eb9474f0b",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/011.npy": "4caf20dd9b8d5098a75ed328515d9c340539b2eec39cd0fff2c9efa028bdd34c",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/012.npy": "8c2b4471a9394bd3f6c93124ce048a696bb4c2106db94de233a2ddbea0a6ddd4",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/013.npy": "0b791490f396acab9f5304fb80c2348027b4c7433ed175c226f6855d7edaeffb",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/014.npy": "79622696ea236ee54dde4779cebe05bb66e570dcc1e9ec869ca8ab900d5662f7",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/015.npy": "2b66d764cff778d19a536296fb6ef9108d47d9c0558d5242dbb53265d87a8562",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/016.npy": "d14c3f31d7daa6ebad04c50a6a56a1f2ba3b2f96d88b14c3b52a4d41d5bb08ee",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/017.npy": "73eb3313fb63d943852fb6caf3206abdb882c4173474490bdf593612b195eac1"
+  },
+  "figures": {
+    "dinov3-l_R03_offline_seed2_score_distributions.png": "52398c00a47f19d19db039c5788052f8e0d7bb75fe091f830b037cb895cd2e88",
+    "dinov3-l_R03_offline_seed2_score_distributions.svg": "77dd1ef2585d24b2fdf6d251590f3c944256555eada1c1083e81236afe471ec8"
+  },
+  "population_note": "Score calibration (Frozen / LoRA): 2,727 / 2,727 valid targets of 2,771 / 2,771 trace rows; differs from phase-training counts.\nTest: 17 videos; 11,563 known-GT targets (6,641 normal / 4,922 anomaly); 0 unknown of 11,563 inference targets.\nUnknown GT does not reset the streak. Frame alarm shares are not observed-event recall.\nBottom panels share the percentage axis; ECDF panels show each method on its own score scale.\nDescriptive single-seed view; no threshold retuning, CI, causal attribution, measured FPS/delay or online EOF claim.",
+  "limits": "Descriptive reuse of immutable independently audited scores. Own normal q99 and strict > three-target streak unchanged; unknown GT filtered only after alarm replay. No reencoding, new PCA/prototype replay, alternative threshold, causal attribution, confidence intervals, three-seed mean, measured runtime or operational online EOF coverage."
+}

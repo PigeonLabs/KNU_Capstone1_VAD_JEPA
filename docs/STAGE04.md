@@ -991,3 +991,81 @@ PYTHONPATH=src:scripts python scripts/export_lora_training.py \
 PYTHONPATH=src:scripts python scripts/plot_lora_training.py \
   --results results/stage04/training/dinov3-l/offline/R03/seed2 --out docs/figures/stage04/dinov3-l_R03_offline_seed2_joint_training
 ```
+
+## DINOv3 R03 오프라인 seed 2의 완료된 전체 평가
+
+원 fresh 정상-only 학습 **20 epoch·6,420 updates**의 calibration CE 선택 **epoch 20** adapter/joint head로 **36개 영상(fit 15·calibration 4·test 17)**의 특징을 재추출했다. 별도 진단용 정상 영상 3개는 포함하지 않았다. 새 PCA·16 bins·2,048개 프로토타입 메모리·온도·정상 median/MAD/q99를 구성했다. 원 학습·재추출·전체 평가와 원 파이프라인의 실제 종료 코드 **0**, 선택 tensor·새 메모리·보정·GT·시간/점수/알람 독립 감사 통과를 확인했다.
+
+같은 seed 고정 백본과 **17개 실제 테스트·11,563개 유효 GT target(이상 4,922개)**을 비교했다. 테스트를 보고 점수 부호·선택 epoch·정상 임계값·주 점수 P3를 바꾸지 않았다.
+
+| 점수 | 고정 백본 AUROC / AP (%) | LoRA AUROC / AP (%) |
+|---|---:|---:|
+| P0 | 56.38 / 48.07 | 55.57 / 50.70 |
+| P1 | 58.75 / 51.58 | 58.42 / 54.86 |
+| P2 | 63.97 / 53.72 | 60.33 / 55.10 |
+| P3 | 60.82 / 51.40 | 63.43 / 57.70 |
+
+| 점수 | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|
+| P0 | -0.81 [-4.60, +4.58] | +2.63 [-1.51, +8.74] |
+| P1 | -0.32 [-5.67, +3.83] | +3.28 [-1.57, +8.52] |
+| P2 | -3.65 [-6.79, -0.48] | +1.38 [-1.76, +5.56] |
+| P3 | +2.61 [-0.86, +6.67] | +6.30 [+0.24, +13.72] |
+
+차이는 LoRA−같은 seed 고정 백본이다. **1,000회 paired 원본 영상 bootstrap·percentile 95% CI**를 사용했으며 퇴화 resample은 0개다. Seed 자체를 재표집하지 않았다. P3의 AUROC/AP CI는 각각 **0 포함/양수**다. P2 AUROC CI는 **음수**다. P0/P1의 AUROC/AP와 P2 AP CI는 0을 포함했다. 0 포함은 개선·감소의 확정이나 동등성을 뜻하지 않는다. 모든 P0–P3를 보고하며 다중 비교를 보정한 유의성 주장으로 해석하지 않는다.
+
+![DINOv3 R03 seed 2 실제 P3 비교·paired CI·ROC/PR](figures/stage04/dinov3-l_R03_offline_seed2_lora_evaluation.png)
+
+![사전에 고정한 테스트 영상 03의 실제 점수·알람 궤적](figures/stage04/dinov3-l_R03_offline_seed2_lora_sequence03.png)
+
+궤적은 각 조건의 정상 median/MAD와 자체 고정 q99를 사용한다. Target index는 wall-clock 탐지 지연이 아니다. 기존 CPU 수집자가 실제 종료 코드 0으로 재검증·paired 비교·plot을 완료한 산출물을 사용했고 두 PNG를 직접 확인했다. [전체 CSV·보정·single-seed CI·provenance](../results/stage04/dinov3-l/offline/R03/seed2), [독립 조건 감사](../results/stage04/condition_pipeline_checks/T1/dinov3-l/offline/R03/seed2/condition_audit.json), [원 파이프라인 완료](../results/stage04/condition_pipeline_checks/dinov3-l/offline/R03/seed2/pipeline_completion.json), [게시 검증](../results/setup/lora_dinov3_R03_seed2_evaluation_publication_check.json)을 제공한다. 모델·원본 영상·특징 배열은 업로드하지 않는다.
+
+주 LoRA 전체 평가는 **15/48조건·5/16 세-seed 그룹**이다. R03 세-seed 집계는 아래 새 snapshot으로 별도 검증했다. 개별 seed의 CI를 세-seed CI·학습 seed 불확실성·백본 간 LoRA 우위·teacher 손실만의 효과·Macro4·실시간 성능으로 해석하지 않는다. 후속 seed·두 백본·온라인·전체 기준선·추가 실험·실시간 측정 계획을 유지한다.
+
+재현은 기존 `scripts/plot_lora_evaluation.py`에 이 조건의 `--results`, `--frozen-results`, `--training`, `--cache`, `--local`, `--frozen-local`, `--data-root`를 전달하고 `--sequence 03 --out docs/figures/stage04`를 사용한다. 실행한 정확한 인자·종료 코드·log hash는 게시 검증의 CPU 수집 증거에 포함한다.
+
+
+## 완료된 주 LoRA 15조건과 R03 DINOv3 세-seed 집계
+
+완료된 **15/48 주 조건·5/16 exact 세-seed 그룹**을 기존 CPU 코드로 새 namespace에서 재검증했다. 정상 fit/calibration·선택 adapter/head·새 PCA/메모리·GT·P0–P3 점수·알람과 **정상 임계값 120개**를 검산했다. 현재 특징 배열 14조건과 승인된 DINOv3 R01 seed 0 배열 정리 증거 1조건을 구분했다. 정리된 배열 finite/hash 검사는 과거 기록이고, metadata·선택 모델·메모리·보정·GT·점수·알람은 현재 보존 상태로 다시 검산했다. GPU 실행과 CPU 집계·그림 검증의 실제 종료 코드 0을 확인했다.
+
+![주 LoRA 48조건 중 독립 감사가 완료된 15조건](figures/stage04/primary_lora_completed15.png)
+
+DINOv3 R03 오프라인 exact seeds 0/1/2가 모두 완료돼 새 그룹 평균을 추가했다. 각 seed의 원본 17개 영상·11,563개 유효 GT target(이상 4,922)을 동일하게 대응시키고 **seed별 전체 프레임 metric의 산술평균**을 계산했다. 세 seed 점수를 pooling하지 않았다. **1,000회 paired 원본 영상 bootstrap·percentile 95% CI**는 같은 영상 resample을 두 방법·세 seed에 공유한다. Seed 자체를 재표집하지 않으므로 CI는 학습 seed 변동의 추정이 아니다.
+
+| 점수 | 고정 AUROC / AP 평균 (%) | LoRA AUROC / AP 평균 (%) | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|---:|---:|
+| P0 | 54.54 / 47.32 | 56.44 / 49.30 | +1.90 [-1.16, +6.38] | +1.99 [-0.94, +6.59] |
+| P1 | 60.47 / 52.42 | 57.83 / 53.34 | -2.64 [-6.17, +0.24] | +0.92 [-1.93, +4.97] |
+| P2 | 62.48 / 53.76 | 60.09 / 54.34 | -2.39 [-5.73, +0.61] | +0.58 [-2.36, +4.32] |
+| P3 | 60.68 / 51.82 | 62.44 / 56.23 | +1.76 [-2.56, +5.47] | +4.40 [-0.73, +10.66] |
+
+P0–P3의 LoRA−고정 AUROC/AP 차이 CI는 모두 0을 포함했다. P3 평균 차이 **+1.76/+4.40pp**만으로 개선이나 동등성을 확정하지 않는다. 같은 LoRA 안에서 P3−P0 차이는 **AUROC +5.99pp [1.52, 11.33], AP +6.92pp [1.78, 12.29]**였다. 테스트 기반 점수 선택·부호 반전·epoch/임계값 변경 없이 기본 P3와 모든 P0–P3를 보고한다. 다중 비교를 보정한 유의성 또는 teacher 손실만의 효과로 해석하지 않는다.
+
+![R03 DINOv3의 실제 세-seed 평균·원본 영상 CI·paired 차이](figures/stage04/retained_R01_R02_R03_DINO/retained_lora_dinov3-l_offline_R03.png)
+
+기존 R01·R02 **32개 평균과 36개 paired 비교 및 모든 CI**는 새 요약에서 숫자와 필드가 정확히 동일하다. R03의 8개 평균·5개 paired 비교를 추가해 40개 평균·41개 비교를 제공한다. 이전 12·14조건 snapshot, 개별 결과와 그림은 보존했다. 현재 온라인 LoRA·R04·LoRA Macro4는 아직 없으며 V-JEPA R03 세-seed 결과가 없어 R03 LoRA 백본 우위를 주장하지 않는다. 전체 수락된 실험 범위를 유지한다.
+
+[15조건·33개 pending·source와 보정 감사](../results/stage04/retained_matrix_audit_R01_R02_R03_DINO/validation.json), [새 5그룹 모든 평균·CI·paired 비교](../results/stage04/retained_matrix_audit_R01_R02_R03_DINO/device_summary.json), [원본 집계/그림 증거](../results/stage04/retained_matrix_audit_R01_R02_R03_DINO/figure_sources.json), [게시 검증](../results/setup/lora_dinov3_R03_seed2_evaluation_publication_check.json)을 제공한다. `plot_retained_lora.py`는 선택 tensor·보존 evidence·점수와 그림의 평균/CI를 새로 검산하며 5개 그룹 전체 PNG/SVG를 제공한다. 완료 그림의 회색은 실행 중·대기·미시작을 포함하며 학습 완료만으로 조건 완료를 표시하지 않는다. 원본 영상·특징 배열·큰 모델은 업로드하지 않았다. 전체 CPU invariant 테스트 422개를 재사용한 검증 증거 및 별도 exact commit CI를 확인한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/summarize_retained_lora_matrix.py --kind lora --data-root ../IPAD_dataset/IPAD_dataset --out results/stage04/retained_matrix_audit_R01_R02_R03_DINO
+PYTHONPATH=src:scripts python scripts/plot_retained_lora.py --kind lora --root results/stage04/retained_matrix_audit_R01_R02_R03_DINO --data-root ../IPAD_dataset/IPAD_dataset --out docs/figures/stage04/retained_R01_R02_R03_DINO
+PYTHONPATH=src:scripts python scripts/plot_lora_completion.py --root results/stage04/retained_matrix_audit_R01_R02_R03_DINO --data-root ../IPAD_dataset/IPAD_dataset --out docs/figures/stage04/primary_lora_completed15
+```
+
+
+## V-JEPA R03 오프라인 seed 0의 완료된 정상 학습
+
+원 fresh 정상-only 학습 **20 epoch·6,420 updates**를 완료했다. Fit 15개 영상·2,564 clips와 별도 calibration 4개 영상·2,771 clips를 사용하고 teacher weight 1·accumulation 8·BF16을 유지했다. 정상 calibration CE 최솟값의 **epoch 17**을 선택했다. 선택 CE는 **5.281197**, 같은 epoch 원형 MAE는 **24.4747%**다. MAE로 재선택하지 않았다.
+
+![V-JEPA R03 seed 0의 실제 20 epoch 정상 학습·선택 epoch](figures/stage04/vjepa21-l_R03_offline_seed0_joint_training.png)
+
+CE와 MAE 곡선은 대부분 평평하며, 이 정상 학습 지표만으로 이상탐지 정확도나 백본 우위를 판단하지 않는다. 기존 source-bound 원 pipeline은 child.wait()가 0일 때만 full20 완료 단계를 기록한다. 이 단계와 기존 CPU exporter·plot의 실제 종료 코드 0, 5개 로컬 학습 파일 hash 보존 및 실제 PNG 검토를 확인했다. 선택 특징·새 메모리·보정·전체 17개 테스트 평가는 별도 조건 감사가 필요하다. 이 학습 단계는 위 15개 완료 정확도 조건·5개 세-seed 그룹에 추가하지 않았다. 모델·optimizer·원본 영상·특징 배열은 업로드하지 않는다.
+
+[20 epoch CSV·JSON·선택 checkpoint hash·export 검증](../results/stage04/training/vjepa21-l/offline/R03/seed0), [동시 게시된 학습/그래프 검증](../results/setup/lora_dinov3_R03_seed2_evaluation_publication_check.json)을 제공한다. 전체 비교·온라인·Macro4·제거 실험·실시간 계획을 유지한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/export_lora_training.py --run artifacts/lora/vjepa21-l/offline/R03/seed0 --out results/stage04/training/vjepa21-l/offline/R03/seed0
+PYTHONPATH=src:scripts python scripts/plot_lora_training.py --results results/stage04/training/vjepa21-l/offline/R03/seed0 --out docs/figures/stage04/vjepa21-l_R03_offline_seed0_joint_training
+```

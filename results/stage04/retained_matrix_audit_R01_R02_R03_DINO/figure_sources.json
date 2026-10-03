@@ -1,0 +1,20 @@
+{
+  "status": "rendered_from_fresh_mixed_condition_and_statistic_replay",
+  "kind": "lora",
+  "matrix_complete": false,
+  "validation_sha256": "600d69fafe4177b649bd5b0d3dd56fd8d8c8cdef3e64eed0669afadc495f1583",
+  "plot_code_sha256": "eac814d12fc13921060ca0e7c18f1031df53f29f4b4deef7b5e75614a1e6f72d",
+  "figures": {
+    "retained_lora_dinov3-l_offline_R01.png": "9cd1a61670f60634337d34b162d254f2de1fc413f3b0ded737c0ba6de886846c",
+    "retained_lora_dinov3-l_offline_R01.svg": "73b4d3a244deea5f93e574869f67bd84b08569d72a3a22f97b97b7c317fea35b",
+    "retained_lora_dinov3-l_offline_R02.png": "e324bbdc8eaaa925d332443c52133cda5efc3b99ce2c0d581c2a200d64b7e06b",
+    "retained_lora_dinov3-l_offline_R02.svg": "d69d64f53e8fb98c6a79523b624fa3e91171e340529890c7f579faa8cdf9fb98",
+    "retained_lora_dinov3-l_offline_R03.png": "51470f10b5aa333de1cd117c2a564a1d3d7f327f4b47aea5a9837d8b2708848b",
+    "retained_lora_dinov3-l_offline_R03.svg": "f6d6c3ae699b163e4e569a615d344d77d869ac20b7b75b6b392632cfd40f8f45",
+    "retained_lora_vjepa21-l_offline_R01.png": "bbb7dc12c26c981fdb61d7c74fc1ba82c7a84c9bcc2547190c83d4b1e31f53cd",
+    "retained_lora_vjepa21-l_offline_R01.svg": "eb16c901de5af1dad146eff685056a603c4fa9e04821c5a95991fe54d2b92522",
+    "retained_lora_vjepa21-l_offline_R02.png": "964ef8874f45eedb2bd8b3ccf2139c4078c0570840ca9bce1ac754d03a59fb78",
+    "retained_lora_vjepa21-l_offline_R02.svg": "fc2af1ed594cdab36109d84b84ddfc4f12136b402c675a295c046f3ad60f5ea5"
+  },
+  "limits": "Historical payload checks remain explicitly labelled; actual complete three-seed groups only. Final PNG review required."
+}

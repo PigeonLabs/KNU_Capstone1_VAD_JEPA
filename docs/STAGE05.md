@@ -735,3 +735,32 @@ PYTHONPATH=src:scripts python scripts/report_cached_alarm_coverage.py \
   --root results/stage04/retained_matrix_audit_R01_R02_R03_DINO_partial --data-root ../IPAD_dataset/IPAD_dataset \
   --out results/stage05/cached_alarm_coverage_R01_R02_R03_DINO_partial --figures docs/figures/stage05/cached_R01_R02_R03_DINO_partial
 ```
+
+## DINOv3 R03 seed 2의 고정 임계값 알람과 점수 분포
+
+같은 seed 고정/LoRA P3의 **17개 테스트·11,563개 inference/유효 GT target(정상 6,641·이상 4,922·unknown 0)**을 기존 CPU 코드로 다시 검산했다. 정상-only 자체 q99와 원래 3-target streak를 유지하고 GT 필터 전에 전체 target19..N−8 trace에서 경보와 episode를 계산했다. 테스트 임계값·epoch·점수 부호를 재선택하지 않았다. 이상 구간은 17개 관측 GT 구간이며 10개는 경계가 불확실하다.
+
+| P3 조건 | 구간 탐지 / 17 | 정상 경보 / 6,641 target | 정상 episode 시작 |
+|---|---:|---:|---:|
+| 고정 백본 | 6 (35.29%) | 46 (0.693%) | 7 |
+| LoRA | 10 (58.82%) | 53 (0.798%) | 15 |
+
+![Seed 2의 실제 고정 q99 탐지·정상 경보·시작 횟수](figures/stage05/dinov3-l_R03_offline_seed2_single_cached_alarm_pair.png)
+
+관측 구간 탐지가 늘었지만 정상 경보 프레임과 정상 episode 시작도 늘었다. 이 개별 seed의 경보 집계에는 CI를 산출하지 않았다. P3 ranking의 AUROC CI는 0을 포함하고 AP CI는 양수지만, ranking 개선이 자체 q99 아래 탐지·오탐 개선을 보장하지 않는다.
+
+| 조건 | 자체 정상 q99 | 정상 q99 통과→streak 경보 / 6,641 | 이상 q99 통과→streak 경보 / 4,922 |
+|---|---:|---:|---:|
+| 고정 백본 | 30.340772 | 60→46 | 48→36 |
+| LoRA | 3.790574 | 95→53 | 469→398 |
+
+![실제 calibration·정상/이상 테스트 ECDF와 q99 통과·streak 경보](figures/stage05/dinov3-l_R03_offline_seed2_score_distributions.png)
+
+각 조건 calibration trace 2,771개 중 유효 점수 2,727개에서 원래 q99를 재계산했다. 정상 위상 학습 calibration clip 수와 유효 점수 수를 혼동하지 않았다. q99 크기는 서로 다른 정상 보정/특징 공간의 값이며 작은 값 자체가 성능이나 원인이 아니다. ECDF는 각 조건의 자체 점수 축, 아래 패널은 동일한 비율 축으로 비교했다. 정상/이상 프레임 경보 비율은 관측 구간 recall과 다르다. Unknown GT가 streak를 초기화하지 않으며 정상 구간으로 이어진 경보는 새 시작으로 세지 않는다.
+
+원 선택 adapter/메모리·전체 점수·보정·GT·원 경보를 검산한 [pair·영상별 결과·독립 감사](../results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R03/seed2/cached_alarm_pair.json)와 [전체 분포·q99 통과·source/annotation hash](../results/stage05/score_distributions/dinov3-l/offline/R03/seed2/score_distributions.json), [게시 검증](../results/setup/lora_dinov3_R03_seed2_evaluation_publication_check.json)을 제공한다. 실제 CPU 두 분석의 종료 코드 0 및 두 PNG를 직접 검토했다. 이 분석은 임계값 재튜닝·teacher 손실만의 효과·학습 seed CI·측정 FPS·실제 방출 시각·wall-clock 지연·온라인 EOF 성능을 뜻하지 않는다. 이전 seed 0/1 결과와 snapshot은 보존했다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py --model dinov3-l --mode offline --device R03 --seed 2 --data-root ../IPAD_dataset/IPAD_dataset --out results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R03/seed2 --figure docs/figures/stage05/dinov3-l_R03_offline_seed2_single_cached_alarm_pair
+PYTHONPATH=src:scripts python scripts/report_cached_score_distributions.py --audit-report results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R03/seed2/cached_alarm_pair.json --out results/stage05/score_distributions/dinov3-l/offline/R03/seed2 --figure docs/figures/stage05/dinov3-l_R03_offline_seed2_score_distributions
+```
