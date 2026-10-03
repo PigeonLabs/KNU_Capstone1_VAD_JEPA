@@ -1,0 +1,18 @@
+{
+  "status": "rendered_from_fresh_mixed_condition_and_statistic_replay",
+  "kind": "lora",
+  "matrix_complete": false,
+  "validation_sha256": "2325fe36863b4514d442e956a642f1b1905bb18e03bdf9a1b059f14f510ded2c",
+  "plot_code_sha256": "eac814d12fc13921060ca0e7c18f1031df53f29f4b4deef7b5e75614a1e6f72d",
+  "figures": {
+    "retained_lora_dinov3-l_offline_R01.png": "ad8d459e73eeb7170c8854effcc492e077d0db8cfb8e94263be03fcffd97c670",
+    "retained_lora_dinov3-l_offline_R01.svg": "c78e1bcd57f172378c314aafb0bf6eeee64a418bfdc4e60391bac0b98f853d73",
+    "retained_lora_dinov3-l_offline_R02.png": "7a201965fc4bf2dc5887afd475a5b0ae4b9fc78f8c61f75bad58aed1320b892a",
+    "retained_lora_dinov3-l_offline_R02.svg": "12bb4481d239bb04e90f8d37e22eea0f137beca40ab95d7e2a86c49e89340208",
+    "retained_lora_vjepa21-l_offline_R01.png": "823cda2fe2c4b99881d993e19f12850c7951c62569d7d4dae0700bb6011d9137",
+    "retained_lora_vjepa21-l_offline_R01.svg": "8b2e07724c1ed4663fedeec1befee7fbdbb3e0d7d185d3ec0ce32489b7c4c319",
+    "retained_lora_vjepa21-l_offline_R02.png": "09c8f1a2ada3f20ae7dfd79a445556ffb75711713738eb6588cc30995d0bc3a7",
+    "retained_lora_vjepa21-l_offline_R02.svg": "d36e76f0aa6ed3559d4cfd791848161c8f1c8fa5559b027772de755011873928"
+  },
+  "limits": "Historical payload checks remain explicitly labelled; actual complete three-seed groups only. Final PNG review required."
+}

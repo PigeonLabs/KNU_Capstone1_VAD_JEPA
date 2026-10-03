@@ -74,11 +74,13 @@ R02 seed 2는 **20 epoch·7,620 updates**의 정상 학습을 완료했고 CE �
 
 R02 오프라인 DINOv3-L의 **세 seed 평균 P3 AUROC/AP는 83.11/70.23%**다. 고정 백본 평균 **79.84/65.11%** 대비 **+3.28/+5.13pp**이며, 두 paired 95% CI가 양수였다. [세-seed 평균·paired CI·그래프·전체 P0–P3](docs/STAGE04.md#dinov3-r02-오프라인-세-seed-lora-집계)를 제공한다. 고정 q99에서 세 seed 평균 관측 구간 탐지율은 **36.67→48.33%**, 정상 경보 프레임 비율은 **0.7400→0.4419%**였다. [seed별 값·평균·그래프와 범위](docs/STAGE05.md#r02-세-seed의-고정-임계값-알람-집계)를 제공한다.
 
-V-JEPA 2.1-L 오프라인 R02 seed 0는 **20 epoch·7,620 updates**의 정상 학습을 완료했고 CE 기준 epoch **17**을 선택했다. [학습 곡선·선택 근거](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-0의-완료된-정상-학습)를 제공한다. 전체 테스트·독립 검증을 완료한 seed 0의 P3 AUROC/AP는 **67.82/56.80%**다. 같은 seed의 고정 백본 **62.54/43.48%** 대비 **+5.28/+13.31pp**이며 두 paired 95% CI가 양수였다. [전체 P0–P3·paired CI·ROC/PR·점수 궤적](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-0의-완료된-전체-평가)을 제공한다. 고정 q99에서 관측 20개 구간 탐지는 **3→13개**, 정상 경보 프레임은 **1→9개**였다. [탐지·정상 경보 그래프와 정의](docs/STAGE05.md#v-jepa-r02-seed-0의-고정-임계값-알람-비교)를 제공한다. [±1 프레임 라벨 정렬 민감도](docs/STAGE05.md#v-jepa-r02-seed-0의-라벨-정렬-민감도)도 제공하며, 정확한 정렬은 미확정이다. R02 V-JEPA 세-seed 평균·paired CI는 세 seed의 독립 검증 완료 후 제공한다.
+V-JEPA 2.1-L 오프라인 R02 seed 0는 **20 epoch·7,620 updates**의 정상 학습을 완료했고 CE 기준 epoch **17**을 선택했다. [학습 곡선·선택 근거](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-0의-완료된-정상-학습)를 제공한다. 전체 테스트·독립 검증을 완료한 seed 0의 P3 AUROC/AP는 **67.82/56.80%**다. 같은 seed의 고정 백본 **62.54/43.48%** 대비 **+5.28/+13.31pp**이며 두 paired 95% CI가 양수였다. [전체 P0–P3·paired CI·ROC/PR·점수 궤적](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-0의-완료된-전체-평가)을 제공한다. 고정 q99에서 관측 20개 구간 탐지는 **3→13개**, 정상 경보 프레임은 **1→9개**였다. [탐지·정상 경보 그래프와 정의](docs/STAGE05.md#v-jepa-r02-seed-0의-고정-임계값-알람-비교)를 제공한다. [±1 프레임 라벨 정렬 민감도](docs/STAGE05.md#v-jepa-r02-seed-0의-라벨-정렬-민감도)도 제공하며, 정확한 정렬은 미확정이다. R02 세-seed 평균과 백본 비교는 아래 집계에서 제공한다.
 
 V-JEPA 2.1-L 오프라인 R02 seed 1은 **20 epoch·7,620 updates**의 정상 학습을 완료했고 CE 기준 epoch **11**을 선택했다. [학습 곡선·선택 근거](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-1의-완료된-정상-학습)를 제공한다. 전체 테스트·독립 검증을 완료한 seed 1의 P3 AUROC/AP는 **68.59/49.96%**다. 고정 백본 대비 **+5.78/+8.17pp**이며 AP paired 95% CI는 양수, AUROC CI는 0을 포함한다. 고정 q99의 관측 구간 탐지는 **7→3개**, 정상 경보 프레임은 **3→20개**였다. [탐지·정상 경보 그래프](docs/STAGE05.md#v-jepa-r02-seed-1의-고정-임계값-알람-비교)와 [점수 분포·q99 통과 분석](docs/STAGE05.md#v-jepa-r02-seed-1의-점수-분포와-q99-통과)을 함께 제공한다. [전체 P0–P3·paired CI·ROC/PR·점수 궤적](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-1의-완료된-전체-평가)을 제공한다.
 
-V-JEPA 2.1-L 오프라인 R02 seed 2는 **20 epoch·7,620 updates**의 정상 학습을 완료했고 정상 calibration CE 기준 선택 epoch는 **20**다. [학습 곡선·선택 근거](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-2의-완료된-정상-학습)를 제공한다. 전체 테스트·독립 검증을 완료한 seed 2의 P3 AUROC/AP는 **61.86/40.69%**다. 고정 백본 대비 **-2.09/-1.68pp**이며 두 paired 95% CI는 0을 포함했다. [전체 P0–P3·paired CI·ROC/PR·점수 궤적](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-2의-완료된-전체-평가)을 제공한다. R02 V-JEPA 세-seed 평균·paired CI는 별도 검증 snapshot에서 제공한다.
+V-JEPA 2.1-L 오프라인 R02 seed 2는 **20 epoch·7,620 updates**의 정상 학습을 완료했고 정상 calibration CE 기준 선택 epoch는 **20**다. [학습 곡선·선택 근거](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-2의-완료된-정상-학습)를 제공한다. 전체 테스트·독립 검증을 완료한 seed 2의 P3 AUROC/AP는 **61.86/40.69%**다. 고정 백본 대비 **-2.09/-1.68pp**이며 두 paired 95% CI는 0을 포함했다. [전체 P0–P3·paired CI·ROC/PR·점수 궤적](docs/STAGE04.md#v-jepa-21-r02-오프라인-seed-2의-완료된-전체-평가)을 제공한다. 
+
+R02 오프라인 V-JEPA의 **seeds 0/1/2 평균 P3 AUROC/AP는 66.09/49.15%**다. 고정 백본 대비 **+2.99/+6.60pp**이며 paired CI 판정은 AUROC **0 포함**, AP **양수**다. 같은 R02 LoRA의 V-JEPA−DINOv3 차이는 **AUROC -17.02 [-26.15, -8.17]pp, AP -21.08 [-35.63, -4.68]pp**다. [두 백본의 세-seed 평균·paired CI·전체 P0–P3·그래프](docs/STAGE04.md#r02-오프라인-두-백본의-세-seed-lora-비교)를 제공한다. R01·R02 오프라인의 부분 결과이며 온라인 LoRA·Macro4·전체 실시간 비교는 남아 있다.
 
 LoRA teacher 손실 가중치 **0 대 1** 비교의 신규 48조건도 별도 경로에서 시작했다. 기존 가중치 1과 같은 데이터·seed·학습 코드로 가중치 0을 학습하고 선택 특징·메모리·보정을 다시 구성한다. [통제 조건·손실 도식·실행/검증 근거](docs/ABLATION_TEACHER_WEIGHT.md)를 제공하며 완료된 정확도·CI는 아직 없다.
 
@@ -152,7 +154,7 @@ CI는 핵심 검증과 업로드 검사를 실행한다. 정상 분할·위상·
 | 01 IPAD 기준선 | R01 세 seeds의 50 epoch 학습·평가·평균/paired CI·그래프 완료; 다른 장비·reference 조건 남음 |
 | 02 오프라인 비교 | R01–R04 두 백본 3 seeds 완료, 두 백본 Macro4 확보 |
 | 03 온라인 비교 | R01–R04 두 백본 3 seeds 완료, 온라인 Macro4 확보; 실시간 측정 남음 |
-| 04 LoRA·추가 실험 | LoRA 12/48조건 검증; R01 오프라인 두 백본·R02 DINOv3의 세-seed 평균·paired CI·그래프 공개. 나머지 장비·모드 평가 진행 중 |
+| 04 LoRA·추가 실험 | LoRA 12/48조건 검증; R01·R02 오프라인 두 백본의 세-seed 평균·paired CI·그래프 공개. 나머지 장비·모드 평가 진행 중 |
 | 05 실시간·진단·재현성 | DINOv3 온라인 R01 seeds 0/1 여섯 실행·독립 trace 검증·그래프 완료; BF16 buffer gate 통과, FP32 reuse 점수 gate 실패. 이력·이웃 각각 144개, 메모리/bin 192개 조건·paired CI/그래프 완료; 전체 runtime/동등성·진단·나머지 제거 실험 남음 |
 
 ## 출처

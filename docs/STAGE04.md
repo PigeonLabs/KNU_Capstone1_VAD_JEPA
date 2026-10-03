@@ -766,3 +766,75 @@ PYTHONPATH=src:scripts python scripts/plot_lora_evaluation.py \
   --data-root ../IPAD_dataset/IPAD_dataset \
   --out docs/figures/stage04
 ```
+
+## R02 오프라인 두 백본의 세 seed LoRA 비교
+
+R02 오프라인 두 백본의 seeds 0/1/2 모두 원래 20-epoch 정상 학습·선택 특징 재추출·새 메모리/정상 보정·전체 테스트·독립 감사를 완료했다. 같은 15개 테스트 영상의 유효 GT target **9,210개(이상 2,949개·정상 6,261개)**에서 각 seed 지표를 계산한 뒤 세 값을 평균했다. 두 백본·고정/LoRA·세 seeds에 같은 원본 영상 재표집을 적용한 **1,000회 paired bootstrap percentile 95% CI**다. Seed 자체를 재표집하거나 프레임·seed 점수를 하나로 합치지 않았다.
+
+**DINOv3-L: 세 seed 평균과 영상 bootstrap 95% CI**
+
+| 점수 | 고정 AUROC [CI], % | LoRA AUROC [CI], % | 고정 AP [CI], % | LoRA AP [CI], % |
+|---|---:|---:|---:|---:|
+| P0 | 73.32 [55.27, 88.48] | 69.86 [52.58, 84.94] | 62.09 [35.74, 82.33] | 57.21 [31.63, 78.09] |
+| P1 | 72.20 [56.64, 86.67] | 70.87 [55.05, 85.68] | 59.04 [33.11, 80.61] | 56.56 [31.36, 78.94] |
+| P2 | 71.98 [57.04, 85.75] | 70.74 [54.72, 85.69] | 60.68 [36.51, 80.41] | 57.40 [31.96, 78.53] |
+| P3 | 79.84 [68.19, 89.67] | 83.11 [72.85, 91.94] | 65.11 [43.81, 81.46] | 70.23 [49.08, 84.53] |
+
+**V-JEPA 2.1-L: 세 seed 평균과 영상 bootstrap 95% CI**
+
+| 점수 | 고정 AUROC [CI], % | LoRA AUROC [CI], % | 고정 AP [CI], % | LoRA AP [CI], % |
+|---|---:|---:|---:|---:|
+| P0 | 58.19 [42.29, 72.05] | 57.17 [41.16, 70.91] | 36.98 [22.10, 56.43] | 36.06 [22.37, 53.57] |
+| P1 | 57.18 [43.26, 69.48] | 61.82 [47.04, 73.64] | 36.65 [22.70, 55.06] | 44.53 [29.04, 60.62] |
+| P2 | 59.71 [45.84, 71.39] | 65.39 [52.07, 76.03] | 38.79 [24.32, 56.43] | 48.32 [32.59, 63.99] |
+| P3 | 63.10 [51.47, 72.56] | 66.09 [57.21, 73.09] | 42.55 [28.56, 58.03] | 49.15 [35.58, 61.20] |
+
+**DINOv3-L: paired 차이**
+
+| 비교 | AUROC 차이 [CI], pp | AP 차이 [CI], pp |
+|---|---:|---:|
+| LoRA−고정 P0 | -3.46 [-7.12, -0.38] | -4.88 [-8.86, -0.87] |
+| LoRA−고정 P1 | -1.33 [-4.27, +1.29] | -2.48 [-5.57, -0.03] |
+| LoRA−고정 P2 | -1.23 [-5.65, +2.23] | -3.28 [-8.78, +0.20] |
+| LoRA−고정 P3 | +3.28 [+1.46, +5.72] | +5.13 [+1.40, +9.98] |
+| LoRA P3−LoRA P0 | +13.25 [+3.31, +25.31] | +13.02 [+1.09, +28.44] |
+
+**V-JEPA 2.1-L: paired 차이**
+
+| 비교 | AUROC 차이 [CI], pp | AP 차이 [CI], pp |
+|---|---:|---:|
+| LoRA−고정 P0 | -1.01 [-3.58, +1.77] | -0.93 [-3.88, +0.93] |
+| LoRA−고정 P1 | +4.63 [+0.25, +8.84] | +7.87 [+2.68, +11.95] |
+| LoRA−고정 P2 | +5.69 [+1.02, +9.55] | +9.52 [+5.19, +12.57] |
+| LoRA−고정 P3 | +2.99 [-0.53, +6.83] | +6.60 [+1.46, +10.15] |
+| LoRA P3−LoRA P0 | +8.92 [-2.01, +19.20] | +13.09 [+3.83, +19.07] |
+
+**같은 R02의 백본 비교**
+
+| V-JEPA−DINOv3 비교 | AUROC 차이 [CI], pp | AP 차이 [CI], pp |
+|---|---:|---:|
+| 고정 P3 | -16.73 [-28.73, -5.04] | -22.55 [-39.11, -5.11] |
+| LoRA P0 | -12.69 [-29.58, +3.62] | -21.16 [-38.12, -1.41] |
+| LoRA P3 | -17.02 [-26.15, -8.17] | -21.08 [-35.63, -4.68] |
+
+DINOv3-L P3의 LoRA−고정 paired CI 판정은 AUROC **양수**, AP **양수**다. V-JEPA 2.1-L P3의 LoRA−고정 paired CI 판정은 AUROC **0 포함**, AP **양수**다. LoRA P3의 V-JEPA−DINOv3 paired CI 판정은 AUROC **음수**, AP **음수**다. 다중 비교를 보정한 유의성 주장으로 해석하지 않는다.
+
+V-JEPA seed 2의 P3 단일 결과 **61.86/40.69%**, 고정 대비 **−2.09/−1.68pp**와 두 CI의 0 포함을 보존한다. 세-seed 평균 개선을 모든 seed의 개선으로 확대하지 않는다. 주 점수 P3를 결과에 따라 바꾸지 않았으며 정상 검증 CE 선택 epoch는 seeds 0/1/2 각각 **17/11/20**다. Encoder/head와 새 메모리/보정을 함께 바꾸는 전체 프로토콜 비교다. Teacher 손실만의 효과, 사전학습 방법만의 인과 효과, 디코더 제거만의 효과나 동등성을 주장하지 않는다.
+
+![R02 V-JEPA 세-seed 평균·paired CI](figures/stage04/retained_R01_R02_both_backbones/retained_lora_vjepa21-l_offline_R02.png)
+
+![R02 두 백본의 세-seed paired 비교](figures/stage04/retained_R01_R02_both_backbones/lora_backbone_offline_R02.png)
+
+[12조건·96개 정상 임계값 감사](../results/stage04/retained_matrix_audit_R01_R02_both_backbones/validation.json), [전체 평균·CI·paired 차이](../results/stage04/retained_matrix_audit_R01_R02_both_backbones/device_summary.json), [current/retained 그래프 근거](../results/stage04/retained_matrix_audit_R01_R02_both_backbones/figure_sources.json), [백본 paired 재검산](../results/stage04/retained_matrix_audit_R01_R02_both_backbones/backbone_figure_sources.json), [게시 검증 기록](../results/setup/lora_R02_both_backbones_three_seed_publication_check.json)과 여섯 PNG/SVG를 제공한다. **12/48조건·4/16그룹** 완료 상태다. 현재 배열 11조건과 사전 검증·승인된 배열 정리 증거 1조건을 구분해 재검증했다. 새 snapshot은 기존 R01 여섯 조건과 R01/R02 아홉 조건의 모든 데이터·그래프를 보존한다. Macro4 결과는 아직 없다.
+
+R02/12·13·14의 라벨 정렬은 미확정이며 기존 ±1 규칙에 따른 공통 18프레임 제외를 유지했다. 총 9,228 inference target 중 미확정 18개를 GT 지표에서 제외한다. 고정 q99의 구간 탐지·정상 경보는 ranking 지표와 별도다. 기존 seed 0의 구간 탐지 3→13개와 seed 1의 7→3개·정상 경보 3→20프레임을 함께 보존하며, seed 2의 구간 집계와 세-seed 경보 집계는 별도 검산 후 제공한다. 이 캐시 정확도 결과에서 실제 FPS·방출 지연·온라인 EOF 탐지를 추론하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/summarize_retained_lora_matrix.py \
+  --kind lora --out results/stage04/retained_matrix_audit_R01_R02_both_backbones
+PYTHONPATH=src:scripts python scripts/plot_retained_lora.py \
+  --kind lora --root results/stage04/retained_matrix_audit_R01_R02_both_backbones \
+  --out docs/figures/stage04/retained_R01_R02_both_backbones
+PYTHONPATH=src:scripts python scripts/plot_lora_backbone_comparison.py \
+  --root results/stage04/retained_matrix_audit_R01_R02_both_backbones --out docs/figures/stage04/retained_R01_R02_both_backbones
+```
