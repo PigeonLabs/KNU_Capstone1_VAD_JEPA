@@ -545,3 +545,30 @@ PYTHONPATH=src:scripts python scripts/report_cached_score_distributions.py \
   --out results/stage05/score_distributions/vjepa21-l/offline/R02/seed1 \
   --figure docs/figures/stage05/score_distributions_vjepa21-l_R02_offline_seed1
 ```
+
+## V-JEPA R02 seed 2의 고정 임계값 알람 비교
+
+완료된 V-JEPA 2.1-L 오프라인 R02 seed 2의 P3를 같은 seed 고정 백본과 비교했다. 기존 [단일 조건 분석 코드](../scripts/report_single_cached_alarm_pair.py)로 선택 adapter/joint head·메모리·정상 보정과 41개 특징 cache provenance를 새로 감사하고, P0–P3 전체 CSV의 GT·시간·raw/보정 점수·임계값·알람을 검산했다. 각자의 **정상 calibration q99·연속 3개 유효 target** 규칙을 유지했다.
+
+| R02 seed 2 P3 | 관측 이상 구간 탐지 / 미탐 | 관측 구간 탐지율 | 정상 경보 프레임 / 6,261 | 정상 경보 프레임 비율 | 정상 episode 시작 |
+|---|---:|---:|---:|---:|---:|
+| 고정 백본 | 5 / 15 | 25.00% | 20 | 0.3194% | 8 |
+| LoRA | 4 / 16 | 20.00% | 3 | 0.0479% | 3 |
+
+같은 15개 실제 영상의 inference target는 **9,228개**, 유효 GT target는 **9,210개**(이상 2,949·정상 6,261), unknown GT는 **18개**다. 관측 이상 구간 20개 모두 공통 평가 범위와 겹쳤으며 7개 구간의 경계는 불확실하다. R02/12·13·14의 라벨 정렬 불확실성과 공통 18프레임 제외 규칙을 유지했다.
+
+![V-JEPA R02 seed 2의 고정/LoRA 탐지·정상 경보 비교](figures/stage05/cached_P3_vjepa21-l_R02_offline_seed2_pair.png)
+
+LoRA의 관측 이상 구간 탐지는 **5→4개**(25→20%)로 줄고 미탐은 **15→16개**로 늘었다. 정상 경보 프레임은 **20→3개**, 정상 episode 시작은 **8→3회**로 줄었다. 탐지 감소와 정상 경보 감소를 구분해 보고한다. [같은 seed의 전체 ranking 평가](STAGE04.md#v-jepa-21-r02-오프라인-seed-2의-완료된-전체-평가)는 P3 AUROC/AP **63.95/42.37→61.86/40.69%**, 차이 **−2.09/−1.68pp**로 두 paired 95% CI에 0을 포함했다. 이 고정 임계값의 알람 집계에는 CI를 산출하지 않았고 테스트를 보고 임계값·epoch·seed·점수 부호를 바꾸지 않았다.
+
+GT 구간 안에 알람 target가 하나라도 있으면 관측 구간 탐지로 센다. 앞에서 시작해 구간 안으로 이어진 알람도 포함한다. 정상 episode 시작은 GT 필터 전 전체 알람 시퀀스에서 계산한다. 이상에서 정상으로 이어진 알람은 정상 프레임에 포함하지만 새 정상 시작으로 세지 않으며 unknown GT는 알람 streak를 초기화하지 않는다. 공통 cached target19..N-8의 **단일 고정 seed** 결과다. 실제 방출 시각·FPS·wall-clock 지연·온라인 EOF 탐지나 seed 변동성은 이 집계로 입증하지 않는다.
+
+[영상별 구간·normal/unknown 프레임·source/annotation 해시](../results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R02/seed2/cached_alarm_pair.json), [새 독립 LoRA 감사](../results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R02/seed2/audit/T1/vjepa21-l/offline/R02/seed2/condition_audit.json), [게시 검증 기록](../results/setup/vjepa_R02_seed2_single_alarm_publication_check.json)과 PNG/SVG를 제공한다. 기존 모든 단일 seed 결과와 54조건·57조건 snapshot 및 그래프를 보존한다. [R02의 세-seed ranking 평균·paired 백본 비교](STAGE04.md#r02-오프라인-두-백본의-세-seed-lora-비교)는 별도이며, 고정 q99 세-seed 알람 평균은 새 검산 snapshot에서 제공한다. 주 LoRA 정확도 **12/48조건·4/16그룹** 완료 상태이며 나머지 전체 실험을 유지한다. 모델·원본 영상·특징 배열은 업로드하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py \
+  --model vjepa21-l --mode offline --device R02 --seed 2 \
+  --data-root ../IPAD_dataset/IPAD_dataset \
+  --out results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R02/seed2 \
+  --figure docs/figures/stage05/cached_P3_vjepa21-l_R02_offline_seed2_pair
+```
