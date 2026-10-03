@@ -838,3 +838,26 @@ PYTHONPATH=src:scripts python scripts/plot_retained_lora.py \
 PYTHONPATH=src:scripts python scripts/plot_lora_backbone_comparison.py \
   --root results/stage04/retained_matrix_audit_R01_R02_both_backbones --out docs/figures/stage04/retained_R01_R02_both_backbones
 ```
+
+## DINOv3 R03 오프라인 seed 0의 완료된 정상 학습
+
+원 fresh 정상-only trainer가 **20 epoch·6,420 optimizer updates**를 완료하고 실제 종료 코드 **0**을 반환했다. 정상 fit **15개 영상·2,564 clips**, 정상 calibration **4개 영상·2,771 clips**를 사용했다. Teacher weight 1·accumulation 8·BF16·최소 정상 calibration CE 선택 규칙과 원래 학습 코드를 유지했다. 진단용 정상 영상은 학습·임계값 선택에 넣지 않았다.
+
+| 선택 epoch | 정상 calibration CE | 같은 epoch의 원형 MAE |
+|---:|---:|---:|
+| 19 | 3.121916 | 1.8808% |
+
+![R03 seed 0의 20 epoch 정상 학습 곡선](figures/stage04/dinov3-l_R03_offline_seed0_joint_training.png)
+
+두 별표는 같은 CE 선택 epoch이며 MAE 최솟값으로 재선택하지 않았다. 기존 CPU 수집자가 실제 export·plot 종료 코드 0 이후 생성한 CSV/JSON과 PNG/SVG를 사용했고 직접 PNG를 확인했다. [학습 CSV·JSON·선택 checkpoint hash·export 검증](../results/stage04/training/dinov3-l/offline/R03/seed0), [학습 완료·그래프 검토·게시 검증](../results/setup/lora_dinov3_R03_seed0_training_publication_check.json)을 제공한다. 모델·원본 영상·특징 배열은 업로드하지 않는다.
+
+원 pipeline owner/trainer의 boot ID·PID·start ticks와 소스 28개를 확인했다. 기존 pipeline은 실제 child.wait()가 0일 때만 full20 완료 단계를 기록한다. 이 증거와 독립 읽기 전용 관찰의 실제 종료 코드 0을 함께 확인했다. 학습·선택 checkpoint·optimizer 상태를 변경하거나 다른 seed의 checkpoint로 대체하지 않았다.
+
+정상 학습 완료를 이상탐지 정확도 완료로 세지 않는다. 기존 공개 주 평가는 **12/48조건·4/16 세-seed 그룹**이다. 원 pipeline의 선택 특징 재추출·새 PCA/프로토타입 메모리·정상 보정·R03의 실제 17개 테스트와 독립 감사를 별도로 검증한다. Online·Macro4·teacher 0/1·전체 IPAD 기준선·추가 실험·실시간 측정의 전체 계획을 유지한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/export_lora_training.py \
+  --run artifacts/lora/dinov3-l/offline/R03/seed0 --out results/stage04/training/dinov3-l/offline/R03/seed0
+PYTHONPATH=src:scripts python scripts/plot_lora_training.py \
+  --results results/stage04/training/dinov3-l/offline/R03/seed0 --out docs/figures/stage04/dinov3-l_R03_offline_seed0_joint_training
+```
