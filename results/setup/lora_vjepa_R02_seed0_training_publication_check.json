@@ -1,0 +1,153 @@
+{
+  "status": "verified_completed_training_stage_not_accuracy",
+  "condition": [
+    "vjepa21-l",
+    "offline",
+    "R02",
+    0
+  ],
+  "epochs_completed": 20,
+  "updates": 7620,
+  "selected_epoch": 17,
+  "normal_calibration_ce": 3.399587088259322,
+  "normal_calibration_circular_mae": 0.020083468118615812,
+  "selected_checkpoint_sha256": "3ba41700b6dc6a99ba6127dfc375634af61f302eed2b32fd906f8224343dbf50",
+  "training_child_exit_code": 0,
+  "training_action": "fresh",
+  "training_exit_evidence": "Unchanged source-bound pipeline appends training completed_steps only after actual child.wait() returns 0.",
+  "preserved_training_files": {
+    "lora_training.json": {
+      "bytes": 3652,
+      "sha256": "ceaffa1c25aa708ddf09e715b5e8511149616f89b8fbb1bdd6a6c86260a7c556"
+    },
+    "lora_training.csv": {
+      "bytes": 1904,
+      "sha256": "1beb4b8dcb6334b4c9491281b2ffa2a92e54740e483293d03908d5b9afd297b1"
+    },
+    "selected_adapter.pt": {
+      "bytes": 1790239,
+      "sha256": "3ba41700b6dc6a99ba6127dfc375634af61f302eed2b32fd906f8224343dbf50"
+    },
+    "phase_head.pt": {
+      "bytes": 1257753,
+      "sha256": "79e7576da74561b396a2dcdf8f5ed47196ed9f4fa785deb782fd3c7ddbe194f3"
+    },
+    "resume.pt": {
+      "bytes": 5386972,
+      "sha256": "2c0744e5b83686ac652747024acb03905a58e25afb32436ff3faac51287b6e28"
+    }
+  },
+  "accuracy_completed_conditions_at_snapshot": 9,
+  "planned_primary_conditions": 48,
+  "three_seed_groups_at_snapshot": 3,
+  "cpu_tests_passed": 402,
+  "cpu_full_test_actual_exit_code": 0,
+  "cpu_full_test_log": "artifacts/tmp/representation_R02_shared_phase_full_tests.log",
+  "cpu_full_test_log_sha256": "e7b96ff1ff516fe4d4f48a7d31259487b8b4ec24705df7c3c86d27a38b915299",
+  "feature_pipeline_snapshot": {
+    "status": "running",
+    "stage": "selected_feature_reencoding",
+    "owner": {
+      "pid": 1290347,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "7389373"
+    },
+    "child": {
+      "pid": 1362657,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "8106941"
+    },
+    "training_action": "fresh",
+    "completed_steps": [
+      "full20_normal_only_training"
+    ]
+  },
+  "runtime_snapshot": {
+    "status": "held_between_measurements",
+    "owner": {
+      "pid": 1096328,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "5638691"
+    },
+    "child": null
+  },
+  "human_resume_instruction": "\uc774\uc5b4\uc11c \uc9c4\ud589\ud574\uc918",
+  "fresh_primary_wrapper_sha256": "aa69777b24b32f1b979b316071b4f71a4cad3f5b3f200f5ef77290c7df484883",
+  "snapshot_at": "2026-10-03T05:07:59.884085+00:00",
+  "base_commit": "ea92dad989b626423305322b4144cab9fabc8ec8",
+  "cpu_validation_context": "Actual full402 suite after additive shared-phase exporter and unchanged LoRA scientific producers; new completed LoRA data validated by actual export/plot. Exact new commit CI runs separately.",
+  "changed_files": [
+    "README.md",
+    "docs/STAGE04.md",
+    "results/stage04/training/vjepa21-l/offline/R02/seed0/lora_training.json",
+    "results/stage04/training/vjepa21-l/offline/R02/seed0/lora_training.csv",
+    "results/stage04/training/vjepa21-l/offline/R02/seed0/training_export.json",
+    "docs/figures/stage04/vjepa21-l_R02_offline_seed0_joint_training.png",
+    "docs/figures/stage04/vjepa21-l_R02_offline_seed0_joint_training.svg",
+    "results/setup/lora_vjepa_R02_seed0_training_publication_check.json"
+  ],
+  "figures": {
+    "docs/figures/stage04/vjepa21-l_R02_offline_seed0_joint_training.png": "59febcb7222240d43049284961abf2eb200c20218fef3118b03670477de5f547",
+    "docs/figures/stage04/vjepa21-l_R02_offline_seed0_joint_training.svg": "ab8d4991058f89e1dcab0a8f8e5068379a89d070de7394f41252cdc5e3e476dd"
+  },
+  "scope": "Verified completed normal-only full20 training and CE selection; not anomaly accuracy, seed groups, Macro4 or runtime.",
+  "source_sha256": {
+    "scripts/continue_lora_condition.py": "4cbc18f45bc940ca70c509e5f10a5b0fae31d5997e067afec1fa7206617154e5",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "scripts/retire_lora_cache.py": "086bf507192c34e3de8b754b0149f399d3a0f73f4253b62687925667d5256092",
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/audit_retained_lora.py": "6e247309240a9d4bd3faee2aca44b4ccda5895048964a2c88719c02b02e253b5",
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "scripts/plot_lora_evaluation.py": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+    "scripts/summarize_clip_ablation.py": "af25ff897d7cbe8286748bd2725d9daac9717d238c59c572ad165745445dbfd6",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "src/ipad_jepa/train_lora.py": "a2508f4fef9d3f4d938216fbb0695baf63918432e96154ac35b669e159d8ba28",
+    "src/ipad_jepa/adaptation.py": "0265cf076ab9df02d095824603bccf55abb0ee4ca5628a0432b8b757bdef1354",
+    "src/ipad_jepa/adapted_features.py": "a7980adc2ab1751e19095cc64b52b13a638ad14352fe6cf64b15aeb88ddaece1",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+    "src/ipad_jepa/cache_data.py": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+    "src/ipad_jepa/train_phase.py": "71c226ed4606951b8030588e84675303da4bf2bb67305a81c5d2c26a2eb17f08",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+    "src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+    "src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32",
+    "src/ipad_jepa/lora_audit.py": "3418f771aed02e8537645a8f1f372a4dac537c5c99564db9357fe937c1a3ad41",
+    "src/ipad_jepa/cache_retention.py": "76481aa4e20b0d0c20fc66b7a354c36e7dfcd44e407a9d21895d48511f5a0b1b",
+    "src/ipad_jepa/cache_retirement.py": "a2e7922a74e504f9f82330aef692fa482866dbe03eaad3808517af83894762f7",
+    "src/ipad_jepa/teacher_ablation.py": "02c17f4248dc5242eedd8e03bf555856156756106b6a8c9df29d920ce28e51a0",
+    "README.md": "c501c12ee6f98355bddd151ac904427f147c152036b4621581bf103585213ee7",
+    "docs/STAGE04.md": "6af38e836f604ad1c222ef2cd45f904a7cc634d9d33fc2c0c8858403858f3038",
+    "results/stage04/training/vjepa21-l/offline/R02/seed0/lora_training.json": "ceaffa1c25aa708ddf09e715b5e8511149616f89b8fbb1bdd6a6c86260a7c556",
+    "results/stage04/training/vjepa21-l/offline/R02/seed0/lora_training.csv": "1beb4b8dcb6334b4c9491281b2ffa2a92e54740e483293d03908d5b9afd297b1",
+    "results/stage04/training/vjepa21-l/offline/R02/seed0/training_export.json": "6f381809fd608d14fb25be09b0f2ad536778a8c4f3b2466ff2f2047a7cb6fd63",
+    "docs/figures/stage04/vjepa21-l_R02_offline_seed0_joint_training.png": "59febcb7222240d43049284961abf2eb200c20218fef3118b03670477de5f547",
+    "docs/figures/stage04/vjepa21-l_R02_offline_seed0_joint_training.svg": "ab8d4991058f89e1dcab0a8f8e5068379a89d070de7394f41252cdc5e3e476dd",
+    "scripts/export_lora_training.py": "a894deea7010e53390d718516f9ad3d396dda8aaf7c20ddbe0d4e4cc938b90b7",
+    "scripts/plot_lora_training.py": "4664be22468db87490bd42278bb29d2e7401ad3bb7e417fbde0bbde1b77315ab"
+  },
+  "visual_inspection": {
+    "status": "passed_actual_png_review",
+    "selected_epoch": 17,
+    "reviewed_png_sha256": {
+      "docs/figures/stage04/vjepa21-l_R02_offline_seed0_joint_training.png": "59febcb7222240d43049284961abf2eb200c20218fef3118b03670477de5f547"
+    },
+    "observed": "Actual PNG viewed: 20 epoch points, readable CE/teacher-L2/circular-MAE panels, same normal-CE-selected epoch17 star in CE and MAE, correct completed-condition title and no accuracy/runtime claim.",
+    "reviewed_at": "2026-10-03T05:08:58.620198+00:00"
+  },
+  "actual_preparation": {
+    "watcher_status": "prepared_needs_visual_review_no_push",
+    "actual_child_exit_code": 0,
+    "ledger_sha256": "3dcd7bc15232172a402690af5b0858d679be109823577bbbd2cc762127540802",
+    "export_and_plot_evidence": "Preparation executes each original CLI with subprocess.run(check=True); actual completed preparation child returned0.",
+    "logs_sha256": {
+      "artifacts/tmp/vjepa_R02_seed0_training_prepare_step0.log": "6f381809fd608d14fb25be09b0f2ad536778a8c4f3b2466ff2f2047a7cb6fd63",
+      "artifacts/tmp/vjepa_R02_seed0_training_prepare_step1.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "artifacts/tmp/vjepa_R02_seed0_training_preparation_actual_child.log": "56e36ad93df29b2c13c6cca9ae13b17bc951ee8fb96e2d31689f04886918dd38"
+    }
+  }
+}
