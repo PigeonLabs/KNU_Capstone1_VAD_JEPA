@@ -61,4 +61,22 @@ PYTHONPATH=src:scripts python scripts/plot_lora_matrix.py --kind teacher
 
 `results/stage05/ablations/teacher_weight/paired_audit`에 두 처리의 seed별 근거와 P0–P3 지표·**teacher 0 − teacher 1** paired 차이/95% CI를 저장한다. 장비별 3-seed 평균과 전체 네 장비의 동일 비중 Macro4를 구분한다. 그래프는 P3 정확도와 paired 차이를 PNG/SVG로 제공하며, 완료된 3-seed 그룹이 없으면 만들지 않는다. 이 검증은 원본 영상 encoder 재추출이나 GPU 거리·온도 표본 계산을 재실행하지 않으며, P0/P1 정상 raw median/MAD 재계산에는 저장 자료의 한계가 있다. [주 LoRA 검증 범위](STAGE04.md)를 함께 적용한다.
 
+### 특징 캐시 정리 후의 쌍 검증
+
+위 `summarize_teacher_weight.py`와 `plot_lora_matrix.py` 명령은 두 처리의 실제 특징 배열이 모두 있는 조건에 사용한다. 승인된 절차로 특징 payload를 정리한 처리가 포함되면 [current/retained 집계기](../scripts/summarize_retained_lora_matrix.py)와 [같은 증거를 다시 검사하는 그림 코드](../scripts/plot_retained_lora.py)를 사용한다. 두 처리의 실제 학습·평가가 완료된 뒤 실행하며, 기존 `paired_audit` 대신 별도 경로에 결과를 저장한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/summarize_retained_lora_matrix.py \
+  --kind teacher --data-root "$IPAD_DATA_ROOT" \
+  --out results/stage05/ablations/teacher_weight/retained_paired_audit
+# 실제 48쌍이 모두 완료된 최종 검증에서는 위 명령에 --require-full 추가
+# 같은 장비·백본·모드의 세 seeds가 모두 검증된 후에만 생성:
+PYTHONPATH=src:scripts python scripts/plot_retained_lora.py \
+  --kind teacher --data-root "$IPAD_DATA_ROOT" \
+  --root results/stage05/ablations/teacher_weight/retained_paired_audit \
+  --out docs/figures/stage05/teacher_retained
+```
+
+현재 배열이 있으면 실제 배열을 검사하고, 정리된 배열은 정확한 Git revision에 공개된 inventory·원 감사와 완료된 제거 journal을 요구한다. 파일의 단순 누락이나 미완료 제거를 허용하지 않는다. 보존된 metadata/target·선택 adapter/head·PCA/메모리·정상 보정·GT·점수·알람을 현재 상태에서 재검증하며, 원 payload의 유한값·해시 검사는 과거 증거임을 표시한다. Teacher 0/1 통제 조건과 전체 영상 paired 통계는 동일하게 적용한다. 이 경로는 추가 캐시 삭제 승인이나 완료된 teacher 비교 결과를 뜻하지 않는다.
+
 **현재 teacher 0/1 정확도·CI·전체 Macro4·실시간 결과는 없다.** 시작/완료 표시는 실제 ledger·조건 증명으로 구분한다. 집계 코드의 테스트 통과는 실제 두 처리의 학습·평가 완료를 증명하지 않는다. Stage 05 전체 완료 태그는 남은 OFAT·진단·실시간 비교까지 검증한 뒤에만 생성한다.
