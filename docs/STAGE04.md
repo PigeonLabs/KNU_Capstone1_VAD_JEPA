@@ -632,3 +632,26 @@ PYTHONPATH=src:scripts python scripts/plot_lora_evaluation.py \
   --data-root ../IPAD_dataset/IPAD_dataset \
   --out docs/figures/stage04
 ```
+
+## V-JEPA 2.1 R02 오프라인 seed 1의 완료된 정상 학습
+
+원 정상-only trainer가 **20 epoch·7,620 optimizer updates**를 완료하고 종료 코드 **0**을 반환했다. 정상 fit 21개 영상의 3,042 clips와 정상 calibration 5개 영상의 2,864 clips를 사용했다. Teacher weight 1·accumulation 8·BF16과 최소 정상 calibration CE 선택 규칙을 유지했다.
+
+| 선택 epoch | 정상 calibration CE | 같은 epoch의 원형 MAE |
+|---:|---:|---:|
+| 11 | 3.705227 | 3.1309% |
+
+![R02 seed 1의 20 epoch 정상 학습 곡선](figures/stage04/vjepa21-l_R02_offline_seed1_joint_training.png)
+
+별표는 CE와 MAE 패널에서 같은 CE 선택 epoch를 표시한다. MAE 최솟값으로 모델을 다시 선택하지 않았다. [학습 CSV·JSON·선택 checkpoint 해시·export 검증](../results/stage04/training/vjepa21-l/offline/R02/seed1)과 PNG/SVG를 공개한다. [학습 완료·게시 검증 기록](../results/setup/lora_vjepa_R02_seed1_training_publication_check.json)을 함께 제공한다. 모델 파일·원본 영상·특징 배열은 업로드하지 않는다.
+
+Seed 1은 원 trainer의 fresh 조건으로 시작해 같은 20 epoch 설정을 유지했다. 학습 시작의 실제 owner/child와 source 해시를 확인했으며, 다른 seed의 adapter나 optimizer checkpoint를 사용하지 않았다. 정상 학습 완료를 이상탐지 정확도 완료로 계산하지 않는다. 이 게시 시점의 공개 주 LoRA 평가는 **10/48조건**, 완결된 세-seed 그룹은 **3/16그룹**이다. 원 파이프라인의 선택 특징 재추출·새 PCA/메모리·정상 보정·15개 전체 테스트·독립 감사를 별도로 검증한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/export_lora_training.py \
+  --run artifacts/lora/vjepa21-l/offline/R02/seed1 \
+  --out results/stage04/training/vjepa21-l/offline/R02/seed1
+PYTHONPATH=src:scripts python scripts/plot_lora_training.py \
+  --results results/stage04/training/vjepa21-l/offline/R02/seed1 \
+  --out docs/figures/stage04/vjepa21-l_R02_offline_seed1_joint_training
+```
