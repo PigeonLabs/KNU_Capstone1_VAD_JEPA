@@ -1,0 +1,505 @@
+{
+  "status": "passed_mixed_current_retained_evidence",
+  "kind": "lora",
+  "matrix_complete": false,
+  "completed_conditions_or_pairs": 17,
+  "complete_three_seed_groups": 5,
+  "condition_checks": [
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R01",
+        0
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "archived_payloads_current_retained_replay",
+          "condition_audit": "T1/dinov3-l/offline/R01/seed0/retained_condition_audit.json",
+          "condition_audit_sha256": "e8de0c424806b4b5952df3c1d2741e56c48e0517b97496ee89c2d3762955fcdf"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R01",
+        1
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/dinov3-l/offline/R01/seed1/condition_audit.json",
+          "condition_audit_sha256": "835d7b3988b5535302c262352d4fac17edf64f1f3d27dc15a8756c21c9087ec3"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R01",
+        2
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/dinov3-l/offline/R01/seed2/condition_audit.json",
+          "condition_audit_sha256": "b16e63331e1f77583d41a031d6f5509686e155ce0b5deb8ea5410f834c5507fd"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R02",
+        0
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/dinov3-l/offline/R02/seed0/condition_audit.json",
+          "condition_audit_sha256": "aa61488093eae0096b19816ce19e9952aed2208508461e28298d0338f48a6ba6"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R02",
+        1
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/dinov3-l/offline/R02/seed1/condition_audit.json",
+          "condition_audit_sha256": "ab08e2d3f2f5543410ce3a28215e48c1415a6ff152dce0eb4350c30395afde2a"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R02",
+        2
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/dinov3-l/offline/R02/seed2/condition_audit.json",
+          "condition_audit_sha256": "e659e2998033055138f8faf986dbb4ca25f64a5bfc1bbe2d02c97b96106b6c20"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R03",
+        0
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/dinov3-l/offline/R03/seed0/condition_audit.json",
+          "condition_audit_sha256": "e7a065c9aab72d00b21f7f2f49a0b3788c27c06da14ef0e1ab98bb2aa91de240"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R03",
+        1
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/dinov3-l/offline/R03/seed1/condition_audit.json",
+          "condition_audit_sha256": "9e15bac5d46a211bd7131f9376efc31794dae0b2c35f56722f76b6daab65476a"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "dinov3-l",
+        "offline",
+        "R03",
+        2
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/dinov3-l/offline/R03/seed2/condition_audit.json",
+          "condition_audit_sha256": "c82da9c08379dffb77f53721977dd8266887978bacc49353a092adc2e76ebaf7"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R01",
+        0
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/vjepa21-l/offline/R01/seed0/condition_audit.json",
+          "condition_audit_sha256": "269226571ae35e4cb1b548f59f86e96d8fdd34074f43606100657d85c511c40b"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R01",
+        1
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/vjepa21-l/offline/R01/seed1/condition_audit.json",
+          "condition_audit_sha256": "87c99c1906826cd433d5820ddcb6745c4b9714840267e20ebb30a23e95a67967"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R01",
+        2
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/vjepa21-l/offline/R01/seed2/condition_audit.json",
+          "condition_audit_sha256": "29dbc1cbf25829a396d438ebb370f4adba1baee4e8db02235832207ad6161c3b"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R02",
+        0
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/vjepa21-l/offline/R02/seed0/condition_audit.json",
+          "condition_audit_sha256": "7d7260455d94f7a04e55fb5f7c933867ef76bc208093b2bfe50123a7bd0415e2"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R02",
+        1
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/vjepa21-l/offline/R02/seed1/condition_audit.json",
+          "condition_audit_sha256": "50667627c1ef73c7da7a9bf47831f21c5043445277e5ba056da79a1dada45774"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R02",
+        2
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/vjepa21-l/offline/R02/seed2/condition_audit.json",
+          "condition_audit_sha256": "4d3898300a68f1194ae6412c04da717c07c340cedcd3f5abcbe065f8d5d86bc3"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R03",
+        0
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/vjepa21-l/offline/R03/seed0/condition_audit.json",
+          "condition_audit_sha256": "b2990093128bbb15f54f8f8ac754f3bc66b8db1f308803dfc67629bf08dff11a"
+        }
+      ],
+      "matched_controls": null
+    },
+    {
+      "condition": [
+        "vjepa21-l",
+        "offline",
+        "R03",
+        1
+      ],
+      "treatments": [
+        {
+          "teacher_weight": 1.0,
+          "evidence": "current_actual_adapted_arrays",
+          "condition_audit": "T1/vjepa21-l/offline/R03/seed1/condition_audit.json",
+          "condition_audit_sha256": "569931a0e5b98962263024051daea0c90269ddc28d054a41efad794be746ee81"
+        }
+      ],
+      "matched_controls": null
+    }
+  ],
+  "normal_thresholds_replayed": 136,
+  "retained_treatments_replayed": 1,
+  "pending_conditions_or_pairs": [
+    [
+      "dinov3-l",
+      "offline",
+      "R04",
+      0
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R04",
+      1
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R04",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R01",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R01",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R01",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R03",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R04",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R04",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R04",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04",
+      2
+    ]
+  ],
+  "source_sha256": {
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/audit_retained_lora.py": "6e247309240a9d4bd3faee2aca44b4ccda5895048964a2c88719c02b02e253b5",
+    "scripts/lora_reporting.py": "0a5bb5ebcdd864cf9f0fe05065a1a11a8007f8d8baf2517bac4a2e0c2d59f3bc",
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "scripts/plot_lora_evaluation.py": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+    "scripts/summarize_clip_ablation.py": "af25ff897d7cbe8286748bd2725d9daac9717d238c59c572ad165745445dbfd6",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "src/ipad_jepa/cache_retention.py": "76481aa4e20b0d0c20fc66b7a354c36e7dfcd44e407a9d21895d48511f5a0b1b",
+    "src/ipad_jepa/lora_audit.py": "3418f771aed02e8537645a8f1f372a4dac537c5c99564db9357fe937c1a3ad41",
+    "src/ipad_jepa/teacher_weight_audit.py": "2669723a979f975b6e48b435949126d8ffb70661bc6cf37cd9a4119b023e7eff",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce"
+  },
+  "manifest_sha256": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+  "device_summary_sha256": "2f41615970280f9a491a79f7790f5b20a354d248e65a591ab0f6e87b52fd6afa",
+  "macro_summary_sha256": "1f866dd498f427d096faadee16a893c7808bb3d53bd27ef0ecc92f7adb99d2ae",
+  "scope": "Independently audited current or explicitly retained conditions; exact seeds0/1/2 per group; mean of per-seed metrics, paired original-video bootstrap1000; equal-device Macro4 only with all4; retained payload hashes/finite checks are historical, current metadata/tensors/traces are replayed; no runtime claim"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "rendered_from_fresh_source_bound_primary_condition_audit",
+  "completed_conditions": 17,
+  "complete_three_seed_groups": 5,
+  "matrix_complete": false,
+  "validation_sha256": "9535a9f158c7bcaf1b7b7c78f7d7f10993dd8bd837b3beef5055ca5cf50152cf",
+  "plot_code_sha256": "280e11fd3af1f7b86a73147778e7e9fe328b8d66f447d2d640cd7da2a7e3ee6d",
+  "figures": {
+    "primary_lora_completed17.png": "134ea8fdca125fc2d0adaaca11fa961e2e68dc6a2e44404c5dd3c2ed47e5b418",
+    "primary_lora_completed17.svg": "7f105015a8c9bf9189a916c73afb035c249c44915a5bcd93b4208326c17dce26"
+  },
+  "scope": "All48 planned primary conditions. Pending means full condition unverified, including ongoing work. No partial-seed means, Macro4, measured runtime or schedule. Actual PNG review required."
+}

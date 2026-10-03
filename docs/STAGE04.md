@@ -1167,3 +1167,18 @@ PYTHONPATH=src:scripts python scripts/plot_lora_training.py --results results/st
 주 LoRA 전체 평가는 **17/48조건·5/16 세-seed 그룹**이다. 기존 16조건·5그룹 집계 snapshot을 보존하고 V-JEPA seed 1의 원 전체 평가만 추가했다. 이 개별 seed를 V-JEPA R03 세-seed 평균·학습 seed 불확실성·백본 간 LoRA 우위·teacher 손실만의 효과·Macro4·실시간 성능으로 해석하지 않는다. 후속 seed·두 백본·온라인·전체 기준선·추가 실험·실시간 측정 계획을 유지한다.
 
 재현은 기존 `scripts/plot_lora_evaluation.py`에 이 조건의 `--results`, `--frozen-results`, `--training`, `--cache`, `--local`, `--frozen-local`, `--data-root`를 전달하고 `--sequence 03 --out docs/figures/stage04`를 사용한다. 실행한 정확한 인자·종료 코드·log hash는 게시 검증의 CPU 수집 증거에 포함한다.
+
+## 완료된 주 LoRA 17조건의 전체 재검증
+
+완료된 **17/48조건·5/16 exact 세-seed 그룹**을 새 namespace에서 기존 독립 CPU 코드로 재검증했다. DINOv3 R01–R03 세 seeds와 V-JEPA R01·R02 세 seeds 및 R03 seeds 0/1의 정상 fit/calibration·선택 adapter/head·메모리·GT·P0–P3 점수/알람 및 **정상 임계값 136개**를 검산했다. 현재 특징 배열 16조건과 승인된 R01 DINOv3 seed 0 배열 정리 증거 1조건을 구분했다. 과거 payload finite/hash 증거와 현재 보존 metadata/tensor/bank/보정/trace 재검산의 범위를 구분한다.
+
+![독립 검증 완료된 주 LoRA 17조건](figures/stage04/primary_lora_completed17.png)
+
+기존 16조건 snapshot의 **평균 40개·paired 비교 41개와 모든 CI**를 담은 device summary 및 빈 Macro4 summary가 새 snapshot에서 **byte 단위로 동일**하다. V-JEPA R03은 seeds 0/1만 완료됐으므로 새 그룹 평균/CI에 넣지 않았다. 31개 pending 조건에는 실행 중·대기·미시작이 포함되며 정상 학습만으로 완료를 선언하지 않는다. 이전 12·14·15·16조건 집계와 그림을 보존했다.
+
+[17조건·31 pending·정상 임계값 감사](../results/stage04/retained_matrix_audit_R01_R02_R03_partial17/validation.json), [변하지 않은 5그룹 평균·CI](../results/stage04/retained_matrix_audit_R01_R02_R03_partial17/device_summary.json), [그림의 source](figures/stage04/primary_lora_completed17_sources.json), [게시 검증](../results/setup/primary17_matrix_cached65_publication_check.json)을 제공한다. Original CPU 집계/그림 검증의 실제 종료 코드 0과 직접 PNG 검토를 확인했다. 전체 invariant 테스트 422개 및 exact 새 commit CI를 확인하며 원 GPU 후속 학습·전체 온라인/Macro4·기준선·추가/실시간 계획을 유지한다. 모델·원본 영상·특징 배열을 업로드하지 않았다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/summarize_retained_lora_matrix.py --kind lora --data-root ../IPAD_dataset/IPAD_dataset --out results/stage04/retained_matrix_audit_R01_R02_R03_partial17
+PYTHONPATH=src:scripts python scripts/plot_lora_completion.py --root results/stage04/retained_matrix_audit_R01_R02_R03_partial17 --data-root ../IPAD_dataset/IPAD_dataset --out docs/figures/stage04/primary_lora_completed17
+```
