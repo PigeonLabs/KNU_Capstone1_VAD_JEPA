@@ -1,0 +1,211 @@
+{
+  "status": "verified_completed_training_stage_not_accuracy",
+  "condition": [
+    "dinov3-l",
+    "offline",
+    "R03",
+    2
+  ],
+  "base_commit": "832b08cca60c0eeac7ed58da64680f509537a160",
+  "epochs_completed": 20,
+  "updates": 6420,
+  "selected_epoch": 20,
+  "normal_calibration_ce": 3.120366436873305,
+  "normal_calibration_circular_mae": 0.021797584551834944,
+  "selected_checkpoint_sha256": "b9ada89854b18489634fb2dc81dfdf5841a1aac516312b592926f2ba026a2eae",
+  "training_child_exit_code": 0,
+  "training_action": "fresh",
+  "original_pipeline_owner": {
+    "pid": 1510315,
+    "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+    "start_ticks": "11570057"
+  },
+  "original_trainer": {
+    "pid": 1510358,
+    "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+    "start_ticks": "11572082"
+  },
+  "training_exit_evidence": "Unchanged source-bound pipeline completed training step only after original child.wait0; independent read-only observer actual0.",
+  "preserved_local_training_sha256": {
+    "artifacts/lora/dinov3-l/offline/R03/seed2/lora_training.json": "c5e02723eb7e4d6f8e719e3a58eb5fe5214fd4a148a646e6bed8005749871a5a",
+    "artifacts/lora/dinov3-l/offline/R03/seed2/lora_training.csv": "0ffc5477853607601817ea525af0bbd7e45d2f53621bbcf9c0685967d1286b9e",
+    "artifacts/lora/dinov3-l/offline/R03/seed2/selected_adapter.pt": "b9ada89854b18489634fb2dc81dfdf5841a1aac516312b592926f2ba026a2eae",
+    "artifacts/lora/dinov3-l/offline/R03/seed2/phase_head.pt": "5007054dd22fe9c56fe1b5eae74b8d545401faaa7ad63bc44a5bef36bba34dd5",
+    "artifacts/lora/dinov3-l/offline/R03/seed2/resume.pt": "793339835840fa33745b3691e91ee21235578873551f74db7c24def15f273e98"
+  },
+  "CPU_collection_receipt_sha256": "e44bf43840d63c3d1472636e117d98e2a2936342449c4e8a1d5922b6000449e4",
+  "actual_cpu_commands": [
+    {
+      "command": [
+        "artifacts/cpu-runtime/bin/python",
+        "-u",
+        "scripts/export_lora_training.py",
+        "--run",
+        "artifacts/lora/dinov3-l/offline/R03/seed2",
+        "--out",
+        "results/stage04/training/dinov3-l/offline/R03/seed2"
+      ],
+      "actual_exit_code": 0,
+      "log": "artifacts/tmp/dinov3_R03_seed2_actual_training_export.log",
+      "log_sha256": "131b38e9b6bfe606d4dc8d616663e9bb59b065654be862a4cf647b57bf5f8e73"
+    },
+    {
+      "command": [
+        "artifacts/cpu-runtime/bin/python",
+        "-u",
+        "scripts/plot_lora_training.py",
+        "--results",
+        "results/stage04/training/dinov3-l/offline/R03/seed2",
+        "--out",
+        "docs/figures/stage04/dinov3-l_R03_offline_seed2_joint_training"
+      ],
+      "actual_exit_code": 0,
+      "log": "artifacts/tmp/dinov3_R03_seed2_actual_training_plot.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "actual_full20_observation": {
+    "status": "observed_same_original_full20_child_exit_zero_via_source_bound_completed_step",
+    "condition": [
+      "dinov3-l",
+      "offline",
+      "R03",
+      2
+    ],
+    "original_pipeline_owner": {
+      "pid": 1510315,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "11570057"
+    },
+    "original_trainer": {
+      "pid": 1510358,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "11572082"
+    },
+    "original_trainer_live": false,
+    "epochs_completed": 20,
+    "updates": 6420,
+    "selected_epoch": 20,
+    "training_action": "fresh",
+    "training_sha256": "c5e02723eb7e4d6f8e719e3a58eb5fe5214fd4a148a646e6bed8005749871a5a",
+    "curve_sha256": "0ffc5477853607601817ea525af0bbd7e45d2f53621bbcf9c0685967d1286b9e",
+    "pipeline_status": "running",
+    "pipeline_stage": "selected_feature_reencoding",
+    "unchanged_primary_source_pins": 28,
+    "at": "2026-10-03T16:38:01.050720+00:00",
+    "scope": "Read-only exact original full20 training actual exit0 through parent child.wait receipt. No GPU restart, short run, accuracy or publication claim."
+  },
+  "observer_actual_completion": {
+    "status": "actual_read_only_full20_observer_exit_zero",
+    "actual_session_id": 27634,
+    "actual_terminal_chunk_id": "bad033",
+    "actual_exit_code": 0,
+    "observation_sha256": "1718a6fdbd070749f29620e06ae04d12b15d8e216536c8b01bb64e2a8e5015ab",
+    "log": "artifacts/tmp/dinov3_R03_seed2_full20_read_only_observation.log",
+    "log_sha256": "73aede616ef9e78c2a895051ef4424d18062f30ee371334973650d1545c01a11",
+    "scope": "Exact original fresh20 training completed_step proves original child.wait0; actual observer terminal0 retained. No completed anomaly accuracy claim.",
+    "snapshot_at": "2026-10-03T16:39:56.621066+00:00"
+  },
+  "observer_receipt_sha256": "1718a6fdbd070749f29620e06ae04d12b15d8e216536c8b01bb64e2a8e5015ab",
+  "observer_actual_completion_sha256": "27c0cc5d9e69c50472f7ab977175e6d0370fd3af9f581c5f9f2629756c3c28c8",
+  "parent_publication_receipt_sha256": "bd9e62590251740e3287426764089ebaeb6ef65ae2d8fe040b182e3ced0a17e0",
+  "visual_inspection": {
+    "status": "passed_actual_png_review",
+    "reviewed_png_sha256": {
+      "docs/figures/stage04/dinov3-l_R03_offline_seed2_joint_training.png": "87427081e6d5b4524852a459cc1cee4b4233ed1ac67e0988c994b426daac82a1"
+    },
+    "observed": "Actual returned PNG pixels reviewed:20 complete epochs, normal fit/calibration phase CE, normal fit fixed-teacher normalized dense L2 and normal calibration circular MAE. Both black stars use CE-selected epoch20; same-epoch circularMAE2.179758%. Labels, full source note and normal-only joint-loss scope are readable with no clipped axes/marks or overlapping legend. TeacherL2 rises across training as displayed; no claimed anomaly-accuracy/runtime improvement.",
+    "selected_epoch": 20,
+    "snapshot_at": "2026-10-03T16:41:05.325791+00:00"
+  },
+  "figures": {
+    "docs/figures/stage04/dinov3-l_R03_offline_seed2_joint_training.png": "87427081e6d5b4524852a459cc1cee4b4233ed1ac67e0988c994b426daac82a1",
+    "docs/figures/stage04/dinov3-l_R03_offline_seed2_joint_training.svg": "859e3685d2d3f1c92cd792bf0a1f9df317509b8c594b9650de7f2085038e884e"
+  },
+  "accuracy_completed_conditions_at_snapshot": 14,
+  "planned_primary_conditions": 48,
+  "three_seed_groups_at_snapshot": 4,
+  "cpu_tests_passed": 422,
+  "cpu_full_test_actual_exit_code": 0,
+  "cpu_full_test_log": "artifacts/tmp/R01_R02_R03_DINO_partial14_full_tests.log",
+  "cpu_full_test_log_sha256": "959ff72c4d06472f54ccbef5b4ea0033651bcdb1ae83e14abd3e1858930421c3",
+  "cpu_validation_context": "Prior actual full422 suite for unchanged scientific producers. Completed data independently exported/plotted actual0 and PNG reviewed. Exact new commit CI separately.",
+  "feature_pipeline_snapshot": {
+    "status": "running",
+    "stage": "selected_feature_reencoding",
+    "owner": {
+      "pid": 1510315,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "11570057"
+    },
+    "child": {
+      "pid": 1547361,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "12254753"
+    },
+    "training_action": "fresh",
+    "completed_steps": [
+      "full20_normal_only_training"
+    ]
+  },
+  "source_sha256": {
+    "scripts/continue_lora_condition.py": "4cbc18f45bc940ca70c509e5f10a5b0fae31d5997e067afec1fa7206617154e5",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "scripts/retire_lora_cache.py": "086bf507192c34e3de8b754b0149f399d3a0f73f4253b62687925667d5256092",
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/audit_retained_lora.py": "6e247309240a9d4bd3faee2aca44b4ccda5895048964a2c88719c02b02e253b5",
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "scripts/plot_lora_evaluation.py": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+    "scripts/summarize_clip_ablation.py": "af25ff897d7cbe8286748bd2725d9daac9717d238c59c572ad165745445dbfd6",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "src/ipad_jepa/train_lora.py": "a2508f4fef9d3f4d938216fbb0695baf63918432e96154ac35b669e159d8ba28",
+    "src/ipad_jepa/adaptation.py": "0265cf076ab9df02d095824603bccf55abb0ee4ca5628a0432b8b757bdef1354",
+    "src/ipad_jepa/adapted_features.py": "a7980adc2ab1751e19095cc64b52b13a638ad14352fe6cf64b15aeb88ddaece1",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+    "src/ipad_jepa/cache_data.py": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+    "src/ipad_jepa/train_phase.py": "71c226ed4606951b8030588e84675303da4bf2bb67305a81c5d2c26a2eb17f08",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+    "src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+    "src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32",
+    "src/ipad_jepa/lora_audit.py": "3418f771aed02e8537645a8f1f372a4dac537c5c99564db9357fe937c1a3ad41",
+    "src/ipad_jepa/cache_retention.py": "76481aa4e20b0d0c20fc66b7a354c36e7dfcd44e407a9d21895d48511f5a0b1b",
+    "src/ipad_jepa/cache_retirement.py": "a2e7922a74e504f9f82330aef692fa482866dbe03eaad3808517af83894762f7",
+    "src/ipad_jepa/teacher_ablation.py": "02c17f4248dc5242eedd8e03bf555856156756106b6a8c9df29d920ce28e51a0",
+    "README.md": "22eb01bf2d6dedfd35e189468394867ed4e02d0473a803c300d8f3048d5630e4",
+    "docs/STAGE04.md": "e2039cb94b93030fdc30f2c6be8dadadcb7af62c7a2fc090a93be947d992df2d",
+    "results/stage04/training/dinov3-l/offline/R03/seed2/lora_training.csv": "0ffc5477853607601817ea525af0bbd7e45d2f53621bbcf9c0685967d1286b9e",
+    "results/stage04/training/dinov3-l/offline/R03/seed2/lora_training.json": "c5e02723eb7e4d6f8e719e3a58eb5fe5214fd4a148a646e6bed8005749871a5a",
+    "results/stage04/training/dinov3-l/offline/R03/seed2/training_export.json": "131b38e9b6bfe606d4dc8d616663e9bb59b065654be862a4cf647b57bf5f8e73",
+    "docs/figures/stage04/dinov3-l_R03_offline_seed2_joint_training.png": "87427081e6d5b4524852a459cc1cee4b4233ed1ac67e0988c994b426daac82a1",
+    "docs/figures/stage04/dinov3-l_R03_offline_seed2_joint_training.svg": "859e3685d2d3f1c92cd792bf0a1f9df317509b8c594b9650de7f2085038e884e",
+    "scripts/export_lora_training.py": "a894deea7010e53390d718516f9ad3d396dda8aaf7c20ddbe0d4e4cc938b90b7",
+    "scripts/plot_lora_training.py": "4664be22468db87490bd42278bb29d2e7401ad3bb7e417fbde0bbde1b77315ab",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_DINO_partial/validation.json": "30081ac1118ae61e3b8b195679ce92274134d9c4d810a9688301de2d7b31da81"
+  },
+  "changed_files": [
+    "README.md",
+    "docs/STAGE04.md",
+    "results/stage04/training/dinov3-l/offline/R03/seed2/lora_training.csv",
+    "results/stage04/training/dinov3-l/offline/R03/seed2/lora_training.json",
+    "results/stage04/training/dinov3-l/offline/R03/seed2/training_export.json",
+    "docs/figures/stage04/dinov3-l_R03_offline_seed2_joint_training.png",
+    "docs/figures/stage04/dinov3-l_R03_offline_seed2_joint_training.svg",
+    "results/setup/lora_dinov3_R03_seed2_training_publication_check.json"
+  ],
+  "snapshot_at": "2026-10-03T16:41:05.600533+00:00",
+  "scope": "Actual full20 normal-only training with normal-CE selection only. No completed anomaly accuracy, new seed group, Macro4 or runtime claim; full accepted scope remains required.",
+  "document_link_repair": {
+    "status": "corrected_new_seed2_training_anchor_before_publication",
+    "initial_preparation_actual_exit_code": 0,
+    "initial_actual_completion_sha256": "5b5e34b1b426bff19b966a2050704960d92bc46de23f46f1b86164571dc55a6c",
+    "initial_proof_sha256": "cfa435eaeeac29c78f4d41637dd1a091ffd90271aae739d94e59d024834d4edd",
+    "repair_code_sha256": "4a6ed4e83ee540c762ad81b40168862ba61409535d992ffb230913ca60959adb",
+    "scope": "Only new seed2 README training anchor corrected from seed1 to seed2; collected data/PNG/scientific producers/old result references preserved."
+  }
+}

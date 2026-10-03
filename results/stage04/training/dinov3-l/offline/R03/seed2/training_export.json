@@ -1,0 +1,16 @@
+{
+  "status": "complete_training_export",
+  "backbone": "dinov3-l",
+  "mode": "offline",
+  "device": "R03",
+  "seed": 2,
+  "teacher_weight": 1.0,
+  "epochs": 20,
+  "training_metadata_sha256": "c5e02723eb7e4d6f8e719e3a58eb5fe5214fd4a148a646e6bed8005749871a5a",
+  "training_curve_sha256": "0ffc5477853607601817ea525af0bbd7e45d2f53621bbcf9c0685967d1286b9e",
+  "selected_checkpoint_sha256": "b9ada89854b18489634fb2dc81dfdf5841a1aac516312b592926f2ba026a2eae",
+  "selected_epoch": 20,
+  "selected_normal_calibration_circular_mae": 0.021797584551834944,
+  "exporter_sha256": "a894deea7010e53390d718516f9ad3d396dda8aaf7c20ddbe0d4e4cc938b90b7",
+  "scope": "Actual complete 20-epoch normal-only training, selected checkpoint protocol and fixed normal-CE selection verified; no checkpoint export or accuracy/runtime claim."
+}
