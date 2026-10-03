@@ -371,3 +371,65 @@ PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py \
   --out results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R02/seed1 \
   --figure docs/figures/stage05/cached_P3_dinov3-l_R02_offline_seed1_pair
 ```
+
+## R02 seed 2의 고정 임계값 알람 비교
+
+완료된 DINOv3-L 오프라인 R02 seed 2를 같은 seed 고정 백본과 비교했다. 각자의 정상 calibration q99와 연속 3개 target 규칙을 유지했다. 선택 adapter/joint head·새 메모리·정상 보정을 독립 감사하고, P0–P3 전체 CSV의 GT·점수·임계값·원래 알람을 다시 검산했다.
+
+| R02 seed 2 P3 | 관측 이상 구간 탐지 / 미탐 | 탐지율 | 정상 경보 프레임 / 6,261 | 정상 경보 프레임 비율 | 정상 episode 시작 |
+|---|---:|---:|---:|---:|---:|
+| 고정 백본 | 8 / 12 | 40.00% | 45 | 0.7187% | 7 |
+| LoRA | 10 / 10 | 50.00% | 58 | 0.9264% | 17 |
+
+![R02 seed 2 고정/LoRA 경보 비교](figures/stage05/cached_P3_dinov3-l_R02_offline_seed2_pair.png)
+
+관측 구간 탐지는 늘었고 정상 경보도 늘었다. 같은 seed의 [AUROC/AP 차이](STAGE04.md#dinov3-r02-오프라인-seed-2의-완료된-전체-평가)는 음수 점 추정치이고 두 paired CI는 0을 포함했다. Ranking과 특정 정상 임계값의 경보 성능을 함께 기록하며 테스트에 맞춰 모델·seed·임계값을 선택하지 않았다.
+
+15개 영상의 공통 cached target **19..N−8**은 9,228개이며 유효 GT 9,210개(이상 2,949·정상 6,261), unknown 18개다. 관측 이상 구간 20개 중 경계가 불확실한 구간은 7개이고 coverage 밖 구간은 0개다. GT 구간 안의 경보 target가 하나라도 있으면 탐지로 센다. 앞서 시작한 경보가 이어져 들어오는 경우도 포함한다. 정상 episode 시작은 GT 필터 전 원래 경보 시퀀스에서 계산한다. 이상에서 정상으로 이어지는 경보는 정상 프레임으로 세지만 새 정상 시작으로 세지 않으며 unknown GT는 streak를 초기화하지 않는다. 단일 고정 seed 결과로 CI·실제 방출 시각·FPS·wall-clock 지연·온라인 EOF 탐지는 제공하지 않는다.
+
+[영상별 경계·탐지·미탐·경보 및 해시](../results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R02/seed2/cached_alarm_pair.json), [독립 감사](../results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R02/seed2/audit/T1/dinov3-l/offline/R02/seed2/condition_audit.json)를 제공한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py \
+  --model dinov3-l --mode offline --device R02 --seed 2 \
+  --data-root ../IPAD_dataset/IPAD_dataset \
+  --out results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R02/seed2 \
+  --figure docs/figures/stage05/cached_P3_dinov3-l_R02_offline_seed2_pair
+```
+
+## R02 세 seed의 고정 임계값 알람 집계
+
+새 보고서는 **48개 고정 백본·9개 완료 LoRA 조건**, 총 57조건의 P3를 정상 임계값·GT·점수·경보 재검산 후 집계했다. 완결된 세-seed 그룹은 고정 백본 16개·LoRA 3개다. 이전 54조건 보고서는 당시의 snapshot으로 보존했다. 새 결과는 별도 경로에 기록했다. 각 seed의 정상 q99와 streak를 유지하고 고정된 **seed 0/1/2 지표의 산술평균**을 사용했다. seed를 합쳐 새 경보 시퀀스로 만들지 않았다.
+
+| DINOv3-L offline R02 P3 | seed 0 | seed 1 | seed 2 | 세 seed 평균 |
+|---|---:|---:|---:|---:|
+| 고정 관측 구간 탐지 / 20 | 6 | 8 | 8 | 7.33 |
+| LoRA 관측 구간 탐지 / 20 | 12 | 7 | 10 | 9.67 |
+| 고정 관측 구간 탐지율 (%) | 30.00 | 40.00 | 40.00 | 36.67 |
+| LoRA 관측 구간 탐지율 (%) | 60.00 | 35.00 | 50.00 | 48.33 |
+| 고정 정상 경보 프레임 / 6,261 | 6 | 88 | 45 | 46.33 |
+| LoRA 정상 경보 프레임 / 6,261 | 16 | 9 | 58 | 27.67 |
+| 고정 정상 경보 프레임 비율 (%) | 0.0958 | 1.4055 | 0.7187 | 0.7400 |
+| LoRA 정상 경보 프레임 비율 (%) | 0.2556 | 0.1437 | 0.9264 | 0.4419 |
+| 고정 정상 episode 시작 | 3 | 17 | 7 | 9.00 |
+| LoRA 정상 episode 시작 | 6 | 7 | 17 | 10.00 |
+
+평균 관측 구간 탐지율은 **+11.67%p**, 정상 경보 프레임 비율은 **−0.2981%p**다. 정상 episode 시작 평균은 **9→10개**로 늘었다. seed 0/2는 탐지·정상 경보가 함께 늘었고 seed 1은 함께 줄었다. 평균 개선이 모든 seed의 개선을 뜻하지 않으며 이번 경보 집계에는 CI나 seed 모집단에 대한 불확실성 추정을 제공하지 않는다.
+
+![완료 LoRA 세-seed 경보 그룹](figures/stage05/cached_alarm_R01_R02/cached_P3_lora_alarm_coverage.png)
+
+![전체 고정 백본 세-seed 경보 그룹](figures/stage05/cached_alarm_R01_R02/cached_P3_frozen_alarm_coverage.png)
+
+원은 세 seed 평균, ×는 각 seed 값이다. ×의 범위는 CI가 아니다. R02의 모든 seed·두 처리에서 실제 영상별 target·GT 구간 경계·coverage가 같은지 단일 쌍 보고서와 새 집계의 행을 직접 대조했다. 실제 annotation 66개와 공개 CSV·검증 출처를 고정했다. LoRA 8조건은 현재 배열의 독립 검증을 사용하며 삭제된 DINOv3 R01 seed 0의 배열 검사는 역사적 증거로 유지한다. 픽셀 재인코딩이나 PCA/검색을 새로 실행한 결과는 아니다.
+
+R02 라벨 정렬은 여전히 미확정이며 기존 ±1 consensus·18 unknown target 제외 정책을 유지한다. 관측 구간/coverage 정의와 경계 불확실성도 위 단일 seed와 같다. 온라인 캐시의 마지막 7프레임은 공통 범위 밖이고 실제 스트리밍 EOF 탐지는 별도 측정한다. 이번 캐시 집계는 **실시간 FPS·방출 시각·지연·카메라 입력 성능**을 입증하지 않는다. 주 LoRA 정확도 완료 수는 **9/48조건·3/16그룹**이며 전체 계획을 계속 진행한다.
+
+[57조건·영상별 결과·세-seed 평균·출처/annotation 해시](../results/stage05/cached_alarm_coverage_R01_R02/cached_alarm_coverage.json), [현재/보존 배열의 9조건 감사](../results/stage04/retained_matrix_audit_R01_R02/validation.json), [분석·그래프·게시 검증 기록](../results/setup/R02_seed2_and_group_alarm_publication_check.json)과 PNG/SVG를 제공한다. 원본 영상·모델·특징 배열은 업로드하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_cached_alarm_coverage.py \
+  --root results/stage04/retained_matrix_audit_R01_R02 \
+  --data-root ../IPAD_dataset/IPAD_dataset \
+  --out results/stage05/cached_alarm_coverage_R01_R02 \
+  --figures docs/figures/stage05/cached_alarm_R01_R02
+```
