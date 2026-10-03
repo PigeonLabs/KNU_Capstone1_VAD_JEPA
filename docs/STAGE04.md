@@ -861,3 +861,35 @@ PYTHONPATH=src:scripts python scripts/export_lora_training.py \
 PYTHONPATH=src:scripts python scripts/plot_lora_training.py \
   --results results/stage04/training/dinov3-l/offline/R03/seed0 --out docs/figures/stage04/dinov3-l_R03_offline_seed0_joint_training
 ```
+
+## DINOv3 R03 오프라인 seed 0의 완료된 전체 평가
+
+원 fresh 정상-only 학습 **20 epoch·6,420 updates**의 calibration CE 선택 **epoch 19** adapter/joint head로 **36개 영상(fit 15·calibration 4·test 17)**의 특징을 재추출했다. 별도 진단용 정상 영상 3개는 포함하지 않았다. 새 PCA·16 bins·2,048개 프로토타입 메모리·온도·정상 median/MAD/q99를 구성했다. 원 학습·재추출·전체 평가와 원 파이프라인의 실제 종료 코드 **0**, 선택 tensor·새 메모리·보정·GT·시간/점수/알람 독립 감사 통과를 확인했다.
+
+같은 seed 고정 백본과 **17개 실제 테스트·11,563개 유효 GT target(이상 4,922개)**을 비교했다. 테스트를 보고 점수 부호·선택 epoch·정상 임계값·주 점수 P3를 바꾸지 않았다.
+
+| 점수 | 고정 백본 AUROC / AP (%) | LoRA AUROC / AP (%) |
+|---|---:|---:|
+| P0 | 52.73 / 46.02 | 56.58 / 48.26 |
+| P1 | 62.01 / 53.08 | 57.89 / 53.33 |
+| P2 | 62.23 / 54.18 | 59.73 / 54.35 |
+| P3 | 61.09 / 52.43 | 62.66 / 56.68 |
+
+| 점수 | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|
+| P0 | +3.85 [+1.22, +7.39] | +2.23 [-0.40, +5.88] |
+| P1 | -4.12 [-8.91, +0.23] | +0.25 [-2.49, +3.65] |
+| P2 | -2.50 [-8.75, +2.70] | +0.17 [-4.70, +5.66] |
+| P3 | +1.58 [-3.60, +5.92] | +4.25 [-1.98, +10.73] |
+
+차이는 LoRA−같은 seed 고정 백본이다. **1,000회 paired 원본 영상 bootstrap·percentile 95% CI**를 사용했으며 퇴화 resample은 0개다. Seed 자체를 재표집하지 않았다. P3의 AUROC/AP CI는 각각 **0 포함/0 포함**다. 0 포함은 개선·감소의 확정이나 동등성을 뜻하지 않는다. 모든 P0–P3를 보고하며 다중 비교를 보정한 유의성 주장으로 해석하지 않는다.
+
+![DINOv3 R03 seed 0 실제 P3 비교·paired CI·ROC/PR](figures/stage04/dinov3-l_R03_offline_seed0_lora_evaluation.png)
+
+![사전에 고정한 테스트 영상 03의 실제 점수·알람 궤적](figures/stage04/dinov3-l_R03_offline_seed0_lora_sequence03.png)
+
+궤적은 각 조건의 정상 median/MAD와 자체 고정 q99를 사용한다. Target index는 wall-clock 탐지 지연이 아니다. 기존 CPU 수집자가 실제 종료 코드 0으로 재검증·paired 비교·plot을 완료한 산출물을 사용했고 두 PNG를 직접 확인했다. [전체 CSV·보정·single-seed CI·provenance](../results/stage04/dinov3-l/offline/R03/seed0), [독립 조건 감사](../results/stage04/condition_pipeline_checks/T1/dinov3-l/offline/R03/seed0/condition_audit.json), [원 파이프라인 완료](../results/stage04/condition_pipeline_checks/dinov3-l/offline/R03/seed0/pipeline_completion.json), [게시 검증](../results/setup/lora_dinov3_R03_seed0_evaluation_publication_check.json)을 제공한다. 모델·원본 영상·특징 배열은 업로드하지 않는다.
+
+주 LoRA 전체 평가는 **13/48조건·4/16 세-seed 그룹**이다. 기존 R01·R02의 12조건·4그룹 집계 snapshot은 유지하며, R03의 이 단일 seed를 세-seed 평균·학습 seed 불확실성·백본 간 LoRA 우위·teacher 손실만의 효과·Macro4·실시간 성능으로 해석하지 않는다. 후속 seed·두 백본·온라인·전체 기준선·추가 실험·실시간 측정 계획을 유지한다.
+
+재현은 기존 `scripts/plot_lora_evaluation.py`에 이 조건의 `--results`, `--frozen-results`, `--training`, `--cache`, `--local`, `--frozen-local`, `--data-root`를 전달하고 `--sequence 03 --out docs/figures/stage04`를 사용한다. 실행한 정확한 인자·종료 코드·log hash는 게시 검증의 CPU 수집 증거에 포함한다.
