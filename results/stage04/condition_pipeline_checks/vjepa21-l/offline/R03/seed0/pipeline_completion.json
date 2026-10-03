@@ -1,0 +1,50 @@
+{
+  "status": "complete_independently_audited_primary_lora_condition",
+  "condition": [
+    "vjepa21-l",
+    "offline",
+    "R03",
+    0
+  ],
+  "teacher_weight": 1.0,
+  "training_action": "fresh",
+  "source_sha256": {
+    "scripts/continue_lora_condition.py": "4cbc18f45bc940ca70c509e5f10a5b0fae31d5997e067afec1fa7206617154e5",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "scripts/retire_lora_cache.py": "086bf507192c34e3de8b754b0149f399d3a0f73f4253b62687925667d5256092",
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/audit_retained_lora.py": "6e247309240a9d4bd3faee2aca44b4ccda5895048964a2c88719c02b02e253b5",
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "scripts/plot_lora_evaluation.py": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+    "scripts/summarize_clip_ablation.py": "af25ff897d7cbe8286748bd2725d9daac9717d238c59c572ad165745445dbfd6",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "src/ipad_jepa/train_lora.py": "a2508f4fef9d3f4d938216fbb0695baf63918432e96154ac35b669e159d8ba28",
+    "src/ipad_jepa/adaptation.py": "0265cf076ab9df02d095824603bccf55abb0ee4ca5628a0432b8b757bdef1354",
+    "src/ipad_jepa/adapted_features.py": "a7980adc2ab1751e19095cc64b52b13a638ad14352fe6cf64b15aeb88ddaece1",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+    "src/ipad_jepa/cache_data.py": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+    "src/ipad_jepa/train_phase.py": "71c226ed4606951b8030588e84675303da4bf2bb67305a81c5d2c26a2eb17f08",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+    "src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+    "src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32",
+    "src/ipad_jepa/lora_audit.py": "3418f771aed02e8537645a8f1f372a4dac537c5c99564db9357fe937c1a3ad41",
+    "src/ipad_jepa/cache_retention.py": "76481aa4e20b0d0c20fc66b7a354c36e7dfcd44e407a9d21895d48511f5a0b1b",
+    "src/ipad_jepa/cache_retirement.py": "a2e7922a74e504f9f82330aef692fa482866dbe03eaad3808517af83894762f7",
+    "src/ipad_jepa/teacher_ablation.py": "02c17f4248dc5242eedd8e03bf555856156756106b6a8c9df29d920ce28e51a0"
+  },
+  "condition_audit": {
+    "teacher_weight": 1.0,
+    "evidence": "current_actual_adapted_arrays",
+    "condition_audit": "T1/vjepa21-l/offline/R03/seed0/condition_audit.json",
+    "condition_audit_sha256": "b2990093128bbb15f54f8f8ac754f3bc66b8db1f308803dfc67629bf08dff11a"
+  },
+  "metrics_sha256": "6841702859b9dffca2abfd7051d4e784b88e68a96d2429447c5f0f1107f02f74",
+  "normal_fit_sha256": "6e94ff0e3aac7b3e4d136305c5974e739f809c5e1e0dcaf58e76a1cd00e150ea",
+  "scope": "One unchanged full20 normal-only primary LoRA condition through selected reencoding, new PCA/memory/calibration, all actual test videos and independent audit. Full48 and runtime remain separate requirements."
+}
