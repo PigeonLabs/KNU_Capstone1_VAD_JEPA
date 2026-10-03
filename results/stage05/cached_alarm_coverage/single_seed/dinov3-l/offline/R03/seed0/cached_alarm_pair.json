@@ -1,0 +1,1060 @@
+{
+  "status": "passed_single_seed_pair_normal_GT_score_alarm_and_selected_lora_replay",
+  "condition": [
+    "dinov3-l",
+    "offline",
+    "R03",
+    0
+  ],
+  "variant": "P3",
+  "seeds": 1,
+  "conditions": [
+    {
+      "treatment": "frozen",
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R03",
+      "seed": 0,
+      "threshold_fixed_on_normal": true,
+      "test_videos": 17,
+      "videos": {
+        "01": {
+          "events": [
+            {
+              "start_frame": 0,
+              "end_frame": 719,
+              "onset_uncertain": true,
+              "offset_uncertain": true,
+              "covered_frames": 694,
+              "detected": true,
+              "first_alarm_target": 463
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 0,
+          "unknown_targets": 0,
+          "inference_targets": 694
+        },
+        "02": {
+          "events": [
+            {
+              "start_frame": 0,
+              "end_frame": 675,
+              "onset_uncertain": true,
+              "offset_uncertain": true,
+              "covered_frames": 650,
+              "detected": true,
+              "first_alarm_target": 456
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 0,
+          "unknown_targets": 0,
+          "inference_targets": 650
+        },
+        "03": {
+          "events": [
+            {
+              "start_frame": 0,
+              "end_frame": 673,
+              "onset_uncertain": true,
+              "offset_uncertain": true,
+              "covered_frames": 648,
+              "detected": true,
+              "first_alarm_target": 440
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 0,
+          "unknown_targets": 0,
+          "inference_targets": 648
+        },
+        "04": {
+          "events": [
+            {
+              "start_frame": 0,
+              "end_frame": 682,
+              "onset_uncertain": true,
+              "offset_uncertain": true,
+              "covered_frames": 657,
+              "detected": true,
+              "first_alarm_target": 447
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 0,
+          "unknown_targets": 0,
+          "inference_targets": 657
+        },
+        "05": {
+          "events": [
+            {
+              "start_frame": 348,
+              "end_frame": 406,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 59,
+              "detected": true,
+              "first_alarm_target": 380
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 489,
+          "unknown_targets": 0,
+          "inference_targets": 548
+        },
+        "06": {
+          "events": [
+            {
+              "start_frame": 131,
+              "end_frame": 581,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 444,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 112,
+          "unknown_targets": 0,
+          "inference_targets": 556
+        },
+        "07": {
+          "events": [
+            {
+              "start_frame": 269,
+              "end_frame": 685,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 410,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 250,
+          "unknown_targets": 0,
+          "inference_targets": 660
+        },
+        "08": {
+          "events": [
+            {
+              "start_frame": 242,
+              "end_frame": 646,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 405,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 264,
+          "unknown_targets": 0,
+          "inference_targets": 669
+        },
+        "09": {
+          "events": [
+            {
+              "start_frame": 620,
+              "end_frame": 711,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 85,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 1,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 8,
+          "normal_targets": 601,
+          "unknown_targets": 0,
+          "inference_targets": 686
+        },
+        "10": {
+          "events": [
+            {
+              "start_frame": 445,
+              "end_frame": 646,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 195,
+              "detected": true,
+              "first_alarm_target": 617
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 426,
+          "unknown_targets": 0,
+          "inference_targets": 621
+        },
+        "11": {
+          "events": [
+            {
+              "start_frame": 490,
+              "end_frame": 705,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 209,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 471,
+          "unknown_targets": 0,
+          "inference_targets": 680
+        },
+        "12": {
+          "events": [
+            {
+              "start_frame": 95,
+              "end_frame": 205,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 111,
+              "detected": false,
+              "first_alarm_target": null
+            },
+            {
+              "start_frame": 325,
+              "end_frame": 384,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 60,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 2,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 2,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 1,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 8,
+          "normal_targets": 644,
+          "unknown_targets": 0,
+          "inference_targets": 815
+        },
+        "13": {
+          "events": [
+            {
+              "start_frame": 428,
+              "end_frame": 529,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 102,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 638,
+          "unknown_targets": 0,
+          "inference_targets": 740
+        },
+        "14": {
+          "events": [
+            {
+              "start_frame": 363,
+              "end_frame": 416,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 54,
+              "detected": false,
+              "first_alarm_target": null
+            },
+            {
+              "start_frame": 645,
+              "end_frame": 718,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 74,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 2,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 2,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 2,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 8,
+          "normal_targets": 754,
+          "unknown_targets": 0,
+          "inference_targets": 882
+        },
+        "15": {
+          "events": [
+            {
+              "start_frame": 620,
+              "end_frame": 691,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 65,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 1,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 9,
+          "normal_targets": 601,
+          "unknown_targets": 0,
+          "inference_targets": 666
+        },
+        "16": {
+          "events": [],
+          "covered_events": 0,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 1,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 3,
+          "normal_targets": 704,
+          "unknown_targets": 0,
+          "inference_targets": 704
+        },
+        "17": {
+          "events": [],
+          "covered_events": 0,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 1,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 9,
+          "normal_targets": 687,
+          "unknown_targets": 0,
+          "inference_targets": 687
+        }
+      },
+      "aggregate": {
+        "covered_events": 17,
+        "events_outside_coverage": 0,
+        "detected_events": 6,
+        "missed_events": 11,
+        "uncertain_boundary_covered_events": 10,
+        "normal_alarm_episode_starts": 7,
+        "unknown_alarm_episode_starts": 0,
+        "normal_alarm_frames": 45,
+        "normal_targets": 6641,
+        "unknown_targets": 0,
+        "inference_targets": 11563,
+        "observed_event_recall": 0.35294117647058826,
+        "normal_alarm_frame_rate": 0.006776087938563469
+      }
+    },
+    {
+      "treatment": "lora",
+      "backbone": "dinov3-l",
+      "mode": "offline",
+      "device": "R03",
+      "seed": 0,
+      "threshold_fixed_on_normal": true,
+      "test_videos": 17,
+      "videos": {
+        "01": {
+          "events": [
+            {
+              "start_frame": 0,
+              "end_frame": 719,
+              "onset_uncertain": true,
+              "offset_uncertain": true,
+              "covered_frames": 694,
+              "detected": true,
+              "first_alarm_target": 177
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 0,
+          "unknown_targets": 0,
+          "inference_targets": 694
+        },
+        "02": {
+          "events": [
+            {
+              "start_frame": 0,
+              "end_frame": 675,
+              "onset_uncertain": true,
+              "offset_uncertain": true,
+              "covered_frames": 650,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 0,
+          "unknown_targets": 0,
+          "inference_targets": 650
+        },
+        "03": {
+          "events": [
+            {
+              "start_frame": 0,
+              "end_frame": 673,
+              "onset_uncertain": true,
+              "offset_uncertain": true,
+              "covered_frames": 648,
+              "detected": true,
+              "first_alarm_target": 174
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 0,
+          "unknown_targets": 0,
+          "inference_targets": 648
+        },
+        "04": {
+          "events": [
+            {
+              "start_frame": 0,
+              "end_frame": 682,
+              "onset_uncertain": true,
+              "offset_uncertain": true,
+              "covered_frames": 657,
+              "detected": true,
+              "first_alarm_target": 166
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 0,
+          "unknown_targets": 0,
+          "inference_targets": 657
+        },
+        "05": {
+          "events": [
+            {
+              "start_frame": 348,
+              "end_frame": 406,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 59,
+              "detected": true,
+              "first_alarm_target": 368
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 1,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 28,
+          "normal_targets": 489,
+          "unknown_targets": 0,
+          "inference_targets": 548
+        },
+        "06": {
+          "events": [
+            {
+              "start_frame": 131,
+              "end_frame": 581,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 444,
+              "detected": true,
+              "first_alarm_target": 165
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 112,
+          "unknown_targets": 0,
+          "inference_targets": 556
+        },
+        "07": {
+          "events": [
+            {
+              "start_frame": 269,
+              "end_frame": 685,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 410,
+              "detected": true,
+              "first_alarm_target": 331
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 250,
+          "unknown_targets": 0,
+          "inference_targets": 660
+        },
+        "08": {
+          "events": [
+            {
+              "start_frame": 242,
+              "end_frame": 646,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 405,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 264,
+          "unknown_targets": 0,
+          "inference_targets": 669
+        },
+        "09": {
+          "events": [
+            {
+              "start_frame": 620,
+              "end_frame": 711,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 85,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 601,
+          "unknown_targets": 0,
+          "inference_targets": 686
+        },
+        "10": {
+          "events": [
+            {
+              "start_frame": 445,
+              "end_frame": 646,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 195,
+              "detected": true,
+              "first_alarm_target": 522
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 2,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 10,
+          "normal_targets": 426,
+          "unknown_targets": 0,
+          "inference_targets": 621
+        },
+        "11": {
+          "events": [
+            {
+              "start_frame": 490,
+              "end_frame": 705,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 209,
+              "detected": true,
+              "first_alarm_target": 674
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 2,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 7,
+          "normal_targets": 471,
+          "unknown_targets": 0,
+          "inference_targets": 680
+        },
+        "12": {
+          "events": [
+            {
+              "start_frame": 95,
+              "end_frame": 205,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 111,
+              "detected": false,
+              "first_alarm_target": null
+            },
+            {
+              "start_frame": 325,
+              "end_frame": 384,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 60,
+              "detected": true,
+              "first_alarm_target": 338
+            }
+          ],
+          "covered_events": 2,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 644,
+          "unknown_targets": 0,
+          "inference_targets": 815
+        },
+        "13": {
+          "events": [
+            {
+              "start_frame": 428,
+              "end_frame": 529,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 102,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 1,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 1,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 2,
+          "normal_targets": 638,
+          "unknown_targets": 0,
+          "inference_targets": 740
+        },
+        "14": {
+          "events": [
+            {
+              "start_frame": 363,
+              "end_frame": 416,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 54,
+              "detected": false,
+              "first_alarm_target": null
+            },
+            {
+              "start_frame": 645,
+              "end_frame": 718,
+              "onset_uncertain": false,
+              "offset_uncertain": false,
+              "covered_frames": 74,
+              "detected": false,
+              "first_alarm_target": null
+            }
+          ],
+          "covered_events": 2,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 2,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 754,
+          "unknown_targets": 0,
+          "inference_targets": 882
+        },
+        "15": {
+          "events": [
+            {
+              "start_frame": 620,
+              "end_frame": 691,
+              "onset_uncertain": false,
+              "offset_uncertain": true,
+              "covered_frames": 65,
+              "detected": true,
+              "first_alarm_target": 670
+            }
+          ],
+          "covered_events": 1,
+          "events_outside_coverage": 0,
+          "detected_events": 1,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 1,
+          "normal_alarm_episode_starts": 0,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 0,
+          "normal_targets": 601,
+          "unknown_targets": 0,
+          "inference_targets": 666
+        },
+        "16": {
+          "events": [],
+          "covered_events": 0,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 3,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 34,
+          "normal_targets": 704,
+          "unknown_targets": 0,
+          "inference_targets": 704
+        },
+        "17": {
+          "events": [],
+          "covered_events": 0,
+          "events_outside_coverage": 0,
+          "detected_events": 0,
+          "missed_events": 0,
+          "uncertain_boundary_covered_events": 0,
+          "normal_alarm_episode_starts": 3,
+          "unknown_alarm_episode_starts": 0,
+          "normal_alarm_frames": 26,
+          "normal_targets": 687,
+          "unknown_targets": 0,
+          "inference_targets": 687
+        }
+      },
+      "aggregate": {
+        "covered_events": 17,
+        "events_outside_coverage": 0,
+        "detected_events": 10,
+        "missed_events": 7,
+        "uncertain_boundary_covered_events": 10,
+        "normal_alarm_episode_starts": 12,
+        "unknown_alarm_episode_starts": 0,
+        "normal_alarm_frames": 107,
+        "normal_targets": 6641,
+        "unknown_targets": 0,
+        "inference_targets": 11563,
+        "observed_event_recall": 0.5882352941176471,
+        "normal_alarm_frame_rate": 0.01611203132058425
+      }
+    }
+  ],
+  "independent_lora_audit": {
+    "teacher_weight": 1.0,
+    "evidence": "current_actual_adapted_arrays",
+    "condition_audit": "T1/dinov3-l/offline/R03/seed0/condition_audit.json",
+    "condition_audit_sha256": "e7a065c9aab72d00b21f7f2f49a0b3788c27c06da14ef0e1ab98bb2aa91de240"
+  },
+  "source_sha256": {
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R03/seed0/audit/T1/dinov3-l/offline/R03/seed0/condition_audit.json": "e7a065c9aab72d00b21f7f2f49a0b3788c27c06da14ef0e1ab98bb2aa91de240",
+    "results/stage02/dinov3-l/offline/R03/seed0/metrics.json": "d9c02cf73924a1c643afd91f9b37e305e1a70c995a275ebba0f8a8f00af31303",
+    "results/stage02/dinov3-l/offline/R03/seed0/normal_fit.json": "702f8f42b35ef5f99726e8f564a7a27ed68c48193386cdb85007b82538d9b93f",
+    "results/stage02/dinov3-l/offline/R03/seed0/normal_calibration.csv": "ae3afb2b3d1b231a34a6c7586b659adefb47792869a39c6851cc045a3fba2dcd",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/01.csv": "84a893cf9020753312a2bfc34189f45e31f763353f873e61b32a5676ebfdcf76",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/02.csv": "f823e0e916e27a2b5a9304e29cd046d72a5a9fd08ef0e271ccf3bc959eb17d44",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/03.csv": "69de84b846c585a65e638722c0c5784919e303e88f9849de0b6862e47cea0261",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/04.csv": "d48ec45225b83bfcb62b2a329f10f15253b963846cf0c285089eb2e22c8b94a4",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/05.csv": "af6274fe880fbffeaccf2e357ba53d13cadc106b1beaf4799f2cd1fdb90e632d",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/06.csv": "18992eea0a54691a4b488a6fdbf48623c33a6bffb3fbf669e879ef9d5fea8e2d",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/07.csv": "b787825aa56c4330663a7c38a07c276f7fef547467fd35ed67d3c261a3efa117",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/08.csv": "18662dfef13ded0bb07c737d997ce28ad4a8b01b21d196883a843ca7a2c25071",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/09.csv": "65fa3ac25c7130b449517242f253d0a519b641fe779d047f756962289657d6e0",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/10.csv": "b8a2dbad148eacf9a2f62b5de44a712a306ff41fad8da1190bb75b3ecb0f58e4",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/11.csv": "3510bfd5431b098609a7b949218d51fcc3232afca7cb95c28767c2fdbdf42f85",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/12.csv": "e5eee38627a22107b37ee55940b864a1b0c4e238f187f4f7c09a1146ba2bde12",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/13.csv": "23651f54493c2439abe15c63b4c9c9d15b54efa9d6683a540e62f480c1813d25",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/14.csv": "f96323ba0b1760c6a60828866a09c2ed32d3b0b5b1c23532b0d574cfae952d03",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/15.csv": "a29d69bf057dd18492082be9918407fba4a9652ed5be2171643abd4ebc185090",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/16.csv": "f4d8dee748f359d096bbdf063411a58650ac7828dbfa278a59ce3873d2032e94",
+    "results/stage02/dinov3-l/offline/R03/seed0/P0/17.csv": "c5959c75a34776e43d388d93915be9494ccf1fa093bd7385598c8aff622c7899",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/01.csv": "717692677ad5432d46bb622a7990f4c1ccca944dd103fcc6a2ea02e7be30f824",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/02.csv": "836181b62e8a159ebc09b25fc81837cdf26608be0cca643d43415f59de7ad266",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/03.csv": "e8f529f150ef5410f160115db765cc3b51f90c08cd55a42bdc0be16de50ff07e",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/04.csv": "a3e24ac8974876b36155ba86113246cb6cef04062f8eefabcc673176f2c0ffa9",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/05.csv": "3a60b82404a69f9197d81501470951660b8a6afa89d584272eb175ae11418263",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/06.csv": "30212fb6a135426fd703ece1b2d6cdc21805a12509b49238c356109e1ed30589",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/07.csv": "9d3e42f8af7fcd90d13d78d780b0d3382ef5f71c172d8e02e2652df0cdf1aa2b",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/08.csv": "4334e212b13b31fc9ce8a7cd9c36ae26c0c4cc9dd82b1288fc9a90c288de117d",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/09.csv": "46f33289731ab15be5cd4604d3c1457631e66f19682a7dde485c8ed2dbea58a8",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/10.csv": "0983a8cb363d55f4e8c13eb8de0860b38e1fc9fec962dfad5fee8eb6c33c7a01",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/11.csv": "cbcae4b3214252c2036fa0f1bb8030d8c2920bcab6cad8023970c07cf81b1252",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/12.csv": "f1ffa1506bd004e02a458c2705e2150b744300080c0ef17ba8cc1e8a8e27bb28",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/13.csv": "21952e880d708a1543316b7e4d0abdb19aba587d3de6db8ccc76c4e5025d4cd4",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/14.csv": "9e330009ae90892fd750a1c7f4bf4c5aa38503a009e0544caad5506e5aba5bad",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/15.csv": "4a504505dda44f8d3a4359b59b18e7d57d2a739ab9596c4a31415570a7094ad8",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/16.csv": "0ed24c9e0a1b88a60bc65f274fde1e25796074cc3565f17bd3f5597f043eb189",
+    "results/stage02/dinov3-l/offline/R03/seed0/P1/17.csv": "98aa49ee078b8d0d87d89fc9e064a8b9f0cd4b95d2efc76ceea18fd072d1c624",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/01.csv": "c3f519236518c3b1caf70022c1ca84f0715a64dac9e76bfda0c038180f2f9209",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/02.csv": "6bd14259ef910c38057a6e5dec42456cef12ce726da88af774f15cf96baf9187",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/03.csv": "7d4e3ca529d609f815c16a1add61bd17862c792c47f7347b6c258e2531b059f2",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/04.csv": "acd4981348c3c10a048704e040c17efbcfe59aa5cb1c0fa237f94d244e816a15",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/05.csv": "c08d3e3c6580fedd00c0e207dab67fbbfb6b0d1beef20384aac2f96697eb7345",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/06.csv": "127b8b15d39c9c83c259a424a2a441030595211e52f550302291e97a2ace8258",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/07.csv": "d2dfacd24fea0c2bfa8e97757e95de6b07f21f669da4039a1e1c0e31fde7fd20",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/08.csv": "df8bac78cdbec31fb8d1ff5241c6cbfefb4a53c58df89394cff777b6fb88d62a",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/09.csv": "cbbd0f74af979992674592cc029cc7553dbb454e9ed0ad620eb2cdbb0037c78d",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/10.csv": "e1041b8d8d3bd90c396bb55cb8dc4bce4eac4aedb39a2d5ee83c48a92dbf7448",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/11.csv": "568cc23641e16148be85e942cd2888eef8ac99087890b847368e578780fdb77b",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/12.csv": "85117cb710352b5935cf3ad8772b506ebf64f80c7e07cbce81c198e40595459e",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/13.csv": "f9593561fca67c1cd51fbd99b388e5bf68ab6d755c011a90d67eaef524cb9aad",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/14.csv": "834a20309fc468eedaadd89e844d1f68b3b771b3c2ea0056f1c64b9c8f3c3b7b",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/15.csv": "3e4a084131985d4c413cb043365431e0936d02072991f22f96754b455a86d00d",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/16.csv": "77719040053d903c901fed62be606c6c6f8cac359502543fd7d9574304a000ac",
+    "results/stage02/dinov3-l/offline/R03/seed0/P2/17.csv": "d4d720650e5f9974f2434da32b82cf852d1f0f3f96a95b1798509f3b84a9c015",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/01.csv": "00254daeb223ae0ed2e6c5e8b73dffa67c7484806f77622db522712c235901cb",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/02.csv": "96ed752c641712bc8c65a9c2b2354450455f11f6510398305eb4a7e4af46f73b",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/03.csv": "8078da00daee8bd359b4072b223b1b6acc1754ea1879878a61dd239f32310345",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/04.csv": "7d6b613eb882ddfaa5eb88a7e845fb92d33d90bcf2993d8a4af0af091de2a7a6",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/05.csv": "5728d38e28013e69a4a99c6edd8ca74d16c1202990fdecd530e452e90ffda904",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/06.csv": "d01c3c8d1058a00b9033106ce1abcb06dbf2c52ebf6042824e048ab9be08033c",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/07.csv": "cde5a5c683d41ecd4e0497f1c7e98f667b6379ac9f43d4f15c5891847c9a6178",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/08.csv": "6f0d8442f2ca1df70c49e7cd53dfdc945e7dd9ed79971687fc97a4ed6d941e45",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/09.csv": "79aab351e69e73bb43c46a3a2ae9974c65314a14f9db2a0a4b7421720d6bcdb2",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/10.csv": "5a06cb74d7fc33640f76bf7eb71b0a9d0cbfb152c17b637de57ad06cff09db52",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/11.csv": "3dbcf6c3ce314032b97d7913557575e767c873bfeb67624ca4f77640ed4a6492",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/12.csv": "bcb0b1473118d1cb143f5a163086303a705f9d8ade74db7406e3a42f824781b3",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/13.csv": "c8ab0c087a6d64b21aa7106fc47ce266ec3dc1b2649d2ff0de5fd5ba913704fa",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/14.csv": "571803b353c50be53215ddf13cb598d84e73ad15a7e5ffee460ddc972297a756",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/15.csv": "dee121267869e0eff6449605f1d887197212a9090f03f51152b7775f76ffa3b8",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/16.csv": "98d4ea0b2999ad848b4b378ce7b7ecb2018f71310547b498d1ed6017845d802c",
+    "results/stage02/dinov3-l/offline/R03/seed0/P3/17.csv": "bd6b904d53d509809b1b639b902e0b84a2f50cba0dd470c66ea3abe4a49d37a9",
+    "results/stage04/dinov3-l/offline/R03/seed0/metrics.json": "b315557cd7c7196251efe402f39e2a364b687a187ae90cc937a1d8d42ed09d7a",
+    "results/stage04/dinov3-l/offline/R03/seed0/normal_fit.json": "618b0396478df1e84ab1e609019857609b80e90a763edde124df7f5ab224553e",
+    "results/stage04/dinov3-l/offline/R03/seed0/normal_calibration.csv": "d8689cb022d65ee4fac22e26613ea0459c8a3c5ef7bbf9bdb449c199b9b998fc",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/01.csv": "803bd179e78649533ebc62f9025faa372326fe0ee3845146412a7a82640f86f8",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/02.csv": "c6466a754c78583f3592f52e3cc408b47c97b27144c4180266881413f401c821",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/03.csv": "4f03cae5e417f8b57fad2b619d176072c95bf2071a9883e2cf2b0aedbb6591ff",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/04.csv": "9251bbed3581b346ca8ec593eb1ccbd1ce0044f352dc3723496b1c8a308df10e",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/05.csv": "78a00d419f9f8746a1a03ca3141230c6f0278ba20677d95683862c49082c67f9",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/06.csv": "b274246dfc1d163a2b179a41b25e998dc1e494f39df09ca4a0829c0a3a992892",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/07.csv": "116e1f569b373fe7288dff9132c0978563cd2eb7aa06a92534729e71944ebb36",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/08.csv": "557e1fb14bef9e548bcb9f4930b61b2531df6b35e0b31ce1ce1f0eade3112991",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/09.csv": "12dcb16f83fb5c22934a89ee9bae8bac3462806609ca4f3a1d28f26a8672b560",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/10.csv": "bb0f3a6ab538060b81846a37fa2b93abb8db6d6f6bc27d9b656cac468ae24cbc",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/11.csv": "73a5fc6556c93d33bff3ad6e6da9c3b5210a68b3523b9d83b345256817de529b",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/12.csv": "b7a71a8634a8a7958e3643cdc02748215021015e4c77ae011291934141d518fb",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/13.csv": "c5866661506c7f53bb0a7aea0b160051e56e4c1ca415e473e140c4ccd4d82059",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/14.csv": "153fd25c73d3a83d534b8c5aee0f6a7817330944c0b80751cff714a75b983993",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/15.csv": "632c872f296c96dab934c8d576e44051835a782001ddf63deec5f1241ad78cce",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/16.csv": "2798d6eebdec63afb31c598fd75ff2395f3629af710897d525397181d88ff124",
+    "results/stage04/dinov3-l/offline/R03/seed0/P0/17.csv": "59618d9a52e9ae61009fc7553a92f08cb7669d9ddc6bca3d23acfa7961585716",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/01.csv": "fc1a80b7de842f03ab7c747edbd3a12c8c28d2eebb30bb0eda0ba612649b0ae9",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/02.csv": "1dcf4c9bb44c6f9d153431775ada97d4284d36030a429c130443c64f96884a21",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/03.csv": "592df8185ec9366c4f82168333810f8049bf69db8c0b3252871b7d537e979345",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/04.csv": "9c278b5eee47e6495d089306275c315cf3585aab7b18387f5380d02de8a2e1bf",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/05.csv": "e5c166cd1b913975092949825cd27f49d1e3115a387401bcd85dd521b08ee9ec",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/06.csv": "43b12d6a23d200daec456169c720b8d5e8970e040a26945076b3aab5a5515f06",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/07.csv": "1a817e686ace857689f2b3a4bb5a620eba13f5cd4cc3dd26280b5241ced1e923",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/08.csv": "d5025588911b84be347c9ee485e711275372f9da983612a77a8b8c2e86f0f10f",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/09.csv": "64ea827e0f4e64c6a9d042d76c46d550f2a170c3b6572535a2d4cb744a3fb041",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/10.csv": "965fc78cc1a2430e240bdb2076c8d5f2b0b71d81f9fb486d57e8db5244919bbb",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/11.csv": "5f0a5c132ac926620e99153fd7ce0e472dba588e6e3326c4f5a00cc90686b3e2",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/12.csv": "1c4f4feb9ae53082e4c19ec2b32ec934fccf5b06a8825e8c0cf301e763c11bd7",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/13.csv": "6637fe52f7a006e0fb35e8fedf63284e079963c29517a22a75d5989d5bc48a60",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/14.csv": "c63c5524ce4a723ac8a599779dfe713501c4ae29cea544eb313b422b94ee3b8b",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/15.csv": "f1d0f2f1f407f43b3d799769133f7284d471ae61164b3f7e5c7aad18451df076",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/16.csv": "b874360a9fbbf08a1000be8249a7969ebcd30127aded4c2a41c8541dc2f0b578",
+    "results/stage04/dinov3-l/offline/R03/seed0/P1/17.csv": "705d4731c52c983cbff6c56a879cdfb702685aafdfb26d6211ca9e8967aa3a3c",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/01.csv": "797b0d58966b7ebec198fc87f3e211a2d3e02fae665babb58723c847a8a9062d",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/02.csv": "6e911846770607a82af6b1e8c2ec9822b27b2d9774ba9c1557e20d90bbc6b307",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/03.csv": "9266e66b1551f938d9776a7f059288a8fc4c5c9c33a9a6696a57968924f2aba6",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/04.csv": "bc7fbda4e7aff189402a31aa8d856816ab4edd844bea9056b7384e5c82b83d1d",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/05.csv": "85f62cd3fd8ecdc7102c09377a5ea03d3441d655a18fb0d074902b366aa9e5d4",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/06.csv": "322c4b32d1a0ecbfd1b3e90111170256b563e472942f2b3a9b44de1f1d3aeec1",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/07.csv": "d12f0060f1ed380a00477e97a58f3bc1e857bb94d4c1c85e4e78c7a83a22db43",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/08.csv": "5021acbb679eaf81e8c19261f90588d212f8203ff43248b8ff086eb6c4556042",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/09.csv": "2f53712d7f4e680180a3909f1bdbb82d21aadb499200f36e1c78dc00f59d327e",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/10.csv": "cf203466d55847bc7917d8ec9c2afe6c3db6903eb4215c2d23fd16ea5a045bb8",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/11.csv": "7a89d057c9119e21b793765c285b904d14a598eb27a672c89d130aa65fa57f6f",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/12.csv": "5bbe5b3bdc07ea376c7f00c3d1661c2d527cb960944b66349a1dbe85756070ed",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/13.csv": "8fb9c26c5e03a55506ef6fe95e4d540a276adbdd26714ed655783bd24e462a57",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/14.csv": "f9fdad904a02ecec8cef55b4d080db230809896cc544029d3f9f74c0f722294e",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/15.csv": "b9f5c81a333ba027132186982c204bfbed64fd1d120ea2c4ee2f117db73b1d97",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/16.csv": "120c45a43b9d37b90986b8f5ecaa39b0b5d5531ec5cd74ea56f13a2bab22abb6",
+    "results/stage04/dinov3-l/offline/R03/seed0/P2/17.csv": "6feb31f11567d73becf7832ccf2410782238ad408621e53a7ba0257096f179c9",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/01.csv": "7e91ce33dad7a53fda5e1152c266e05fe24d90734c9f6bc384f05d713d8caef9",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/02.csv": "7611a47b66b23dd299eb0c32cd1f77b742df0dc059b0da530d053292aee06ff4",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/03.csv": "91076852d099cd996b1a772d903aff9c8bd454d00bb52244ecfd187faf9eaea3",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/04.csv": "ae8a9f0dcb735751adf7dd8217050f4147a5a07c7f459cb76b3a5f847d14d3b1",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/05.csv": "3752d4c7105f0cc1724a598595e325db3c700aa4d24d39c3616185403fd9b86f",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/06.csv": "043b563e4d5ca53d736012b431955b261edeb5b466d484e8767623419c26d2a7",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/07.csv": "f1ad8942a15bcc7419d87acda009bf2565d7e322b1e19bd2e953e5193e8a9dab",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/08.csv": "56c02253b9a1d20e8a55743fcea4218d159ffbdd85ef10594f39abf4bbaf376d",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/09.csv": "8dcc59f8968f99d30371cab89ba5a468a4360395e4f83595869053cb6bad6004",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/10.csv": "e28aae3e4a61771386c3bd4ac52011f0afc683b5ece664d73b5c1cefe2f6e86f",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/11.csv": "74208f7f82ddfc68688abfcc6f9647de29fbb1541d31abfe279856ac84a9b203",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/12.csv": "6082e59a495af24030d9c436b707b5488c8d916e36c58884a6cec83a5a806722",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/13.csv": "68694a012d57902f1481efc7b3985ac3dadd7a0b241e2d1fe9507aec36b83cfa",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/14.csv": "23ba49d55d338064d116e986c7af1f606c6a0f255435befcbe7d26b069799fe5",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/15.csv": "64d2ccfd08cba4919bcc8379c482d460eaf07a38b10c3bffb2097a0ab1c98f5e",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/16.csv": "5e9830816728e6316abec6e370a4a26d6818864a9497b0732e1ea8a636e79b17",
+    "results/stage04/dinov3-l/offline/R03/seed0/P3/17.csv": "10999f5c20335f56e7ce0f1233a3420e5a99ffa4eaa295e761110a250bdce2c2",
+    "scripts/report_single_cached_alarm_pair.py": "5ce9dcfc46df56931013a00c6e2e38694f5ddf8627dbf5867b1874f0258a06c8",
+    "scripts/report_cached_alarm_coverage.py": "94ee3edb276e37ad67b3be2b14053327da5a72b01f3a1a0a22bd96c0e5030cd5",
+    "scripts/plot_lora_evaluation.py": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446"
+  },
+  "annotation_sha256": {
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/001.npy": "d2699b9be0397e72503d15087e822f10632ee95f4edd673a70eb31f335b1ed70",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/002.npy": "7aea3bcd9445326a3851f59d5299ef04858a55ccfa2ca70814e73742574e5857",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/003.npy": "3af62993a9bc191dabb653ff8aa57e99367d3dca6a538659da08ed52bd8bd50a",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/004.npy": "b27d2462015ba0e260c7abc8755c9f90c8cb376c8f5fdd49c42c0dfb8a14ccda",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/005.npy": "ffb3316894add64ea870830d269f54c2c9926b944fb069f0f8014fde41c24ffd",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/006.npy": "a08cb96817e142f03eddef09502024c11f7130e2fe276dd62342b715d67f8354",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/007.npy": "7e9170b0e697f3ea238afc6f96f5326319ac9612551cb1b4eff55b6d2a5e7854",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/008.npy": "ce1850fa1c2092a742f5b44a693a20e6f271c781da0759c5574b1506e1d89424",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/009.npy": "864746f2710f73510f87547fee5f08b14af39a6d8bac3576033457541e83c609",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/010.npy": "79d4797c709fa72aef2aa2086777fae8186a6b019f0c9f6a4953677eb9474f0b",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/011.npy": "4caf20dd9b8d5098a75ed328515d9c340539b2eec39cd0fff2c9efa028bdd34c",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/012.npy": "8c2b4471a9394bd3f6c93124ce048a696bb4c2106db94de233a2ddbea0a6ddd4",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/013.npy": "0b791490f396acab9f5304fb80c2348027b4c7433ed175c226f6855d7edaeffb",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/014.npy": "79622696ea236ee54dde4779cebe05bb66e570dcc1e9ec869ca8ab900d5662f7",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/015.npy": "2b66d764cff778d19a536296fb6ef9108d47d9c0558d5242dbb53265d87a8562",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/016.npy": "d14c3f31d7daa6ebad04c50a6a56a1f2ba3b2f96d88b14c3b52a4d41d5bb08ee",
+    "../IPAD_dataset/IPAD_dataset/R03/test_label/017.npy": "73eb3313fb63d943852fb6caf3206abdb882c4173474490bdf593612b195eac1"
+  },
+  "figures": {
+    "cached_P3_dinov3-l_R03_offline_seed0_pair.png": "b99cc81ff86e3b4b7355f1f76c55245c4b4b138fd4b7cc632ad9fc5e9fbb4fe8",
+    "cached_P3_dinov3-l_R03_offline_seed0_pair.svg": "d97e2a986707a0a74203d4052e9575ebaf9424dae5738f8198ec4ada93fab8a6"
+  },
+  "limits": "One fixed trained seed, shared cached target19..N-8. Normal q99 and three-target streak unchanged. Observed GT boundaries can be uncertain; continuing alarms count for event coverage. No confidence intervals, three-seed mean, threshold retuning, training-seed uncertainty, measured FPS/delay or operational EOF coverage. Selected tensors/bank/calibration/GT/score/alarm replayed; no pixel reencoding or independent PCA/prototype search replay."
+}
