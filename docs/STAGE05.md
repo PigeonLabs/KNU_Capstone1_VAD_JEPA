@@ -631,3 +631,29 @@ PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py \
   --out results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R03/seed0 \
   --figure docs/figures/stage05/cached_P3_dinov3-l_R03_offline_seed0_pair
 ```
+
+## DINOv3 R03 seed 0의 점수 분포와 q99 통과
+
+완료된 DINOv3-L 오프라인 R03 seed 0의 기존 P3 점수에서 [고정 q99 알람 비교](#dinov3-r03-seed-0의-고정-임계값-알람-비교)를 보완했다. [CPU 분석 코드](../scripts/report_cached_score_distributions.py)는 감사된 source·annotation SHA를 확인하고, 원래 정상 calibration의 q99·엄격한 `score > q99`·연속 3개 유효 target 알람을 전체 추론 target에서 재현한다. GT 필터는 알람 재현 후 적용하며, 저장된 알람·모든 영상의 점수·완료된 P3 AUROC/AP를 검산한다. 실제 분모를 읽도록 코드를 확장했으며, 기존 V-JEPA R02 seed 1의 모든 분포 요약·영상별 수치를 새 CPU 실행으로 재현해 변화가 없음을 확인했다.
+
+![DINOv3 R03 seed 0의 점수 분포와 고정 q99 초과·최종 알람](figures/stage05/score_distributions_dinov3-l_R03_offline_seed0.png)
+
+| R03 seed 0 P3 | 기존 정상 q99 | 정상 q99 초과 / 6,641 | 정상 최종 알람 / 6,641 | 이상 q99 초과 / 4,922 | 이상 최종 알람 / 4,922 |
+|---|---:|---:|---:|---:|---:|
+| 고정 백본 | 26.8270 | 59 (0.8884%) | 45 (0.6776%) | 48 (0.9752%) | 35 (0.7111%) |
+| LoRA | 3.2729 | 139 (2.0931%) | 107 (1.6112%) | 537 (10.9102%) | 480 (9.7521%) |
+
+정상 점수 calibration은 두 방법 모두 **2,771개 trace 행 중 유효 2,727개**, q99를 엄격히 초과한 target는 각각 **28개**다. 시간 점수 준비 구간 때문에 정상 위상 학습의 calibration 2,771개 target와 점수 calibration의 분모가 다르다. 테스트는 같은 **17개 영상·11,563개 유효 GT target**(정상 6,641·이상 4,922)이며 unknown GT는 0개다. 원래 학습·특징·PCA·메모리·임계값·점수 부호를 바꾸지 않았다.
+
+상단은 정상 calibration·정상 테스트·이상 테스트의 누적 점수 분포다. 음수와 긴 상위 꼬리를 함께 표시한 **symlog 축**(−1..1은 선형)을 사용한다. 보정 점수 단위가 달라 각 방법의 점수 축을 따로 표시한다. q99 숫자의 크기를 성능 차이나 원인으로 해석하지 않는다. 하단의 알람 비율은 **공통 0 기준 세로축**으로 비교하고 분자·분모·비율을 함께 표기했다.
+
+이상 target의 q99 초과는 **48→537개**, 최종 이상 알람은 **35→480프레임**으로 늘었다. 정상 q99 초과도 **59→139개**, 정상 알람은 **45→107프레임**으로 늘었다. 앞서 관측한 **구간 탐지 6→10/17개**와 함께 읽어야 하며, 프레임 알람 비율을 구간 탐지율로 바꾸어 해석하지 않는다. 단일 seed의 기술 분석으로, 임계값 튜닝·인과 설명·세-seed 평균·추가 CI·실제 FPS/지연·온라인 EOF 탐지의 증거로 세지 않는다. 같은 seed의 ranking 차이 **AUROC +1.58pp / AP +4.25pp**에 대한 두 paired CI는 0을 포함했다.
+
+[영상별 분포·q99 통과·알람 수 및 source/annotation 해시](../results/stage05/score_distributions/dinov3-l/offline/R03/seed0/score_distributions.json), [게시 검증 기록](../results/setup/dinov3_R03_seed0_score_distributions_publication_check.json), PNG/SVG와 회귀 검산 테스트를 제공한다. 실제 전체 CPU 테스트는 **411개 통과**했다. 기존 모든 cached 알람 결과·점수 분포·그래프를 보존하며, 주 LoRA 완결은 **13/48조건·4/16 세-seed 그룹**으로 유지한다. 후속 seed·장비·온라인 비교·전체 기준선·추가 실험·실시간 측정 범위를 유지한다. 모델·원본 영상·특징 배열은 업로드하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_cached_score_distributions.py \
+  --audit-report results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R03/seed0/cached_alarm_pair.json \
+  --out results/stage05/score_distributions/dinov3-l/offline/R03/seed0 \
+  --figure docs/figures/stage05/score_distributions_dinov3-l_R03_offline_seed0
+```

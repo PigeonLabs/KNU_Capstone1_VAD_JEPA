@@ -48,6 +48,7 @@ def collect(folder, audited_row):
     counts = {key: {'targets': 0, 'strict_threshold_crossings': 0, 'streak_alarm_frames': 0}
               for key in ('known_normal_test', 'known_anomaly_test')}
     videos = {}
+    inference_targets = unknown_targets = 0
     for video in run:
         trace = read_csv(folder / 'P3' / (video + '.csv'))
         scores = np.array([float(r['score']) for r in trace])
@@ -82,6 +83,8 @@ def collect(folder, audited_row):
                 int((inference & ~valid).sum()) != expected['unknown_targets'] or
                 int(inference.sum()) != expected['inference_targets']):
             raise ValueError('Prior independently audited video accounting differs')
+        inference_targets += int(inference.sum())
+        unknown_targets += int((inference & ~valid).sum())
         videos[video] = per_video
     for key in counts:
         populations[key] = np.concatenate(populations[key])
@@ -95,16 +98,51 @@ def collect(folder, audited_row):
     if (counts['known_normal_test']['targets'] != aggregate['normal_targets'] or
             counts['known_normal_test']['streak_alarm_frames'] != aggregate['normal_alarm_frames'] or
             sum(r['targets'] for r in counts.values()) != meta['variants']['P3']['frames'] or
-            counts['known_anomaly_test']['targets'] != meta['variants']['P3']['anomaly_frames']):
+            counts['known_anomaly_test']['targets'] != meta['variants']['P3']['anomaly_frames'] or
+            inference_targets != aggregate['inference_targets'] or
+            unknown_targets != aggregate['unknown_targets'] or
+            inference_targets != sum(r['targets'] for r in counts.values()) + unknown_targets or
+            len(videos) != audited_row['test_videos']):
         raise ValueError('Aggregate denominator differs')
     summary = {'treatment': audited_row['treatment'], 'normal_only_q99_threshold': threshold,
                'calibration_total_trace_rows': len(calibration),
                'normal_calibration': describe(calibration_scores, threshold),
+               'inference_targets': inference_targets, 'unknown_targets': unknown_targets,
+               'test_videos': len(videos),
                **counts, 'per_video': videos}
     return summary, populations, run
 
 
+def population_note(summaries):
+    """Use replayed populations, refusing a caption that hides unequal coverage."""
+    if len(summaries) != 2 or [r['treatment'] for r in summaries] != ['frozen', 'lora']:
+        raise ValueError('One ordered frozen/LoRA population pair required')
+    coverage = []
+    for row in summaries:
+        normal = row['known_normal_test']['targets']
+        anomaly = row['known_anomaly_test']['targets']
+        unknown = row['unknown_targets']
+        inference = row['inference_targets']
+        if min(normal, anomaly, row['test_videos']) <= 0 or unknown < 0 or inference != normal + anomaly + unknown:
+            raise ValueError('Caption coverage denominator does not reconcile')
+        if not 0 < row['normal_calibration']['targets'] <= row['calibration_total_trace_rows']:
+            raise ValueError('Caption calibration denominator does not reconcile')
+        coverage.append((normal, anomaly, unknown, inference, row['test_videos']))
+    if coverage[0] != coverage[1]:
+        raise ValueError('Caption pair coverage differs')
+    normal, anomaly, unknown, inference, videos = coverage[0]
+    valid = ' / '.join(f"{r['normal_calibration']['targets']:,}" for r in summaries)
+    trace = ' / '.join(f"{r['calibration_total_trace_rows']:,}" for r in summaries)
+    return (f'Score calibration (Frozen / LoRA): {valid} valid targets of {trace} trace rows; differs from phase-training counts.\n'
+            f'Test: {videos} videos; {normal + anomaly:,} known-GT targets ({normal:,} normal / {anomaly:,} anomaly); '
+            f'{unknown:,} unknown of {inference:,} inference targets.\n'
+            'Unknown GT does not reset the streak. Frame alarm shares are not observed-event recall.\n'
+            'Bottom panels share the percentage axis; ECDF panels show each method on its own score scale.\n'
+            'Descriptive single-seed view; no threshold retuning, CI, causal attribution, measured FPS/delay or online EOF claim.')
+
+
 def render(condition, summaries, populations, path):
+    note = population_note(summaries)
     fig, axes = plt.subplots(2, 2, figsize=(13.2, 8.7), layout='constrained')
     colors = ['#245b86', '#36836c', '#bd463c']
     names = ['Normal calibration', 'Known-normal test', 'Known-anomaly test']
@@ -121,7 +159,8 @@ def render(condition, summaries, populations, path):
         axis.set(xlabel='P3 score (symlog; linear within [-1, 1])',
                  ylabel='Empirical cumulative fraction', ylim=(0, 1.04),
                  title=('Frozen P3' if column == 0 else 'LoRA P3') + ' / own score scale')
-        axis.legend(frameon=False, fontsize=9, loc='lower right')
+        axis.legend(frameon=True, facecolor='white', framealpha=.95, edgecolor='none',
+                    fontsize=9, loc='lower right')
         axis = axes[1, column]
         for offset, key, label, color in [(-.18, 'strict_threshold_crossings', 'Score > own q99', '#245b86'),
                                           (.18, 'streak_alarm_frames', 'Original three-target alarm', '#b97812')]:
@@ -134,17 +173,20 @@ def render(condition, summaries, populations, path):
         axis.set(xticks=[0, 1], xticklabels=['Known-normal test', 'Known-anomaly test'],
                  ylabel='Share of known-GT class targets (%)',
                  title='Fixed threshold crossings and stored alarm frames')
-        axis.set_ylim(0, max(1, axis.get_ylim()[1] * 1.35))
         axis.legend(frameon=False, fontsize=9, loc='upper left')
         for axis in axes[:, column]:
             axis.spines[['top', 'right']].set_visible(False)
+    # Frame fractions have common units across treatments. Keep the common
+    # zero-based axis; only the separately labeled ECDF score scales differ.
+    largest_rate = max(row[category][count] / row[category]['targets'] * 100
+                       for row in summaries
+                       for category in ['known_normal_test', 'known_anomaly_test']
+                       for count in ['strict_threshold_crossings', 'streak_alarm_frames'])
+    for axis in axes[1]:
+        axis.set_ylim(0, max(1, largest_rate * 1.5))
     model, mode, device, seed = condition
     fig.suptitle(f'{NAMES[model]} / {device} / {mode} / seed {seed} only\n'
                  'Immutable cached P3 distributions; original normal q99 and alarms replayed')
-    note = ('Score calibration: 2,809 valid targets from 2,864 trace rows; differs from phase-training calibration targets.\n'
-            'Test: 9,210 known-GT targets (6,261 normal / 2,949 anomaly); 18 unknown of 9,228 inference targets.\n'
-            'Unknown GT does not reset the streak. Frame alarm shares are not observed-event recall.\n'
-            'Descriptive single-seed view; no threshold retuning, CI, causal attribution, measured FPS/delay or online EOF claim.')
     return save(fig, path, note)
 
 
@@ -159,11 +201,15 @@ def main():
     audited = json.loads(args.audit_report.read_text())
     if audited['status'] != 'passed_single_seed_pair_normal_GT_score_alarm_and_selected_lora_replay':
         raise ValueError('Existing completed source-audited pair required')
-    # This explanatory export is limited to the fully audited R02 seed1 population.
-    # Its fixed caption denominators must never silently apply to another condition.
-    if audited['condition'] != ['vjepa21-l', 'offline', 'R02', 1] or audited['seeds'] != 1:
-        raise ValueError('This report currently supports V-JEPA offline R02 seed1 only')
+    model, mode, device, seed = audited['condition']
+    if (model not in NAMES or mode not in ['offline', 'online'] or
+            device not in ['R01', 'R02', 'R03', 'R04'] or
+            type(seed) is not int or seed not in [0, 1, 2] or audited['seeds'] != 1):
+        raise ValueError('One supported audited primary condition required')
     verify_pair(audited['conditions'])
+    if any([r['backbone'], r['mode'], r['device'], r['seed']] != audited['condition']
+           for r in audited['conditions']):
+        raise ValueError('Audited condition and pair identity differ')
     sources = {**audited['source_sha256'], str(args.audit_report): digest(args.audit_report)}
     for name in [__file__, 'src/ipad_jepa/experiment.py', 'scripts/report_single_cached_alarm_pair.py',
                  'scripts/summarize_experiments.py', 'scripts/plot_neighbour_ablation.py']:
@@ -172,16 +218,13 @@ def main():
     for name, expected in {**sources, **audited['annotation_sha256']}.items():
         if digest(name) != expected:
             raise ValueError('Audited input changed: ' + name)
-    relative = Path('vjepa21-l/offline/R02/seed1')
+    relative = Path(model) / mode / device / f'seed{seed}'
     summaries, populations, runs = [], [], []
     for root, row in zip(['results/stage02', 'results/stage04'], audited['conditions']):
         summary, population, run = collect(Path(root) / relative, row)
         summaries.append(summary); populations.append(population); runs.append(run)
     check_pair(*runs)
-    for row in summaries:
-        if (row['normal_calibration']['targets'], row['calibration_total_trace_rows'],
-                row['known_normal_test']['targets'], row['known_anomaly_test']['targets']) != (2809, 2864, 6261, 2949):
-            raise ValueError('Expected audited caption populations differ')
+    note = population_note(summaries)
     figures = render(audited['condition'], summaries, populations, args.figure)
     for name, expected in {**sources, **audited['annotation_sha256']}.items():
         if digest(name) != expected:
@@ -190,6 +233,7 @@ def main():
               'condition': audited['condition'], 'variant': 'P3', 'seeds': 1,
               'conditions': summaries, 'source_sha256': sources,
               'annotation_sha256': audited['annotation_sha256'], 'figures': figures,
+              'population_note': note,
               'limits': 'Descriptive reuse of immutable independently audited scores. Own normal q99 and strict > '
                         'three-target streak unchanged; unknown GT filtered only after alarm replay. No reencoding, '
                         'new PCA/prototype replay, alternative threshold, causal attribution, confidence intervals, '
