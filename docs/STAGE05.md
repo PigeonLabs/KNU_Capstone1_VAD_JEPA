@@ -519,3 +519,29 @@ PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py \
   --out results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R02/seed1 \
   --figure docs/figures/stage05/cached_P3_vjepa21-l_R02_offline_seed1_pair
 ```
+
+## V-JEPA R02 seed 1의 점수 분포와 q99 통과
+
+[기존 단일 seed 감사 결과](../results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R02/seed1/cached_alarm_pair.json)의 불리한 q99 탐지 결과를 기존 P3 점수에서 확인했다. [추가한 CPU 분석 코드](../scripts/report_cached_score_distributions.py)는 감사 당시의 source·annotation SHA를 다시 확인하고, 정상 calibration q99와 저장된 전체 알람을 원래의 **엄격한 `score > q99`·연속 3개 유효 target** 규칙으로 재현했다. Unknown GT를 제거하기 **전에** 전체 추론 target에서 알람을 계산했고, P3 AUROC/AP도 완료된 metrics와 일치하는지 확인했다. Encoder·PCA·프로토타입·head·보정을 다시 학습하거나 테스트로 임계값을 선택하지 않았다.
+
+![V-JEPA R02 seed 1 정상 calibration·테스트 점수 분포와 q99 통과·알람](figures/stage05/score_distributions_vjepa21-l_R02_offline_seed1.png)
+
+| R02 seed 1 P3 | 기존 정상 q99 | 정상 테스트 q99 초과 / 6,261 | 정상 테스트 최종 알람 / 6,261 | 이상 테스트 q99 초과 / 2,949 | 이상 테스트 최종 알람 / 2,949 |
+|---|---:|---:|---:|---:|---:|
+| 고정 백본 | 3.5130 | 44 (0.7028%) | 3 (0.0479%) | 60 (2.0346%) | 12 (0.4069%) |
+| LoRA | 23.2831 | 69 (1.1021%) | 20 (0.3194%) | 30 (1.0173%) | 6 (0.2035%) |
+
+정상 점수 calibration은 두 방법 모두 **2,864개 trace 행 중 유효 2,809개**이며, q99를 엄격히 초과한 target는 각각 **29개**다. 시간 점수의 준비 구간 때문에 정상 위상 학습 calibration의 2,864개 target와 점수 calibration 분모가 다르다. 테스트 분모는 기존과 같은 **유효 GT 9,210개**(정상 6,261·이상 2,949)이며, inference target 9,228개 중 unknown GT 18개는 기존대로 집계에서 제외한다.
+
+그래프 상단은 정상 calibration·정상 테스트·이상 테스트의 누적 점수 분포다. 음수 점수와 긴 상위 꼬리를 함께 표시하려고 **symlog 축**(−1..1은 선형)을 사용했다. 각 방법의 보정 점수 단위와 정상 q99가 다르므로 임계값 숫자 크기를 직접적인 성능 차이 또는 실패 원인으로 해석하지 않는다. 하단은 해당 클래스 target 중 임계값 초과와 원래 연속 3개 알람이 실제로 차지한 비율이다. LoRA에서 이상 target의 임계값 초과는 **60→30개**, 최종 이상 알람 프레임은 **12→6개**로 줄었고 정상 알람은 **3→20프레임**으로 늘었다. 이 관측값은 앞서 보고한 **구간 탐지 7→3개·정상 경보 증가**와 함께 제공한다. 프레임 알람 비율과 구간 탐지율은 서로 다른 지표다.
+
+**단일 고정 seed의 기존 점수에 대한 기술 분석**이다. 새로운 정확도 조건·세-seed 평균·추가 CI·원인 규명·임계값 튜닝·실제 FPS/방출 지연·온라인 EOF 범위의 증거로 세지 않는다. 기존 선택 tensor/메모리 감사 결과를 참조하며, 이번에 독립 PCA/prototype search나 픽셀 재인코딩을 수행했다는 뜻도 아니다. 주 LoRA 완결은 **11/48조건·3/16 세-seed 그룹**으로 유지한다.
+
+[분포 요약·per-video 통과/알람 수·source/annotation 해시](../results/stage05/score_distributions/vjepa21-l/offline/R02/seed1/score_distributions.json), [게시 검증 기록](../results/setup/vjepa_R02_seed1_score_distributions_publication_check.json)과 PNG/SVG를 제공한다. 모델·원본·특징 배열은 업로드하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_cached_score_distributions.py \
+  --audit-report results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R02/seed1/cached_alarm_pair.json \
+  --out results/stage05/score_distributions/vjepa21-l/offline/R02/seed1 \
+  --figure docs/figures/stage05/score_distributions_vjepa21-l_R02_offline_seed1
+```
