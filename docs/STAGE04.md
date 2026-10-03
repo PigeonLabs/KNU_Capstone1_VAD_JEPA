@@ -655,3 +655,47 @@ PYTHONPATH=src:scripts python scripts/plot_lora_training.py \
   --results results/stage04/training/vjepa21-l/offline/R02/seed1 \
   --out docs/figures/stage04/vjepa21-l_R02_offline_seed1_joint_training
 ```
+
+## V-JEPA 2.1 R02 오프라인 seed 1의 완료된 전체 평가
+
+정상 calibration CE로 선택한 **epoch 11**의 adapter/joint head를 유지해 **41개 영상(fit 21·calibration 5·test 15)**의 특징을 재추출했다. 별도 진단용 정상 영상 4개는 주 평가 추출 대상에 포함하지 않았다. 새 PCA·16개 위상 bin의 프로토타입 메모리·온도·정상 median/MAD/q99를 구성했다. 원 학습·재추출·전체 평가 child와 원 파이프라인의 실제 종료 코드 **0**, 선택 tensor·새 bank/보정·GT·시간/점수/알람의 독립 감사 통과를 확인했다.
+
+같은 seed의 고정 백본과 **15개 실제 테스트 영상·9,210개 유효 GT target(이상 2,949개)**을 비교했다. R02/12·13·14의 정확한 라벨 정렬은 계속 미확정이며 기존 18프레임 제외와 ±1 오프셋 민감도 규칙을 유지했다. 테스트에 맞춰 점수 부호·선택 epoch·정상 임계값을 바꾸지 않았다.
+
+| 점수 | 고정 백본 AUROC/AP | LoRA AUROC/AP |
+|---|---:|---:|
+| P0 | 58.26/37.50% | 55.17/35.05% |
+| P1 | 56.93/36.79% | 60.46/46.50% |
+| P2 | 60.42/39.36% | 67.51/51.18% |
+| P3 | 62.82/41.80% | 68.59/49.96% |
+
+| 점수 | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|
+| P0 | -3.10 [-7.70, +0.59] | -2.45 [-6.92, +0.33] |
+| P1 | +3.53 [-3.30, +11.58] | +9.71 [-2.07, +21.76] |
+| P2 | +7.09 [+0.34, +12.97] | +11.82 [+2.13, +21.11] |
+| P3 | +5.78 [-0.77, +12.06] | +8.17 [+0.45, +15.30] |
+
+P3는 고정 백본 **62.82/41.80%**에서 LoRA **68.59/49.96%**로 변했다. AUROC 차이 **+5.78pp [-0.77, +12.06]**의 CI는 0을 포함하고, AP 차이 **+8.17pp [+0.45, +15.30]**의 CI는 양수다. P0는 두 점추정 차이가 음수지만 CI는 모두 0을 포함했다. P1의 두 CI도 0을 포함했고, P2의 두 CI는 양수였다. 이 단일 seed로 R02 세-seed 평균이나 학습 seed 변동성을 결론내리지 않는다.
+
+각 차이는 LoRA−같은 seed 고정 백본이며, 1,000회 paired 원본 영상 bootstrap의 percentile 95% CI다. Seed 자체를 재표집하지 않았고 퇴화 resample은 0개다. 변형별 CI를 함께 제시하며 다중 비교를 보정한 유의성 주장으로 해석하지 않는다. 단일 장비·단일 seed의 전체 LoRA/head/메모리/보정 프로토콜 비교이며 teacher 손실만의 효과·백본 간 LoRA 비교·R02 세-seed 평균·Macro4·실시간 FPS를 입증하지 않는다.
+
+![V-JEPA R02 seed 1 P3의 실제 비교·paired CI·ROC/PR](figures/stage04/vjepa21-l_R02_offline_seed1_lora_evaluation.png)
+
+![사전에 고정한 테스트 영상 03의 점수·알람 궤적](figures/stage04/vjepa21-l_R02_offline_seed1_lora_sequence03.png)
+
+궤적은 조건별 정상 median/MAD 보정과 자체 고정 q99를 사용하며 target index는 wall-clock 탐지 지연이 아니다. PNG/SVG, [P0–P3 전체 CSV·정상 보정·single-seed CI·provenance](../results/stage04/vjepa21-l/offline/R02/seed1), [독립 조건 감사](../results/stage04/condition_pipeline_checks/T1/vjepa21-l/offline/R02/seed1/condition_audit.json), [원 파이프라인 완료 증거](../results/stage04/condition_pipeline_checks/vjepa21-l/offline/R02/seed1/pipeline_completion.json), [게시 검증 기록](../results/setup/lora_vjepa_R02_seed1_evaluation_publication_check.json)을 제공한다. 모델·원본 영상·특징 배열은 업로드하지 않는다.
+
+주 LoRA 정확도는 **11/48조건**이며 R01 두 백본과 DINOv3 R02의 **3/16그룹**에서 각각 세 seed의 전체 평가를 완료했다. 기존 R01 여섯 조건과 DINOv3 R02 세 조건의 집계 snapshot을 유지한다. V-JEPA R02 seed 2는 원 seed 1 전체 파이프라인의 실제 종료 코드 0과 source·종료 증거를 확인한 뒤 실행한다. V-JEPA R02의 세-seed 평균·paired CI·백본 간 비교 그래프는 세 seed를 모두 독립 검증한 후 별도 snapshot에서 제공한다. 나머지 장비·모드와 전체 실시간 비교는 계속 남아 있다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/plot_lora_evaluation.py \
+  --results results/stage04/vjepa21-l/offline/R02/seed1 \
+  --frozen-results results/stage02/vjepa21-l/offline/R02/seed1 \
+  --training artifacts/lora/vjepa21-l/offline/R02/seed1 \
+  --cache artifacts/features_lora/vjepa21-l/offline/R02/seed1 \
+  --local artifacts/runs_lora/vjepa21-l/offline/R02/seed1 \
+  --frozen-local artifacts/runs/vjepa21-l/offline/R02/seed1 \
+  --data-root ../IPAD_dataset/IPAD_dataset \
+  --out docs/figures/stage04
+```
