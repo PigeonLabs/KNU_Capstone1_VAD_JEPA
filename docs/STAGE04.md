@@ -948,3 +948,23 @@ PYTHONPATH=src:scripts python scripts/plot_lora_training.py \
 주 LoRA 전체 평가는 **14/48조건·4/16 세-seed 그룹**이다. 기존 R01·R02의 12조건·4그룹 집계 snapshot은 유지하며, R03의 두 개별 seed를 세-seed 평균·학습 seed 불확실성·백본 간 LoRA 우위·teacher 손실만의 효과·Macro4·실시간 성능으로 해석하지 않는다. 후속 seed·두 백본·온라인·전체 기준선·추가 실험·실시간 측정 계획을 유지한다.
 
 재현은 기존 `scripts/plot_lora_evaluation.py`에 이 조건의 `--results`, `--frozen-results`, `--training`, `--cache`, `--local`, `--frozen-local`, `--data-root`를 전달하고 `--sequence 03 --out docs/figures/stage04`를 사용한다. 실행한 정확한 인자·종료 코드·log hash는 게시 검증의 CPU 수집 증거에 포함한다.
+
+## 완료된 주 LoRA 14조건의 전체 재검증
+
+기존 독립 검증 코드로 **완료된 14/48조건·4/16 세-seed 그룹**을 새 namespace에서 재검증했다. 정상 fit/calibration·선택 adapter/head·새 메모리·GT·P0–P3 점수·알람과 고정/LoRA의 **정상 임계값 112개**가 통과했다. 현재 특징 배열 **13조건**과 사전 검증·승인된 배열 정리 증거 **1조건**을 구분했다. 정리된 배열의 finite/hash 검사는 과거 검증 기록이며, metadata·선택 모델·메모리·보정·GT·점수·알람은 현재 보존 상태로 다시 검산했다.
+
+![실제 독립 검증된 주 LoRA 48조건의 완료 여부](figures/stage04/primary_lora_completed14.png)
+
+파란 칸은 원래 20 epoch 정상 학습뿐 아니라 선택 특징 재추출·메모리/보정 재구성·전체 테스트·독립 감사까지 완료한 조건이다. 회색은 전체 조건의 완료가 아직 검증되지 않았으며 진행 중·대기·미시작을 포함한다. 학습 완료만으로 파란 칸을 늘리지 않는다. DINOv3 R03 seeds 0·1은 각각 완료됐지만 seed 2가 남아 있어 R03 세-seed 평균에 넣지 않았다. 현재 LoRA의 온라인·R04 결과와 Macro4는 아직 없다.
+
+기존 R01·R02의 **32개 treatment/점수별 평균·36개 paired 비교**와 모든 CI를 포함한 `device_summary.json`이 이전 12조건 snapshot과 **byte 단위로 동일**함을 확인했다. 세-seed 미완결 조건은 평균·CI를 추가하지 않으며 `macro_summary.json`의 결과/paired 비교는 모두 비어 있다. 기존 snapshot·개별 결과·그래프를 보존했다.
+
+[14조건·34개 미완료 조건·보정 감사](../results/stage04/retained_matrix_audit_R01_R02_R03_DINO_partial/validation.json), [기존과 동일한 세-seed 요약·CI](../results/stage04/retained_matrix_audit_R01_R02_R03_DINO_partial/device_summary.json), [그림의 출처](figures/stage04/primary_lora_completed14_sources.json), [게시 검증](../results/setup/primary14_matrix_cached62_publication_check.json)을 제공한다. [그림 코드](../scripts/plot_lora_completion.py)는 독립 감사 및 source hash를 재확인한다. 실제 전체 CPU 테스트 **422개**가 통과했으며 부분 seed의 그룹 완료 주장·중복 seed·누락된 pending 조건·teacher 0 대체를 거부하는 검증을 포함한다. 전체 수락된 비교·추가 실험·실시간 측정 범위를 유지한다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/summarize_retained_lora_matrix.py --kind lora \
+  --data-root ../IPAD_dataset/IPAD_dataset --out results/stage04/retained_matrix_audit_R01_R02_R03_DINO_partial
+PYTHONPATH=src:scripts python scripts/plot_lora_completion.py \
+  --root results/stage04/retained_matrix_audit_R01_R02_R03_DINO_partial --data-root ../IPAD_dataset/IPAD_dataset \
+  --out docs/figures/stage04/primary_lora_completed14
+```

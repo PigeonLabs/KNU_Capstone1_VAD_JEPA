@@ -710,3 +710,28 @@ PYTHONPATH=src:scripts python scripts/report_cached_score_distributions.py \
   --out results/stage05/score_distributions/dinov3-l/offline/R03/seed1 \
   --figure docs/figures/stage05/score_distributions_dinov3-l_R03_offline_seed1
 ```
+
+## R03 두 seed를 포함한 전체 캐시 알람 재검증
+
+새 14조건 독립 감사와 연결해 **고정 백본 48조건 + 완료 LoRA 14조건 = 62조건**의 정상 q99·3-target streak·GT·P0–P3 raw/보정 점수·저장 알람을 기존 CPU 코드로 재검산했다. source **4,226개**와 실제 annotation **66개**의 hash를 확인했다. 기존 **60조건의 모든 영상별 결과와 20개 완결 세-seed 그룹**은 새 결과에서 정확히 동일하다. R03 DINOv3 seeds 0·1은 이미 게시된 개별 q99 결과와도 일치했다.
+
+| R03 DINOv3 오프라인 seed | 구간 탐지 고정→LoRA / 17 | 정상 경보 프레임 고정→LoRA / 6,641 | 정상 episode 시작 고정→LoRA |
+|---|---:|---:|---:|
+| 0 | 6→10 | 45→107 | 7→12 |
+| 1 | 6→10 | 44→30 | 7→10 |
+
+R03은 각 seed의 같은 **17개 테스트·11,563개 inference/유효 GT target(정상 6,641·이상 4,922·unknown 0개)**을 비교했다. 17개 관측 구간 중 10개는 경계가 불확실하다. Seed 0은 탐지와 정상 경보 프레임이 함께 늘었고, seed 1은 탐지가 늘며 정상 경보 프레임이 줄었지만 정상 episode 시작은 늘었다. 두 seed를 평균하거나 유리한 seed만 선택하지 않았다. 해당 ranking 차이의 두 paired CI는 각각 0을 포함하며, 이 알람 집계에는 CI를 산출하지 않았다.
+
+![현재 완결된 LoRA 네 그룹의 실제 개별 seed와 평균](figures/stage05/cached_R01_R02_R03_DINO_partial/cached_P3_lora_alarm_coverage.png)
+
+![고정 백본 전체 16그룹의 실제 개별 seed와 평균](figures/stage05/cached_R01_R02_R03_DINO_partial/cached_P3_frozen_alarm_coverage.png)
+
+그래프의 원은 exact seeds 0/1/2 평균, ×는 개별 seed이며 CI가 아니다. **고정 16그룹·LoRA 4그룹**만 그림의 평균에 포함하며 R03 LoRA 평균은 아직 없다. 각 정상 calibration q99를 유지했고 같은 cached target19..N-8에서 GT 필터 전에 streak·episode 시작을 계산했다. Unknown GT는 streak를 초기화하지 않는다. 이 결과는 실제 방출 시각·FPS·wall-clock 지연·온라인 EOF 탐지나 새 학습 결과를 뜻하지 않는다. R02/12·13·14의 미확정 정렬과 기존 18개 GT 제외 규칙을 유지했다.
+
+[새 62조건·20그룹의 영상별 결과와 source/annotation hash](../results/stage05/cached_alarm_coverage_R01_R02_R03_DINO_partial/cached_alarm_coverage.json), [연결된 14조건 독립 감사](../results/stage04/retained_matrix_audit_R01_R02_R03_DINO_partial/validation.json), [게시 검증](../results/setup/primary14_matrix_cached62_publication_check.json), PNG/SVG를 제공한다. 기존 54·57·60조건 snapshot과 개별 q99/점수 분포 결과를 모두 보존했다. 주 LoRA는 **14/48조건·4/16그룹**이며 전체 계획은 계속 진행 중이다. 원본 영상·특징 배열·모델은 업로드하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_cached_alarm_coverage.py \
+  --root results/stage04/retained_matrix_audit_R01_R02_R03_DINO_partial --data-root ../IPAD_dataset/IPAD_dataset \
+  --out results/stage05/cached_alarm_coverage_R01_R02_R03_DINO_partial --figures docs/figures/stage05/cached_R01_R02_R03_DINO_partial
+```
