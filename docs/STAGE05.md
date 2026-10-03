@@ -572,3 +572,35 @@ PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py \
   --out results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R02/seed2 \
   --figure docs/figures/stage05/cached_P3_vjepa21-l_R02_offline_seed2_pair
 ```
+
+## R02 V-JEPA의 세 seed 고정 임계값 알람 집계
+
+V-JEPA 2.1-L 오프라인 R02 seeds 0/1/2의 실제 전체 평가·독립 감사를 완료한 뒤, 기존 정상 calibration q99와 연속 3개 유효 target의 P3 알람을 재검산했다. 같은 15개 영상·유효 GT 9,210개(이상 2,949·정상 6,261), inference target 9,228개와 unknown GT 18개를 사용했다. 관측 구간 20개 중 7개 경계의 불확실성과 R02/12·13·14의 라벨 정렬 규칙을 유지했다.
+
+| 처리 | Seed | 탐지 / 20 | 구간 탐지율 | 정상 경보 / 6,261 | 정상 경보 비율 | 정상 episode 시작 |
+|---|---:|---:|---:|---:|---:|---:|
+| 고정 | 0 | 3 | 15.00% | 1 | 0.0160% | 1 |
+| 고정 | 1 | 7 | 35.00% | 3 | 0.0479% | 3 |
+| 고정 | 2 | 5 | 25.00% | 20 | 0.3194% | 8 |
+| 고정 | 평균 | 5.0000 | 25.00% | 8.0000 | 0.1278% | 4.0000 |
+| LoRA | 0 | 13 | 65.00% | 9 | 0.1437% | 4 |
+| LoRA | 1 | 3 | 15.00% | 20 | 0.3194% | 17 |
+| LoRA | 2 | 4 | 20.00% | 3 | 0.0479% | 3 |
+| LoRA | 평균 | 6.6667 | 33.33% | 10.6667 | 0.1704% | 8.0000 |
+
+평균 구간 탐지율은 **25.00→33.33%**로 늘었고 정상 경보 프레임 비율도 **0.1278→0.1704%**로 늘었다. Seed 0의 탐지 **3→13개**와 seed 1의 **7→3개**, seed 2의 **5→4개**를 함께 제공한다. 모든 seed에서 개선됐다고 해석하지 않는다. Seed 1의 정상 경보 **3→20프레임**과 seed 2의 **20→3프레임**을 보존한다. 평균은 고정 세 seed의 개별 지표를 산술 평균한 기술 통계이며 이 알람 집계에는 CI를 계산하지 않았다. 그래프의 ×는 개별 seed, 원은 평균이며 CI가 아니다.
+
+![완결된 LoRA 네 그룹의 개별 seed·평균](figures/stage05/cached_alarm_R01_R02_both_backbones/cached_P3_lora_alarm_coverage.png)
+
+![고정 백본 전체 장비·모드의 개별 seed·평균](figures/stage05/cached_alarm_R01_R02_both_backbones/cached_P3_frozen_alarm_coverage.png)
+
+[새 전체 60조건·20그룹의 영상별 결과·평균·source/annotation 해시](../results/stage05/cached_alarm_coverage_R01_R02_both_backbones/cached_alarm_coverage.json), [12조건 current/retained 독립 감사](../results/stage04/retained_matrix_audit_R01_R02_both_backbones/validation.json), [게시 검증 기록](../results/setup/R02_both_backbones_cached_alarm_publication_check.json)과 PNG/SVG를 제공한다. 고정 백본 48조건과 LoRA 12조건을 구분했다. 이전 54조건·57조건 snapshot과 모든 단일 seed 데이터·그래프를 보존한다. 주 LoRA 정확도는 **12/48조건·4/16그룹**으로 유지한다.
+
+GT 구간 안의 알람 target로 관측 구간 탐지를 계산하며 앞에서 시작해 이어진 알람도 포함한다. 정상 episode 시작은 unknown GT 필터 전 전체 알람에서 계산하고 unknown GT는 streak를 초기화하지 않는다. 같은 cached target19..N-8 결과다. 온라인 캐시 조건 역시 운영 중 EOF 탐지나 실제 FPS·방출 시각·wall-clock 지연을 입증하지 않는다. R02 ranking의 두 백본 paired CI와 이 고정 임계값의 탐지·정상 경보를 구분한다. 테스트 기반 임계값 재선택·점수 부호 변경·유리한 seed 선택을 하지 않았다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/report_cached_alarm_coverage.py \
+  --root results/stage04/retained_matrix_audit_R01_R02_both_backbones \
+  --data-root ../IPAD_dataset/IPAD_dataset \
+  --out results/stage05/cached_alarm_coverage_R01_R02_both_backbones --figures docs/figures/stage05/cached_alarm_R01_R02_both_backbones
+```
