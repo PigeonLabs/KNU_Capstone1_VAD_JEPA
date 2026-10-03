@@ -1,0 +1,62 @@
+{
+  "status": "rendered_from_fresh_mixed_sources_and_paired_backbone_statistic_replay",
+  "matrix_complete": false,
+  "matched_backbone_groups": 1,
+  "validation_sha256": "bdf1e93bf8d01a8e0ce8000f4a169fa4835de333eabb4a935532494fcb2f6362",
+  "summary_sha256": "371fdf531e9497699f46cbfa8854b99c800273d8739de4d3762630fbb1b43b21",
+  "plot_code_sha256": "cf79fb39f3a95044da48e5cbff983e930151a73ff4013c876f1899267303b54a",
+  "figures": {
+    "lora_backbone_offline_R01.png": "0831ffb82016014e980490eb6db1bddcb7304e08a8b0394455727819b65087a0",
+    "lora_backbone_offline_R01.svg": "3468c8f965be3f6ab573a5e6aba7352193d5b18a5039af19537a354f472edb14"
+  },
+  "source_sha256": {
+    "scripts/plot_lora_backbone_comparison.py": "cf79fb39f3a95044da48e5cbff983e930151a73ff4013c876f1899267303b54a",
+    "scripts/plot_retained_lora.py": "eac814d12fc13921060ca0e7c18f1031df53f29f4b4deef7b5e75614a1e6f72d",
+    "scripts/plot_lora_matrix.py": "23e73ecb4d850a1393ef17e3327b1fe82e1b255feaa710c60353acf53ff82213",
+    "scripts/plot_neighbour_ablation.py": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "scripts/lora_reporting.py": "0a5bb5ebcdd864cf9f0fe05065a1a11a8007f8d8baf2517bac4a2e0c2d59f3bc"
+  },
+  "paired_statistic_replay": [
+    {
+      "backbone": "vjepa21-l_minus_dinov3-l",
+      "mode": "offline",
+      "comparison": "F_P3_backbone",
+      "auroc_delta": -0.09436756894229703,
+      "auroc_delta_ci_low": -0.1821382116601688,
+      "auroc_delta_ci_high": -0.006387721466870313,
+      "ap_delta": -0.0437583245502548,
+      "ap_delta_ci_low": -0.08670327113753966,
+      "ap_delta_ci_high": -0.001680303989182964,
+      "device": "R01",
+      "bootstrap_rejected": 0
+    },
+    {
+      "backbone": "vjepa21-l_minus_dinov3-l",
+      "mode": "offline",
+      "comparison": "L_P0_backbone",
+      "auroc_delta": -0.36355038445633053,
+      "auroc_delta_ci_low": -0.5626291710453447,
+      "auroc_delta_ci_high": -0.16449658626644814,
+      "ap_delta": -0.24940029705703104,
+      "ap_delta_ci_low": -0.4109846460831807,
+      "ap_delta_ci_high": -0.05266420712851018,
+      "device": "R01",
+      "bootstrap_rejected": 0
+    },
+    {
+      "backbone": "vjepa21-l_minus_dinov3-l",
+      "mode": "offline",
+      "comparison": "L_P3_backbone",
+      "auroc_delta": -0.4223733459024516,
+      "auroc_delta_ci_low": -0.5130008692686556,
+      "auroc_delta_ci_high": -0.3332751920275506,
+      "ap_delta": -0.41764317865870704,
+      "ap_delta_ci_low": -0.5026061892510881,
+      "ap_delta_ci_high": -0.29444455220195975,
+      "device": "R01",
+      "bootstrap_rejected": 0
+    }
+  ],
+  "limits": "Audited complete three-seed pairs only; partial device results are not Macro4. No new training, encoder replay, runtime measurement, or seed resampling; final PNG inspection required."
+}
