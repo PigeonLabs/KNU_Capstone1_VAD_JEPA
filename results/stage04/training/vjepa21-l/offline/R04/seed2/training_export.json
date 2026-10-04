@@ -1,0 +1,16 @@
+{
+  "status": "complete_training_export",
+  "backbone": "vjepa21-l",
+  "mode": "offline",
+  "device": "R04",
+  "seed": 2,
+  "teacher_weight": 1.0,
+  "epochs": 20,
+  "training_metadata_sha256": "5fa47e0bcc767514ae77410173d0aac0993a773c58204c4bcb1258ccbc6b9f2a",
+  "training_curve_sha256": "9fceb5c07bcc1f3a5ee6c5217b9d7449bd47068126cf8f80897260173fd59e77",
+  "selected_checkpoint_sha256": "1415a547a36156a9c33bd3ea024ec1feb72687b8e28f4cadab632f83a3556e1f",
+  "selected_epoch": 19,
+  "selected_normal_calibration_circular_mae": 0.12495144989338909,
+  "exporter_sha256": "a894deea7010e53390d718516f9ad3d396dda8aaf7c20ddbe0d4e4cc938b90b7",
+  "scope": "Actual complete 20-epoch normal-only training, selected checkpoint protocol and fixed normal-CE selection verified; no checkpoint export or accuracy/runtime claim."
+}
