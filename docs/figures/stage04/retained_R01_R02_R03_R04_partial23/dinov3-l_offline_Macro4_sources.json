@@ -1,0 +1,23 @@
+{
+  "status": "rendered_actual_complete_DINO_offline_Macro4_with_global_matrix_incomplete",
+  "global_matrix_complete": false,
+  "global_completed_conditions": 23,
+  "plotted_complete_model_mode": [
+    "dinov3-l",
+    "offline"
+  ],
+  "devices": 4,
+  "seeds": 3,
+  "validation_sha256": "a303021dd8ca7f88733b984800f7175d9429433d6dc302ad719d394e11d9dc4d",
+  "macro_summary_sha256": "d82bccd9d88c0194f71c6f5ca39cb60d1e4e87a2e8885cc4d06a13f405a24115",
+  "plot_code_sha256": "eaef84f91c1c6795230c97d966ca1463aa9ed4d8d7fb697faebe3de996f95316",
+  "original_verifier_sha256": {
+    "scripts/plot_retained_lora.py": "eac814d12fc13921060ca0e7c18f1031df53f29f4b4deef7b5e75614a1e6f72d",
+    "scripts/plot_lora_matrix.py": "23e73ecb4d850a1393ef17e3327b1fe82e1b255feaa710c60353acf53ff82213"
+  },
+  "figures": {
+    "dinov3-l_offline_Macro4.png": "cbaa8c8838c1e93d1e7f8fc88ed3cc79684466c9824dfe0a6249556c06ab033b",
+    "dinov3-l_offline_Macro4.svg": "81e09613cd34ead714f5bf666021f3aae4abd63799cc4481d4bfb7f5e59e2f37"
+  },
+  "root_PNG_review_required": true
+}
