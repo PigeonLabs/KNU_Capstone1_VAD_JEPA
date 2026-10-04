@@ -1015,3 +1015,22 @@ PYTHONPATH=src:scripts python scripts/report_cached_score_distributions.py --aud
 ![완결 고정 백본 그룹과 개별 seed 알람](figures/stage05/cached_R01_R02_R03_R04_partial24/cached_P3_frozen_alarm_coverage.png)
 
 정상 전용 q99·3-target streak를 유지했으며 unknown에서 streak를 초기화하지 않는다. 자체 보정과 점수 공간이 다르므로 q99 크기를 원인이나 성능으로 비교하지 않는다. 공통 GT mask의 target-index cached 경보이며 실제 FPS·wall-clock 지연·방출 시각·온라인 EOF 성능을 뜻하지 않는다. Alarm 그룹 평균에는 새 CI를 계산하지 않았다. [72조건·24그룹과 영상별 결과](../results/stage05/cached_alarm_coverage_R01_R02_R03_R04_partial24/cached_alarm_coverage.json), [단일 pair 감사](../results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R04/seed2/cached_alarm_pair.json), [점수 분포](../results/stage05/score_distributions/vjepa21-l/offline/R04/seed2/score_distributions.json), [게시 검증](../results/setup/primary24_VJ_R04_seed2_matrix_cached72_publication_check.json)을 제공한다. 원 CPU 보고 7개·별도 CPU Macro4 renderer(그림 3개)·원 평가 plot의 실제 종료 코드 0과 총 PNG 22개 직접 검토를 확인한 뒤 게시한다.
+
+## DINOv3 R01 온라인 seed 0을 포함한 전체 73조건의 캐시 알람 재검증
+
+정상 calibration의 고정 q99와 **3프레임 연속 초과** 규칙을 유지했다. 각 조건의 자체 threshold를 사용하고 테스트 결과로 재조정하지 않았다. 전체 **73조건=고정 48+LoRA 25**, 완결 세-seed 알람 그룹 **24개**를 실제 CSV·정상 보정·GT로 재검증했다.
+
+| P3 · 온라인 R01 seed 0 | 탐지 구간 / 관측 구간 | 정상 알람 프레임 / 정상 GT | 정상 알람 시작 횟수 |
+|---|---:|---:|---:|
+| frozen | 1 / 8 | 14 / 2068 | 4 |
+| lora | 7 / 8 | 79 / 2068 | 36 |
+
+관측 이상 구간 탐지는 **1/8 → 7/8**로 늘었으며, 정상 알람 프레임도 **14 → 79/2068개**로 증가했다. 정상 알람 시작은 **4 → 36회**다. 구간 탐지와 정상 오탐을 함께 평가해야 하며 실시간 지연·큐 검증은 별도로 남아 있다.
+
+![같은 seed의 관측 구간·정상 알람 비교](figures/stage05/dinov3-l_R01_online_seed0_single_cached_alarm_pair.png)
+
+![자체 q99와 정상·이상 점수 분포](figures/stage05/dinov3-l_R01_online_seed0_score_distributions.png)
+
+관측 구간은 공통 GT mask의 구간이다. 구간 밖 범위·불확실 경계는 [전체 알람 감사](../results/stage05/cached_alarm_coverage/single_seed/dinov3-l/online/R01/seed0/cached_alarm_pair.json)에 보존했다. [정상·이상 ECDF와 threshold 초과·실제 저장 알람 구분](../results/stage05/score_distributions/dinov3-l/online/R01/seed0/score_distributions.json), [전체 73조건·24그룹의 재검증](../results/stage05/cached_alarm_coverage_R01_R02_R03_R04_partial25)과 [그림 출처 PNG/SVG](figures/stage05/cached_R01_R02_R03_R04_partial25)를 제공한다.
+
+캐시의 target frame 알람을 측정된 wall-clock 지연이나 카메라 FPS로 해석하지 않는다. 온라인 실시간의 EOF 처리·큐·전체 지연·정상 오탐은 별도 실행으로 비교한다. 원본 영상·모델·특징 배열·optimizer는 업로드하지 않는다.

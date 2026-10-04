@@ -1600,3 +1600,26 @@ MAE 최솟값으로 재선택하지 않았다. 원 source-bound pipeline은 실�
 PYTHONPATH=src:scripts python scripts/export_lora_training.py --run artifacts/lora/dinov3-l/online/R01/seed0 --out results/stage04/training/dinov3-l/online/R01/seed0
 PYTHONPATH=src:scripts python scripts/plot_lora_training.py --results results/stage04/training/dinov3-l/online/R01/seed0 --out docs/figures/stage04/dinov3-l_R01_online_seed0_joint_training
 ```
+
+## DINOv3 R01 온라인 seed 0의 전체 평가와 완료된 25조건 집계
+
+정상 fit 23개·calibration 5개·실제 test 15개의 **43개 영상**을 정상 CE로 선택한 epoch **20** encoder로 재추출했다. 진단 6개를 제외하고 새 PCA·프로토타입 메모리·정상 보정을 구성했다. 원 fresh **20 epoch·3,340 updates** 및 모든 15개 테스트의 원 프로세스 종료 코드 0·독립 감사를 확인했다. 공통 유효 GT **3,295개(이상 1,227·정상 2,068)**에서 같은 seed의 고정 백본과 비교했다.
+
+| 점수 · 온라인 R01 seed 0 | 고정 AUROC / AP (%) | LoRA AUROC / AP (%) | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|---:|---:|
+| P0 | 83.07 / 63.18 | 71.93 / 52.23 | -11.14 [-21.41, -0.74] | -10.95 [-26.65, +2.63] |
+| P1 | 56.59 / 37.15 | 71.60 / 59.21 | +15.01 [-1.32, +27.02] | +22.07 [+5.95, +35.94] |
+| P2 | 54.89 / 35.85 | 71.88 / 60.65 | +16.99 [-0.22, +30.05] | +24.80 [+5.70, +40.36] |
+| P3 | 53.94 / 36.11 | 77.40 / 69.28 | +23.46 [+14.16, +32.19] | +33.17 [+16.54, +45.37] |
+
+![실제 P3 정확도·ROC/PR·paired CI](figures/stage04/dinov3-l_R01_online_seed0_lora_evaluation.png)
+
+![사전에 고정한 영상 03의 점수·알람](figures/stage04/dinov3-l_R01_online_seed0_lora_sequence03.png)
+
+P3 차이의 두 CI는 양수다. P0 AUROC 차이의 CI는 음수이고 AP는 0을 포함한다. P1·P2 AUROC 차이의 CI는 0을 포함하고 AP 차이의 CI는 양수다. CI는 **단일 고정 seed의 영상 단위 paired bootstrap 1,000회**이며 학습 seed 불확실성은 포함하지 않는다. [전체 CSV·지표·paired CI](../results/stage04/dinov3-l/online/R01/seed0), [완료 증거](../results/stage04/condition_pipeline_checks/dinov3-l/online/R01/seed0/pipeline_completion.json), [독립 감사](../results/stage04/condition_pipeline_checks/T1/dinov3-l/online/R01/seed0/condition_audit.json)를 제공한다.
+
+전체 **25/48조건·8/16 세-seed 그룹**과 정상 임계값 **200개**를 재검증했다. 남은 주 실험은 **온라인 23조건**이다. 새 온라인 seed 0 하나가 세-seed 평균을 만들지는 않는다. 이전 장비 평균 64개·paired 비교 72개 및 오프라인 Macro4 평균 16개·paired 비교 18개가 새 snapshot과 수치상 같음을 확인했다. 기존 Macro4 그래프는 원래 24조건 snapshot의 제목과 출처를 보존했다.
+
+![25조건 완료와 나머지 23조건](figures/stage04/primary_lora_completed25.png)
+
+[새 25조건 행렬·출처](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial25), [세-seed·백본 비교 PNG/SVG](figures/stage04/retained_R01_R02_R03_R04_partial25), [검증·직접 PNG 검토·게시 근거](../results/setup/primary25_DINO_R01_online_seed0_matrix_cached73_publication_check.json)를 제공한다. 온라인 seed 1·2, 나머지 장비·백본, teacher 0/1·IPAD 기준선·OFAT·진단·실시간 비교를 계속 수행한다.
