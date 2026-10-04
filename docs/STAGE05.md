@@ -996,3 +996,22 @@ PYTHONPATH=src:scripts python scripts/report_cached_score_distributions.py --aud
 ![완결 고정 백본 그룹과 개별 seed 알람](figures/stage05/cached_R01_R02_R03_R04_partial23/cached_P3_frozen_alarm_coverage.png)
 
 정상 전용 q99·3-target streak를 유지했으며 unknown에서 streak를 초기화하지 않는다. 자체 보정과 점수 공간이 다르므로 q99 크기를 원인이나 성능으로 비교하지 않는다. 공통 GT mask의 target-index cached 경보이며 실제 FPS·wall-clock 지연·방출 시각·온라인 EOF 성능을 뜻하지 않는다. Alarm 그룹 평균에는 새 CI를 계산하지 않았다. [71조건·23그룹과 영상별 결과](../results/stage05/cached_alarm_coverage_R01_R02_R03_R04_partial23/cached_alarm_coverage.json), [단일 pair 감사](../results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R04/seed1/cached_alarm_pair.json), [점수 분포](../results/stage05/score_distributions/vjepa21-l/offline/R04/seed1/score_distributions.json), [게시 검증](../results/setup/primary23_VJ_R04_seed1_matrix_cached71_publication_check.json)을 제공한다. 원 CPU 보고 7개·별도 CPU Macro4 plot·원 평가 plot의 실제 종료 코드 0과 총 PNG 18개 직접 검토를 확인한 뒤 게시한다.
+
+## V-JEPA R04 seed 2를 포함한 전체 72조건의 캐시 알람 재검증
+
+고정 **48 + LoRA 24 = 72조건**, 완결 세-seed **24그룹(고정 16·LoRA 8)**을 실제 정상 보정·GT·점수·알람으로 재검산했다. 기존 **71조건·23그룹**을 보존하고 V-JEPA R04 seed 2의 LoRA 조건 하나와 완결 R04 세-seed 그룹 하나를 추가했다.
+
+| V-JEPA R04 seed 2 P3 | 원 정상 q99 | 탐지 구간 / 전체 | 정상 경보 프레임 / 3,159 | 정상 경보 시작 |
+|---|---:|---:|---:|---:|
+| 고정 | 4.751672 | 12 / 26 | 11 | 4 |
+| LoRA | 13.118858 | 6 / 26 | 1 | 1 |
+
+![단일 seed의 고정 q99 탐지와 정상 오탐](figures/stage05/vjepa21-l_R04_offline_seed2_single_cached_alarm_pair.png)
+
+![각 조건 자체 점수 공간의 ECDF·q99 통과와 경보](figures/stage05/vjepa21-l_R04_offline_seed2_score_distributions.png)
+
+![완결 LoRA 그룹과 개별 seed 알람](figures/stage05/cached_R01_R02_R03_R04_partial24/cached_P3_lora_alarm_coverage.png)
+
+![완결 고정 백본 그룹과 개별 seed 알람](figures/stage05/cached_R01_R02_R03_R04_partial24/cached_P3_frozen_alarm_coverage.png)
+
+정상 전용 q99·3-target streak를 유지했으며 unknown에서 streak를 초기화하지 않는다. 자체 보정과 점수 공간이 다르므로 q99 크기를 원인이나 성능으로 비교하지 않는다. 공통 GT mask의 target-index cached 경보이며 실제 FPS·wall-clock 지연·방출 시각·온라인 EOF 성능을 뜻하지 않는다. Alarm 그룹 평균에는 새 CI를 계산하지 않았다. [72조건·24그룹과 영상별 결과](../results/stage05/cached_alarm_coverage_R01_R02_R03_R04_partial24/cached_alarm_coverage.json), [단일 pair 감사](../results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R04/seed2/cached_alarm_pair.json), [점수 분포](../results/stage05/score_distributions/vjepa21-l/offline/R04/seed2/score_distributions.json), [게시 검증](../results/setup/primary24_VJ_R04_seed2_matrix_cached72_publication_check.json)을 제공한다. 원 CPU 보고 7개·별도 CPU Macro4 renderer(그림 3개)·원 평가 plot의 실제 종료 코드 0과 총 PNG 22개 직접 검토를 확인한 뒤 게시한다.

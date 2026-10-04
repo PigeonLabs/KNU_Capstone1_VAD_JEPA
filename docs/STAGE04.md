@@ -1529,3 +1529,55 @@ MAE 최솟값으로 재선택하지 않았다. 원 source-bound pipeline은 실�
 PYTHONPATH=src:scripts python scripts/export_lora_training.py --run artifacts/lora/vjepa21-l/offline/R04/seed2 --out results/stage04/training/vjepa21-l/offline/R04/seed2
 PYTHONPATH=src:scripts python scripts/plot_lora_training.py --results results/stage04/training/vjepa21-l/offline/R04/seed2 --out docs/figures/stage04/vjepa21-l_R04_offline_seed2_joint_training
 ```
+
+## V-JEPA R04 오프라인 seed 2의 전체 평가와 완료된 24조건 집계
+
+원 fresh 정상-only **20 epoch·4,000 updates**, 정상 calibration CE 최소 epoch **19**으로 선택한 encoder/head를 사용했다. Fit **17**·calibration **4**·실제 test **19**의 **40개 영상**을 재추출하고 PCA·프로토타입 메모리·정상 보정을 새로 구성했다. 진단용 정상 **4개**를 제외했으며 모든 **19개 테스트·7,660개 유효 GT(이상 4,501개)**를 같은 seed의 고정 백본과 비교했다. 원 세 단계 및 wrapper 실제 종료 코드 0과 독립 감사를 확인했다.
+
+| 점수 · R04 seed 2 | 고정 AUROC / AP (%) | LoRA AUROC / AP (%) | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|---:|---:|
+| P0 | 66.21 / 73.55 | 67.06 / 73.44 | +0.85 [-2.43, +4.50] | -0.11 [-2.87, +3.60] |
+| P1 | 75.19 / 77.89 | 72.37 / 75.43 | -2.83 [-6.04, +0.09] | -2.46 [-4.89, +0.01] |
+| P2 | 75.49 / 78.68 | 71.32 / 74.84 | -4.17 [-7.71, -0.71] | -3.84 [-6.70, -1.05] |
+| P3 | 74.07 / 75.57 | 64.56 / 67.83 | -9.51 [-11.95, -7.23] | -7.74 [-11.46, -4.19] |
+
+![V-JEPA R04 seed 2의 실제 평가·ROC/PR·paired CI](figures/stage04/vjepa21-l_R04_offline_seed2_lora_evaluation.png)
+
+![사전에 고정한 영상 03의 점수·알람 궤적](figures/stage04/vjepa21-l_R04_offline_seed2_lora_sequence03.png)
+
+Seed 2 P3 AUROC/AP 차이 CI는 **음수/음수**다. 단일 고정 seed의 1,000회 영상 단위 paired percentile 95% CI이며 seed를 재표집하지 않았다. [개별 CSV·P0–P3·paired CI](../results/stage04/vjepa21-l/offline/R04/seed2), [조건 감사](../results/stage04/condition_pipeline_checks/T1/vjepa21-l/offline/R04/seed2/condition_audit.json), [원 완료 증거](../results/stage04/condition_pipeline_checks/vjepa21-l/offline/R04/seed2/pipeline_completion.json)를 제공한다.
+
+전체 **24/48조건·8/16 세-seed 그룹**을 독립 재검산하고 정상 임계값 **192개**를 확인했다. 현재 배열 **23조건**과 승인된 배열 정리 증거 **1조건**을 구분했다. 이전 **56개 장비 평균·59개 paired 비교**, **8개 DINOv3 오프라인 Macro4 평균·5개 paired 비교**를 보존했다. 새 snapshot은 **64개 장비 평균·72개 paired 비교**, **16개 Macro4 평균·18개 paired 비교**, 완결 백본 장비 쌍 **4개**를 포함한다.
+
+V-JEPA R04 세-seed P3 AUROC/AP는 고정 **71.24/73.66% → LoRA 61.69/65.84%**다. LoRA−고정 차이는 AUROC **-9.55 [-12.83, -7.17]pp**, AP **-7.81 [-12.43, -3.55]pp**이며 CI는 **음수/음수**다. R04 LoRA P3 V-JEPA−DINOv3 차이는 AUROC **-13.00 [-16.60, -9.52]pp**, AP **-11.54 [-15.29, -7.52]pp**다.
+
+![완료된 24조건과 남은 온라인 24조건](figures/stage04/primary_lora_completed24.png)
+
+두 백본 모두 오프라인 네 장비·세 seeds가 완결됐다. Macro4는 네 장비별 세-seed 평균의 동일 가중치 평균이며 프레임이나 점수를 합치지 않았다. 장비 안에서 영상 단위로 독립 재표집하고 비교 조건에는 같은 영상 draw를 사용한 1,000회 percentile 95% CI다. Seed 불확실성을 나타내는 CI는 아니다.
+
+| 오프라인 Macro4 | 고정 P3 AUROC / AP (%) | LoRA P3 AUROC / AP (%) | P3 차이 AUROC [95% CI], pp | P3 차이 AP [95% CI], pp |
+|---|---:|---:|---:|---:|
+| DINOv3-L | 64.15 / 55.10 | 75.11 / 68.84 | +10.96 [+9.12, +13.08] | +13.74 [+9.98, +17.04] |
+| V-JEPA 2.1-L | 55.59 / 47.14 | 53.45 / 46.80 | -2.15 [-4.06, -0.32] | -0.34 [-2.22, +1.28] |
+
+| V-JEPA − DINOv3 · Macro4 | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|
+| F_P3 | -8.56 [-12.68, -4.11] | -7.96 [-12.24, -2.86] |
+| L_P0 | -17.63 [-24.70, -10.06] | -15.95 [-22.19, -7.83] |
+| L_P3 | -21.67 [-25.08, -18.17] | -22.04 [-26.22, -16.25] |
+
+![DINOv3 오프라인 동일 가중치 Macro4](figures/stage04/retained_R01_R02_R03_R04_partial24/dinov3-l_offline_Macro4.png)
+
+![V-JEPA 오프라인 동일 가중치 Macro4](figures/stage04/retained_R01_R02_R03_R04_partial24/vjepa21-l_offline_Macro4.png)
+
+![동일 장비·seed·GT에서 두 백본의 오프라인 Macro4 비교](figures/stage04/retained_R01_R02_R03_R04_partial24/offline_Macro4_backbone_comparison.png)
+
+온라인 LoRA·teacher 비교·실시간 비교는 남아 있으며 전체 행렬 완료 flag는 false다. [24조건 감사와 24 pending](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial24/validation.json), [세-seed 평균·paired CI](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial24/device_summary.json), [두 백본 Macro4·paired CI](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial24/macro_summary.json), [게시 검증](../results/setup/primary24_VJ_R04_seed2_matrix_cached72_publication_check.json)을 제공한다. 그림별 source JSON은 같은 폴더에 있으며 [그림 코드](../scripts/plot_partial_lora_macro4_partial24.py)와 [입력 조건](../results/setup/offline_Macro4_partial24_semantic_requirements.json)으로 별도 출력 폴더에서 재현할 수 있다.
+
+```bash
+mkdir -p artifacts/tmp
+cp results/setup/offline_Macro4_partial24_semantic_requirements.json artifacts/tmp/R04_completed24_reporting_semantic_read_only_preparation.json
+PYTHONPATH=src:scripts python scripts/plot_partial_lora_macro4_partial24.py --root results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial24 --out docs/figures/stage04/offline_Macro4_partial24_rerun
+```
+
+이전 snapshot과 실제 통계를 보존한다. 원본·모델·특징·optimizer 파일을 업로드하지 않으며 나머지 온라인/오프라인·teacher 0/1·IPAD 기준선·OFAT·진단·실시간 비교를 유지한다.

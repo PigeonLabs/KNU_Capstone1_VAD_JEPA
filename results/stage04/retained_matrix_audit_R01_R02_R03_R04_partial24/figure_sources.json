@@ -1,0 +1,26 @@
+{
+  "status": "rendered_from_fresh_mixed_condition_and_statistic_replay",
+  "kind": "lora",
+  "matrix_complete": false,
+  "validation_sha256": "5a507c9bdc5cf859cf43c13cd17b77b8bdf240c37035482957c7b89779fd73cf",
+  "plot_code_sha256": "eac814d12fc13921060ca0e7c18f1031df53f29f4b4deef7b5e75614a1e6f72d",
+  "figures": {
+    "retained_lora_dinov3-l_offline_R01.png": "aa63114ad482d3e3421c4e14b1d81a0a099002124dab9a59823be1fb7e628b1f",
+    "retained_lora_dinov3-l_offline_R01.svg": "f120b1ebdedfbe1326ae0188614a8cbffee02d95599ccf9c933873b575ed9782",
+    "retained_lora_dinov3-l_offline_R02.png": "1a40fece280391034a9bab26205d6f5df3c84b19c5f1faf49652a769a3acb248",
+    "retained_lora_dinov3-l_offline_R02.svg": "6a0c9ece68426a443ddca031b02c734b6bf2c841d92020db77334c259c2e07d4",
+    "retained_lora_dinov3-l_offline_R03.png": "a3cc7f9580218cb8c2e90f4e76b37d007dbf133c103191aff8ef7f6796db6099",
+    "retained_lora_dinov3-l_offline_R03.svg": "1eedcba77b630f8c5765fc0390be3301abed8e35d25fc9b163ca8aa5c8495a9d",
+    "retained_lora_dinov3-l_offline_R04.png": "e68c904ae94bcddb7d11a51a110bf58b0500cd9bb4f1283a7c13ccf9f09b6961",
+    "retained_lora_dinov3-l_offline_R04.svg": "21dfb1a6da017913cc729fc7391a1721ed50e632eb5637421e555e35a14c9132",
+    "retained_lora_vjepa21-l_offline_R01.png": "7292e81f6d38e275487756a482bb3f3902e5b475b1f3ac837c9ebf3911b149d9",
+    "retained_lora_vjepa21-l_offline_R01.svg": "4b9167505081f06dc2de73fccf6d256bb0bab55def95ceb30acc519ef2cfaff6",
+    "retained_lora_vjepa21-l_offline_R02.png": "cfb30669d7c985ab06b04489e093f7c3eb49be94bb3255a7be10928388370b92",
+    "retained_lora_vjepa21-l_offline_R02.svg": "390903487658afb3095c62282851ccd51c337739d1627ec7503610fecb91b3ed",
+    "retained_lora_vjepa21-l_offline_R03.png": "9caf3fc694c89d8694d01bdbe5eaa2420cc65179838dc53c6a46b477266fb4f4",
+    "retained_lora_vjepa21-l_offline_R03.svg": "22e53348093d8663f9bd6edc6026aeb6df99cb34bb0e5df777f186d521676ed5",
+    "retained_lora_vjepa21-l_offline_R04.png": "4fa54596f9538bdf20c186cc6f8519336e877ced833f8c194bc16554c57fd31b",
+    "retained_lora_vjepa21-l_offline_R04.svg": "7dc174a1ead9e3590ff29ffb0681a6b94565e9545eb873a0d1f27ae8da7dcffe"
+  },
+  "limits": "Historical payload checks remain explicitly labelled; actual complete three-seed groups only. Final PNG review required."
+}
