@@ -1360,3 +1360,45 @@ MAE 최솟값으로 재선택하지 않았다. 원 source-bound pipeline은 실�
 PYTHONPATH=src:scripts python scripts/export_lora_training.py --run artifacts/lora/dinov3-l/offline/R04/seed2 --out results/stage04/training/dinov3-l/offline/R04/seed2
 PYTHONPATH=src:scripts python scripts/plot_lora_training.py --results results/stage04/training/dinov3-l/offline/R04/seed2 --out docs/figures/stage04/dinov3-l_R04_offline_seed2_joint_training
 ```
+
+## DINOv3 R04 세-seed와 오프라인 Macro4의 완료된 21조건 집계
+
+원 fresh 정상-only **20 epoch·4,000 updates**, 정상 calibration CE 최소 epoch **17**으로 선택한 encoder/head를 사용했다. Fit **17**·calibration **4**·실제 test **19**의 **40개 영상**을 재추출하고 PCA·프로토타입 메모리·정상 보정을 새로 구성했다. 진단용 정상 **4개**를 제외했으며 모든 **19개 테스트·7,660개 유효 GT(이상 4,501개)**를 같은 seed 고정 백본과 비교했다. 원 세 단계 및 wrapper의 실제 종료 코드 0과 tensor·메모리·정상 임계값·GT·시간·점수·알람의 독립 감사를 확인했다.
+
+| 점수 | 고정 AUROC / AP (%) | LoRA AUROC / AP (%) | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|---:|---:|
+| P0 | 69.38 / 74.01 | 77.60 / 79.18 | +8.22 [+4.93, +12.41] | +5.17 [+2.08, +7.74] |
+| P1 | 71.65 / 72.04 | 75.23 / 79.00 | +3.58 [-1.41, +9.42] | +6.96 [+0.94, +12.47] |
+| P2 | 72.87 / 73.00 | 76.82 / 80.21 | +3.95 [-1.23, +9.74] | +7.20 [+1.32, +12.83] |
+| P3 | 69.36 / 70.29 | 74.70 / 77.36 | +5.34 [+1.23, +9.75] | +7.07 [+2.41, +11.54] |
+
+![R04 seed 2의 실제 평가·ROC/PR·paired CI](figures/stage04/dinov3-l_R04_offline_seed2_lora_evaluation.png)
+
+![사전에 고정한 영상 03의 점수·알람 궤적](figures/stage04/dinov3-l_R04_offline_seed2_lora_sequence03.png)
+
+P3 AUROC/AP 차이 CI는 **양수/양수**다. [개별 CSV·P0–P3·paired CI](../results/stage04/dinov3-l/offline/R04/seed2), [조건 감사](../results/stage04/condition_pipeline_checks/T1/dinov3-l/offline/R04/seed2/condition_audit.json), [원 완료 증거](../results/stage04/condition_pipeline_checks/dinov3-l/offline/R04/seed2/pipeline_completion.json)를 제공한다.
+
+전체 **21/48조건·7/16 세-seed 그룹**을 독립 재검산하고 정상 임계값 **168개**를 확인했다. 현재 배열 **20조건**과 승인된 배열 정리 증거 **1조건**을 구분했다. 기존 **48개 평균 행·54개 paired 비교**를 보존하고 R04의 **8개 평균 행·5개 paired 비교**를 추가해 **56/59행**이 됐다. 백본 쌍은 기존 **3개**를 유지한다.
+
+| 범위 · 세-seed 평균 | 고정 P3 AUROC / AP (%) | LoRA P3 AUROC / AP (%) | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|---:|---:|
+| R04 | 69.08 / 70.26 | 74.69 / 77.38 | +5.60 [+2.84, +8.89] | +7.13 [+3.65, +10.82] |
+| 동일 가중치 Macro4 | 64.15 / 55.10 | 75.11 / 68.84 | +10.96 [+9.12, +13.08] | +13.74 [+9.98, +17.04] |
+
+![완료된 DINOv3 R04 세-seed 평균과 paired CI](figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_dinov3-l_offline_R04.png)
+
+![DINOv3 오프라인 동일 가중치 Macro4와 paired CI](figures/stage04/retained_R01_R02_R03_R04_partial21/dinov3-l_offline_Macro4.png)
+
+Macro4는 네 장비별 세-seed 평균의 동일 가중치 평균이다. 프레임이나 점수를 합치지 않았으며 장비 안에서 영상 단위로 독립 재표집하고 비교 조건에는 같은 영상 draw를 사용했다. 1,000회 percentile 95% CI이고 seed 자체는 재표집하지 않았다. **DINOv3 오프라인에만** 네 장비·세 seeds가 완결됐다. V-JEPA R04와 온라인 LoRA는 남아 있으며 전체 행렬의 완료 flag는 false다.
+
+![완료된 21조건과 남은 27조건](figures/stage04/primary_lora_completed21.png)
+
+[21조건 감사와 27 pending](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/validation.json), [세-seed 평균·paired CI](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/device_summary.json), [DINOv3 Macro4·V-JEPA 미완료 장비](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/macro_summary.json), [Macro4 그림 source](../docs/figures/stage04/retained_R01_R02_R03_R04_partial21/dinov3-l_offline_Macro4_sources.json), [게시 검증](../results/setup/primary21_DINO_R04_seed2_matrix_cached69_publication_check.json)을 제공한다. 실제 그림 생성에 사용한 [코드](../scripts/plot_partial_lora_macro4.py)와 [입력 조건](../results/setup/DINO_offline_Macro4_partial21_semantic_requirements.json)을 공개하며 별도 출력 stem으로 재현할 수 있다.
+
+```bash
+mkdir -p artifacts/tmp
+cp results/setup/DINO_offline_Macro4_partial21_semantic_requirements.json artifacts/tmp/R04_completed21_reporting_semantic_read_only_preparation.json
+PYTHONPATH=src:scripts python scripts/plot_partial_lora_macro4.py --root results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21 --out docs/figures/stage04/dinov3_offline_Macro4_rerun
+```
+
+이전 snapshot을 보존한다. 원본·모델·특징·optimizer 파일을 업로드하지 않으며 나머지 온라인/오프라인·teacher 0/1·IPAD 기준선·OFAT·진단·실시간 비교를 유지한다.

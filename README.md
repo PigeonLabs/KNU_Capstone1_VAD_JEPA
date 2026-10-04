@@ -6,7 +6,7 @@
 
 ## 핵심 결과
 
-고정 백본 **48/48조건**과 네 장비 Macro4 비교를 완료했다. 주 LoRA는 **20/48조건·6/16 세-seed 그룹**을 검증했다. 아래 정확도는 AUROC / AP (%)이며, 같은 장비·seed·GT target에서 비교한다.
+고정 백본 **48/48조건**과 네 장비 Macro4 비교를 완료했다. 주 LoRA는 **21/48조건·7/16 세-seed 그룹**을 검증했다. 아래 정확도는 AUROC / AP (%)이며, 같은 장비·seed·GT target에서 비교한다.
 
 학습 111개 영상/50,642프레임, 테스트 66개 영상/33,462프레임을 감사했다. 정상 fit 76개·calibration 18개·진단 17개를 분리했다. R02/12·13·14의 라벨 정렬은 미확정이며 공통 18프레임 제외 규칙과 민감도 분석을 [Stage 00](docs/STAGE00.md)에 보존했다. 고정 백본 비교의 공통 유효 테스트 프레임은 31,728개다.
 
@@ -27,14 +27,17 @@
 | R02 V-JEPA 2.1-L | 63.10 / 42.55 | 66.09 / 49.15 |
 | R03 DINOv3-L | 60.68 / 51.82 | 62.44 / 56.23 |
 | R03 V-JEPA 2.1-L | 50.45 / 43.53 | 48.02 / 42.45 |
+| R04 DINOv3-L | 69.08 / 70.26 | 74.69 / 77.38 |
 
-LoRA의 효과는 장비와 백본에 따라 달랐다. DINOv3는 R01·R02에서 AUROC/AP 개선의 두 CI가 양수였고 R03에서는 두 CI가 0을 포함했다. V-JEPA는 R02 AP만 양수였고, R01·R03의 두 CI는 0을 포함했다. R03 LoRA의 V-JEPA−DINOv3 차이는 AUROC **−14.42pp [−19.64, −9.60]**, AP **−13.78pp [−19.68, −8.28]**였다. [전체 P0–P3·paired CI·학습/평가/백본 그래프](docs/STAGE04.md#v-jepa-r03-seed-2와-세-seed-백본-비교의-완료된-평가)를 제공한다. R04·온라인 LoRA·Macro4·실시간 비교는 남아 있다. DINOv3 R04 seed 0의 **20 epoch·4,000 updates** 정상 학습도 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#dinov3-r04-오프라인-seed-0의-완료된-정상-학습)를 제공한다. R04 seed 0의 전체 19개 테스트 P3 AUROC/AP는 고정 **68.95/70.24% → LoRA 73.77/76.86%**다. [개별 평가·paired CI·그래프](docs/STAGE04.md#dinov3-r04-seed-0의-완료된-전체-평가와-19조건-집계)를 제공하며 R04 세-seed 평균·Macro4는 아직 없다. DINOv3 R04 seed 1도 **20 epoch·4,000 updates** 정상 학습을 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#dinov3-r04-오프라인-seed-1의-완료된-정상-학습)를 제공한다. R04 seed 1의 전체 19개 테스트 P3 AUROC/AP는 고정 **68.94/70.24% → LoRA 75.59/77.94%**다. [개별 평가·paired CI·그래프](docs/STAGE04.md#dinov3-r04-seed-1의-완료된-전체-평가와-20조건-집계)를 제공하며 R04 세-seed 평균·Macro4는 아직 없다.
+LoRA의 효과는 장비와 백본에 따라 달랐다. DINOv3는 R01·R02에서 AUROC/AP 개선의 두 CI가 양수였고 R03에서는 두 CI가 0을 포함했다. V-JEPA는 R02 AP만 양수였고 R01·R03의 두 CI는 0을 포함했다. [R01–R03 전체 P0–P3·paired CI·백본 비교](docs/STAGE04.md#v-jepa-r03-seed-2와-세-seed-백본-비교의-완료된-평가)를 제공한다.
 
-DINOv3 R04 seed 2도 **20 epoch·4,000 updates** 정상 학습을 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#dinov3-r04-오프라인-seed-2의-완료된-정상-학습)를 제공한다. Seed 2의 전체 정확도 평가는 별도 진행 중이다.
+DINOv3 오프라인 네 장비·세 seeds를 완료했다. 동일 가중치 Macro4 P3 AUROC/AP는 고정 **64.15/55.10% → LoRA 75.11/68.84%**이고 차이의 95% CI는 AUROC **+10.96 [+9.12, +13.08]pp**, AP **+13.74 [+9.98, +17.04]pp**다. [R04 세-seed·Macro4 결과·그래프](docs/STAGE04.md#dinov3-r04-세-seed와-오프라인-macro4의-완료된-21조건-집계)를 제공한다. V-JEPA R04·온라인 LoRA·teacher 비교·실시간 비교는 남아 있다.
+
+DINOv3 R04 seed 2도 **20 epoch·4,000 updates** 정상 학습을 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#dinov3-r04-오프라인-seed-2의-완료된-정상-학습)를 제공한다. Seed 2의 전체 19개 테스트 P3 AUROC/AP는 고정 **69.36/70.29% → LoRA 74.70/77.36%**다. 개별 seed와 세-seed/Macro4 결과는 위 상세 보고서에서 구분한다.
 
 IPAD 원 코드의 R01 세 seeds는 각각 **50 epoch** 학습·평가를 완료했다. B0 픽셀 AUROC/AP는 **81.51/59.79%**, B1 특징 잔차는 **68.72/50.65%**였다. DINOv3 LoRA P3와 B0의 차이는 두 CI가 0을 포함하고, B1 대비 AP 차이는 **+20.88pp [3.46, 33.69]**였다. [동일 프레임 직접 비교·그래프·재현 차이](docs/STAGE01.md#ipad와-특징-기반-p3의-동일-프레임-직접-비교)를 제공한다. 학습·입력 등도 다르므로 디코더 제거만의 효과로 해석하지 않는다.
 
-고정 q99·3프레임 연속 알람을 [68개 고정/LoRA 조건](docs/STAGE05.md#r04-seed-1을-포함한-전체-68조건의-캐시-알람-재검증)에서 재검증했다. Ranking 정확도 개선과 구간 탐지·정상 오탐 개선은 일치하지 않을 수 있다. 점수 분포·GT 구간·정상 알람 그래프를 함께 제공한다.
+고정 q99·3프레임 연속 알람을 [69개 고정/LoRA 조건](docs/STAGE05.md#r04-세-seed를-포함한-전체-69조건의-캐시-알람-재검증)에서 재검증했다. Ranking 정확도 개선과 구간 탐지·정상 오탐 개선은 일치하지 않을 수 있다. 점수 분포·GT 구간·정상 알람 그래프를 함께 제공한다.
 
 실시간 파일 재생은 **6/240 실행**을 완료했다. DINOv3-L 온라인 R01 seed 0의 30 FPS FIFO·drop 없음에서 BF16 full/buffer는 **16.46/17.05 FPS**, target p95 지연 **7,172/6,314ms**이며 점수·알람 gate를 통과했다. 별도 FP32 reuse는 세 영상의 사전 점수 gate에 실패했다. [전체 trace·지연/큐 그래프·실패 근거](docs/STAGE05.md#같은-조건의-버퍼특징-재사용-실측)를 보존한다. 부분 파일 재생 결과이며 전체 백본·장비 비교 또는 카메라 성능을 뜻하지 않는다.
 
@@ -45,7 +48,7 @@ IPAD 원 코드의 R01 세 seeds는 각각 **50 epoch** 학습·평가를 완료
 | 실험 | 검증 완료 / 전체 | 상세 결과·그래프 |
 |---|---:|---|
 | 고정 L 백본 · 두 모드 · 네 장비 · 세 seeds | 48 / 48 | [오프라인](docs/STAGE02.md) · [온라인](docs/STAGE03.md) |
-| 주 LoRA · teacher weight 1 · fresh 20 epoch | 20 / 48 | [Stage 04](docs/STAGE04.md) |
+| 주 LoRA · teacher weight 1 · fresh 20 epoch | 21 / 48 | [Stage 04](docs/STAGE04.md) |
 | IPAD 통제 기준선 · fresh 50 epoch | 3 / 12 | [Stage 01](docs/STAGE01.md) |
 | IPAD 전체 정상 111영상 reference · 50 epoch | 0 / 4 | [Stage 01](docs/STAGE01.md) |
 | Teacher weight 0/1 쌍 · 신규 weight 0 평가 | 0 / 48 | [Teacher 비교](docs/ABLATION_TEACHER_WEIGHT.md) |
