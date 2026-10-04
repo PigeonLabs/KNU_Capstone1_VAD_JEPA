@@ -30,6 +30,8 @@
 
 LoRA의 효과는 장비와 백본에 따라 달랐다. DINOv3는 R01·R02에서 AUROC/AP 개선의 두 CI가 양수였고 R03에서는 두 CI가 0을 포함했다. V-JEPA는 R02 AP만 양수였고, R01·R03의 두 CI는 0을 포함했다. R03 LoRA의 V-JEPA−DINOv3 차이는 AUROC **−14.42pp [−19.64, −9.60]**, AP **−13.78pp [−19.68, −8.28]**였다. [전체 P0–P3·paired CI·학습/평가/백본 그래프](docs/STAGE04.md#v-jepa-r03-seed-2와-세-seed-백본-비교의-완료된-평가)를 제공한다. R04·온라인 LoRA·Macro4·실시간 비교는 남아 있다. DINOv3 R04 seed 0의 **20 epoch·4,000 updates** 정상 학습도 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#dinov3-r04-오프라인-seed-0의-완료된-정상-학습)를 제공한다. R04 seed 0의 전체 19개 테스트 P3 AUROC/AP는 고정 **68.95/70.24% → LoRA 73.77/76.86%**다. [개별 평가·paired CI·그래프](docs/STAGE04.md#dinov3-r04-seed-0의-완료된-전체-평가와-19조건-집계)를 제공하며 R04 세-seed 평균·Macro4는 아직 없다. DINOv3 R04 seed 1도 **20 epoch·4,000 updates** 정상 학습을 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#dinov3-r04-오프라인-seed-1의-완료된-정상-학습)를 제공한다. R04 seed 1의 전체 19개 테스트 P3 AUROC/AP는 고정 **68.94/70.24% → LoRA 75.59/77.94%**다. [개별 평가·paired CI·그래프](docs/STAGE04.md#dinov3-r04-seed-1의-완료된-전체-평가와-20조건-집계)를 제공하며 R04 세-seed 평균·Macro4는 아직 없다.
 
+DINOv3 R04 seed 2도 **20 epoch·4,000 updates** 정상 학습을 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#dinov3-r04-오프라인-seed-2의-완료된-정상-학습)를 제공한다. Seed 2의 전체 정확도 평가는 별도 진행 중이다.
+
 IPAD 원 코드의 R01 세 seeds는 각각 **50 epoch** 학습·평가를 완료했다. B0 픽셀 AUROC/AP는 **81.51/59.79%**, B1 특징 잔차는 **68.72/50.65%**였다. DINOv3 LoRA P3와 B0의 차이는 두 CI가 0을 포함하고, B1 대비 AP 차이는 **+20.88pp [3.46, 33.69]**였다. [동일 프레임 직접 비교·그래프·재현 차이](docs/STAGE01.md#ipad와-특징-기반-p3의-동일-프레임-직접-비교)를 제공한다. 학습·입력 등도 다르므로 디코더 제거만의 효과로 해석하지 않는다.
 
 고정 q99·3프레임 연속 알람을 [68개 고정/LoRA 조건](docs/STAGE05.md#r04-seed-1을-포함한-전체-68조건의-캐시-알람-재검증)에서 재검증했다. Ranking 정확도 개선과 구간 탐지·정상 오탐 개선은 일치하지 않을 수 있다. 점수 분포·GT 구간·정상 알람 그래프를 함께 제공한다.
