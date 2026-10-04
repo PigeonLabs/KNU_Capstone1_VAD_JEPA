@@ -869,3 +869,35 @@ PYTHONPATH=src:scripts python scripts/report_cached_alarm_coverage.py --root res
 PYTHONPATH=src:scripts python scripts/report_single_cached_alarm_pair.py --model vjepa21-l --mode offline --device R03 --seed 1 --data-root ../IPAD_dataset/IPAD_dataset --out results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R03/seed1 --figure docs/figures/stage05/vjepa21-l_R03_offline_seed1_single_cached_alarm_pair
 PYTHONPATH=src:scripts python scripts/report_cached_score_distributions.py --audit-report results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R03/seed1/cached_alarm_pair.json --out results/stage05/score_distributions/vjepa21-l/offline/R03/seed1 --figure docs/figures/stage05/vjepa21-l_R03_offline_seed1_score_distributions
 ```
+
+## R03 세 seed를 포함한 전체 66조건의 캐시 알람 재검증
+
+고정 백본 **48 + LoRA 18 = 66조건**, 완결 세-seed **22그룹(고정 16·LoRA 6)**의 정상 q99·GT·P0–P3 점수·저장 알람을 원 CPU 코드로 재검산했다. 실제 annotation 66개와 source hash를 확인했다. 이전 65조건·21그룹의 모든 결과는 그대로 보존됐다.
+
+| R03 오프라인 개별 조건 | 탐지 구간 고정→LoRA / 17 | 정상 경보 고정→LoRA / 6,641 | 정상 시작 고정→LoRA |
+|---|---:|---:|---:|
+| dinov3-l seed 0 | 6→10 | 45→107 | 7→12 |
+| dinov3-l seed 1 | 6→10 | 44→30 | 7→10 |
+| dinov3-l seed 2 | 6→10 | 46→53 | 7→15 |
+| vjepa21-l seed 0 | 5→0 | 9→27 | 4→11 |
+| vjepa21-l seed 1 | 7→5 | 3→12 | 3→10 |
+| vjepa21-l seed 2 | 8→8 | 31→25 | 15→7 |
+
+![완결 LoRA 6그룹의 개별 seed와 평균](figures/stage05/cached_R01_R02_R03_partial18/cached_P3_lora_alarm_coverage.png)
+
+![고정 백본 16그룹의 개별 seed와 평균](figures/stage05/cached_R01_R02_R03_partial18/cached_P3_frozen_alarm_coverage.png)
+
+원은 exact 세-seed 평균, ×는 개별 seed이며 CI가 아니다. 고정 q99·3-target streak를 사용하고 unknown은 streak를 초기화하지 않는다. R02의 기존 정렬 미확정과 GT 제외 규칙을 유지했다. 경보 평균에 새 CI를 계산하지 않았다.
+
+| Seed 2 조건 | 원 정상 q99 | 정상 통과→streak 경보 / 6,641 | 이상 통과→streak 경보 / 4,922 |
+|---|---:|---:|---:|
+| 고정 | 16.224263 | 74→31 | 67→28 |
+| LoRA | 3.676252 | 119→25 | 345→251 |
+
+![Seed 2의 실제 고정 q99 탐지와 오탐](figures/stage05/vjepa21-l_R03_offline_seed2_single_cached_alarm_pair.png)
+
+![Seed 2의 자체 점수 공간·ECDF·q99 통과와 경보](figures/stage05/vjepa21-l_R03_offline_seed2_score_distributions.png)
+
+두 조건의 점수 공간·정상 보정이 다르므로 q99 크기를 성능이나 원인으로 비교하지 않는다. Calibration 2,771개 trace 중 유효 점수 2,727개로 원 q99를 재계산하며, 테스트 점수로 재설정하지 않았다. Target index와 cached 알람은 wall-clock 지연·FPS·실제 방출 시각·온라인 EOF 성능이 아니다. 관측 이벤트 경계의 불확실성을 유지했다.
+
+[66조건·22그룹·개별 영상·source/annotation hash](../results/stage05/cached_alarm_coverage_R01_R02_R03_partial18/cached_alarm_coverage.json), [Seed 2 pair와 독립 감사](../results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R03/seed2/cached_alarm_pair.json), [점수 분포·통과·경보](../results/stage05/score_distributions/vjepa21-l/offline/R03/seed2/score_distributions.json), [게시 검증](../results/setup/primary18_VJ_R03_seed2_matrix_cached66_publication_check.json)을 제공한다. 원 CPU 명령 7개의 실제 종료 코드 0, 원 전체 평가 plot의 실제 종료 코드 0, 총 PNG 16개 직접 검토를 확인했다. 이전 snapshot을 보존하며 전체 온라인·오프라인·실시간 비교는 계속 수행한다.

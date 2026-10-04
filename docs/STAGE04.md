@@ -1221,3 +1221,39 @@ MAE 최솟값으로 재선택하지 않았다. 원 source-bound pipeline은 실�
 PYTHONPATH=src:scripts python scripts/export_lora_training.py --run artifacts/lora/vjepa21-l/offline/R03/seed2 --out results/stage04/training/vjepa21-l/offline/R03/seed2
 PYTHONPATH=src:scripts python scripts/plot_lora_training.py --results results/stage04/training/vjepa21-l/offline/R03/seed2 --out docs/figures/stage04/vjepa21-l_R03_offline_seed2_joint_training
 ```
+
+## V-JEPA R03 seed 2와 세 seed 백본 비교의 완료된 평가
+
+Seed 2의 fresh **20 epoch·6,420 updates**, 정상 calibration CE 선택 epoch **19**로 fit 15·calibration 4·test 17의 **36개 영상**을 재추출하고 PCA·프로토타입 메모리·정상 보정을 새로 구성했다. 진단용 정상 3개는 제외했다. 원 파이프라인 세 단계의 실제 종료 코드 0과 선택 tensor·메모리·정상 임계값·GT·시간·P0–P3 점수·알람의 독립 감사를 확인했다. 모든 **17개 테스트·11,563개 유효 GT(이상 4,922개)**를 같은 seed 고정 백본과 비교했다.
+
+| 점수 | 고정 AUROC / AP (%) | LoRA AUROC / AP (%) | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|---:|---:|
+| P0 | 46.91 / 38.32 | 45.11 / 37.74 | -1.80 [-5.17, +1.25] | -0.58 [-2.87, +0.64] |
+| P1 | 50.85 / 41.58 | 49.75 / 42.04 | -1.10 [-6.01, +5.15] | +0.46 [-2.20, +4.42] |
+| P2 | 51.67 / 43.39 | 50.39 / 43.83 | -1.28 [-5.26, +4.58] | +0.43 [-2.63, +6.53] |
+| P3 | 50.70 / 43.36 | 51.01 / 46.85 | +0.31 [-3.67, +5.07] | +3.49 [-1.44, +10.21] |
+
+![Seed 2의 실제 P3·ROC/PR·paired CI](figures/stage04/vjepa21-l_R03_offline_seed2_lora_evaluation.png)
+
+![사전에 고정한 영상 03의 실제 궤적](figures/stage04/vjepa21-l_R03_offline_seed2_lora_sequence03.png)
+
+[전체 개별 seed CSV·P0–P3·보정·paired CI](../results/stage04/vjepa21-l/offline/R03/seed2), [독립 조건 감사](../results/stage04/condition_pipeline_checks/T1/vjepa21-l/offline/R03/seed2/condition_audit.json), [원 완료 증거](../results/stage04/condition_pipeline_checks/vjepa21-l/offline/R03/seed2/pipeline_completion.json)를 제공한다. Seed 2의 P3 AUROC/AP 차이 CI는 각각 **0 포함/0 포함**이다.
+
+이제 **18/48조건·6/16 세-seed 그룹**을 새 namespace에서 재검산했고, 정상 임계값 **144개**를 확인했다. 현재 배열 17조건과 승인된 배열 정리 증거 1조건을 구분했다. 기존 평균 40행·paired 비교 41행과 모든 CI는 그대로 유지되며, 새 집계에는 평균 **48행·paired 비교 54행**이 있다. V-JEPA R03과 R03 백본 비교는 exact seeds 0/1/2만 사용했다.
+
+| R03 세 seed 비교 | AUROC / AP 또는 차이 (%) / (pp) | AUROC 차이 95% CI, pp | AP 차이 95% CI, pp |
+|---|---:|---:|---:|
+| V-JEPA 고정 P3 평균 | 50.45 / 43.53 | — | — |
+| V-JEPA LoRA P3 평균 | 48.02 / 42.45 | — | — |
+| V-JEPA LoRA−고정 P3 | -2.43 / -1.08 | -2.43 [-7.66, +2.75] | -1.08 [-4.98, +2.38] |
+| LoRA P3 V-JEPA−DINOv3 | -14.42 / -13.78 | -14.42 [-19.64, -9.60] | -13.78 [-19.68, -8.28] |
+
+![V-JEPA R03 세 seed 집계](figures/stage04/retained_R01_R02_R03_partial18/retained_lora_vjepa21-l_offline_R03.png)
+
+![R03의 같은 세 seed·영상·GT에 대한 백본 비교](figures/stage04/retained_R01_R02_R03_partial18/lora_backbone_offline_R03.png)
+
+V-JEPA LoRA−고정 P3의 AUROC/AP CI는 **0 포함/0 포함**, LoRA P3 V-JEPA−DINOv3의 CI는 **음수/음수**다. 표의 차이 값과 CI는 동일 차이를 함께 표시한다. 평균은 세 seed별 metric의 산술평균이며 **1,000회 paired 원본 영상 bootstrap·percentile 95% CI**를 사용했다. Seed 자체를 재표집하지 않았고, 테스트로 epoch·부호·임계값·P3를 바꾸지 않았다. 0 포함은 동등성을 증명하지 않으며 다중 비교를 보정한 유의성 주장으로 해석하지 않는다.
+
+![완료된 18조건과 남은 30조건](figures/stage04/primary_lora_completed18.png)
+
+[전체 6그룹 P0–P3·paired CI](../results/stage04/retained_matrix_audit_R01_R02_R03_partial18/device_summary.json), [18조건 감사·30 pending](../results/stage04/retained_matrix_audit_R01_R02_R03_partial18/validation.json), [모든 집계 그림의 source](../results/stage04/retained_matrix_audit_R01_R02_R03_partial18/figure_sources.json), [3개 백본 쌍의 통계 재검산](../results/stage04/retained_matrix_audit_R01_R02_R03_partial18/backbone_figure_sources.json), [게시 검증](../results/setup/primary18_VJ_R03_seed2_matrix_cached66_publication_check.json)을 제공한다. 기존 17조건 snapshot을 보존했다. R04·온라인 LoRA·teacher 0/1·원 IPAD 기준선·OFAT·진단·실시간 비교는 계속 필요하며 **LoRA Macro4는 아직 없다**. 정상 학습·calibration MAE를 이상탐지 정확도나 실시간 FPS로 해석하지 않는다. 원본 영상·모델·특징·optimizer 파일은 업로드하지 않는다.
