@@ -1581,3 +1581,22 @@ PYTHONPATH=src:scripts python scripts/plot_partial_lora_macro4_partial24.py --ro
 ```
 
 이전 snapshot과 실제 통계를 보존한다. 원본·모델·특징·optimizer 파일을 업로드하지 않으며 나머지 온라인/오프라인·teacher 0/1·IPAD 기준선·OFAT·진단·실시간 비교를 유지한다.
+
+## DINOv3 R01 온라인 seed 0의 완료된 정상 학습
+
+원 fresh 정상-only 학습이 **20 epoch·3,340 optimizer updates**를 완료했다. Fit **23개 영상·1,335 clips**, 별도 calibration **5개 영상·1,087 clips**를 사용하고 teacher weight 1·accumulation 8·BF16과 원래 학습 코드를 유지했다. 최소 정상 calibration CE의 epoch **20**을 선택했다.
+
+| 선택 epoch | 정상 calibration CE | 같은 epoch의 원형 MAE |
+|---:|---:|---:|
+| 20 | 3.877561 | 1.0987% |
+
+![DINOv3 R01 온라인 seed 0의 실제 20 epoch 학습 곡선](figures/stage04/dinov3-l_R01_online_seed0_joint_training.png)
+
+MAE 최솟값으로 재선택하지 않았다. 원 source-bound pipeline은 실제 trainer의 `child.wait()`가 0일 때만 full20 완료 단계를 기록한다. 이 단계와 원 CPU 수집기의 export·plot 실제 종료 코드 0, 보존된 로컬 학습 파일 다섯 개의 해시 및 직접 PNG 검토를 확인했다.
+
+[전체 학습 CSV·JSON·선택 checkpoint 해시·export 검증](../results/stage04/training/dinov3-l/online/R01/seed0), [학습 완료·시각화 검토·게시 검증](../results/setup/lora_dinov3_R01_online_seed0_training_publication_check.json)을 제공한다. 공개된 정확도 행렬은 **24/48조건·8/16 세-seed 그룹**이며 이 정상 학습 단계를 추가 조건으로 세지 않는다. 선택 특징 재추출·새 PCA/메모리·정상 보정·전체 **15개 실제 테스트**의 독립 평가는 별도로 완료해야 한다. 전체 온라인·teacher 0/1·IPAD 기준선·추가 실험·실시간 비교를 유지한다. 원본 영상·특징·모델·optimizer 파일은 업로드하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/export_lora_training.py --run artifacts/lora/dinov3-l/online/R01/seed0 --out results/stage04/training/dinov3-l/online/R01/seed0
+PYTHONPATH=src:scripts python scripts/plot_lora_training.py --results results/stage04/training/dinov3-l/online/R01/seed0 --out docs/figures/stage04/dinov3-l_R01_online_seed0_joint_training
+```
