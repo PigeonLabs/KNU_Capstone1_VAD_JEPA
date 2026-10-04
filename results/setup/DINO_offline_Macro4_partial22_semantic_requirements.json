@@ -1,0 +1,289 @@
+{
+  "status": "prospective_original_CPU22_semantics_reviewed_no_execution_or_result_claim",
+  "next_condition": [
+    "vjepa21-l",
+    "offline",
+    "R04",
+    0
+  ],
+  "original_pipeline_owner": {
+    "pid": 1743156,
+    "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+    "start_ticks": "16524540"
+  },
+  "original_primary28": {
+    "scripts/continue_lora_condition.py": "4cbc18f45bc940ca70c509e5f10a5b0fae31d5997e067afec1fa7206617154e5",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "scripts/retire_lora_cache.py": "086bf507192c34e3de8b754b0149f399d3a0f73f4253b62687925667d5256092",
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/audit_retained_lora.py": "6e247309240a9d4bd3faee2aca44b4ccda5895048964a2c88719c02b02e253b5",
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "scripts/plot_lora_evaluation.py": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+    "scripts/summarize_clip_ablation.py": "af25ff897d7cbe8286748bd2725d9daac9717d238c59c572ad165745445dbfd6",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "src/ipad_jepa/train_lora.py": "a2508f4fef9d3f4d938216fbb0695baf63918432e96154ac35b669e159d8ba28",
+    "src/ipad_jepa/adaptation.py": "0265cf076ab9df02d095824603bccf55abb0ee4ca5628a0432b8b757bdef1354",
+    "src/ipad_jepa/adapted_features.py": "a7980adc2ab1751e19095cc64b52b13a638ad14352fe6cf64b15aeb88ddaece1",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+    "src/ipad_jepa/cache_data.py": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+    "src/ipad_jepa/train_phase.py": "71c226ed4606951b8030588e84675303da4bf2bb67305a81c5d2c26a2eb17f08",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+    "src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+    "src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32",
+    "src/ipad_jepa/lora_audit.py": "3418f771aed02e8537645a8f1f372a4dac537c5c99564db9357fe937c1a3ad41",
+    "src/ipad_jepa/cache_retention.py": "76481aa4e20b0d0c20fc66b7a354c36e7dfcd44e407a9d21895d48511f5a0b1b",
+    "src/ipad_jepa/cache_retirement.py": "a2e7922a74e504f9f82330aef692fa482866dbe03eaad3808517af83894762f7",
+    "src/ipad_jepa/teacher_ablation.py": "02c17f4248dc5242eedd8e03bf555856156756106b6a8c9df29d920ce28e51a0"
+  },
+  "reviewed_original_producer_sha256": {
+    "scripts/lora_reporting.py": "0a5bb5ebcdd864cf9f0fe05065a1a11a8007f8d8baf2517bac4a2e0c2d59f3bc",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/plot_retained_lora.py": "eac814d12fc13921060ca0e7c18f1031df53f29f4b4deef7b5e75614a1e6f72d",
+    "scripts/plot_lora_matrix.py": "23e73ecb4d850a1393ef17e3327b1fe82e1b255feaa710c60353acf53ff82213",
+    "scripts/plot_lora_backbone_comparison.py": "cf79fb39f3a95044da48e5cbff983e930151a73ff4013c876f1899267303b54a",
+    "scripts/plot_lora_completion.py": "280e11fd3af1f7b86a73147778e7e9fe328b8d66f447d2d640cd7da2a7e3ee6d",
+    "scripts/report_cached_alarm_coverage.py": "94ee3edb276e37ad67b3be2b14053327da5a72b01f3a1a0a22bd96c0e5030cd5"
+  },
+  "preserved_M21_paths_sha256": {
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/macro_summary.json": "d82bccd9d88c0194f71c6f5ca39cb60d1e4e87a2e8885cc4d06a13f405a24115",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/device_summary.json": "a28002c68db4f1ce617f3794ddbba756fd9bfeb8721d549032ec1ea024e0c92e",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/validation.json": "6f8c277861e5ff7e0ad600964311777db92650edb2642a71657229b199bbe7ed",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/device_summary.csv": "9414529b2ce9c26433f5daa62e1fee465c1f10d39f8e35363d9890484886d8a4",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/backbone_figure_sources.json": "6a19f08168cb2da07e012b5731bd0e4d82a35d78bfad60fe3629c410f56e7ab1",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/figure_sources.json": "af7477fd099e1bce27b946fe87d66ee41e4861514e8f43dccb2f85fd365d7e80",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/macro_summary.csv": "71010ea0f5050a772b42f044d1e1999b985a8b4e5c62df81024ca006d1cac8b3",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R04/seed0/condition_audit.json": "5d108cf2abcb00682703dcace3f707c9c0caa734f73a2f1eda7f12046fd44f68",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R04/seed1/condition_audit.json": "c38f9a615ef093fc0eab236d628b659722d52872736a2818005b44b4aa51b392",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R04/seed2/condition_audit.json": "2fb3563103ae047386bb5b54b8456e48b70b0328280589ec69dcd3f9cb76e25e",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R01/seed0/retained_condition_audit.json": "e8de0c424806b4b5952df3c1d2741e56c48e0517b97496ee89c2d3762955fcdf",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R01/seed1/condition_audit.json": "835d7b3988b5535302c262352d4fac17edf64f1f3d27dc15a8756c21c9087ec3",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R01/seed2/condition_audit.json": "b16e63331e1f77583d41a031d6f5509686e155ce0b5deb8ea5410f834c5507fd",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R02/seed0/condition_audit.json": "aa61488093eae0096b19816ce19e9952aed2208508461e28298d0338f48a6ba6",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R02/seed1/condition_audit.json": "ab08e2d3f2f5543410ce3a28215e48c1415a6ff152dce0eb4350c30395afde2a",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R02/seed2/condition_audit.json": "e659e2998033055138f8faf986dbb4ca25f64a5bfc1bbe2d02c97b96106b6c20",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R03/seed0/condition_audit.json": "e7a065c9aab72d00b21f7f2f49a0b3788c27c06da14ef0e1ab98bb2aa91de240",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R03/seed1/condition_audit.json": "9e15bac5d46a211bd7131f9376efc31794dae0b2c35f56722f76b6daab65476a",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/dinov3-l/offline/R03/seed2/condition_audit.json": "c82da9c08379dffb77f53721977dd8266887978bacc49353a092adc2e76ebaf7",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/vjepa21-l/offline/R01/seed0/condition_audit.json": "269226571ae35e4cb1b548f59f86e96d8fdd34074f43606100657d85c511c40b",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/vjepa21-l/offline/R01/seed1/condition_audit.json": "87c99c1906826cd433d5820ddcb6745c4b9714840267e20ebb30a23e95a67967",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/vjepa21-l/offline/R01/seed2/condition_audit.json": "29dbc1cbf25829a396d438ebb370f4adba1baee4e8db02235832207ad6161c3b",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/vjepa21-l/offline/R02/seed0/condition_audit.json": "7d7260455d94f7a04e55fb5f7c933867ef76bc208093b2bfe50123a7bd0415e2",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/vjepa21-l/offline/R02/seed1/condition_audit.json": "50667627c1ef73c7da7a9bf47831f21c5043445277e5ba056da79a1dada45774",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/vjepa21-l/offline/R02/seed2/condition_audit.json": "4d3898300a68f1194ae6412c04da717c07c340cedcd3f5abcbe065f8d5d86bc3",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/vjepa21-l/offline/R03/seed0/condition_audit.json": "b2990093128bbb15f54f8f8ac754f3bc66b8db1f308803dfc67629bf08dff11a",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/vjepa21-l/offline/R03/seed1/condition_audit.json": "569931a0e5b98962263024051daea0c90269ddc28d054a41efad794be746ee81",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial21/T1/vjepa21-l/offline/R03/seed2/condition_audit.json": "343f9eb0d098904c98de74b2b2d3af21573fb2fbd0a0a4a593798d394778bba5",
+    "results/stage05/cached_alarm_coverage_R01_R02_R03_R04_partial21/cached_alarm_coverage.json": "563444fc54865461434b11859be2f4ac49288bb67fcc812b90e4336cd6c50c18",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_dinov3-l_offline_R04.png": "99af7bb1731a36d0673edd735fef8e53a8a891a27625690c08fab4955a0492cd",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/lora_backbone_offline_R03.svg": "bdd84a3166ed504e5323ee9e086304804b4897ec3fc5b7f300444d5ef19f66ef",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/lora_backbone_offline_R01.png": "2c4d3fdcd6f6cdfb0cc96dfd97f35e1e3e43c57bd8cee4971a24b90073a0d5fc",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/dinov3-l_offline_Macro4.png": "da444d57ef6121974fff2e7df0a455f7e7d2fb52cd41dbe8c3e2d2ed02c346f2",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_vjepa21-l_offline_R01.png": "ac3794cf484cc6a8ee9a35748cb7c4d6487ca9bc87abfa84ca424f55350875a1",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_vjepa21-l_offline_R01.svg": "0508f63b739d06d43d46507e174a6c121401fee7942481ab79fb04a7ca337f34",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_dinov3-l_offline_R02.svg": "2874265117fe6932dd438ac9c6bd6806cbd908255911df7a36ac7b312b16af0f",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_dinov3-l_offline_R04.svg": "ae2a4c77aab617d90ce59300d498c467751708d59f88600b8029150312040c78",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/lora_backbone_offline_R03.png": "68882db7ccff1ec382acae49f33f99b53d8eb64182b1a12d236c5677ca832d75",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_dinov3-l_offline_R02.png": "a2e1d520cddea480f4c38e523314f9d61de72b4142db7f2455f63e954bfb8d0e",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/dinov3-l_offline_Macro4_sources.json": "2f6df85c7c9f3242df65440f690da65778a3169d80449cb87382d49205fe1b22",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_vjepa21-l_offline_R02.png": "478d67655f3d51025761cc25bb6bcc7f66c0aa94ea6bc1dd720345ee0820b82f",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_dinov3-l_offline_R03.svg": "d76a9143199092b79cf9cb8336ab420b66029cd1d2a0fd4ee506e2802d063438",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_vjepa21-l_offline_R02.svg": "35caea94fd9edfd6769b91b30f6f9ca4d33a10b637fd63e9ee96923b0520e17b",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_vjepa21-l_offline_R03.png": "642f3ad3dde64372468ed30ba99587db4a7848688ff64edd1c30ea23487c7fe0",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/lora_backbone_offline_R01.svg": "8b21f85370f5d756a3f277d3fc1da2e81e2fd2a84e6105d8ed3898e47a77d343",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_dinov3-l_offline_R03.png": "11a9e4c45cfa6a0b1e32beb744d88881d2efe0dc2ea537356d72bfca16afaf72",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_dinov3-l_offline_R01.svg": "c4144e303bb36ad6bccdc411e78d83fe99150dabac40efd393c8b9aa1afeb9d5",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/lora_backbone_offline_R02.svg": "8d8d7c8b7c5ae2b53ce8a70e3cbdee6cf4ebcd17f7c06e9bb796eb06c02cd4cd",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/lora_backbone_offline_R02.png": "cf18b1684381fc5b98a9190e5ee58ef0ab3dab5ae0e7831333da89b8e04ce797",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/dinov3-l_offline_Macro4.svg": "001d89ec29282b2680bbf2a1e7be31c1d1d57977c24b078ac2273f327208a049",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_dinov3-l_offline_R01.png": "8fa79a1c6491ba6686d71625ab029aad0ded542bba6fedf419f378440f698cec",
+    "docs/figures/stage04/retained_R01_R02_R03_R04_partial21/retained_lora_vjepa21-l_offline_R03.svg": "632d7b0e46a7d630fae1584b3408bafdbf9bf27e5f411dd7419e8899c9b0175c",
+    "docs/figures/stage05/cached_R01_R02_R03_R04_partial21/cached_P3_frozen_alarm_coverage.svg": "84e9fb115e1b54a8356837156307fd6eb8884b957c690bcd9e75d817824ad5d6",
+    "docs/figures/stage05/cached_R01_R02_R03_R04_partial21/cached_P3_frozen_alarm_coverage.png": "24a0f8130a15206306f450022ad992af63743e5d976dcda4527056d8c27db361",
+    "docs/figures/stage05/cached_R01_R02_R03_R04_partial21/cached_P3_lora_alarm_coverage.png": "f53ab835ee4d1cd5d6cabf00eecf326af10b0b9e098ba191f8e21036a0086e21",
+    "docs/figures/stage05/cached_R01_R02_R03_R04_partial21/cached_P3_lora_alarm_coverage.svg": "c5611db3ecd3a8cfa5c2d54f32acd217ed4864d8bed94e1e223e851fabcad842",
+    "scripts/plot_partial_lora_macro4.py": "5541db3eeaab55371ab9033a8fc369692c31f571018908988732a40da75e23a2",
+    "results/setup/DINO_offline_Macro4_partial21_semantic_requirements.json": "531759a82cc2c49f1d48ac67b5c7c6310bc7259d064da70f3c06366164791ace",
+    "docs/figures/stage04/primary_lora_completed21.png": "710269953780350a55c02e63e8e059d433b9cd061cb9b3482d6e494ac80e7e75",
+    "docs/figures/stage04/primary_lora_completed21.svg": "7960366f1b317fbefd5737c370275a46f0d3b08421eb1cad8cb509c04771d28c",
+    "docs/figures/stage04/primary_lora_completed21_sources.json": "7d07296fe66f07643a1430154c8713aa26a54c41bbdc441bc91fa74c690e9a5c"
+  },
+  "exact_expected_ready_conditions": [
+    [
+      "dinov3-l",
+      "offline",
+      "R01",
+      0
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R01",
+      1
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R01",
+      2
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R02",
+      0
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R02",
+      1
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R02",
+      2
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R03",
+      0
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R03",
+      1
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R03",
+      2
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R04",
+      0
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R04",
+      1
+    ],
+    [
+      "dinov3-l",
+      "offline",
+      "R04",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R01",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R01",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R01",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R02",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R02",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R02",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R03",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R03",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R03",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "offline",
+      "R04",
+      0
+    ]
+  ],
+  "expected_only_after_original_seed0_whole_condition0_and_CPU_plot0": {
+    "primary_conditions": 22,
+    "complete_three_seed_groups": 7,
+    "normal_thresholds": 176,
+    "retired_conditions": 1,
+    "pending_conditions": 26,
+    "cached_conditions": 70,
+    "cached_three_seed_groups": 23,
+    "unique_GT_annotation_files": 66,
+    "device_mean_rows": 56,
+    "device_paired_rows": 59,
+    "matched_backbone_groups": 3,
+    "macro_rows": 8,
+    "macro_paired_rows": 5,
+    "macro_incomplete_rows": 8
+  },
+  "semantic_checks": [
+    "Add only the completed VJ_R04_seed0 condition and its cached P3 alarm evidence; no complete VJ_R04 group is introduced by one seed.",
+    "Preserve all56 device means and59 paired rows, all8 DINOoffline Macro4 means and5 pairs, all8 incomplete VJoffline R04 entries.",
+    "Preserve all69 cached conditions and23 complete cached groups; add exactly VJofflineR04seed0 LoRA for70conditions and unchanged23groups.",
+    "Only DINOoffline has all4 devices/exact3seeds; global matrix remains incomplete22/48. Macro4 plot must use new audit source/caption without changing its actual statistics.",
+    "Exact original full20, selected reencoding, rebuilt memory/calibration, all19 tests and independent audit0/dead plus original CPU evaluation plot0 precede CPU8 dispatch.",
+    "All original producers/queues/collectors/runtime hold and prior61 code hashes remain unchanged. No scientific retry, additional GPU dispatch, cache deletion or publication claim."
+  ],
+  "existing_M21_actual_results": {
+    "conditions": 21,
+    "groups": 7,
+    "mean_rows": 56,
+    "paired_rows": 59,
+    "macro_rows": 8,
+    "macro_pairs": 5,
+    "cached_conditions": 69,
+    "cached_groups": 23
+  },
+  "new_CPU_worker_launched": false,
+  "scientific_producer_changed": false,
+  "GitHub_publication_claimed": false,
+  "recorded_at": "2026-10-04T05:17:08.789129+00:00"
+}

@@ -6,7 +6,7 @@
 
 ## 핵심 결과
 
-고정 백본 **48/48조건**과 네 장비 Macro4 비교를 완료했다. 주 LoRA는 **21/48조건·7/16 세-seed 그룹**을 검증했다. 아래 정확도는 AUROC / AP (%)이며, 같은 장비·seed·GT target에서 비교한다.
+고정 백본 **48/48조건**과 네 장비 Macro4 비교를 완료했다. 주 LoRA는 **22/48조건·7/16 세-seed 그룹**을 검증했다. 아래 정확도는 AUROC / AP (%)이며, 같은 장비·seed·GT target에서 비교한다.
 
 학습 111개 영상/50,642프레임, 테스트 66개 영상/33,462프레임을 감사했다. 정상 fit 76개·calibration 18개·진단 17개를 분리했다. R02/12·13·14의 라벨 정렬은 미확정이며 공통 18프레임 제외 규칙과 민감도 분석을 [Stage 00](docs/STAGE00.md)에 보존했다. 고정 백본 비교의 공통 유효 테스트 프레임은 31,728개다.
 
@@ -35,11 +35,11 @@ DINOv3 오프라인 네 장비·세 seeds를 완료했다. 동일 가중치 Macr
 
 DINOv3 R04 seed 2도 **20 epoch·4,000 updates** 정상 학습을 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#dinov3-r04-오프라인-seed-2의-완료된-정상-학습)를 제공한다. Seed 2의 전체 19개 테스트 P3 AUROC/AP는 고정 **69.36/70.29% → LoRA 74.70/77.36%**다. 개별 seed와 세-seed/Macro4 결과는 위 상세 보고서에서 구분한다.
 
-V-JEPA R04 seed 0은 **20 epoch·4,000 updates** 정상 학습을 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#v-jepa-r04-오프라인-seed-0의-완료된-정상-학습)를 제공한다. V-JEPA R04 seed 0의 전체 정확도 평가는 별도 진행 중이다.
+V-JEPA R04 seed 0은 **20 epoch·4,000 updates** 정상 학습을 완료했으며 [학습 곡선·정상 CE 선택 근거](docs/STAGE04.md#v-jepa-r04-오프라인-seed-0의-완료된-정상-학습)를 제공한다. 전체 19개 테스트의 P3 AUROC/AP는 고정 **71.36/74.01% → LoRA 59.93/64.20%**다. [개별 seed 결과·paired CI·그래프](docs/STAGE04.md#v-jepa-r04-오프라인-seed-0의-전체-평가와-완료된-22조건-집계)를 제공하며 R04 세-seed·백본 비교는 아직 미완료다.
 
 IPAD 원 코드의 R01 세 seeds는 각각 **50 epoch** 학습·평가를 완료했다. B0 픽셀 AUROC/AP는 **81.51/59.79%**, B1 특징 잔차는 **68.72/50.65%**였다. DINOv3 LoRA P3와 B0의 차이는 두 CI가 0을 포함하고, B1 대비 AP 차이는 **+20.88pp [3.46, 33.69]**였다. [동일 프레임 직접 비교·그래프·재현 차이](docs/STAGE01.md#ipad와-특징-기반-p3의-동일-프레임-직접-비교)를 제공한다. 학습·입력 등도 다르므로 디코더 제거만의 효과로 해석하지 않는다.
 
-고정 q99·3프레임 연속 알람을 [69개 고정/LoRA 조건](docs/STAGE05.md#r04-세-seed를-포함한-전체-69조건의-캐시-알람-재검증)에서 재검증했다. Ranking 정확도 개선과 구간 탐지·정상 오탐 개선은 일치하지 않을 수 있다. 점수 분포·GT 구간·정상 알람 그래프를 함께 제공한다.
+고정 q99·3프레임 연속 알람을 [70개 고정/LoRA 조건](docs/STAGE05.md#v-jepa-r04-seed-0을-포함한-전체-70조건의-캐시-알람-재검증)에서 재검증했다. Ranking 정확도 개선과 구간 탐지·정상 오탐 개선은 일치하지 않을 수 있다. 점수 분포·GT 구간·정상 알람 그래프를 함께 제공한다.
 
 실시간 파일 재생은 **6/240 실행**을 완료했다. DINOv3-L 온라인 R01 seed 0의 30 FPS FIFO·drop 없음에서 BF16 full/buffer는 **16.46/17.05 FPS**, target p95 지연 **7,172/6,314ms**이며 점수·알람 gate를 통과했다. 별도 FP32 reuse는 세 영상의 사전 점수 gate에 실패했다. [전체 trace·지연/큐 그래프·실패 근거](docs/STAGE05.md#같은-조건의-버퍼특징-재사용-실측)를 보존한다. 부분 파일 재생 결과이며 전체 백본·장비 비교 또는 카메라 성능을 뜻하지 않는다.
 
@@ -50,7 +50,7 @@ IPAD 원 코드의 R01 세 seeds는 각각 **50 epoch** 학습·평가를 완료
 | 실험 | 검증 완료 / 전체 | 상세 결과·그래프 |
 |---|---:|---|
 | 고정 L 백본 · 두 모드 · 네 장비 · 세 seeds | 48 / 48 | [오프라인](docs/STAGE02.md) · [온라인](docs/STAGE03.md) |
-| 주 LoRA · teacher weight 1 · fresh 20 epoch | 21 / 48 | [Stage 04](docs/STAGE04.md) |
+| 주 LoRA · teacher weight 1 · fresh 20 epoch | 22 / 48 | [Stage 04](docs/STAGE04.md) |
 | IPAD 통제 기준선 · fresh 50 epoch | 3 / 12 | [Stage 01](docs/STAGE01.md) |
 | IPAD 전체 정상 111영상 reference · 50 epoch | 0 / 4 | [Stage 01](docs/STAGE01.md) |
 | Teacher weight 0/1 쌍 · 신규 weight 0 평가 | 0 / 48 | [Teacher 비교](docs/ABLATION_TEACHER_WEIGHT.md) |

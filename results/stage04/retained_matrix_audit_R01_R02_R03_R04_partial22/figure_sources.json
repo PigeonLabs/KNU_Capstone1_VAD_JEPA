@@ -1,0 +1,24 @@
+{
+  "status": "rendered_from_fresh_mixed_condition_and_statistic_replay",
+  "kind": "lora",
+  "matrix_complete": false,
+  "validation_sha256": "9571abd4d9fdefecfc202565906fc76f9dea99f92cbf7da53b1eac21f09c2288",
+  "plot_code_sha256": "eac814d12fc13921060ca0e7c18f1031df53f29f4b4deef7b5e75614a1e6f72d",
+  "figures": {
+    "retained_lora_dinov3-l_offline_R01.png": "70f050c2977dad1a676305966ea1374a1e9c62b4f1458258eb54d6df0a5617a4",
+    "retained_lora_dinov3-l_offline_R01.svg": "c5eb262cdb6fe4fd969b3dcc2ec50cd369911fa5fca21657e2f7841c9fc29f61",
+    "retained_lora_dinov3-l_offline_R02.png": "edc5f7bacc63fb0db22f3cd3afb14055faba9903cea2884668c4f279310b0b51",
+    "retained_lora_dinov3-l_offline_R02.svg": "b239080699ee599c95cdb958832d401f92e578a62d7dd678837762888166152a",
+    "retained_lora_dinov3-l_offline_R03.png": "24f4f078de7fed140f5c43b931e225fb323fd270f73eeb78b9356e9cfdcec46e",
+    "retained_lora_dinov3-l_offline_R03.svg": "f7f2d56015b10e25e369ac55709b078f2c25c7ecccf9a23aa89b3d855cd95e1b",
+    "retained_lora_dinov3-l_offline_R04.png": "0d0f69492f812936c9897e1a03301123c355010ee66f18e319455f44e6f41225",
+    "retained_lora_dinov3-l_offline_R04.svg": "36a7df753bbb40a389c931d014366618e5364644fda7fe85ef473385f9193e28",
+    "retained_lora_vjepa21-l_offline_R01.png": "0f091a5e735f80e3b709b241357a9e1d8f78459af22af24ba54105950609fda6",
+    "retained_lora_vjepa21-l_offline_R01.svg": "574209b8e5f617eefab332b0c6bf92ad0c440c4e109df5eafba27c086996b2f1",
+    "retained_lora_vjepa21-l_offline_R02.png": "1c6e7d380b5c9ff7cdfcdb3f8e4b0f809c292a6c5ab55beea2e4270008afed4d",
+    "retained_lora_vjepa21-l_offline_R02.svg": "811190e21bf3b6ceab080f48f5363da670ce558a006d7944e667cb5890c3d5e7",
+    "retained_lora_vjepa21-l_offline_R03.png": "54353154892839caf3925018bbd1f1004e13ae18f2adca14255b63da05855601",
+    "retained_lora_vjepa21-l_offline_R03.svg": "58ab3c1bc2cea6b0c2139060066d86d09954b8faaf3ece390b7dc25411865745"
+  },
+  "limits": "Historical payload checks remain explicitly labelled; actual complete three-seed groups only. Final PNG review required."
+}
