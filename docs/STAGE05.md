@@ -901,3 +901,22 @@ PYTHONPATH=src:scripts python scripts/report_cached_score_distributions.py --aud
 두 조건의 점수 공간·정상 보정이 다르므로 q99 크기를 성능이나 원인으로 비교하지 않는다. Calibration 2,771개 trace 중 유효 점수 2,727개로 원 q99를 재계산하며, 테스트 점수로 재설정하지 않았다. Target index와 cached 알람은 wall-clock 지연·FPS·실제 방출 시각·온라인 EOF 성능이 아니다. 관측 이벤트 경계의 불확실성을 유지했다.
 
 [66조건·22그룹·개별 영상·source/annotation hash](../results/stage05/cached_alarm_coverage_R01_R02_R03_partial18/cached_alarm_coverage.json), [Seed 2 pair와 독립 감사](../results/stage05/cached_alarm_coverage/single_seed/vjepa21-l/offline/R03/seed2/cached_alarm_pair.json), [점수 분포·통과·경보](../results/stage05/score_distributions/vjepa21-l/offline/R03/seed2/score_distributions.json), [게시 검증](../results/setup/primary18_VJ_R03_seed2_matrix_cached66_publication_check.json)을 제공한다. 원 CPU 명령 7개의 실제 종료 코드 0, 원 전체 평가 plot의 실제 종료 코드 0, 총 PNG 16개 직접 검토를 확인했다. 이전 snapshot을 보존하며 전체 온라인·오프라인·실시간 비교는 계속 수행한다.
+
+## R04 seed 0을 포함한 전체 67조건의 캐시 알람 재검증
+
+고정 **48 + LoRA 19 = 67조건**, 완결 세-seed **22그룹(고정 16·LoRA 6)**을 실제 정상 보정·GT·점수·알람으로 재검산했다. 기존 **66조건·22그룹**은 그대로 유지한다. R04는 단일 seed이며 새 세-seed 평균을 만들지 않았다.
+
+| R04 seed 0 P3 | 원 정상 q99 | 탐지 구간 / 전체 | 정상 경보 프레임 / 3,159 | 정상 경보 시작 |
+|---|---:|---:|---:|---:|
+| 고정 | 14.213017 | 7 / 26 | 7 | 5 |
+| LoRA | 4.618483 | 13 / 26 | 12 | 5 |
+
+![단일 seed의 고정 q99 탐지와 정상 오탐](figures/stage05/dinov3-l_R04_offline_seed0_single_cached_alarm_pair.png)
+
+![각 조건 자체 점수 공간의 ECDF·q99 통과와 경보](figures/stage05/dinov3-l_R04_offline_seed0_score_distributions.png)
+
+![완결 LoRA 그룹과 개별 seed 알람](figures/stage05/cached_R01_R02_R03_R04_partial19/cached_P3_lora_alarm_coverage.png)
+
+![완결 고정 백본 그룹과 개별 seed 알람](figures/stage05/cached_R01_R02_R03_R04_partial19/cached_P3_frozen_alarm_coverage.png)
+
+정상 전용 q99·3-target streak를 유지했으며 unknown에서 streak를 초기화하지 않는다. 자체 보정과 점수 공간이 다르므로 q99 크기를 원인이나 성능으로 비교하지 않는다. 공통 GT mask의 target-index cached 경보이며 실제 FPS·wall-clock 지연·방출 시각·온라인 EOF 성능을 뜻하지 않는다. Alarm 그룹 평균에는 새 CI를 계산하지 않았다. [67조건·22그룹과 영상별 결과](../results/stage05/cached_alarm_coverage_R01_R02_R03_R04_partial19/cached_alarm_coverage.json), [단일 pair 감사](../results/stage05/cached_alarm_coverage/single_seed/dinov3-l/offline/R04/seed0/cached_alarm_pair.json), [점수 분포](../results/stage05/score_distributions/dinov3-l/offline/R04/seed0/score_distributions.json), [게시 검증](../results/setup/primary19_DINO_R04_seed0_matrix_cached67_publication_check.json)을 제공한다. 원 CPU 보고 7개와 원 평가 plot의 실제 종료 코드 0, 총 PNG 16개 직접 검토를 확인한 뒤 게시한다.

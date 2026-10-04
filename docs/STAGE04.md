@@ -1276,3 +1276,26 @@ MAE 최솟값으로 재선택하지 않았다. 원 source-bound pipeline은 실�
 PYTHONPATH=src:scripts python scripts/export_lora_training.py --run artifacts/lora/dinov3-l/offline/R04/seed0 --out results/stage04/training/dinov3-l/offline/R04/seed0
 PYTHONPATH=src:scripts python scripts/plot_lora_training.py --results results/stage04/training/dinov3-l/offline/R04/seed0 --out docs/figures/stage04/dinov3-l_R04_offline_seed0_joint_training
 ```
+
+## DINOv3 R04 seed 0의 완료된 전체 평가와 19조건 집계
+
+원 fresh 정상-only **20 epoch·4,000 updates**, 정상 calibration CE 최소 epoch **18**으로 선택한 encoder/head를 사용했다. Fit **17**·calibration **4**·실제 test **19**의 **40개 영상**을 재추출하고 PCA·프로토타입 메모리·정상 보정을 새로 구성했다. 진단용 정상 **4개**를 제외했으며 모든 **19개 테스트·7,660개 유효 GT(이상 4,501개)**를 같은 seed 고정 백본과 비교했다. 원 세 단계 및 wrapper의 실제 종료 코드 0과 tensor·메모리·정상 임계값·GT·시간·점수·알람의 독립 감사를 확인했다.
+
+| 점수 | 고정 AUROC / AP (%) | LoRA AUROC / AP (%) | AUROC 차이 [95% CI], pp | AP 차이 [95% CI], pp |
+|---|---:|---:|---:|---:|
+| P0 | 68.50 / 73.24 | 72.35 / 75.22 | +3.85 [-0.55, +9.37] | +1.98 [-1.84, +5.82] |
+| P1 | 73.21 / 73.56 | 74.45 / 77.81 | +1.25 [-2.18, +5.08] | +4.25 [-0.36, +8.75] |
+| P2 | 72.63 / 73.15 | 75.04 / 78.28 | +2.41 [-1.09, +6.63] | +5.13 [+0.33, +9.85] |
+| P3 | 68.95 / 70.24 | 73.77 / 76.86 | +4.82 [+2.01, +8.03] | +6.62 [+2.72, +10.51] |
+
+![R04 seed 0의 실제 평가·ROC/PR·paired CI](figures/stage04/dinov3-l_R04_offline_seed0_lora_evaluation.png)
+
+![사전에 고정한 영상 03의 점수·알람 궤적](figures/stage04/dinov3-l_R04_offline_seed0_lora_sequence03.png)
+
+P3 AUROC/AP 차이 CI는 **양수/양수**다. [개별 CSV·P0–P3·paired CI](../results/stage04/dinov3-l/offline/R04/seed0), [조건 감사](../results/stage04/condition_pipeline_checks/T1/dinov3-l/offline/R04/seed0/condition_audit.json), [원 완료 증거](../results/stage04/condition_pipeline_checks/dinov3-l/offline/R04/seed0/pipeline_completion.json)를 제공한다.
+
+전체 **19/48조건·6/16 세-seed 그룹**을 독립 재검산하고 정상 임계값 **152개**를 확인했다. 현재 배열 **18조건**과 승인된 배열 정리 증거 **1조건**을 구분했다. 기존 **48개 평균 행·54개 paired 비교·6그룹·3백본 쌍**은 그대로 유지한다. **R04는 seed 0 하나**이므로 R04 평균·백본 비교·Macro4를 추가하지 않는다. 1,000회 paired 원본 영상 bootstrap·percentile 95% CI를 사용하며 seed 자체를 재표집하거나 테스트로 선택 규칙을 바꾸지 않았다.
+
+![완료된 19조건과 남은 29조건](figures/stage04/primary_lora_completed19.png)
+
+[19조건 감사와 29 pending](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial19/validation.json), [유지된 세-seed 평균·paired CI](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial19/device_summary.json), [빈 Macro4와 미완료 장비](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial19/macro_summary.json), [그림 source](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial19/figure_sources.json), [게시 검증](../results/setup/primary19_DINO_R04_seed0_matrix_cached67_publication_check.json)을 제공한다. 이전 snapshot을 보존한다. 원본·모델·특징·optimizer 파일을 업로드하지 않으며 나머지 온라인/오프라인·teacher 0/1·IPAD 기준선·OFAT·진단·실시간 비교를 유지한다.
