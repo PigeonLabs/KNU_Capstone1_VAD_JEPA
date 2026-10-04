@@ -1299,3 +1299,22 @@ P3 AUROC/AP 차이 CI는 **양수/양수**다. [개별 CSV·P0–P3·paired CI](
 ![완료된 19조건과 남은 29조건](figures/stage04/primary_lora_completed19.png)
 
 [19조건 감사와 29 pending](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial19/validation.json), [유지된 세-seed 평균·paired CI](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial19/device_summary.json), [빈 Macro4와 미완료 장비](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial19/macro_summary.json), [그림 source](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial19/figure_sources.json), [게시 검증](../results/setup/primary19_DINO_R04_seed0_matrix_cached67_publication_check.json)을 제공한다. 이전 snapshot을 보존한다. 원본·모델·특징·optimizer 파일을 업로드하지 않으며 나머지 온라인/오프라인·teacher 0/1·IPAD 기준선·OFAT·진단·실시간 비교를 유지한다.
+
+## DINOv3 R04 오프라인 seed 1의 완료된 정상 학습
+
+원 fresh 정상-only 학습이 **20 epoch·4,000 optimizer updates**를 완료했다. Fit **17개 영상·1,596 clips**, 별도 calibration **4개 영상·1,546 clips**를 사용하고 teacher weight 1·accumulation 8·BF16과 원래 학습 코드를 유지했다. 최소 정상 calibration CE의 epoch **19**을 선택했다.
+
+| 선택 epoch | 정상 calibration CE | 같은 epoch의 원형 MAE |
+|---:|---:|---:|
+| 19 | 3.574549 | 3.6194% |
+
+![DINOv3 R04 seed 1의 실제 20 epoch 학습 곡선](figures/stage04/dinov3-l_R04_offline_seed1_joint_training.png)
+
+MAE 최솟값으로 재선택하지 않았다. 원 source-bound pipeline은 실제 trainer의 `child.wait()`가 0일 때만 full20 완료 단계를 기록한다. 이 단계와 원 CPU 수집기의 export·plot 실제 종료 코드 0, 보존된 로컬 학습 파일 다섯 개의 해시 및 직접 PNG 검토를 확인했다.
+
+[전체 학습 CSV·JSON·선택 checkpoint 해시·export 검증](../results/stage04/training/dinov3-l/offline/R04/seed1), [학습 완료·시각화 검토·게시 검증](../results/setup/lora_dinov3_R04_seed1_training_publication_check.json)을 제공한다. 공개된 정확도 행렬은 **19/48조건·6/16 세-seed 그룹**이며 이 정상 학습 단계를 추가 조건으로 세지 않는다. 선택 특징 재추출·새 PCA/메모리·정상 보정·전체 **19개 실제 테스트**의 독립 평가는 별도로 완료해야 한다. 전체 온라인·teacher 0/1·IPAD 기준선·추가 실험·실시간 비교를 유지한다. 원본 영상·특징·모델·optimizer 파일은 업로드하지 않는다.
+
+```bash
+PYTHONPATH=src:scripts python scripts/export_lora_training.py --run artifacts/lora/dinov3-l/offline/R04/seed1 --out results/stage04/training/dinov3-l/offline/R04/seed1
+PYTHONPATH=src:scripts python scripts/plot_lora_training.py --results results/stage04/training/dinov3-l/offline/R04/seed1 --out docs/figures/stage04/dinov3-l_R04_offline_seed1_joint_training
+```
