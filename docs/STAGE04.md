@@ -1622,4 +1622,4 @@ P3 차이의 두 CI는 양수다. P0 AUROC 차이의 CI는 음수이고 AP는 0�
 
 ![25조건 완료와 나머지 23조건](figures/stage04/primary_lora_completed25.png)
 
-[새 25조건 행렬·출처](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial25), [세-seed·백본 비교 PNG/SVG](figures/stage04/retained_R01_R02_R03_R04_partial25), [검증·직접 PNG 검토·게시 근거](../results/setup/primary25_DINO_R01_online_seed0_matrix_cached73_publication_check.json)를 제공한다. 온라인 seed 1·2, 나머지 장비·백본, teacher 0/1·IPAD 기준선·OFAT·진단·실시간 비교를 계속 수행한다.
+[새 25조건 행렬·출처](../results/stage04/retained_matrix_audit_R01_R02_R03_R04_partial25), [세-seed·백본 비교 PNG/SVG](figures/stage04/retained_R01_R02_R03_R04_partial25), [검증·직접 PNG 검토·게시 근거](../results/setup/primary25_DINO_R01_online_seed0_matrix_cached73_publication_check.json)를 제공한다. 사용자 요청에 따라 이 25조건 snapshot까지 게시하고 실행을 종료했다. 온라인 seed 1은 11/20 epoch 체크포인트를 보존했으며 완료 수에 포함하지 않는다. 나머지 비교의 미완료 범위와 프로세스 종료 근거는 [최종 보고서](FINAL_REPORT.md)에 있다.

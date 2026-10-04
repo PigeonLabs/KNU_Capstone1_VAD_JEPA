@@ -1,0 +1,482 @@
+{
+  "status": "closed_at_user_requested_current_stage",
+  "authorization": "현재 단계까지 깃허브 업로드하고 실험 마무리할 것",
+  "utc": "2026-10-04T11:32:22.205683+00:00",
+  "completed_results_commit": "cfb76b433431181caa2abb5859a6d0ac14015c77",
+  "completed_results_ci_id": 37197909258,
+  "completed_results_tests_passed": 422,
+  "full_plan_completed": false,
+  "further_experiments_scheduled": false,
+  "inventory": {
+    "frozen_backbones": {
+      "completed": 48,
+      "planned": 48
+    },
+    "primary_lora": {
+      "completed": 25,
+      "planned": 48
+    },
+    "native_controlled": {
+      "completed": 3,
+      "planned": 12
+    },
+    "native_reference": {
+      "completed": 0,
+      "planned": 4
+    },
+    "teacher_weight_zero": {
+      "completed": 0,
+      "planned": 48
+    },
+    "memory": {
+      "completed": 192,
+      "planned": 192
+    },
+    "history": {
+      "completed": 144,
+      "planned": 144
+    },
+    "neighbours": {
+      "completed": 144,
+      "planned": 144
+    },
+    "clip_frames": {
+      "completed": 6,
+      "planned": 48
+    },
+    "representation": {
+      "completed": 6,
+      "planned": 96
+    },
+    "small_backbones": {
+      "completed": 3,
+      "planned": 24
+    },
+    "diagnostics": {
+      "completed": 0,
+      "planned": 48
+    },
+    "runtime_replay": {
+      "completed": 6,
+      "planned": 240
+    }
+  },
+  "primary_three_seed_groups": {
+    "completed": 8,
+    "planned": 16
+  },
+  "pending_primary_conditions": [
+    [
+      "dinov3-l",
+      "online",
+      "R01",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R01",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R02",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R03",
+      2
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04",
+      0
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04",
+      1
+    ],
+    [
+      "dinov3-l",
+      "online",
+      "R04",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R01",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R02",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R03",
+      2
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04",
+      0
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04",
+      1
+    ],
+    [
+      "vjepa21-l",
+      "online",
+      "R04",
+      2
+    ]
+  ],
+  "cached_alarm_conditions": 73,
+  "cached_alarm_complete_three_seed_groups": 24,
+  "stopped_owner_count": 20,
+  "stopped_loader_workers": 2,
+  "stopped_process_identities": [
+    {
+      "pid": 1581144,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "13113637"
+    },
+    {
+      "pid": 1581191,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "13114787"
+    },
+    {
+      "pid": 1581245,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "13115920"
+    },
+    {
+      "pid": 1472340,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "10630146"
+    },
+    {
+      "pid": 1472444,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "10632485"
+    },
+    {
+      "pid": 1481981,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "10973574"
+    },
+    {
+      "pid": 1482882,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "10977338"
+    },
+    {
+      "pid": 1496740,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "11319726"
+    },
+    {
+      "pid": 1501071,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "11398321"
+    },
+    {
+      "pid": 1472845,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "10646897"
+    },
+    {
+      "pid": 1472846,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "10646919"
+    },
+    {
+      "pid": 1483712,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "11020129"
+    },
+    {
+      "pid": 1483713,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "11020150"
+    },
+    {
+      "pid": 1496772,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "11320166"
+    },
+    {
+      "pid": 1501090,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "11398521"
+    },
+    {
+      "pid": 1872408,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "18678801"
+    },
+    {
+      "pid": 1872930,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "18686164"
+    },
+    {
+      "pid": 1873571,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "18696208"
+    },
+    {
+      "pid": 1096328,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "5638691"
+    },
+    {
+      "pid": 1096313,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "5638643"
+    },
+    {
+      "pid": 1888913,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "18984003"
+    },
+    {
+      "pid": 1888914,
+      "boot_id": "a08f5d08-e3f7-4a12-8d33-15b2f1049697",
+      "start_ticks": "18984008"
+    }
+  ],
+  "partial_training": {
+    "condition": [
+      "dinov3-l",
+      "online",
+      "R01",
+      1
+    ],
+    "status": "stopped_incomplete_not_evaluated",
+    "completed_epochs": 11,
+    "planned_epochs": 20,
+    "updates": 1837,
+    "selected_epoch": 11,
+    "selection": "Minimum normal calibration CE among saved epochs only",
+    "best_normal_calibration_ce": 3.9333364676200917,
+    "selected_normal_calibration_circular_mae": 0.008035474956014952,
+    "preserved_local_files": {
+      "artifacts/lora/dinov3-l/online/R01/seed1/lora_training.csv": {
+        "sha256": "2320bd645ebf4dcc823fab9729e2dd72c170a9af36f2b6834697c261b071e98d",
+        "bytes": 1076
+      },
+      "artifacts/lora/dinov3-l/online/R01/seed1/lora_training.json": {
+        "sha256": "d743b2b82f9706eeeec225f93c0c7eb100acf412cf10eb5c0d5ec1bbf6b68f9b",
+        "bytes": 3788
+      },
+      "artifacts/lora/dinov3-l/online/R01/seed1/phase_head.pt": {
+        "sha256": "a5b366183be0c718ef381e4aabd97abaaf253bc9473e6a8698857c64144f92ec",
+        "bytes": 1257753
+      },
+      "artifacts/lora/dinov3-l/online/R01/seed1/resume.pt": {
+        "sha256": "290cc52d6641659b6d30fb062cf18ef71a28bd1b057f160701fc113bb7453707",
+        "bytes": 5386396
+      },
+      "artifacts/lora/dinov3-l/online/R01/seed1/selected_adapter.pt": {
+        "sha256": "95ac5ca05f5214fa7d935e59648587b2b4e850d202ff20459e33e1ddd8315b1c",
+        "bytes": 1790431
+      }
+    },
+    "curve_csv": "results/stage04/partial_training/dinov3-l/online/R01/seed1/lora_training.csv",
+    "curve_sha256": "2320bd645ebf4dcc823fab9729e2dd72c170a9af36f2b6834697c261b071e98d",
+    "excluded_from_completed_condition_count": true
+  },
+  "original_sources_sha256": {
+    "scripts/continue_lora_condition.py": "4cbc18f45bc940ca70c509e5f10a5b0fae31d5997e067afec1fa7206617154e5",
+    "results/stage00/manifest.json": "b97e149c2f3296691bc7d9510c8b68aa7e668070799e527c4d0d1b6841b11fce",
+    "configs/experiment_matrix.yaml": "7ada33cb33236604b926df5b78ba26e62087098ea7557d2dc4cad700d5fa0833",
+    "scripts/retire_lora_cache.py": "086bf507192c34e3de8b754b0149f399d3a0f73f4253b62687925667d5256092",
+    "scripts/summarize_retained_lora_matrix.py": "3101a50e3e4e5660e544d2a2ca5c61991139c59168489aa5abbeb0888cc3897a",
+    "scripts/audit_retained_lora.py": "6e247309240a9d4bd3faee2aca44b4ccda5895048964a2c88719c02b02e253b5",
+    "scripts/summarize_lora_matrix.py": "f18ba0cbd2e763fc84d118b4410aaffcff13521e6528fbe8a8f629c0dc8752d3",
+    "scripts/plot_lora_evaluation.py": "9fc2e8e91b6c348b6c45e5132008b4e69a6b6445c9f4fd609d0d944862992f46",
+    "scripts/summarize_clip_ablation.py": "af25ff897d7cbe8286748bd2725d9daac9717d238c59c572ad165745445dbfd6",
+    "scripts/summarize_experiments.py": "50a07f7c98e4635efe70d5281515f2ec2c34bb312e48fde4321344de298113a7",
+    "src/ipad_jepa/train_lora.py": "a2508f4fef9d3f4d938216fbb0695baf63918432e96154ac35b669e159d8ba28",
+    "src/ipad_jepa/adaptation.py": "0265cf076ab9df02d095824603bccf55abb0ee4ca5628a0432b8b757bdef1354",
+    "src/ipad_jepa/adapted_features.py": "a7980adc2ab1751e19095cc64b52b13a638ad14352fe6cf64b15aeb88ddaece1",
+    "src/ipad_jepa/backbones.py": "18de21117526b72f9b847e5f7ccd3d4d739c626f9d4060c98c7b50df6525561a",
+    "src/ipad_jepa/features.py": "7bfd3cd96ea35dca043bf88ea8211a7dcb6625a26dfeaab56bc6154b7d527826",
+    "src/ipad_jepa/temporal.py": "4932d482a3013f1561386fb911da2f34eeeba071444ff866e5958d2abebde446",
+    "src/ipad_jepa/audit.py": "e3ee8dd25f21450923c9bc780fcedbe10697819b01ced507745d9d6bf850b7a9",
+    "src/ipad_jepa/cache_data.py": "085aa19f7f1b9a810fa376275ba9825a31ac7b568b1925a5acb7475d1b9d7bb7",
+    "src/ipad_jepa/train_phase.py": "71c226ed4606951b8030588e84675303da4bf2bb67305a81c5d2c26a2eb17f08",
+    "src/ipad_jepa/experiment.py": "4330a26c29da9b10e5f49f12c090018ba11903d8c67ada7a247ef45f5e92a94f",
+    "src/ipad_jepa/memory.py": "e41b715c1533eeba2ceb9ec886cb339a74173a3de039b8c928882e2e3565e69b",
+    "src/ipad_jepa/torch_memory.py": "0b40d46f5f3061bd6f4abedd2f0ede73414c9cea4087d1202d9ac3669f91dff9",
+    "src/ipad_jepa/scoring.py": "733efce15df8afa1aac635bf08819bfc5aa523d6bf7cc8129d43dafe27ba049a",
+    "src/ipad_jepa/alignment.py": "71a481d440ad11801f414a7cc76fd4610ff44ff85f9131dacb3eafe755bcda32",
+    "src/ipad_jepa/lora_audit.py": "3418f771aed02e8537645a8f1f372a4dac537c5c99564db9357fe937c1a3ad41",
+    "src/ipad_jepa/cache_retention.py": "76481aa4e20b0d0c20fc66b7a354c36e7dfcd44e407a9d21895d48511f5a0b1b",
+    "src/ipad_jepa/cache_retirement.py": "a2e7922a74e504f9f82330aef692fa482866dbe03eaad3808517af83894762f7",
+    "src/ipad_jepa/teacher_ablation.py": "02c17f4248dc5242eedd8e03bf555856156756106b6a8c9df29d920ce28e51a0",
+    "scripts/export_lora_training.py": "a894deea7010e53390d718516f9ad3d396dda8aaf7c20ddbe0d4e4cc938b90b7",
+    "scripts/plot_lora_training.py": "4664be22468db87490bd42278bb29d2e7401ad3bb7e417fbde0bbde1b77315ab",
+    "artifacts/tmp/collect_vjepa_R03_completed_CPU_artifacts.py": "60208c54a26a669e1ca27197b65d8e8216828a33a159b37b72cbc7f010027329",
+    "scripts/run_runtime_matrix.py": "27c903e3894742a42548fdb20bae3de824f375e2d48d2834e96499fb9d4534a2",
+    "scripts/benchmark_runtime.py": "06c1664958a78b3dbef9cb8d83b5e81cbe4b474ad818176a22c70e5ad436126e",
+    "scripts/verify_runtime_parity.py": "09ed080e509ade2e092cb26dad0030613c5a1f9f1f45d3a074aa1fcf273775e3",
+    "src/ipad_jepa/runtime_state.py": "4983731e279b828848ae274e150a336dd45670afa40418f99c5e433d350a6e14",
+    "src/ipad_jepa/runtime_adaptation.py": "9fd423be68fab6acabb64b0f4735742c3dd1990604e79ef8aae6d2cbe1d49863",
+    "src/ipad_jepa/streaming.py": "3dc4935ff695b387e192f5b605b6715d7232642dc610e8b23572e6df177f32b9",
+    "scripts/lora_reporting.py": "0a5bb5ebcdd864cf9f0fe05065a1a11a8007f8d8baf2517bac4a2e0c2d59f3bc",
+    "src/ipad_jepa/teacher_weight_audit.py": "2669723a979f975b6e48b435949126d8ffb70661bc6cf37cd9a4119b023e7eff",
+    "artifacts/tmp/collect_R03_completed18_CPU_reporting.py": "12a019949a92f6763ebc3dbcabeea8ab383aac71c36c2966e329b15f8bf5dae7",
+    "artifacts/tmp/run_durable_R03_completed18_CPU_reporting.py": "b5b2476f44c246d773b78484c6e252aafa11f405f19ab3fa09f8a06356983691",
+    "scripts/plot_lora_completion.py": "280e11fd3af1f7b86a73147778e7e9fe328b8d66f447d2d640cd7da2a7e3ee6d",
+    "scripts/plot_retained_lora.py": "eac814d12fc13921060ca0e7c18f1031df53f29f4b4deef7b5e75614a1e6f72d",
+    "scripts/plot_lora_matrix.py": "23e73ecb4d850a1393ef17e3327b1fe82e1b255feaa710c60353acf53ff82213",
+    "scripts/plot_lora_backbone_comparison.py": "cf79fb39f3a95044da48e5cbff983e930151a73ff4013c876f1899267303b54a",
+    "scripts/plot_neighbour_ablation.py": "9977d5a3590f1549d63df0241558cb81ee0b0db6132c02750906abd7daf2ee53",
+    "scripts/report_cached_alarm_coverage.py": "94ee3edb276e37ad67b3be2b14053327da5a72b01f3a1a0a22bd96c0e5030cd5",
+    "scripts/report_single_cached_alarm_pair.py": "5ce9dcfc46df56931013a00c6e2e38694f5ddf8627dbf5867b1874f0258a06c8",
+    "scripts/report_cached_score_distributions.py": "f2906114087537992c57bc84b2aa3d60a1b04166d8c28391cab87d4980198e69",
+    "scripts/summarize_neighbour_ablation.py": "1ae49b169a3376eb5626be18faef938b3c34ae69e5a15d6130473812d8b6a5d2",
+    "src/ipad_jepa/bootstrap_metrics.py": "59e3449cb88d1b75ad2e52651f3fa7985dfcce99fabae48c9e6b3fe64a5c93be",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_partial17/validation.json": "9535a9f158c7bcaf1b7b7c78f7d7f10993dd8bd837b3beef5055ca5cf50152cf",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_partial17/device_summary.json": "2f41615970280f9a491a79f7790f5b20a354d248e65a591ab0f6e87b52fd6afa",
+    "results/stage04/retained_matrix_audit_R01_R02_R03_partial17/macro_summary.json": "1f866dd498f427d096faadee16a893c7808bb3d53bd27ef0ecc92f7adb99d2ae",
+    "results/stage05/cached_alarm_coverage_R01_R02_R03_partial17/cached_alarm_coverage.json": "80e4dc09befacc7b16872802dec2609974b9e2aa6a7e148b2e148c07753b3362",
+    "artifacts/tmp/plot_actual_DINO_offline_Macro4_partial21.py": "5541db3eeaab55371ab9033a8fc369692c31f571018908988732a40da75e23a2",
+    "artifacts/tmp/R04_completed21_reporting_semantic_read_only_preparation.json": "531759a82cc2c49f1d48ac67b5c7c6310bc7259d064da70f3c06366164791ace",
+    "artifacts/tmp/collect_R04_completed21_CPU_reporting.py": "294f0eecc190d25dae93de2a712be269986b650d790718af536b16ebdbf9551f",
+    "artifacts/tmp/wait_R04_seed2_completed21_CPU_reporting.py": "798947023b3a2bce17bdcefa41e68d90489c7dd09641e68ae8227b8d1836e0a6",
+    "artifacts/tmp/run_durable_R04_completed21_CPU_waiter.py": "70a6c63b2d28cc10a06f45371514cb0c9961c7d8161d22bbf593c29f7d8b585a",
+    "artifacts/tmp/preflight_R04_completed21_CPU_reporting.py": "71883f46ef69b279e8cabc3d6439ed47f8d4e26fb5efc77a938802502876032b",
+    "artifacts/tmp/plot_actual_DINO_offline_Macro4_partial22.py": "27334b15892b695dd4331dec78c92dc7b3609a462903879f400b90bb070daf61",
+    "artifacts/tmp/R04_completed22_reporting_semantic_read_only_preparation.json": "8c0efc6b6115547041f614a0b133fda37b24601398270553e408bd5c0bab5b3b",
+    "artifacts/tmp/collect_R04_completed22_CPU_reporting.py": "02fa9e0036a25b09b5999d1e017b614eccf2ebb5a3b255f5ad69557c46ec7d88",
+    "artifacts/tmp/wait_vjepa_R04_seed0_completed22_CPU_reporting.py": "0cd4009997d5a5034f989f43047a949e9066ae4e9c77f60aa6082521f97b1158",
+    "artifacts/tmp/run_durable_R04_completed22_CPU_waiter.py": "03b206ec8f9c90ac21a8280d2e155c76eadf3d5ff757c1ec208e546854cf4174",
+    "artifacts/tmp/preflight_R04_completed22_CPU_reporting.py": "687547196a9f42bdf3b53f354385cc36dcbbdf7331c74e8158096c5cfd7767a4",
+    "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/artifacts/tmp/collect_vjepa_R04_completed_CPU_artifacts.py": "95da5cb6cba3be2c781cc474b567c3a04c733c7d03e9f47f341efab223fb1128",
+    "artifacts/tmp/plot_actual_DINO_offline_Macro4_partial23.py": "eaef84f91c1c6795230c97d966ca1463aa9ed4d8d7fb697faebe3de996f95316",
+    "artifacts/tmp/R04_completed23_reporting_semantic_read_only_preparation.json": "8a886a516695de313c6c4c9e94b0cda5a90eed70706316624b2c7531fa613e42",
+    "artifacts/tmp/collect_R04_completed23_CPU_reporting.py": "9a94e5e6bbd1dd170d45f8cc0430ead81122ae42b5128166ed6b613769c15040",
+    "artifacts/tmp/wait_vjepa_R04_seed1_completed23_CPU_reporting.py": "f90b1ba7c9a754b32d5a31cf0033dac093ab9448e3116cfef7e5cd10b377aa92",
+    "artifacts/tmp/run_durable_R04_completed23_CPU_waiter.py": "1bfb69f7552587ea91e6f6e3c86248f6bcafefa8443eb01959b152fe56ee12a9",
+    "artifacts/tmp/preflight_R04_completed23_CPU_reporting.py": "fe15e8dea28edf3167cf379fc77a0c29ef0496b322d1a9f20e3d67e3efe8b577",
+    "artifacts/tmp/plot_actual_offline_Macro4_partial24.py": "db8ed96b8847b5981a57ba55a5e013b68439b79de490d56fd1850c93053eb00f",
+    "artifacts/tmp/R04_completed24_reporting_semantic_read_only_preparation.json": "2c8021e96ed5bd78f0aad4736c223aac38542ddacb9f1bdfae24e25f66c2bf2b",
+    "artifacts/tmp/collect_R04_completed24_CPU_reporting.py": "34d5bf2e56bb7469396ce44e9ab0c25b7a85144ca56754a3b4416994ebbfbfe7",
+    "artifacts/tmp/wait_vjepa_R04_seed2_completed24_CPU_reporting.py": "cf0c3cfaedc8f6b52acd428b35ae69859e958f80561480648cb10757bc986290",
+    "artifacts/tmp/run_durable_R04_completed24_CPU_waiter.py": "c343af2daa7bb3bdffbcaf3fbbb21e98b875ce80252229737dd4925a325d7b4b",
+    "artifacts/tmp/preflight_R04_completed24_CPU_reporting.py": "24e9657983b3a08b403760494174685aa0eae5100364fe7e006cc77b60c8b48c",
+    "artifacts/tmp/verify_completed23_CPU_reporting_evidence.py": "9d32ffbe99aaa6da79eb0d26894189b319f444adcae125f2d3997fefdc5905c0",
+    "artifacts/tmp/R04_completed23_CPU_reporting_evidence_helpers_final_source_review.json": "f507e7f626a64b206e3c86b298c9582c176701475b95b61d3c56de0ab3d8f4e3",
+    "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/artifacts/tmp/collect_dinov3_R01_online_completed_CPU_artifacts.py": "547e093beafa803616d97fd7e7e5ec89d3cad03fe08dbea981776b089274193b",
+    "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/scripts/run_runtime_matrix.py": "27c903e3894742a42548fdb20bae3de824f375e2d48d2834e96499fb9d4534a2",
+    "artifacts/tmp/collect_DINO_R01_online_seed0_completed25_CPU_reporting.py": "60b9e5c68c3685f057093242556a80d536a6e156df46de10bd4d1db4a75c928b",
+    "artifacts/tmp/wait_dinov3_R01_online_seed0_completed25_CPU_reporting.py": "50a4f5a5c871e3f44f61ca19ecfb58d01d0be1e555740e3e1bf3d78db2a8b6cb",
+    "artifacts/tmp/run_durable_DINO_R01_online_seed0_completed25_CPU_waiter.py": "f3b391c272e42e18b9e4591f37ab1c8062724371f27434ca862858153775a281",
+    "artifacts/tmp/preflight_DINO_R01_online_seed0_completed25_CPU_reporting.py": "2209ccb13527fec9ebd76fa11de59b2b4da86ec024db48855428a1b833a37bf3",
+    "artifacts/tmp/DINO_R01_online_seed0_M25_reporting_semantic_read_only_preparation.json": "1af08d0a8a72eac153e7a8297b118e0e1f264b5ed76d687cd29f69411bf6cd64",
+    "artifacts/tmp/verify_completed24_CPU_reporting_evidence_v2.py": "ded54c82608dcd054e72931cad4983416624f987119bf42161483989a24cdfbb",
+    "artifacts/tmp/publish_completed25_reviewed_stage_v2.py": "385b4aa19a92bb804b954e225b586478490270f8ef667718dd02ecff8fc06d78",
+    "artifacts/tmp/run_completed25_reviewed_publication_step_v2.py": "f08766d882b179ed380a8dd2ce9a1504de1ade02e43220c1d42006a960115fd2",
+    "artifacts/tmp/verify_completed25_CPU_reporting_evidence.py": "5891f5a23f0ac22c24beb29366a56fdfd70fcdb08029b9712586099aba47560a",
+    "artifacts/tmp/record_completed25_CPU_reporting_actual.py": "6d10d418dc8bf6a8cee734749a0963d9eb82433822de170199ada66f92d86904",
+    "artifacts/tmp/publish_dinov3_R01_online_seed0_training.py": "41846cfcc85321ba9f2ba0dcd00ee640ab606970ad05f057c858d20203d290b5"
+  },
+  "closure_sources_sha256": {
+    "/media/jeong/ExtHDD/IPAD_JEPA_Ext/KNU_Capstone1_VAD_JEPA/artifacts/tmp/prepare_experiment_closure_report_v2.py": "e668d959c5492e72e60cc489b66e99821f5a51df41f7def936309d6cce214da9",
+    "artifacts/tmp/finalize_user_requested_experiment_stop.py": "b337c417a5be5e0a7b32941b0e141302d20f27498e06476e43a88e018b9f46dc",
+    "artifacts/tmp/verify_user_requested_experiment_stop_v2.py": "20c725c8efbc689a6a1eba486ed20d4c093cc2c983361171a04913e622e788ce",
+    "scripts/plot_experiment_closure.py": "59e5595440e16b697ff35f6c5dfccda8d8585ae75f9edf9150c65366a2357c69"
+  },
+  "private_stop_receipt_sha256": "d5eaf7058c1219f3396fb72dded5bc9120a306d70bfdfed1d3fa16b9315cf886",
+  "termination_verification_history": {
+    "initial_stop_helper_actual_exit_code": 1,
+    "reason": "All signals sent; process disappeared during post-signal /proc read. Original source and failure receipt preserved.",
+    "independent_verifier_actual_exit_code": 0,
+    "independent_verifier_terminal_chunk": "1299d6",
+    "repeated_signal_attempt": false
+  },
+  "retention": "Local models, checkpoints, raw data, teacher, memory and executed sources preserved. No further deletion during closure. Public files contain no model/raw/cache payload.",
+  "limitations": [
+    "Online LoRA has one completed seed for DINOv3 R01; no online LoRA three-seed or Macro4 comparison.",
+    "Runtime is partial file replay, not full-backbone/device real-time comparison or camera validation.",
+    "Historical queue receipts remain unchanged; this explicit stop report supersedes their prior live-state claims."
+  ]
+}

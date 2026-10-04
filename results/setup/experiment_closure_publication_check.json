@@ -1,0 +1,42 @@
+{
+  "status": "reviewed_bounded_experiment_closure_ready_for_publication",
+  "base_commit": "cfb76b433431181caa2abb5859a6d0ac14015c77",
+  "base_ci_id": 37197909258,
+  "base_tracked_files": 18236,
+  "base_ci_log_sha256": "ddd5918fff8c11c2077b624638b88562829c45085d72cae520f1419d62e278ff",
+  "changed_files": [
+    "README.md",
+    "docs/FINAL_REPORT.md",
+    "docs/STAGE04.md",
+    "docs/figures/final/experiment_closure.png",
+    "docs/figures/final/experiment_closure.svg",
+    "results/setup/experiment_closure.json",
+    "results/setup/experiment_closure_publication_check.json",
+    "results/stage04/partial_training/dinov3-l/online/R01/seed1/lora_training.csv",
+    "scripts/plot_experiment_closure.py"
+  ],
+  "new_files": 7,
+  "completed_primary_conditions": 25,
+  "planned_primary_conditions": 48,
+  "full_plan_completed": false,
+  "all_twenty_owners_and_two_loader_workers_stopped": true,
+  "partial_checkpoint_epochs": 11,
+  "partial_checkpoint_updates": 1837,
+  "changed_file_sha256": {
+    "docs/figures/final/experiment_closure.svg": "01d99b0366a103acd5e2b4fdec11071c9a319e9b3d461b7a709f747f17ac1d69",
+    "docs/FINAL_REPORT.md": "d08acf66052871d3ab15a870b2892ff520287532fcd9225320f896c8ef2a55c9",
+    "README.md": "74f17b0cfbd25475260f7e74b1e4879dcf155da67f37c8a112eecdad78a4b5ac",
+    "docs/STAGE04.md": "5fabb2f5c47fe13122f68182db165461bc95811f3d559caf8d5815f04a9e81b6",
+    "results/stage04/partial_training/dinov3-l/online/R01/seed1/lora_training.csv": "2320bd645ebf4dcc823fab9729e2dd72c170a9af36f2b6834697c261b071e98d",
+    "scripts/plot_experiment_closure.py": "59e5595440e16b697ff35f6c5dfccda8d8585ae75f9edf9150c65366a2357c69",
+    "results/setup/experiment_closure.json": "3d4105615eb964cc8a9a42c58df02796c903133f0822897622031874db5318ac",
+    "docs/figures/final/experiment_closure.png": "d125170813656ac9ec1e891eeeda0f7302c94c43f7215a729d4eb72409ff358f"
+  },
+  "reviewed_png_sha256": {
+    "docs/figures/final/experiment_closure.png": "d125170813656ac9ec1e891eeeda0f7302c94c43f7215a729d4eb72409ff358f"
+  },
+  "manual_review_receipt_sha256": "d6dc3ffaf9ec2845e464e0e7c54305cb7a4e8b7690604be70857d9bd933fcedc",
+  "publisher_sha256": "a7444f288ad297b27922ac08e44fa14ccc7e6d19169537835d5a8aa98f89d620",
+  "upload_guard": "Exact parent CI covered all base files; every changed staged blob is inspected with the original upload guard and every other base blob must match. Exact new commit CI must run all 422 tests and full upload guard.",
+  "scope": "Final stop/report at current stage requested by user; no full-plan completion claim; no model/raw/cache files uploaded."
+}
